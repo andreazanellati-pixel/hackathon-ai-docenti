@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Il detective degli esperimenti</title>
-<meta name="description" content="Progetta esperimenti scientifici passo per passo: ipotesi, variabili, gruppo di controllo, conclusioni.">
+<meta name="description" content="Due strumenti per una prima di liceo scientifico: progettare esperimenti passo per passo e imparare a convertire le unità di misura.">
 <link rel="stylesheet" href="stile.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
     <span class="lente" aria-hidden="true">🔍</span>
     <div>
       <h1>Il detective degli esperimenti</h1>
-      <p class="sottotitolo">Progetta l'esperimento che risolve il caso</p>
+      <p class="sottotitolo">Progettare esperimenti · Misurare e convertire</p>
     </div>
   </div>
   <button id="bottone-tema" class="bottone-icona" type="button" aria-label="Cambia tema chiaro o scuro">
@@ -22,14 +22,33 @@
   </button>
 </header>
 
-<main id="applicazione">
-  <p class="caricamento" id="caricamento">Carico i casi…</p>
+<nav class="navigazione" aria-label="Scegli lo strumento">
+  <button type="button" data-sezione="detective" aria-selected="true">🔍 I casi</button>
+  <button type="button" data-sezione="unita" aria-selected="false">📐 Le unità</button>
+</nav>
+
+<main>
+  <section id="sezione-detective">
+    <div id="applicazione">
+      <p class="caricamento">Carico i casi…</p>
+    </div>
+  </section>
+
+  <section id="sezione-unita" hidden>
+    <div id="unita-contenuto">
+      <p class="caricamento">Carico le unità di misura…</p>
+    </div>
+  </section>
 </main>
 
 <footer class="pie">
-  <p>I casi di questo sito si trovano nel file <code>casi.txt</code>: aprilo con un editor di testo per modificarli o aggiungerne di nuovi.</p>
+  <p>I contenuti di questo sito stanno in due file di testo:
+  <code>casi.txt</code> per i casi e <code>unita.txt</code> per le unità di misura.
+  Aprili con un editor di testo per modificarli o aggiungerne di nuovi.</p>
 </footer>
 
-<script src="codice.js"></script>
+<script src="comune.js"></script>
+<script src="detective.js"></script>
+<script src="unita.js"></script>
 </body>
 </html>

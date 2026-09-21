@@ -11,6 +11,10 @@
 
   var applicazione = document.getElementById("applicazione");
 
+  /* funzioni di appoggio, definite una volta sola in comune.js */
+  var elemento = App.elemento;
+  var svuota = App.svuota;
+
   /* Stato dell'applicazione: che cosa sta guardando lo studente */
   var casi = [];            /* tutti i casi letti da casi.txt */
   var erroriFile = [];      /* righe del file che non siamo riusciti a leggere */
@@ -21,54 +25,7 @@
   var passoConcluso = false;
 
   /* ==========================================================
-     1. Tema chiaro / scuro
-     ========================================================== */
-
-  var bottoneTema = document.getElementById("bottone-tema");
-  var iconaTema = document.getElementById("icona-tema");
-
-  function leggiPreferenza() {
-    try {
-      return localStorage.getItem("detective-tema");
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function salvaPreferenza(valore) {
-    try {
-      localStorage.setItem("detective-tema", valore);
-    } catch (e) {
-      /* se il browser non permette di salvare, pazienza: il sito funziona lo stesso */
-    }
-  }
-
-  function scuroAttivo() {
-    var scelta = document.documentElement.getAttribute("data-tema");
-    if (scelta === "scuro") return true;
-    if (scelta === "chiaro") return false;
-    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  }
-
-  function aggiornaIconaTema() {
-    iconaTema.textContent = scuroAttivo() ? "☀️" : "🌙";
-  }
-
-  var temaSalvato = leggiPreferenza();
-  if (temaSalvato === "scuro" || temaSalvato === "chiaro") {
-    document.documentElement.setAttribute("data-tema", temaSalvato);
-  }
-  aggiornaIconaTema();
-
-  bottoneTema.addEventListener("click", function () {
-    var nuovo = scuroAttivo() ? "chiaro" : "scuro";
-    document.documentElement.setAttribute("data-tema", nuovo);
-    salvaPreferenza(nuovo);
-    aggiornaIconaTema();
-  });
-
-  /* ==========================================================
-     2. Lettura del file casi.txt
+     1. Lettura del file casi.txt
      ========================================================== */
 
   var CHIAVI = ["titolo", "icona", "storia", "domanda", "premessa", "tipo"];
@@ -213,45 +170,28 @@
   }
 
   /* ==========================================================
-     3. Piccoli aiuti per costruire la pagina
+     2. Il ricordo dei casi già affrontati
      ========================================================== */
-
-  function elemento(tag, classe, testo) {
-    var e = document.createElement(tag);
-    if (classe) e.className = classe;
-    if (testo !== undefined && testo !== null) e.textContent = testo;
-    return e;
-  }
-
-  function svuota(nodo) {
-    while (nodo.firstChild) nodo.removeChild(nodo.firstChild);
-  }
-
-  /* ricordo dei casi già completati, se il browser lo permette */
 
   function leggiRisultati() {
     try {
-      return JSON.parse(localStorage.getItem("detective-risultati") || "{}");
+      return JSON.parse(App.leggi("detective-risultati") || "{}");
     } catch (e) {
       return {};
     }
   }
 
   function salvaRisultato(titolo, giuste, totale) {
-    try {
-      var tutti = leggiRisultati();
-      var prima = tutti[titolo];
-      if (!prima || giuste > prima.giuste) {
-        tutti[titolo] = { giuste: giuste, totale: totale };
-        localStorage.setItem("detective-risultati", JSON.stringify(tutti));
-      }
-    } catch (e) {
-      /* niente memoria: si gioca lo stesso, senza ricordare i punteggi */
+    var tutti = leggiRisultati();
+    var prima = tutti[titolo];
+    if (!prima || giuste > prima.giuste) {
+      tutti[titolo] = { giuste: giuste, totale: totale };
+      App.salva("detective-risultati", JSON.stringify(tutti));
     }
   }
 
   /* ==========================================================
-     4. Schermata con l'elenco dei casi
+     3. Schermata con l'elenco dei casi
      ========================================================== */
 
   function mostraElencoCasi() {
@@ -307,26 +247,12 @@
   }
 
   function mostraAvvisi() {
-    if (erroriFile.length === 0) return;
-    var avviso = elemento("div", "avviso");
-    avviso.appendChild(elemento("strong", null,
-      "Attenzione: alcune parti di casi.txt non sono state lette."));
-    avviso.appendChild(document.createTextNode(
-      "Il resto del sito funziona normalmente. Righe da rivedere:"));
-    var lista = elemento("ul");
-    erroriFile.slice(0, 12).forEach(function (testo) {
-      lista.appendChild(elemento("li", null, testo));
-    });
-    if (erroriFile.length > 12) {
-      lista.appendChild(elemento("li", null,
-        "…e altre " + (erroriFile.length - 12) + " segnalazioni."));
-    }
-    avviso.appendChild(lista);
-    applicazione.appendChild(avviso);
+    var avviso = App.avvisoErroriFile("casi.txt", erroriFile);
+    if (avviso) applicazione.appendChild(avviso);
   }
 
   /* ==========================================================
-     5. Schermata di un passo
+     4. Schermata di un passo
      ========================================================== */
 
   function apriCaso(indice) {
@@ -505,7 +431,7 @@
   }
 
   /* ==========================================================
-     6. Schermata finale
+     5. Schermata finale
      ========================================================== */
 
   function mostraFine() {
@@ -576,31 +502,10 @@
   }
 
   /* ==========================================================
-     7. Avvio
+     6. Avvio
      ========================================================== */
 
-  function mostraErroreCaricamento(dettaglio) {
-    svuota(applicazione);
-    var avviso = elemento("div", "avviso");
-    avviso.appendChild(elemento("strong", null, "Non riesco a leggere il file casi.txt."));
-    if (location.protocol === "file:") {
-      avviso.appendChild(document.createTextNode(
-        "Hai aperto la pagina facendo doppio clic sul file: i browser, per sicurezza, " +
-        "in questo modo non lasciano leggere gli altri file della cartella. " +
-        "Apri il sito con un server locale oppure dal suo indirizzo su GitHub Pages."));
-    } else {
-      avviso.appendChild(document.createTextNode(
-        "Controlla che il file casi.txt si trovi nella stessa cartella di index.html. " +
-        "Dettaglio tecnico: " + dettaglio));
-    }
-    applicazione.appendChild(avviso);
-  }
-
-  fetch("casi.txt")
-    .then(function (risposta) {
-      if (!risposta.ok) throw new Error("risposta del server " + risposta.status);
-      return risposta.text();
-    })
+  App.caricaTesto("casi.txt")
     .then(function (testo) {
       var risultato = leggiCasi(testo);
       casi = risultato.casi;
@@ -621,7 +526,8 @@
       mostraElencoCasi();
     })
     .catch(function (errore) {
-      mostraErroreCaricamento(errore.message);
+      svuota(applicazione);
+      applicazione.appendChild(App.avvisoCaricamento("casi.txt", errore.message));
     });
 
 })();

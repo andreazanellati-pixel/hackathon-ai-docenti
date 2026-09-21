@@ -514,3 +514,358 @@ h2 { font-size: 1.3rem; margin: 0 0 10px; letter-spacing: -.01em; }
   * { transition: none !important; }
   .carta-caso:hover { transform: none; }
 }
+
+/* ============================================================
+   Barra per passare da uno strumento all'altro
+   ============================================================ */
+
+.navigazione {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  padding: 10px 16px 0;
+  background: var(--sfondo-trama);
+  border-bottom: 1px solid var(--bordo);
+}
+
+.navigazione button {
+  appearance: none;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  background: transparent;
+  color: var(--testo-tenue);
+  font: inherit;
+  font-size: .95rem;
+  padding: 10px 18px;
+  cursor: pointer;
+}
+
+.navigazione button:hover { color: var(--testo); }
+
+.navigazione button.attivo {
+  background: var(--sfondo);
+  border-color: var(--bordo);
+  color: var(--testo);
+  font-weight: 700;
+  margin-bottom: -1px;
+  padding-bottom: 11px;
+}
+
+/* schede interne (La scala / Allenamento) */
+
+.schede-interne {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--bordo);
+}
+
+.scheda-interna {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--testo-tenue);
+  font: inherit;
+  font-size: .98rem;
+  padding: 8px 4px 10px;
+  margin-bottom: -1px;
+  cursor: pointer;
+}
+
+.scheda-interna.attiva {
+  color: var(--accento);
+  border-bottom-color: var(--accento);
+  font-weight: 700;
+}
+
+/* ============================================================
+   La scala delle unità
+   ============================================================ */
+
+.scelte-grandezza {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.pillola {
+  border: 1px solid var(--bordo-forte);
+  background: var(--superficie);
+  color: var(--testo);
+  border-radius: 999px;
+  padding: 7px 15px;
+  font: inherit;
+  font-size: .9rem;
+  cursor: pointer;
+}
+
+.pillola:hover { border-color: var(--accento); }
+
+.pillola.attiva {
+  background: var(--accento);
+  border-color: var(--accento);
+  color: var(--testo-su-accento);
+  font-weight: 700;
+}
+
+.riga-conversione {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.campo-valore {
+  flex: 1 1 110px;
+  min-width: 100px;
+  min-height: 46px;
+  padding: 10px 14px;
+  border: 1px solid var(--bordo-forte);
+  border-radius: 10px;
+  background: var(--superficie);
+  color: var(--testo);
+  font: inherit;
+  font-size: 1.1rem;
+}
+
+.scelta-unita {
+  flex: 1 1 130px;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid var(--bordo-forte);
+  border-radius: 10px;
+  background: var(--superficie);
+  color: var(--testo);
+  font: inherit;
+  font-size: .95rem;
+}
+
+.campo-valore:focus,
+.scelta-unita:focus { border-color: var(--accento); }
+
+.freccia-conversione {
+  flex: none;
+  color: var(--testo-tenue);
+  font-size: 1.2rem;
+}
+
+.risultato-grande {
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+  padding: 20px;
+  box-shadow: var(--ombra);
+  text-align: center;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.risultato-da { color: var(--testo-tenue); font-size: 1rem; }
+.risultato-valore { font-size: 1.9rem; font-weight: 700; color: var(--accento); }
+.risultato-unita { font-size: 1.15rem; color: var(--accento); }
+.risultato-vuoto { color: var(--testo-tenue); font-size: .95rem; }
+
+.spiegazione-scala {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .9rem;
+  color: var(--testo-tenue);
+  margin: 12px 0 20px;
+  text-align: center;
+}
+
+.nota-grandezza {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .88rem;
+  color: var(--testo-tenue);
+  background: var(--superficie-alt);
+  border-left: 3px solid var(--bordo-forte);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 14px;
+  margin: 18px 0;
+}
+
+.nota-piccola {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .85rem;
+  color: var(--testo-tenue);
+  margin: 0 0 16px;
+}
+
+/* la striscia dei gradini */
+
+.involucro-gradini { overflow-x: auto; padding-bottom: 6px; margin-bottom: 20px; }
+
+.gradini {
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+  min-width: min-content;
+}
+
+.gradino {
+  flex: 1 0 auto;
+  min-width: 62px;
+  border: 1px solid var(--bordo-forte);
+  border-radius: 10px;
+  background: var(--superficie);
+  color: var(--testo);
+  font: inherit;
+  padding: 9px 6px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.gradino:hover { border-color: var(--accento); }
+.gradino-simbolo { display: block; font-weight: 700; font-size: 1rem; }
+.gradino-nome {
+  display: block;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .64rem;
+  color: var(--testo-tenue);
+  margin-top: 2px;
+}
+
+.gradino.partenza { border-color: var(--accento); border-width: 2px; }
+.gradino.arrivo {
+  background: var(--accento);
+  border-color: var(--accento);
+}
+.gradino.arrivo .gradino-simbolo,
+.gradino.arrivo .gradino-nome { color: var(--testo-su-accento); }
+
+.salto {
+  flex: none;
+  align-self: center;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .64rem;
+  color: var(--testo-tenue);
+  padding: 0 2px;
+}
+
+/* la tabella delle cifre */
+
+.involucro-tabella { overflow-x: auto; margin-bottom: 20px; }
+
+.tabella-cifre {
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabella-cifre th {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--testo-tenue);
+  padding: 4px 2px;
+  border: 1px solid var(--bordo);
+  background: var(--superficie-alt);
+  white-space: nowrap;
+}
+
+.tabella-cifre th.colonna-arrivo { background: var(--accento); color: var(--testo-su-accento); }
+.tabella-cifre th.colonna-partenza { color: var(--accento); }
+.tabella-cifre th.colonna-arrivo.colonna-partenza { color: var(--testo-su-accento); }
+.tabella-cifre th.colonna-extra { background: transparent; border-color: transparent; }
+
+.tabella-cifre td.cifra {
+  width: 30px;
+  height: 38px;
+  text-align: center;
+  border: 1px solid var(--bordo);
+  background: var(--superficie);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.tabella-cifre td.cifra-zero { color: var(--bordo-forte); font-weight: 400; }
+
+.tabella-cifre td.cifra-virgola {
+  border-right: 3px solid var(--accento);
+  position: relative;
+}
+
+.tabella-cifre td.cifra-virgola::after {
+  content: ",";
+  position: absolute;
+  right: -7px;
+  bottom: -4px;
+  color: var(--accento);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* lo stesso valore in tutte le unità */
+
+.tutte-unita h4 {
+  font-size: .95rem;
+  margin: 0 0 10px;
+}
+
+.elenco-valori {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .elenco-valori { grid-template-columns: 1fr 1fr; }
+}
+
+.valore-unita {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  border: 1px solid var(--bordo);
+  border-radius: 9px;
+  background: var(--superficie);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.valore-unita.evidenziato { border-color: var(--accento); background: var(--accento-chiaro); }
+.valore-simbolo { color: var(--testo-tenue); font-weight: 700; white-space: nowrap; }
+
+/* ============================================================
+   L'allenamento sulle conversioni
+   ============================================================ */
+
+.punteggio-allenamento {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .85rem;
+  color: var(--testo-tenue);
+  margin-bottom: 14px;
+}
+
+.scheda-esercizio {
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+  padding: 20px;
+  box-shadow: var(--ombra);
+}
+
+.domanda-esercizio { font-size: 1.15rem; margin: 0 0 16px; }
+
+.riga-risposta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.riga-risposta .bottone { flex: 0 1 auto; }
+
+.unita-risposta {
+  font-weight: 700;
+  color: var(--testo-tenue);
+  min-width: 34px;
+}

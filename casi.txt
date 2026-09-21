@@ -565,3 +565,270 @@ domanda: Che cosa concludi?
 - Lo sciroppo della nonna funziona: fa passare prima il mal di gola | Quel dato è emerso dopo, non era previsto e non è stato misurato con la stessa cura degli altri. Prenderlo per buono è il modo classico di scambiare il rumore per un risultato.
 - Lo sciroppo non serve a niente | Sulla durata del raffreddore il vostro esperimento non trova alcun effetto, ed è già una risposta utile. Ma "non serve a niente" è più di quanto abbiate misurato.
 - Due decimi di giorno sono comunque un miglioramento | Con venti persone per gruppo, che guariscono chi in quattro giorni e chi in nove, due decimi di media sono indistinguibili dal caso.
+
+
+[CASO]
+titolo: Il sondaggio sulla merenda
+icona: 📊
+storia: La rappresentante di classe vuole convincere la scuola a
+cambiare i prodotti del distributore. Fa un sondaggio: durante
+l'intervallo chiede a venti compagni seduti al suo tavolo, e il 90%
+è d'accordo con lei. Porta il risultato alla preside, che non si
+convince affatto.
+
+[PASSO]
+titolo: Il difetto del sondaggio
+domanda: Che cosa non va in quel 90%?
++ Ha chiesto solo a persone che le somigliano: il campione non rappresenta la scuola | Chi siede al tuo tavolo la pensa spesso come te. Un campione serve a farsi un'idea di tutti, quindi deve assomigliare a tutti: classi diverse, età diverse, abitudini diverse.
+- Venti persone sono poche in assoluto | Il numero conta, ma non è il problema principale. Venti persone scelte bene dicono molto di più di venti amici scelti male.
+- Ha fatto le domande durante l'intervallo | L'orario non è il punto. Avrebbe ottenuto lo stesso risultato distorto a qualsiasi ora.
+- La preside non si fida dei sondaggi in generale | La preside ha ragione su questo sondaggio in particolare, e il motivo è tecnico, non caratteriale.
+
+[PASSO]
+titolo: Chi intervistare
+domanda: Come scegli le persone da sentire?
++ Sorteggiandole dall'elenco di tutti gli studenti della scuola | Il sorteggio è l'unico modo semplice per non favorire nessun gruppo. Ogni studente ha la stessa probabilità di finire nel campione, quindi il campione tende ad assomigliare alla scuola.
+- Chiedendo a chi si offre volontario | Chi risponde spontaneamente ha in genere opinioni più forti della media. Il campione risulterebbe pieno di persone molto motivate e vuoto di indifferenti.
+- Chiedendo a tutte le classi prime | Ottieni un ottimo ritratto delle prime e nessuna informazione sulle quinte.
+- Fermando chi esce dal distributore | Sentiresti solo chi il distributore lo usa già, cioè proprio quelli a cui va bene com'è.
+
+[PASSO]
+titolo: La domanda che orienta
+domanda: Quale formulazione non spinge verso una risposta?
++ "Quale di queste opzioni preferiresti trovare nel distributore?", con l'elenco completo e la voce "nessuna di queste" | Neutra, offre tutte le alternative e lascia la possibilità di non scegliere. Chi risponde non capisce quale risposta piacerebbe a chi domanda.
+- "Non sei stanco delle solite merendine industriali?" | La domanda contiene già la risposta desiderata. Formulazioni così possono spostare i risultati di venti o trenta punti.
+- "Vuoi una merenda più sana?" | Nessuno risponde di no a una domanda del genere. Una domanda a cui tutti rispondono allo stesso modo non porta alcuna informazione.
+- "Preferiresti la frutta fresca alle schifezze del distributore?" | Le parole caricano la risposta prima ancora che l'altro abbia pensato. È un sondaggio travestito da propaganda.
+
+[PASSO]
+titolo: Che cosa tengo uguale
+tipo: multipla
+domanda: Che cosa deve essere identico per tutti gli intervistati? Le risposte giuste sono più di una.
++ La domanda, letta con le stesse identiche parole | Basta cambiare un aggettivo perché cambino le risposte.
++ L'anonimato garantito a tutti allo stesso modo | Chi teme di essere riconosciuto risponde quello che si aspetta gli altri vogliano sentire.
++ Il modo di registrare le risposte | Se una parte viene trascritta a memoria e una parte su un modulo, i due pezzi non sono confrontabili.
++ L'ordine delle opzioni, mescolato a caso da un intervistato all'altro | Le prime opzioni di un elenco vengono scelte più spesso. Mescolare distribuisce questo vantaggio su tutte.
+- L'opinione degli intervistati | È proprio ciò che vuoi misurare: se fosse uguale per tutti non ci sarebbe niente da chiedere.
+- La risposta che speri di ottenere | Sperare un risultato è legittimo; farlo pesare sul metodo è il modo migliore per non scoprire mai niente.
+
+[PASSO]
+titolo: La conclusione
+premessa: Rifatto bene: 120 studenti sorteggiati su 600, di cui rispondono in 94. Il 46% sceglie frutta fresca, il 31% resta alle merendine, il 23% dice "nessuna di queste".
+domanda: Come riporti il risultato alla preside?
++ La frutta è l'opzione più votata ma non raccoglie la maggioranza, e va detto insieme al fatto che 26 persone non hanno risposto | Riportare anche chi non ha risposto è parte dell'onestà: quei 26 potrebbero non essere un gruppo qualunque. E 46% è il primo posto, non la maggioranza: sono due cose diverse che si confondono sempre.
+- La maggioranza della scuola vuole la frutta fresca | Il 46% non è la maggioranza. È l'opzione più scelta, che è un'affermazione più debole e più corretta.
+- Il sondaggio non vale, perché ha risposto solo il 78% degli interpellati | Un 78% di risposte è un ottimo risultato. Va dichiarato, non nascosto, ma non annulla il sondaggio.
+- Il risultato conferma il primo sondaggio, quindi si poteva evitare di rifarlo | Il primo diceva 90%, questo dice 46%: sono risultati molto diversi, ed è proprio la prova che il primo metodo non funzionava.
+
+
+[CASO]
+titolo: Il basilico e il fertilizzante
+icona: 🌿
+storia: Sulla confezione del fertilizzante c'è scritto "un tappo per
+litro d'acqua". Tuo fratello ne mette tre, convinto che di più sia
+meglio. Dopo due settimane il basilico ha le foglie gialle e cresce
+meno di quello sul balcone del vicino, che non lo concima affatto.
+
+[PASSO]
+titolo: L'ipotesi
+domanda: Quale ipotesi conviene mettere alla prova?
++ La crescita del basilico cambia al variare della dose di fertilizzante, e non è detto che cresca sempre di più | Lascia aperte tutte le forme possibili della relazione, compresa quella che sale e poi scende. È l'ipotesi giusta quando sospetti che il "di più" a un certo punto si ritorca contro.
+- Più fertilizzante si mette, più il basilico cresce | È una sola delle forme possibili, ed è proprio la convinzione di tuo fratello. Partire dando per scontato l'andamento ti farebbe provare solo due dosi e non accorgerti del resto.
+- Il fertilizzante fa crescere il basilico | Domanda da sì o no, mentre qui la domanda interessante è "quanto, e a quale dose".
+- Il fertilizzante è pericoloso per le piante | Nessuna dose è indicata, e "pericoloso" non è una misura. Così com'è non si può né confermare né smentire.
+
+[PASSO]
+titolo: Quanti gruppi
+domanda: Quanti gruppi diversi prepari?
++ Almeno cinque: nessun tappo, mezzo, uno, due e tre | Con cinque dosi vedi la forma dell'andamento: se sale, se scende, se sale e poi scende. Con due punti puoi solo tirare una retta, e la retta è l'unica cosa che due punti sanno dire.
+- Due: uno con fertilizzante e uno senza | Risponderesti alla domanda "serve o no", non a "quanto ne serve". E la risposta cambierebbe a seconda della dose scelta.
+- Due: la dose consigliata e la dose tripla | Vedresti che la tripla va peggio, senza sapere se il massimo sta a uno, a mezzo o a uno e mezzo.
+- Uno solo, cambiando la dose settimana dopo settimana | Gli effetti si accumulano nel terreno: alla terza settimana non sapresti a quale dose attribuire quello che vedi.
+
+[PASSO]
+titolo: Il gruppo di controllo
+domanda: Qual è il controllo?
++ Il gruppo che riceve zero tappi, cioè solo acqua | È il termine di paragone: dice quanto cresce il basilico senza alcun trattamento. Senza di lui non sapresti nemmeno se il fertilizzante serva a qualcosa.
+- Il gruppo con un tappo, cioè la dose consigliata | È un trattamento come gli altri, solo quello raccomandato dal produttore. Il controllo è chi non riceve nulla.
+- Non serve un controllo: basta confrontare le dosi fra loro | Vedresti quale dose è la migliore fra quelle provate, senza sapere se anche la migliore faccia meglio dell'acqua e basta.
+- Una pianta di una specie diversa, senza fertilizzante | Specie diverse crescono in modo diverso: il confronto non direbbe nulla sul basilico.
+
+[PASSO]
+titolo: Che cosa tengo uguale
+tipo: multipla
+domanda: Che cosa deve essere identico per tutti i gruppi? Le risposte giuste sono più di una.
++ La quantità totale di liquido che riceve ogni pianta | Se chi prende tre tappi riceve anche più acqua, stai cambiando due cose insieme.
++ Il terriccio, il vaso e la posizione rispetto alla luce | Sono tutte cause di crescita che rischiano di mescolarsi a quella che studi.
++ Piantine della stessa varietà e della stessa altezza di partenza, più di una per ogni dose | Una sola pianta per dose non permette di distinguere l'effetto dalla variabilità naturale.
++ Il giorno e l'ora delle innaffiature | Una pianta annaffiata con due giorni di ritardo parte svantaggiata per motivi che non c'entrano col fertilizzante.
+- La dose di fertilizzante | È l'unica cosa che deve cambiare: è tutto l'esperimento.
+- L'altezza raggiunta alla fine | È il risultato che stai misurando.
+
+[PASSO]
+titolo: La conclusione
+premessa: Altezza media dopo quattro settimane, cinque piante per dose. Zero tappi: 11 cm. Mezzo tappo: 15 cm. Un tappo: 19 cm. Due tappi: 17 cm. Tre tappi: 9 cm, con foglie gialle.
+domanda: Che cosa dicono questi numeri?
++ La crescita migliora fino a circa un tappo e peggiora oltre: "di più" non significa "meglio" | Si chiama relazione dose-effetto, e questa forma a campana è comunissima: vale per i fertilizzanti, per i farmaci, per le vitamine, per l'acqua stessa. Oltre un certo punto la stessa sostanza che aiutava comincia a fare danno.
+- Il fertilizzante fa male al basilico | A mezzo tappo e a un tappo il basilico cresce molto più che senza. Il danno compare solo alle dosi alte.
+- Il fertilizzante non serve: 19 cm contro 11 non è una gran differenza | Sono quasi il doppio, con cinque piante per gruppo. È la differenza più netta di tutto l'esperimento.
+- Bisognava provare anche con dieci tappi | L'andamento è già chiaro. Semmai converrebbe infittire le prove fra mezzo tappo e due, per trovare con precisione dove sta il massimo.
+
+
+[CASO]
+titolo: Sale o zucchero sul ghiaccio
+icona: 🧊
+storia: D'inverno si sparge il sale sulle strade ghiacciate. Un
+compagno sostiene che lo zucchero farebbe lo stesso effetto, visto
+che anche lui si scioglie in acqua. Decidete di provare con dei
+cubetti di ghiaccio.
+
+[PASSO]
+titolo: Il confronto equo
+domanda: Come dosi le due sostanze?
++ La stessa massa di entrambe, pesata con la bilancia | Se vuoi confrontare due sostanze devi partire dalla stessa quantità, e la quantità si pesa. È la definizione operativa del confronto: senza, staresti gareggiando con regole diverse per i due concorrenti.
+- Un cucchiaino per ciascuna | Un cucchiaino di sale e uno di zucchero non pesano uguale, perché i granuli hanno densità e forma diverse. Partiresti già sbilanciato senza saperlo.
+- Quanto basta a coprire il cubetto | "Quanto basta" non è una quantità: cambia da cubetto a cubetto e da persona a persona.
+- Il doppio di zucchero, perché è più leggero | Inventare una correzione senza averla misurata aggiunge un errore invece di toglierne uno. Prima si pesa, poi semmai si discute.
+
+[PASSO]
+titolo: Che cosa misuro
+domanda: Qual è il dato da raccogliere?
++ I minuti perché il cubetto si sciolga del tutto, oppure i grammi di acqua liquida dopo dieci minuti | Entrambi sono numeri, ottenuti con uno strumento, uguali per chiunque li rilevi. Il secondo ha un vantaggio: tutti i cubetti si misurano nello stesso istante.
+- Se il cubetto sembra più piccolo | "Sembrare" non è misurare. Due osservatori darebbero due risposte diverse, e nessuno saprebbe quale credere.
+- Il rumore che fa mentre si scioglie | Difficilissimo da misurare e senza alcun legame chiaro con la quantità di ghiaccio sciolto.
+- La temperatura dell'aria della stanza | È una condizione da tenere uguale per tutti, non il risultato dell'esperimento.
+
+[PASSO]
+titolo: Il gruppo di controllo
+domanda: Qual è il controllo?
++ Un terzo cubetto identico, con niente sopra | Il ghiaccio si scioglie anche da solo: senza questo cubetto non sapresti quanta parte dello scioglimento sia merito della sostanza e quanta del semplice passare del tempo.
+- Il cubetto con lo zucchero fa da controllo a quello con il sale | Sono due trattamenti diversi che si confrontano fra loro. Nessuno dei due dice come vanno le cose senza trattamento.
+- Non serve: si sa già che il ghiaccio si scioglie | Saperlo non basta: devi sapere in quanti minuti, in quella stanza, quel giorno. È un numero, e va misurato.
+- Un cubetto lasciato in freezer | Non si scioglie affatto, quindi non offre nessun termine di paragone utile.
+
+[PASSO]
+titolo: Che cosa tengo uguale
+tipo: multipla
+domanda: Che cosa deve essere identico per i tre cubetti? Le risposte giuste sono più di una.
++ Forma e massa dei cubetti, presi dallo stesso stampo | Un cubetto più grande impiega di più, qualunque cosa ci metti sopra.
++ La temperatura della stanza e il piano su cui appoggiano | Un piatto di metallo conduce il calore molto meglio di uno di legno.
++ Il momento in cui comincia la prova | Se uno parte dieci minuti dopo, i tempi non sono confrontabili.
++ La finezza dei granuli, per quanto possibile | Granuli fini hanno più superficie a contatto e agiscono più in fretta: è una differenza che si sommerebbe a quella fra le due sostanze.
+- La sostanza sparsa sopra | È l'unica cosa che deve cambiare.
+- Il tempo impiegato a sciogliersi | È il risultato che state misurando.
+
+[PASSO]
+titolo: La conclusione
+premessa: Con 5 grammi di sostanza su cubetti identici: senza niente 31 minuti, con lo zucchero 24 minuti, con il sale 13 minuti.
+domanda: Che cosa concludi?
++ A parità di massa il sale è molto più efficace, ma anche lo zucchero fa qualcosa rispetto al cubetto lasciato solo | Il controllo permette di dire entrambe le cose. Il motivo della differenza è bello: a parità di grammi il sale libera molte più particelle in soluzione, perché le sue molecole sono più leggere e per di più si spezzano in due. E ciò che abbassa il punto di fusione è il numero di particelle disciolte.
+- Lo zucchero non funziona affatto | Ventiquattro minuti contro trentuno è una differenza netta. Funziona, solo molto meno.
+- Sale e zucchero fanno la stessa cosa, come diceva il compagno | Tredici minuti contro ventiquattro: quasi il doppio. Su una strada ghiacciata è la differenza fra passare e non passare.
+- Il ghiaccio si scioglie comunque, quindi la prova non dimostra niente | È esattamente per questo che avete preparato il terzo cubetto: serve a misurare quel "comunque" e a toglierlo dal conto.
+
+
+[CASO]
+titolo: L'esperimento che non si ripete
+icona: 🔁
+storia: La vostra classe ha fatto germogliare i fagioli e ha trovato
+che al buio germogliano prima. La classe accanto rifà lo stesso
+esperimento e trova il contrario. I due cartelloni sono appesi uno
+accanto all'altro e si contraddicono.
+
+[PASSO]
+titolo: La prima reazione
+domanda: Che cosa concludi appena vedi i due cartelloni?
++ Per ora niente: prima bisogna confrontare come sono stati fatti i due esperimenti | Due risultati diversi non significano che qualcuno bara. Quasi sempre significano che i due esperimenti non erano lo stesso esperimento, e trovare la differenza è la parte interessante.
+- Che ha sbagliato la classe accanto, visto che il nostro risultato è arrivato prima | Chi arriva primo non ha per questo ragione. L'ordine cronologico non è un argomento.
+- Che abbiamo sbagliato noi, perché siamo in due contro una classe intera | Nemmeno il numero di persone è un argomento. Conta come sono stati raccolti i dati.
+- Che i fagioli sono imprevedibili e non ha senso studiarli | Se una cosa varia, la si studia con più semi e con le medie. La variabilità è un motivo per fare meglio gli esperimenti, non per smettere.
+
+[PASSO]
+titolo: Che cosa confrontate
+tipo: multipla
+domanda: Quali aspetti dei due esperimenti mettete a confronto? Le risposte giuste sono più di una.
++ La temperatura dei due ambienti | Un armadio chiuso è spesso più caldo di un davanzale, e il calore accelera la germinazione più della luce.
++ La quantità d'acqua e il tipo di supporto usato | Cotone fradicio e cotone appena umido danno risultati molto diversi.
++ Quanti semi per gruppo e da quale confezione venivano | Semi vecchi germogliano peggio, e con pochi semi il caso pesa moltissimo.
++ Come ciascuna classe ha definito "germogliato" | Se le due definizioni non coincidono, i due gruppi hanno contato due cose diverse.
+- Il nome delle due classi e chi è il docente | Non ha alcun effetto sui fagioli.
+- Il voto che i due gruppi hanno preso sul cartellone | Il voto arriva dopo e non fa parte dell'esperimento.
+
+[PASSO]
+titolo: La definizione operativa
+premessa: Confrontando i protocolli scoprite una cosa: voi contavate un seme come germogliato quando spuntava la radichetta, loro quando comparivano le prime foglioline.
+domanda: Che cosa significa questa differenza?
++ Che stavate misurando due cose diverse: senza una definizione condivisa i numeri non sono confrontabili | Si chiama definizione operativa: mettere nero su bianco che cosa si conta e quando. Sembra una formalità burocratica ed è invece il motivo per cui due laboratori possono confrontare i risultati.
+- Che la classe accanto ha contato male | Hanno contato benissimo, solo un'altra cosa. Nessuno dei due gruppi ha sbagliato: mancava l'accordo iniziale.
+- Che non cambia nulla, perché prima o poi germogliano tutti | Cambia eccome il tempo che misurate, ed era proprio il tempo la vostra variabile.
+- Che bisogna buttare via tutti e due gli esperimenti | I dati restano utili: basta ridefinire il criterio e, se necessario, ricontarli con quello.
+
+[PASSO]
+titolo: Che cosa fate adesso
+domanda: Qual è il passo successivo?
++ Vi accordate su una definizione, la scrivete in un protocollo comune, e rifate l'esperimento seguendolo entrambi | Un protocollo scritto è ciò che permette a due gruppi diversi di fare davvero lo stesso esperimento. È anche ciò che permette a chiunque, fra dieci anni, di controllarvi.
+- Fate la media fra i due risultati | Mediare due misure di cose diverse produce un numero che non misura niente.
+- Tenete il risultato che vi convince di più | Scegliere in base a ciò che piace è il contrario del metodo. Se lo si fa, tanto vale non misurare.
+- Lasciate perdere: tanto ognuno resta della sua idea | È il momento in cui l'esperimento diventa davvero interessante: la contraddizione è un'informazione, non un fallimento.
+
+[PASSO]
+titolo: Perché conta
+domanda: Perché nella scienza è importante che altri riescano a ripetere un esperimento?
++ Perché un risultato che nessuno riesce a riprodurre resta un'ipotesi, non una conoscenza | La riproducibilità è il filtro che separa le scoperte dalle coincidenze. Ed è un problema serio anche fra i ricercatori di professione: molti studi pubblicati, quando altri li rifanno, non danno lo stesso risultato.
+- Perché gli scienziati non si fidano l'uno dell'altro | Non è diffidenza personale: è che chiunque, in perfetta buona fede, può sbagliare o essere stato fortunato. Il controllo reciproco serve proprio a questo.
+- Perché ogni laboratorio deve avere il suo risultato da pubblicare | Ripetere l'esperimento di un altro è poco premiato e proprio per questo si fa troppo di rado.
+- Perché ripetendo deve venire sempre lo stesso identico numero | Identico non verrà mai. Deve venire un numero compatibile, cioè diverso di poco rispetto all'incertezza delle misure.
+
+
+[CASO]
+titolo: Il videogioco e i riflessi
+icona: 🎮
+storia: Volete misurare se giocare dieci minuti a un gioco d'azione
+migliori i riflessi. Il test è quello classico: un compagno lascia
+cadere un righello fra le vostre dita aperte e si guarda a quanti
+centimetri riuscite ad afferrarlo. Meno centimetri, riflessi migliori.
+
+[PASSO]
+titolo: Il primo tentativo
+premessa: Fate così: test, dieci minuti di gioco, test di nuovo. I risultati migliorano di quasi due centimetri.
+domanda: Che cosa non torna in questo esperimento?
++ Alla seconda prova si è anche più allenati al test in sé: il miglioramento può venire da lì | Si chiama effetto apprendimento, e compare ogni volta che la stessa persona ripete la stessa prova. Basta esercitarsi un poco con il righello per migliorare, senza aver toccato nessun videogioco.
+- Il righello non è uno strumento abbastanza serio | È uno strumento ottimo: costa niente, misura una grandezza vera e lo si può usare allo stesso modo con tutti.
+- Dieci minuti di gioco sono troppo pochi per fare effetto | Può darsi, ma non è questo a rendere sbagliato l'esperimento: il difetto ci sarebbe anche con due ore di gioco.
+- I riflessi non si possono misurare | Si misurano benissimo: quel righello misura un tempo, travestito da centimetri.
+
+[PASSO]
+titolo: Come si toglie di mezzo
+domanda: Come correggi l'esperimento?
++ Due gruppi sorteggiati: uno gioca, l'altro fa un'attività tranquilla per lo stesso tempo, ed entrambi fanno il test prima e dopo | Anche il gruppo tranquillo migliorerà, per il solo fatto di aver già provato. Confrontando i due miglioramenti, l'effetto dell'allenamento al test si elide e resta solo quello del gioco.
+- Si fa il test una volta sola, dopo il gioco | Senza la misura iniziale non sai da dove sei partito, e le persone hanno riflessi molto diversi fra loro.
+- Si ripete il test venti volte prima di cominciare, così l'allenamento è già finito | Idea non sciocca, ma venti prove stancano, e la stanchezza diventa una nuova variabile.
+- Si chiede ai partecipanti se si sentono più reattivi | Le sensazioni sono esattamente ciò che l'esperimento deve superare, soprattutto in chi ha appena giocato e si sente carico.
+
+[PASSO]
+titolo: L'ordine delle prove
+domanda: Se invece volete che ogni persona provi sia il gioco sia l'attività tranquilla, come organizzate?
++ Metà comincia dal gioco e metà dall'attività tranquilla, sorteggiando chi fa cosa per primo | Si chiama controbilanciamento. L'effetto dell'ordine esiste comunque, ma così colpisce in egual misura le due condizioni e non falsa più il confronto.
+- Tutti prima il gioco e poi l'attività tranquilla | L'attività tranquilla verrebbe sempre svolta da gente più allenata al test e più stanca: due svantaggi sistematici.
+- Ognuno sceglie da quale parte cominciare | Chi ama i videogiochi comincerebbe dal gioco, e le preferenze personali rientrerebbero dalla finestra.
+- Si fa tutto lo stesso giorno, di fila, senza pause | La stanchezza si accumula e ricade tutta sulla seconda condizione.
+
+[PASSO]
+titolo: Che cosa tengo uguale
+tipo: multipla
+domanda: Che cosa deve essere identico in tutte le prove? Le risposte giuste sono più di una.
++ Lo stesso righello e lo stesso modo di lasciarlo cadere | Un rilascio più esitante regala centimetri a chi lo riceve.
++ La stessa mano, per tutte le prove della stessa persona | La mano non dominante dà risultati peggiori: cambiarla a metà falserebbe tutto.
++ Lo stesso numero di tentativi, usando la media | Un tentativo solo dipende troppo dal caso; con cinque e la media il dato diventa stabile.
++ La stessa persona che lascia cadere il righello, tenuta all'oscuro di chi ha giocato | Chi sa che cosa aspettarsi può, senza volerlo, lasciar cadere il righello in modo leggermente diverso.
+- L'attività svolta nei dieci minuti | È l'unica cosa che deve cambiare fra i due gruppi.
+- I centimetri misurati | Sono il risultato dell'esperimento.
+
+[PASSO]
+titolo: La conclusione
+premessa: Gruppo che ha giocato: da 18,2 a 16,9 cm, cioè 1,3 cm di miglioramento. Gruppo tranquillo: da 18,0 a 17,1 cm, cioè 0,9 cm. Dentro ciascun gruppo le persone vanno da 12 a 25 cm.
+domanda: Che cosa concludete?
++ Migliorano entrambi i gruppi: la differenza fra i due miglioramenti è piccola rispetto a quanto variano le persone, e non basta per concludere | Notate però quanto avete guadagnato: senza il secondo gruppo avreste attribuito al videogioco tutti e 1,3 i centimetri, e avreste annunciato una scoperta che non c'è.
+- Il videogioco migliora i riflessi di 1,3 centimetri | Quei 1,3 cm comprendono l'allenamento al test, che da solo ne vale 0,9. Resterebbero 0,4 cm, in mezzo a persone che variano di tredici.
+- Il videogioco non serve a niente | Il vostro esperimento non riesce a vedere un effetto: è diverso dal dire che non esiste. Con più partecipanti potrebbe emergere.
+- Il test è sbagliato, perché migliorano tutti | Che migliorino tutti è il risultato più istruttivo dell'esperimento: è la prova che l'effetto apprendimento esiste ed è forte.

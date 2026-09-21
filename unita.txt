@@ -1,0 +1,137 @@
+# ============================================================
+# LE UNITÀ DI MISURA
+# ============================================================
+#
+# Questo file contiene le grandezze e le loro unità di misura.
+# Puoi modificarlo con un qualsiasi editor di testo (Blocco note
+# va benissimo) e salvarlo: il sito cambia subito.
+#
+# COME SI SCRIVE UNA GRANDEZZA
+# ----------------------------
+# Ogni grandezza comincia con la riga [GRANDEZZA] e contiene:
+#
+#   nome:   il nome della grandezza (es. Lunghezza)
+#   icona:  una emoji (facoltativa)
+#   nota:   una frase che compare sotto la scala (facoltativa)
+#   scala:  scrivi "no" se i passaggi non sono potenze di dieci
+#           (come per il tempo). Se non scrivi nulla vale "sì".
+#
+# Poi l'elenco delle unità, dalla più grande alla più piccola:
+#
+#   unita: simbolo | nome per esteso | quanto vale
+#
+# Il "quanto vale" è il valore dell'unità rispetto a quella di
+# riferimento, che è quella che vale 1. Si può scrivere come
+# potenza di dieci (10^3) oppure come numero (1000).
+#
+# Esempio: un chilometro vale 1000 metri, quindi
+#   unita: km | chilometro | 10^3
+# e il metro, che è il riferimento,
+#   unita: m | metro | 10^0
+#
+# ALTRE COSE DA SAPERE
+# --------------------
+# - Le righe che iniziano con # sono commenti: il sito le ignora.
+# - Le unità vanno scritte in ordine, dalla più grande alla più
+#   piccola. Se sbagli ordine il sito le risistema da solo.
+# - Se una riga è scritta male il sito non si blocca: la salta e
+#   ti segnala quale riga rivedere.
+# - Puoi aggiungere grandezze tue: basta un nuovo blocco
+#   [GRANDEZZA] con le sue unità.
+#
+# ============================================================
+
+
+[GRANDEZZA]
+nome: Lunghezza
+icona: 📏
+nota: Ogni gradino vale dieci volte quello alla sua destra. Passare a un'unità più piccola vuol dire spostare la virgola verso destra.
+unita: km | chilometro | 10^3
+unita: hm | ettometro | 10^2
+unita: dam | decametro | 10^1
+unita: m | metro | 10^0
+unita: dm | decimetro | 10^-1
+unita: cm | centimetro | 10^-2
+unita: mm | millimetro | 10^-3
+
+
+[GRANDEZZA]
+nome: Massa
+icona: ⚖️
+nota: Attenzione al primo gradino: fra tonnellata e chilogrammo il salto vale mille, non dieci. L'unità del Sistema Internazionale è il chilogrammo, non il grammo.
+unita: t | tonnellata | 10^6
+unita: kg | chilogrammo | 10^3
+unita: hg | ettogrammo | 10^2
+unita: dag | decagrammo | 10^1
+unita: g | grammo | 10^0
+unita: dg | decigrammo | 10^-1
+unita: cg | centigrammo | 10^-2
+unita: mg | milligrammo | 10^-3
+
+
+[GRANDEZZA]
+nome: Capacità
+icona: 🥤
+nota: Un litro corrisponde a un decimetro cubo, e un millilitro a un centimetro cubo: è il ponte fra le capacità e i volumi.
+unita: kL | chilolitro | 10^3
+unita: hL | ettolitro | 10^2
+unita: daL | decalitro | 10^1
+unita: L | litro | 10^0
+unita: dL | decilitro | 10^-1
+unita: cL | centilitro | 10^-2
+unita: mL | millilitro | 10^-3
+
+
+[GRANDEZZA]
+nome: Superficie
+icona: 🟦
+nota: Qui ogni gradino vale cento volte il successivo, perché i lati si moltiplicano fra loro. Per questo ogni unità occupa due caselle di cifre.
+unita: km² | chilometro quadrato | 10^6
+unita: hm² | ettometro quadrato | 10^4
+unita: dam² | decametro quadrato | 10^2
+unita: m² | metro quadrato | 10^0
+unita: dm² | decimetro quadrato | 10^-2
+unita: cm² | centimetro quadrato | 10^-4
+unita: mm² | millimetro quadrato | 10^-6
+
+
+[GRANDEZZA]
+nome: Volume
+icona: 🧊
+nota: Tre lati che si moltiplicano: ogni gradino vale mille volte il successivo, e ogni unità occupa tre caselle di cifre.
+unita: km³ | chilometro cubo | 10^9
+unita: hm³ | ettometro cubo | 10^6
+unita: dam³ | decametro cubo | 10^3
+unita: m³ | metro cubo | 10^0
+unita: dm³ | decimetro cubo | 10^-3
+unita: cm³ | centimetro cubo | 10^-6
+unita: mm³ | millimetro cubo | 10^-9
+
+
+[GRANDEZZA]
+nome: Prefissi del Sistema Internazionale
+icona: 🔬
+nota: Gli stessi prefissi si attaccano a qualunque unità: un megametro, un microgrammo, un nanosecondo. Fra kilo e mega, e fra milli e micro, il salto vale mille.
+unita: G | giga | 10^9
+unita: M | mega | 10^6
+unita: k | kilo | 10^3
+unita: h | etto | 10^2
+unita: da | deca | 10^1
+unita: (nessuno) | unità di riferimento | 10^0
+unita: d | deci | 10^-1
+unita: c | centi | 10^-2
+unita: m | milli | 10^-3
+unita: µ | micro | 10^-6
+unita: n | nano | 10^-9
+
+
+[GRANDEZZA]
+nome: Tempo
+icona: ⏳
+scala: no
+nota: Il tempo non segue le potenze di dieci: sotto il secondo sì, sopra il secondo no. È l'unico caso in cui la scala a gradini non funziona e bisogna moltiplicare e dividere per i fattori giusti.
+unita: giorno | giorno | 86400
+unita: h | ora | 3600
+unita: min | minuto | 60
+unita: s | secondo | 1
+unita: ms | millisecondo | 0,001
