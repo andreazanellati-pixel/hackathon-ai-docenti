@@ -48,7 +48,7 @@
 [GRANDEZZA]
 nome: Lunghezza
 icona: 📏
-nota: Ogni gradino vale dieci volte quello alla sua destra. Passare a un'unità più piccola vuol dire spostare la virgola verso destra.
+nota: Fino al millimetro ogni gradino vale dieci volte quello alla sua destra. Sotto il millimetro si salta di mille in mille: micrometro, nanometro, picometro. Un batterio misura qualche micrometro, un atomo qualche decimo di nanometro.
 unita: km | chilometro | 10^3
 unita: hm | ettometro | 10^2
 unita: dam | decametro | 10^1
@@ -56,12 +56,15 @@ unita: m | metro | 10^0
 unita: dm | decimetro | 10^-1
 unita: cm | centimetro | 10^-2
 unita: mm | millimetro | 10^-3
+unita: µm | micrometro | 10^-6
+unita: nm | nanometro | 10^-9
+unita: pm | picometro | 10^-12
 
 
 [GRANDEZZA]
 nome: Massa
 icona: ⚖️
-nota: Attenzione al primo gradino: fra tonnellata e chilogrammo il salto vale mille, non dieci. L'unità del Sistema Internazionale è il chilogrammo, non il grammo.
+nota: Attenzione ai salti da mille: fra tonnellata e chilogrammo, e di nuovo sotto il milligrammo. L'unità del Sistema Internazionale è il chilogrammo, non il grammo. In laboratorio si pesa spesso in microgrammi e nanogrammi.
 unita: t | tonnellata | 10^6
 unita: kg | chilogrammo | 10^3
 unita: hg | ettogrammo | 10^2
@@ -70,6 +73,8 @@ unita: g | grammo | 10^0
 unita: dg | decigrammo | 10^-1
 unita: cg | centigrammo | 10^-2
 unita: mg | milligrammo | 10^-3
+unita: µg | microgrammo | 10^-6
+unita: ng | nanogrammo | 10^-9
 
 
 [GRANDEZZA]
@@ -83,6 +88,7 @@ unita: L | litro | 10^0
 unita: dL | decilitro | 10^-1
 unita: cL | centilitro | 10^-2
 unita: mL | millilitro | 10^-3
+unita: µL | microlitro | 10^-6
 
 
 [GRANDEZZA]
@@ -114,19 +120,21 @@ unita: mm³ | millimetro cubo | 10^-9
 [GRANDEZZA]
 nome: Prefissi
 icona: 🔬
-avanzata: sì
-nota: Gli stessi prefissi si attaccano a qualunque unità: un megametro, un microgrammo, un nanosecondo. Fra kilo e mega, e fra milli e micro, il salto vale mille.
+nota: Gli stessi prefissi si attaccano a qualunque unità: un terabyte, un megawatt, un microgrammo, un nanosecondo. Oltre il kilo e sotto il milli si procede di mille in mille, ed è per questo che nella scienza si smette di dire "decimillimetro" e si comincia a dire "micrometro".
+unita: T | tera | 10^12
 unita: G | giga | 10^9
 unita: M | mega | 10^6
 unita: k | kilo | 10^3
 unita: h | etto | 10^2
 unita: da | deca | 10^1
-unita: (nessuno) | unità di riferimento | 10^0
+unita: — | unità di riferimento | 10^0
 unita: d | deci | 10^-1
 unita: c | centi | 10^-2
 unita: m | milli | 10^-3
 unita: µ | micro | 10^-6
 unita: n | nano | 10^-9
+unita: p | pico | 10^-12
+unita: f | femto | 10^-15
 
 
 [GRANDEZZA]
@@ -140,3 +148,5 @@ unita: h | ora | 3600
 unita: min | minuto | 60
 unita: s | secondo | 1
 unita: ms | millisecondo | 0,001
+unita: µs | microsecondo | 0,000001
+unita: ns | nanosecondo | 0,000000001

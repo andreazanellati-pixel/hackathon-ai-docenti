@@ -1278,3 +1278,125 @@ h2 { font-size: 1.3rem; margin: 0 0 10px; letter-spacing: -.01em; }
 
 .punto { color: var(--testo-tenue); font-weight: 700; }
 .uno { font-weight: 700; font-size: 1.05rem; }
+
+/* i multipli e i sottomultipli */
+
+.involucro-prefissi { overflow-x: auto; padding-bottom: 6px; }
+
+.scala-prefissi {
+  display: flex;
+  align-items: stretch;
+  gap: 5px;
+  min-width: min-content;
+}
+
+.chip-prefisso {
+  flex: 1 0 auto;
+  min-width: 62px;
+  min-height: 72px;
+  border: 1px solid var(--bordo-forte);
+  border-radius: 11px;
+  background: var(--superficie);
+  color: var(--testo);
+  font: inherit;
+  padding: 8px 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.chip-prefisso.multiplo { --colore: var(--si-2); }
+.chip-prefisso.sottomultiplo { --colore: var(--si-1); }
+.chip-prefisso:hover { border-color: var(--colore); }
+
+.chip-prefisso.scelto {
+  border-color: var(--colore);
+  box-shadow: 0 0 0 2px var(--colore);
+}
+
+.prefisso-simbolo {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--colore);
+  line-height: 1.1;
+}
+
+.prefisso-nome {
+  display: block;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .64rem;
+  color: var(--testo-tenue);
+  margin-top: 2px;
+}
+
+.prefisso-potenza {
+  display: block;
+  font-size: .78rem;
+  font-weight: 700;
+  margin-top: 3px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* il confine fra multipli e sottomultipli */
+
+.divisore-unita {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 6px;
+}
+
+.divisore-linea {
+  flex: 1;
+  width: 2px;
+  background: var(--bordo-forte);
+  border-radius: 1px;
+}
+
+.divisore-testo {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .58rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--testo-tenue);
+  writing-mode: vertical-rl;
+}
+
+.scheda-prefisso {
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+  padding: 16px 18px;
+  margin-top: 12px;
+  box-shadow: var(--ombra);
+}
+
+.scheda-prefisso .nota-piccola { margin: 0; }
+
+.prefisso-testata {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.prefisso-grande {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--accento);
+  line-height: 1;
+  min-width: 46px;
+  text-align: center;
+}
+
+.prefisso-titolo { font-size: 1.15rem; font-weight: 700; }
+
+.prefisso-valore {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .86rem;
+  color: var(--testo-tenue);
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+}

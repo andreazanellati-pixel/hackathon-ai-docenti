@@ -20,15 +20,17 @@
 
   var basi = [];
   var derivate = [];
+  var prefissi = [];
   var erroriFile = [];
   var selezionata = null;
+  var prefissoScelto = null;
 
   /* ==========================================================
      1. Lettura del file si.txt
      ========================================================== */
 
   var CHIAVI = ["grandezza", "unita", "unità", "simbolo", "icona",
-                "misura", "definizione", "composizione"];
+                "misura", "definizione", "composizione", "nome", "fattore"];
 
   function leggiSchede(testo) {
     var elenco = [];
@@ -43,10 +45,10 @@
       if (riga === "" || riga.charAt(0) === "#") continue;
 
       var apertura = riga.toUpperCase();
-      if (apertura === "[BASE]" || apertura === "[DERIVATA]") {
+      if (apertura === "[BASE]" || apertura === "[DERIVATA]" || apertura === "[PREFISSO]") {
         scheda = {
-          tipo: apertura === "[BASE]" ? "base" : "derivata",
-          grandezza: "", unita: "", simbolo: "", icona: "",
+          tipo: apertura === "[BASE]" ? "base" : (apertura === "[DERIVATA]" ? "derivata" : "prefisso"),
+          grandezza: "", unita: "", simbolo: "", icona: "", nome: "", fattore: "",
           misura: "", definizione: "", composizione: "", esempi: []
         };
         elenco.push(scheda);
@@ -61,7 +63,7 @@
 
         if (chiave === "esempio") {
           if (!scheda) {
-            errori.push("riga " + numeroRiga + ": un esempio si trova prima di [BASE] o [DERIVATA].");
+            errori.push("riga " + numeroRiga + ": un esempio si trova prima di un blocco fra parentesi quadre.");
             continue;
           }
           if (valore === "") {
@@ -75,7 +77,7 @@
 
         if (CHIAVI.indexOf(chiave) >= 0) {
           if (!scheda) {
-            errori.push("riga " + numeroRiga + ": \"" + chiave + "\" si trova prima di [BASE] o [DERIVATA].");
+            errori.push("riga " + numeroRiga + ": \"" + chiave + "\" si trova prima di un blocco fra parentesi quadre.");
             continue;
           }
           if (chiave === "unità") chiave = "unita";
@@ -99,7 +101,17 @@
 
     var buone = [];
     elenco.forEach(function (s) {
-      if (!s.grandezza || !s.simbolo) {
+      if (s.tipo === "prefisso") {
+        if (!s.nome || !s.simbolo) {
+          errori.push("Un prefisso è senza nome o senza simbolo: l'ho saltato.");
+          return;
+        }
+        s.esponente = leggiEsponente(s.fattore);
+        if (s.esponente === null) {
+          errori.push("Il prefisso « " + s.nome + " » ha un fattore che non capisco: l'ho saltato.");
+          return;
+        }
+      } else if (!s.grandezza || !s.simbolo) {
         errori.push("Una scheda è senza grandezza o senza simbolo: l'ho saltata.");
         return;
       }
@@ -107,6 +119,12 @@
     });
 
     return { schede: buone, errori: errori };
+  }
+
+  /* "10^-9" diventa -9 */
+  function leggiEsponente(testo) {
+    var m = /^10\s*\^\s*(-?\d+)$/.exec(String(testo).trim());
+    return m ? parseInt(m[1], 10) : null;
   }
 
   /* "kg m^2 s^-2" diventa [{simbolo:"kg", esponente:1}, ...] */
@@ -133,21 +151,51 @@
      2. Pezzi grafici
      ========================================================== */
 
-  var ESPONENTI = { "1": "¹", "2": "²", "3": "³", "4": "⁴", "5": "⁵", "6": "⁶" };
+  var CIFRE_APICE = {
+    "0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴",
+    "5": "⁵", "6": "⁶", "7": "⁷", "8": "⁸", "9": "⁹"
+  };
+
+  /* scrive un numero in piccolo, in alto: 12 diventa ¹², -9 diventa ⁻⁹ */
+  function apice(n) {
+    var cifre = String(Math.abs(n)).split("").map(function (c) {
+      return CIFRE_APICE[c] || c;
+    }).join("");
+    return (n < 0 ? "⁻" : "") + cifre;
+  }
 
   /* dentro la frazione il segno è già dato dalla posizione:
      sopra la linea o sotto. Qui serve solo il numero. */
   function esponenteScritto(n) {
     var a = Math.abs(n);
-    if (a === 1) return "";
-    return ESPONENTI[String(a)] || ("^" + a);
+    return a === 1 ? "" : apice(a);
   }
 
   /* nella mappa invece la frazione non c'è, quindi il segno va scritto */
   function esponenteFirmato(n) {
-    if (n === 1) return "";
-    var corpo = ESPONENTI[String(Math.abs(n))] || ("^" + Math.abs(n));
-    return (n < 0 ? "⁻" : "") + corpo;
+    return n === 1 ? "" : apice(n);
+  }
+
+  /* 10^3 scritto per esteso: 1 000. Oltre certe potenze non ha senso. */
+  function numeroPerEsteso(esponente) {
+    if (Math.abs(esponente) > 9) return null;
+    var zeri = "";
+    var i;
+    if (esponente > 0) {
+      for (i = 0; i < esponente; i++) zeri += "0";
+      return raggruppa("1" + zeri);
+    }
+    for (i = 0; i < -esponente - 1; i++) zeri += "0";
+    return "0," + zeri + "1";
+  }
+
+  /* 1000000 diventa 1 000 000, con spazi ogni tre cifre */
+  function raggruppa(testo) {
+    var pezzi = [];
+    for (var i = testo.length; i > 0; i -= 3) {
+      pezzi.unshift(testo.slice(Math.max(0, i - 3), i));
+    }
+    return pezzi.join(" ");
   }
 
   /* un mattoncino colorato con il simbolo di un'unità fondamentale */
@@ -315,7 +363,79 @@
   }
 
   /* ==========================================================
-     4. Montaggio
+     4. I multipli e i sottomultipli
+     ========================================================== */
+
+  function disegnaPrefissi() {
+    var zona = elemento("div");
+
+    zona.appendChild(elemento("h3", "titolo-blocco", "Multipli e sottomultipli"));
+    zona.appendChild(elemento("p", "didascalia",
+      "Gli stessi prefissi si attaccano davanti a qualunque unità. " +
+      "Tocca un prefisso per vederne il valore e un esempio."));
+
+    var striscia = elemento("div", "scala-prefissi");
+    var precedente = null;
+
+    prefissi.forEach(function (p) {
+      /* fra i multipli e i sottomultipli si passa dall'unità di riferimento */
+      if (precedente !== null && precedente > 0 && p.esponente < 0) {
+        var divisore = elemento("div", "divisore-unita");
+        divisore.appendChild(elemento("span", "divisore-linea", ""));
+        divisore.appendChild(elemento("span", "divisore-testo", "unità"));
+        divisore.appendChild(elemento("span", "divisore-linea", ""));
+        striscia.appendChild(divisore);
+      }
+      precedente = p.esponente;
+
+      var chip = elemento("button", "chip-prefisso " +
+        (p.esponente > 0 ? "multiplo" : "sottomultiplo") +
+        (p === prefissoScelto ? " scelto" : ""));
+      chip.type = "button";
+      chip.appendChild(elemento("span", "prefisso-simbolo", p.simbolo));
+      chip.appendChild(elemento("span", "prefisso-nome", p.nome));
+      chip.appendChild(elemento("span", "prefisso-potenza", "10" + apice(p.esponente)));
+      chip.setAttribute("aria-label", p.nome + ", dieci alla " + p.esponente);
+      chip.addEventListener("click", function () {
+        prefissoScelto = (prefissoScelto === p) ? null : p;
+        mostra();
+      });
+      striscia.appendChild(chip);
+    });
+
+    var involucro = elemento("div", "involucro-prefissi");
+    involucro.appendChild(striscia);
+    zona.appendChild(involucro);
+
+    var scheda = elemento("div", "scheda-prefisso");
+    if (!prefissoScelto) {
+      scheda.appendChild(elemento("p", "nota-piccola",
+        "Da tera a femto ci sono ventisette potenze di dieci: dai mille miliardi al milionesimo di miliardesimo."));
+    } else {
+      var p = prefissoScelto;
+      var testata = elemento("div", "prefisso-testata");
+      testata.appendChild(elemento("span", "prefisso-grande", p.simbolo));
+      var titoli = elemento("div");
+      titoli.appendChild(elemento("div", "prefisso-titolo", p.nome));
+      var esteso = numeroPerEsteso(p.esponente);
+      titoli.appendChild(elemento("div", "prefisso-valore",
+        "10" + apice(p.esponente) + (esteso ? "  =  " + esteso : "") + " volte l'unità"));
+      testata.appendChild(titoli);
+      scheda.appendChild(testata);
+
+      if (p.esempi.length > 0) {
+        var lista = elemento("ul", "esempi-lista");
+        p.esempi.forEach(function (e) { lista.appendChild(elemento("li", null, e)); });
+        scheda.appendChild(lista);
+      }
+    }
+    zona.appendChild(scheda);
+
+    return zona;
+  }
+
+  /* ==========================================================
+     5. Montaggio
      ========================================================== */
 
   function mostra() {
@@ -343,6 +463,8 @@
       contenitore.appendChild(grigliaDerivate);
     }
 
+    if (prefissi.length > 0) contenitore.appendChild(disegnaPrefissi());
+
     aggiornaMappa();
   }
 
@@ -352,6 +474,8 @@
       erroriFile = esito.errori;
       basi = esito.schede.filter(function (s) { return s.tipo === "base"; });
       derivate = esito.schede.filter(function (s) { return s.tipo === "derivata"; });
+      prefissi = esito.schede.filter(function (s) { return s.tipo === "prefisso"; });
+      prefissi.sort(function (a, b) { return b.esponente - a.esponente; });
       if (basi.length === 0 && derivate.length === 0) {
         svuota(contenitore);
         var avviso = elemento("div", "avviso");

@@ -34,6 +34,10 @@
 
   var schedaAperta = "scala";
 
+  /* oltre questa larghezza la tabella delle cifre diventa illeggibile
+     e mostriamo soltanto la striscia dei gradini */
+  var LIMITE_COLONNE = 22;
+
   /* ==========================================================
      1. Numeri scritti come cifre e potenza di dieci
      ----------------------------------------------------------
@@ -395,7 +399,7 @@
     zona.appendChild(disegnaGradini(g));
 
     /* la tabella delle cifre */
-    if (g.scala && g.numeroColonne <= 18) {
+    if (g.scala && g.numeroColonne <= LIMITE_COLONNE) {
       zona.appendChild(elemento("h3", "titolo-blocco", "Dove finisce la virgola"));
       zona.appendChild(elemento("p", "didascalia",
         "Ogni casella è una cifra. Le cifre colorate sono quelle del tuo numero: " +
@@ -420,6 +424,14 @@
     if (g.nota) zona.appendChild(elemento("p", "nota-grandezza", g.nota));
 
     return zona;
+  }
+
+  /* porta un elemento al centro del suo contenitore scorrevole */
+  function centraSu(involucro, bersaglio) {
+    if (!involucro || !bersaglio || !involucro.getBoundingClientRect) return;
+    var fuori = involucro.getBoundingClientRect();
+    var dentro = bersaglio.getBoundingClientRect();
+    involucro.scrollLeft += (dentro.left - fuori.left) - (fuori.width - dentro.width) / 2;
   }
 
   function selettoreUnita(g, scelta, quandoCambia) {
@@ -524,7 +536,12 @@
                          : "dividere per " + conVirgola(1 / rapporto)) + ".";
     }
 
-    if (tabella) tabella.appendChild(disegnaTabella(g, n, unitaPartenza, unitaArrivo));
+    if (tabella) {
+      tabella.appendChild(disegnaTabella(g, n, unitaPartenza, unitaArrivo));
+      /* con scale lunghe la tabella non ci sta: la facciamo scorrere
+         da sola fino alla colonna dove finisce la virgola */
+      centraSu(tabella, tabella.querySelector(".cifra-virgola"));
+    }
 
     if (lista) {
       g.unita.forEach(function (u) {
@@ -748,7 +765,7 @@
 
     aggiornaPunteggio();
 
-    if (esercizio.grandezza.scala && esercizio.grandezza.numeroColonne <= 18) {
+    if (esercizio.grandezza.scala && esercizio.grandezza.numeroColonne <= LIMITE_COLONNE) {
       var involucro = elemento("div", "involucro-tabella");
       involucro.appendChild(disegnaTabella(
         esercizio.grandezza, esercizio.numero, esercizio.da, esercizio.a));
@@ -793,6 +810,8 @@
     if (schedaAperta === "scala") {
       contenitore.appendChild(disegnaScala());
       aggiornaRisultato();
+      var strisciaGradini = contenitore.querySelector(".involucro-gradini");
+      if (strisciaGradini) centraSu(strisciaGradini, strisciaGradini.querySelector(".gradino.arrivo"));
     } else {
       contenitore.appendChild(disegnaAllenamento());
     }

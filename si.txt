@@ -22,6 +22,10 @@
 #
 # Solo per le derivate:
 #
+# I multipli e i sottomultipli cominciano invece con [PREFISSO] e
+# hanno tre righe: nome, simbolo e fattore (per esempio 10^-9),
+# più uno o più esempi.
+#
 #   composizione: da quali unità fondamentali è fatta.
 #                 Si scrive con i simboli e gli esponenti, per
 #                 esempio:  kg m^2 s^-2
@@ -274,3 +278,98 @@ misura: quanto un materiale ostacola il passaggio della corrente
 esempio: Il filamento di una vecchia lampadina sta intorno ai 500 Ω.
 esempio: Un filo di rame di un metro ha una resistenza quasi nulla, meno di 0,1 Ω.
 definizione: Tensione diviso corrente: è la legge di Ohm, la relazione più usata di tutta l'elettrotecnica.
+
+
+# ------------------------------------------------------------
+# MULTIPLI E SOTTOMULTIPLI
+# ------------------------------------------------------------
+# Si attaccano davanti a qualunque unità: un terabyte, un
+# megawatt, un microgrammo, un nanosecondo.
+
+[PREFISSO]
+nome: tera
+simbolo: T
+fattore: 10^12
+esempio: Un disco da 1 TB tiene circa 250 000 fotografie.
+esempio: Mille miliardi: se fossero secondi, sarebbero più di trentamila anni.
+
+[PREFISSO]
+nome: giga
+simbolo: G
+fattore: 10^9
+esempio: Un processore da 3 GHz esegue tre miliardi di cicli al secondo.
+esempio: La distanza media fra la Terra e il Sole è circa 150 Gm.
+
+[PREFISSO]
+nome: mega
+simbolo: M
+fattore: 10^6
+esempio: Un megawatt è la potenza di circa mille asciugacapelli accesi insieme.
+esempio: Un terremoto forte libera milioni di megajoule.
+
+[PREFISSO]
+nome: kilo
+simbolo: k
+fattore: 10^3
+esempio: Mille metri: un chilometro si percorre a piedi in un quarto d'ora.
+esempio: Si scrive con la k minuscola: kg, km, kW.
+
+[PREFISSO]
+nome: etto
+simbolo: h
+fattore: 10^2
+esempio: Cento grammi: l'etto del salumiere.
+esempio: Fuori dalla cucina si usa poco, ma resta nell'ettaro e nell'ettometro.
+
+[PREFISSO]
+nome: deca
+simbolo: da
+fattore: 10^1
+esempio: Dieci volte l'unità. È il prefisso meno usato di tutti.
+
+[PREFISSO]
+nome: deci
+simbolo: d
+fattore: 10^-1
+esempio: Un decimetro è il lato di un cubo che contiene esattamente un litro.
+
+[PREFISSO]
+nome: centi
+simbolo: c
+fattore: 10^-2
+esempio: Un centimetro è più o meno la larghezza di un'unghia.
+
+[PREFISSO]
+nome: milli
+simbolo: m
+fattore: 10^-3
+esempio: Una carta di credito è spessa circa 0,8 mm.
+esempio: Attenzione: la m minuscola è milli, la M maiuscola è mega. Un milione di volte di differenza.
+
+[PREFISSO]
+nome: micro
+simbolo: µ
+fattore: 10^-6
+esempio: Un batterio misura qualche micrometro.
+esempio: Un globulo rosso ha un diametro di circa 7 µm: al microscopio della scuola si vede appena.
+
+[PREFISSO]
+nome: nano
+simbolo: n
+fattore: 10^-9
+esempio: La luce visibile ha lunghezze d'onda fra 400 nm (violetto) e 700 nm (rosso).
+esempio: Un nanometro sono circa cinque atomi in fila.
+
+[PREFISSO]
+nome: pico
+simbolo: p
+fattore: 10^-12
+esempio: In picosecondi si misurano le reazioni chimiche più veloci.
+esempio: La distanza fra due atomi in una molecola è di qualche centinaio di picometri.
+
+[PREFISSO]
+nome: femto
+simbolo: f
+fattore: 10^-15
+esempio: Il raggio di un nucleo atomico si misura in femtometri.
+esempio: Un femtosecondo sta a un secondo come un secondo sta a trentadue milioni di anni.
