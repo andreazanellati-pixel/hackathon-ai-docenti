@@ -521,9 +521,10 @@ h2 { font-size: 1.3rem; margin: 0 0 10px; letter-spacing: -.01em; }
 
 .navigazione {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
   justify-content: center;
-  padding: 10px 16px 0;
+  padding: 10px 12px 0;
   background: var(--sfondo-trama);
   border-bottom: 1px solid var(--bordo);
 }
@@ -539,6 +540,11 @@ h2 { font-size: 1.3rem; margin: 0 0 10px; letter-spacing: -.01em; }
   font-size: .95rem;
   padding: 10px 18px;
   cursor: pointer;
+  white-space: nowrap;
+}
+
+@media (max-width: 620px) {
+  .navigazione button { padding: 9px 11px; font-size: .86rem; }
 }
 
 .navigazione button:hover { color: var(--testo); }
@@ -1020,3 +1026,255 @@ h2 { font-size: 1.3rem; margin: 0 0 10px; letter-spacing: -.01em; }
   color: var(--testo-tenue);
   min-width: 34px;
 }
+
+/* ============================================================
+   Il Sistema Internazionale
+   ------------------------------------------------------------
+   Ogni unità fondamentale ha il suo colore, sempre lo stesso in
+   tutta la sezione: nella mappa in alto, nelle schede e dentro
+   le formule delle grandezze derivate.
+   ============================================================ */
+
+:root {
+  --si-1: #1f5f8b;
+  --si-2: #8a5a12;
+  --si-3: #1d6b45;
+  --si-4: #6b3fa0;
+  --si-5: #a33528;
+  --si-6: #0f6e70;
+  --si-7: #a2447a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="chiaro"]) {
+    --si-1: #74b3dd;
+    --si-2: #e0ae5e;
+    --si-3: #6fce9f;
+    --si-4: #bb9bea;
+    --si-5: #f09287;
+    --si-6: #5fc6c8;
+    --si-7: #ef9ac8;
+  }
+}
+
+:root[data-tema="scuro"] {
+  --si-1: #74b3dd;
+  --si-2: #e0ae5e;
+  --si-3: #6fce9f;
+  --si-4: #bb9bea;
+  --si-5: #f09287;
+  --si-6: #5fc6c8;
+  --si-7: #ef9ac8;
+}
+
+.colore-1 { --colore: var(--si-1); }
+.colore-2 { --colore: var(--si-2); }
+.colore-3 { --colore: var(--si-3); }
+.colore-4 { --colore: var(--si-4); }
+.colore-5 { --colore: var(--si-5); }
+.colore-6 { --colore: var(--si-6); }
+.colore-7 { --colore: var(--si-7); }
+.colore-0 { --colore: var(--testo-tenue); }
+
+/* la mappa in alto */
+
+.mappa {
+  background: var(--superficie-alt);
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.mappa .didascalia { margin: 0 0 12px; text-align: center; min-height: 2.4em; }
+
+.mappa-base {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+@media (min-width: 600px) {
+  .mappa-base { grid-template-columns: repeat(7, 1fr); }
+}
+
+/* i mattoncini colorati */
+
+.chip-base {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 1px;
+  border: 2px solid var(--colore, var(--bordo-forte));
+  color: var(--colore, var(--testo));
+  background: var(--superficie);
+  border-radius: 9px;
+  padding: 3px 9px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+.chip-base.grande {
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-height: 78px;
+  padding: 9px 4px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  transition: opacity .15s, box-shadow .15s;
+}
+
+.chip-icona { font-size: 1.1rem; line-height: 1; }
+.chip-simbolo { font-size: 1.05rem; }
+
+.chip-nome {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .6rem;
+  font-weight: 600;
+  color: var(--testo-tenue);
+  line-height: 1.15;
+}
+
+.chip-esponente { font-size: .78em; vertical-align: super; }
+
+.chip-base.grande.acceso {
+  box-shadow: 0 0 0 3px var(--colore);
+}
+
+.chip-base.grande.acceso .chip-esponente {
+  position: absolute;
+  top: 3px;
+  right: 6px;
+  font-size: .9rem;
+  vertical-align: baseline;
+}
+
+.chip-base.grande.spento { opacity: .3; }
+
+/* le schede delle grandezze */
+
+.griglia-si {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 560px) {
+  .griglia-si { grid-template-columns: 1fr 1fr; }
+}
+
+.carta-si {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-left: 4px solid var(--colore, var(--bordo-forte));
+  border-radius: var(--raggio);
+  padding: 15px 16px;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  box-shadow: var(--ombra);
+}
+
+.carta-si:hover { border-color: var(--accento); border-left-color: var(--colore, var(--accento)); }
+
+.carta-si.selezionata {
+  border-color: var(--accento);
+  border-left-color: var(--colore, var(--accento));
+  box-shadow: 0 0 0 2px var(--accento), var(--ombra);
+  grid-column: 1 / -1;
+}
+
+.carta-si-testata {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.carta-si-icona { font-size: 1.5rem; line-height: 1; flex: none; }
+.carta-si-grandezza { font-weight: 700; font-size: 1.02rem; }
+
+.carta-si-nome {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .78rem;
+  color: var(--testo-tenue);
+}
+
+.carta-si-simbolo {
+  margin-left: auto;
+  flex: none;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--colore, var(--accento));
+}
+
+.carta-si-misura,
+.carta-si-assaggio {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .86rem;
+  color: var(--testo-tenue);
+  margin: 10px 0 0;
+}
+
+.carta-si-assaggio { font-style: italic; }
+
+.esempi-lista {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .9rem;
+  margin: 12px 0 0;
+  padding-left: 20px;
+}
+
+.esempi-lista li { margin-bottom: 5px; }
+
+.definizione {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .86rem;
+  color: var(--testo-tenue);
+  background: var(--superficie-alt);
+  border-radius: 9px;
+  padding: 12px 14px;
+  margin: 14px 0 0;
+}
+
+/* la formula disegnata come frazione */
+
+.formula {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin: 14px 0 2px;
+  min-height: 46px;
+}
+
+.frazione {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.frazione-sopra,
+.frazione-sotto {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 4px;
+}
+
+.frazione-linea {
+  align-self: stretch;
+  height: 2px;
+  background: var(--testo-tenue);
+  border-radius: 1px;
+}
+
+.punto { color: var(--testo-tenue); font-weight: 700; }
+.uno { font-weight: 700; font-size: 1.05rem; }

@@ -24,7 +24,8 @@
 
 <nav class="navigazione" aria-label="Scegli lo strumento">
   <button type="button" data-sezione="detective" aria-selected="true">🔍 I casi</button>
-  <button type="button" data-sezione="unita" aria-selected="false">📐 Le unità</button>
+  <button type="button" data-sezione="unita" aria-selected="false">📐 Convertire</button>
+  <button type="button" data-sezione="si" aria-selected="false">🧭 Il Sistema Internazionale</button>
 </nav>
 
 <main>
@@ -39,16 +40,24 @@
       <p class="caricamento">Carico le unità di misura…</p>
     </div>
   </section>
+
+  <section id="sezione-si" hidden>
+    <div id="si-contenuto">
+      <p class="caricamento">Carico il Sistema Internazionale…</p>
+    </div>
+  </section>
 </main>
 
 <footer class="pie">
-  <p>I contenuti di questo sito stanno in due file di testo:
-  <code>casi.txt</code> per i casi e <code>unita.txt</code> per le unità di misura.
+  <p>I contenuti di questo sito stanno in tre file di testo:
+  <code>casi.txt</code> per i casi, <code>unita.txt</code> per le conversioni
+  e <code>si.txt</code> per il Sistema Internazionale.
   Aprili con un editor di testo per modificarli o aggiungerne di nuovi.</p>
 </footer>
 
 <script src="comune.js"></script>
 <script src="detective.js"></script>
 <script src="unita.js"></script>
+<script src="si.js"></script>
 </body>
 </html>

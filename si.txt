@@ -1,0 +1,276 @@
+# ============================================================
+# IL SISTEMA INTERNAZIONALE
+# ============================================================
+#
+# Questo file contiene le sette unità fondamentali del Sistema
+# Internazionale e le grandezze derivate. Puoi modificarlo con un
+# qualsiasi editor di testo e salvarlo: il sito cambia subito.
+#
+# COME SI SCRIVE UNA SCHEDA
+# -------------------------
+# Le unità fondamentali cominciano con [BASE], quelle derivate
+# con [DERIVATA]. Poi vengono le righe:
+#
+#   grandezza:   che cosa si misura (es. Lunghezza)
+#   unita:       il nome dell'unità per esteso (es. metro)
+#   simbolo:     il simbolo (es. m)
+#   icona:       una emoji (facoltativa)
+#   misura:      una frase che spiega che cosa si misura
+#   esempio:     un esempio concreto. Puoi metterne quanti vuoi,
+#                una riga "esempio:" per ciascuno.
+#   definizione: come è definita l'unità (facoltativa)
+#
+# Solo per le derivate:
+#
+#   composizione: da quali unità fondamentali è fatta.
+#                 Si scrive con i simboli e gli esponenti, per
+#                 esempio:  kg m^2 s^-2
+#                 Gli esponenti negativi finiscono sotto la linea
+#                 di frazione. Il sito disegna la formula da solo
+#                 e accende le unità fondamentali coinvolte.
+#
+# ALTRE COSE DA SAPERE
+# --------------------
+# - Le righe che iniziano con # sono commenti: il sito le ignora.
+# - L'ordine delle sette unità fondamentali determina i colori:
+#   la prima prende il primo colore e così via.
+# - Se una riga è scritta male il sito non si blocca: la salta e
+#   ti segnala quale riga rivedere.
+#
+# ============================================================
+
+
+# ------------------------------------------------------------
+# LE SETTE UNITÀ FONDAMENTALI
+# ------------------------------------------------------------
+
+[BASE]
+grandezza: Lunghezza
+unita: metro
+simbolo: m
+icona: 📏
+misura: quanto è lungo, alto o distante qualcosa
+esempio: La porta di un'aula è alta circa 2 m.
+esempio: Un passo di un adulto misura circa 0,7 m.
+esempio: Un campo da calcio è lungo 105 m.
+definizione: È la distanza percorsa dalla luce nel vuoto in 1/299 792 458 di secondo. Il metro non è più un oggetto conservato da qualche parte: è definito a partire dalla velocità della luce, che è la stessa ovunque nell'universo.
+
+[BASE]
+grandezza: Massa
+unita: chilogrammo
+simbolo: kg
+icona: ⚖️
+misura: quanta materia contiene un corpo
+esempio: Un litro d'acqua ha una massa di 1 kg.
+esempio: Una mela pesa circa 0,15 kg.
+esempio: Il libro di scienze sta intorno a 0,8 kg.
+definizione: Fino al 2019 era la massa di un cilindro di platino e iridio conservato a Sèvres, vicino a Parigi: l'ultima unità ancora legata a un oggetto. Oggi è definita a partire da una costante della fisica, la costante di Planck. Attenzione: la massa non è il peso. La massa resta la stessa anche sulla Luna, il peso no.
+
+[BASE]
+grandezza: Tempo
+unita: secondo
+simbolo: s
+icona: ⏱️
+misura: quanto dura un fenomeno
+esempio: Un battito del cuore a riposo dura circa 1 s.
+esempio: Un'ora di lezione sono 3600 s.
+esempio: Un anno sono circa 31 500 000 s.
+definizione: La durata di 9 192 631 770 oscillazioni di una particolare radiazione emessa dall'atomo di cesio-133. Gli orologi atomici che la misurano sbagliano meno di un secondo ogni cento milioni di anni.
+
+[BASE]
+grandezza: Corrente elettrica
+unita: ampere
+simbolo: A
+icona: 🔌
+misura: quanta carica elettrica attraversa un filo ogni secondo
+esempio: Il caricabatterie di un telefono eroga circa 2 A.
+esempio: Un forno elettrico acceso assorbe circa 10 A.
+esempio: Un fulmine può superare i 30 000 A.
+definizione: È definita fissando il valore della carica dell'elettrone. In pratica: un ampere è il passaggio di circa 6 miliardi di miliardi di elettroni al secondo.
+
+[BASE]
+grandezza: Temperatura
+unita: kelvin
+simbolo: K
+icona: 🌡️
+misura: quanto sono agitate le particelle di un corpo
+esempio: Lo zero assoluto è 0 K, cioè −273,15 °C: più freddo non si può.
+esempio: L'acqua ghiaccia a 273,15 K e bolle a 373,15 K.
+esempio: Una bella giornata di primavera sta intorno ai 293 K, cioè 20 °C.
+definizione: Un grado kelvin e un grado Celsius sono grandi uguali: cambia solo da dove si comincia a contare. Per passare da °C a K si sommano 273,15. Si scrive 300 K, non "300 gradi kelvin".
+
+[BASE]
+grandezza: Quantità di sostanza
+unita: mole
+simbolo: mol
+icona: 🧪
+misura: quante particelle ci sono, invece di quanto pesano
+esempio: In 18 g di acqua c'è circa 1 mol di molecole.
+esempio: Una mole contiene 602 000 000 000 000 000 000 000 particelle.
+esempio: In 12 g di carbonio-12 c'è esattamente 1 mol di atomi.
+definizione: La quantità di sostanza che contiene esattamente 6,02214076 per 10 elevato alla 23 entità elementari: il numero di Avogadro. Serve perché le particelle sono troppe e troppo piccole per contarle una per una: la mole è la dozzina dei chimici, solo molto più grande.
+
+[BASE]
+grandezza: Intensità luminosa
+unita: candela
+simbolo: cd
+icona: 💡
+misura: quanta luce manda una sorgente in una certa direzione
+esempio: Una candela da tavola emette circa 1 cd, da cui il nome.
+esempio: Una lampadina a LED da 9 W arriva intorno alle 70 cd.
+definizione: È l'unica delle sette che tiene conto di come l'occhio umano vede: la stessa energia luminosa emessa nel verde ci sembra molto più intensa che nel rosso, e la candela lo mette in conto.
+
+
+# ------------------------------------------------------------
+# LE GRANDEZZE DERIVATE
+# ------------------------------------------------------------
+
+[DERIVATA]
+grandezza: Superficie
+unita: metro quadrato
+simbolo: m²
+icona: 🟦
+composizione: m^2
+misura: quanto è estesa una figura o una parete
+esempio: Un'aula misura circa 50 m².
+esempio: Un foglio A4 è circa 0,06 m².
+definizione: Due lunghezze moltiplicate fra loro. È il motivo per cui passando da m² a dm² si moltiplica per cento e non per dieci: i lati raddoppiano l'effetto.
+
+[DERIVATA]
+grandezza: Volume
+unita: metro cubo
+simbolo: m³
+icona: 🧊
+composizione: m^3
+misura: quanto spazio occupa un corpo
+esempio: Un'aula contiene circa 150 m³ di aria.
+esempio: Una bottiglia da 1,5 litri è 0,0015 m³.
+esempio: Un litro è esattamente un decimetro cubo.
+definizione: Tre lunghezze moltiplicate fra loro: da qui il passo di mille fra un'unità e la successiva.
+
+[DERIVATA]
+grandezza: Densità
+unita: chilogrammo al metro cubo
+simbolo: kg/m³
+icona: 🪨
+composizione: kg m^-3
+misura: quanta massa è stipata in ogni metro cubo
+esempio: L'acqua ha densità 1000 kg/m³.
+esempio: Il ferro arriva a 7870 kg/m³: per questo un chiodo va a fondo.
+esempio: Il sughero sta sui 240 kg/m³, meno dell'acqua, e infatti galleggia.
+definizione: Serve a rispondere alla domanda "è pesante?" senza barare: un chilo di piombo e un chilo di piume hanno la stessa massa, ma densità diversissime.
+
+[DERIVATA]
+grandezza: Velocità
+unita: metro al secondo
+simbolo: m/s
+icona: 🏃
+composizione: m s^-1
+misura: quanto spazio si percorre in un secondo
+esempio: Camminando si fanno circa 1,4 m/s, cioè 5 km/h.
+esempio: Il record dei 100 metri corrisponde a circa 10,4 m/s.
+esempio: La luce viaggia a 299 792 458 m/s.
+definizione: Per passare da m/s a km/h si moltiplica per 3,6; per tornare indietro si divide per 3,6.
+
+[DERIVATA]
+grandezza: Accelerazione
+unita: metro al secondo quadrato
+simbolo: m/s²
+icona: 🚀
+composizione: m s^-2
+misura: di quanto cambia la velocità ogni secondo
+esempio: Un corpo che cade accelera di 9,8 m/s² ogni secondo.
+esempio: Un'auto che va da ferma a 100 km/h in 10 secondi accelera di circa 2,8 m/s².
+definizione: Non dice quanto si va veloci, ma quanto in fretta la velocità sta cambiando. Un'auto a 130 km/h costanti ha accelerazione zero.
+
+[DERIVATA]
+grandezza: Forza
+unita: newton
+simbolo: N
+icona: 💪
+composizione: kg m s^-2
+misura: quanto si spinge o si tira un corpo
+esempio: Tenere in mano una mela richiede circa 1,5 N.
+esempio: Il peso di uno studente da 60 kg è circa 590 N.
+definizione: Un newton è la forza che dà a un chilogrammo un'accelerazione di un metro al secondo quadrato. Qui si vede la differenza fra massa e peso: la massa si misura in kg, il peso è una forza e si misura in newton.
+
+[DERIVATA]
+grandezza: Pressione
+unita: pascal
+simbolo: Pa
+icona: 🎈
+composizione: kg m^-1 s^-2
+misura: quanta forza preme su ogni metro quadrato
+esempio: L'aria che ci schiaccia in questo momento vale 101 325 Pa.
+esempio: Una gomma da bicicletta gonfia sta intorno ai 400 000 Pa.
+definizione: La stessa forza fa molta più pressione se è concentrata su poca superficie: per questo un tacco a spillo lascia il segno sul parquet e uno scarpone no.
+
+[DERIVATA]
+grandezza: Energia e lavoro
+unita: joule
+simbolo: J
+icona: 🔋
+composizione: kg m^2 s^-2
+misura: quanto lavoro si può fare, o quanto se ne è fatto
+esempio: Sollevare una mela di un metro costa circa 1 J.
+esempio: Una merendina contiene circa 500 000 J di energia.
+esempio: La batteria di un telefono immagazzina circa 40 000 J.
+definizione: Le calorie che si leggono sulle confezioni sono un'altra unità di energia: 1 caloria alimentare vale 4184 J.
+
+[DERIVATA]
+grandezza: Potenza
+unita: watt
+simbolo: W
+icona: ⚡
+composizione: kg m^2 s^-3
+misura: quanta energia si usa o si produce ogni secondo
+esempio: Una lampadina a LED consuma 9 W.
+esempio: Un ciclista allenato produce circa 200 W per ore.
+esempio: Il motore di un'utilitaria arriva a 80 000 W, cioè circa 110 cavalli.
+definizione: Non è l'energia, ma la fretta con cui la si usa. La stessa energia consumata in un secondo o in un'ora dà potenze molto diverse.
+
+[DERIVATA]
+grandezza: Frequenza
+unita: hertz
+simbolo: Hz
+icona: 〰️
+composizione: s^-1
+misura: quante volte qualcosa si ripete in un secondo
+esempio: Il la del diapason vibra a 440 Hz.
+esempio: La corrente elettrica di casa cambia verso 50 volte al secondo: 50 Hz.
+esempio: L'orecchio umano sente da circa 20 Hz a 20 000 Hz.
+definizione: È semplicemente uno diviso il tempo di una ripetizione: se un'oscillazione dura mezzo secondo, la frequenza è 2 Hz.
+
+[DERIVATA]
+grandezza: Carica elettrica
+unita: coulomb
+simbolo: C
+icona: ⚛️
+composizione: A s
+misura: quanta elettricità è passata, o è accumulata
+esempio: Un ampere che scorre per un secondo trasporta 1 C.
+esempio: La carica di un singolo elettrone è appena 0,00000000000000000016 C.
+definizione: Corrente per tempo: se conosci quanti ampere passano e per quanto, sai quanta carica è transitata.
+
+[DERIVATA]
+grandezza: Tensione
+unita: volt
+simbolo: V
+icona: 🔦
+composizione: kg m^2 s^-3 A^-1
+misura: quanta spinta hanno le cariche elettriche
+esempio: Una pila stilo dà 1,5 V.
+esempio: La presa di casa dà 230 V.
+esempio: Una linea elettrica ad alta tensione arriva a 380 000 V.
+definizione: Se la corrente è quanta acqua passa nel tubo, la tensione è la differenza di altezza che la fa scendere.
+
+[DERIVATA]
+grandezza: Resistenza elettrica
+unita: ohm
+simbolo: Ω
+icona: 🧱
+composizione: kg m^2 s^-3 A^-2
+misura: quanto un materiale ostacola il passaggio della corrente
+esempio: Il filamento di una vecchia lampadina sta intorno ai 500 Ω.
+esempio: Un filo di rame di un metro ha una resistenza quasi nulla, meno di 0,1 Ω.
+definizione: Tensione diviso corrente: è la legge di Ohm, la relazione più usata di tutta l'elettrotecnica.
