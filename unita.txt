@@ -48,7 +48,9 @@
 [GRANDEZZA]
 nome: Lunghezza
 icona: 📏
-nota: Fino al millimetro ogni gradino vale dieci volte quello alla sua destra. Sotto il millimetro si salta di mille in mille: micrometro, nanometro, picometro. Un batterio misura qualche micrometro, un atomo qualche decimo di nanometro.
+nota: Nella parte centrale, dal chilometro al millimetro, ogni gradino vale dieci volte quello alla sua destra. Sopra il chilometro e sotto il millimetro si procede invece di mille in mille: megametro e gigametro da una parte, micrometro, nanometro e picometro dall'altra. Un batterio misura qualche micrometro, un atomo qualche decimo di nanometro, e la distanza Terra-Sole è circa 150 gigametri.
+unita: Gm | gigametro | 10^9
+unita: Mm | megametro | 10^6
 unita: km | chilometro | 10^3
 unita: hm | ettometro | 10^2
 unita: dam | decametro | 10^1

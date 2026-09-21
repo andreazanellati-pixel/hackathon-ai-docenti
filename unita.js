@@ -34,9 +34,11 @@
 
   var schedaAperta = "scala";
 
-  /* oltre questa larghezza la tabella delle cifre diventa illeggibile
-     e mostriamo soltanto la striscia dei gradini */
-  var LIMITE_COLONNE = 22;
+  /* Oltre questa larghezza la tabella delle cifre diventa illeggibile e
+     mostriamo soltanto la striscia dei gradini. Il limite è generoso
+     perché la tabella scorre da sola fino alla colonna della virgola:
+     anche una scala lunga resta usabile. */
+  var LIMITE_COLONNE = 30;
 
   /* ==========================================================
      1. Numeri scritti come cifre e potenza di dieci

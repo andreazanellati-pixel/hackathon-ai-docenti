@@ -911,6 +911,7 @@ h2 { font-size: 1.3rem; margin: 0 0 10px; letter-spacing: -.01em; }
 
 .tabella-cifre td.cifra {
   width: 34px;
+  min-width: 32px;
   height: 46px;
   text-align: center;
   border: 1px solid var(--bordo);
