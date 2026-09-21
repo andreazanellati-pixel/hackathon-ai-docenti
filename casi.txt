@@ -1,0 +1,289 @@
+# ============================================================
+# I CASI DEL DETECTIVE DEGLI ESPERIMENTI
+# ============================================================
+#
+# Questo file contiene tutti i casi. Puoi modificarlo con un
+# qualsiasi editor di testo (Blocco note va benissimo) e salvarlo:
+# il sito cambia subito, non serve toccare il codice.
+#
+# COME SI SCRIVE UN CASO
+# ----------------------
+# Ogni caso comincia con la riga [CASO] e contiene:
+#
+#   titolo:  il nome del caso, breve
+#   icona:   una emoji (facoltativa)
+#   storia:  la situazione da cui si parte
+#
+# Poi vengono i passi, uno dopo l'altro. Ogni passo comincia
+# con la riga [PASSO] e contiene:
+#
+#   titolo:   il nome del passo (es. L'ipotesi)
+#   premessa: un testo che compare prima della domanda (facoltativo)
+#   tipo:     scrivi "multipla" se le risposte giuste sono più di una
+#   domanda:  la domanda vera e propria
+#
+# e infine le risposte, una per riga:
+#
+#   + risposta giusta     | spiegazione che appare quando la si sceglie
+#   - risposta sbagliata  | spiegazione che appare quando la si sceglie
+#
+# Il segno + indica la risposta giusta, il segno - una sbagliata.
+# La barra verticale | separa la risposta dalla sua spiegazione.
+#
+# ALTRE COSE DA SAPERE
+# --------------------
+# - Le righe che iniziano con # sono commenti: il sito le ignora.
+# - Le righe vuote servono solo a rendere il file leggibile.
+# - Se un testo è lungo puoi andare a capo: le righe che non
+#   iniziano con una parola chiave si attaccano alla precedente.
+# - Se sbagli a scrivere una riga il sito non si blocca: la salta
+#   e ti dice quale riga rivedere.
+# - I passi possono essere quanti vuoi, e ogni caso può averne
+#   un numero diverso.
+#
+# ============================================================
+
+
+[CASO]
+titolo: Le piante sul davanzale
+icona: 🌱
+storia: Marco dice che le piante sul davanzale della cucina crescono
+più in fretta di quelle che tiene in corridoio. Sua sorella non gli
+crede: secondo lei la differenza sta nel fatto che in cucina le
+annaffia più spesso, perché passa di lì tutti i giorni. Progetta
+l'esperimento che può dare ragione a uno dei due.
+
+[PASSO]
+titolo: L'ipotesi
+domanda: Quale di queste frasi è una buona ipotesi scientifica?
++ Le piante che ricevono più luce crescono di più in altezza in tre settimane | Questa si può mettere alla prova: dice qual è la causa sospettata (la luce), quale effetto guardare (l'altezza) e in quanto tempo. E soprattutto potrebbe risultare falsa. Un'ipotesi che non può essere smentita da nessuna misura non è scientifica.
+- Le piante stanno meglio in cucina | "Stare meglio" non si misura. Prima di partire devi trasformarlo in qualcosa che si conta: i centimetri di altezza, il numero di foglie, il peso.
+- Le piante hanno bisogno di luce per vivere | È vero, ma è una conoscenza che hai già: non è la risposta alla domanda che ti sei posto. L'ipotesi deve riguardare il caso specifico che stai indagando.
+- La cucina è l'ambiente migliore della casa per le piante | Troppo vaga e troppo ampia. Fra cucina e corridoio cambiano insieme luce, temperatura, umidità e anche l'acqua: non riusciresti a dire quale delle quattro conta.
+
+[PASSO]
+titolo: Che cosa cambio
+domanda: Che cosa fai variare di proposito fra i due gruppi di piante?
++ La quantità di luce che ricevono | Questa è la variabile indipendente: l'unica cosa che decidi tu di cambiare. Se è davvero l'unica, alla fine potrai attribuire a lei la differenza.
+- L'altezza delle piante | L'altezza non la decidi tu: è quello che vuoi scoprire alla fine. È la variabile dipendente, cioè quella che "dipende" da ciò che hai cambiato.
+- La quantità d'acqua | Se cambi anche l'acqua, alla fine non potrai dire se la differenza viene dalla luce o dall'acqua. È esattamente il dubbio della sorella di Marco: non risolverlo sarebbe un peccato.
+- Il tipo di pianta | Cambiando pianta introduci una seconda differenza, e le due si confondono. Le piante devono essere il più possibile identiche fra loro.
+
+[PASSO]
+titolo: Che cosa misuro
+domanda: Che cosa misuri per sapere se l'ipotesi regge?
++ L'altezza del fusto in centimetri, misurata ogni tre giorni | Un numero, con la sua unità di misura, preso a intervalli regolari. Così puoi confrontare i gruppi e disegnare un grafico. Meglio ancora: misura sempre alla stessa ora, con lo stesso righello.
+- Se le piante sembrano più rigogliose | "Sembrare rigogliose" dipende da chi guarda e dall'umore del giorno. Due persone darebbero due risposte diverse, e questo in un esperimento è un guaio.
+- Quanta luce arriva sul davanzale | È la causa che stai già facendo variare, non l'effetto. Misurarla è utile per descrivere bene le condizioni, ma non ti dice se le piante sono cresciute.
+- Quante volte le hai annaffiate | È una delle cose che devi tenere uguali fra i gruppi, non il risultato che stai cercando.
+
+[PASSO]
+titolo: Che cosa tengo uguale
+tipo: multipla
+domanda: Quali di queste cose devi tenere identiche nei due gruppi? Le risposte giuste sono più di una.
++ La quantità d'acqua e ogni quanto la dai | Se non la tieni uguale, alla fine non saprai se ha contato la luce o l'acqua. Questa è proprio l'obiezione da smontare.
++ Il vaso, il terriccio e la loro quantità | Più terra significa più nutrimento e più spazio per le radici: sarebbe una seconda causa nascosta.
++ La specie della pianta e la sua altezza di partenza | Piante diverse crescono con velocità diverse. Devono essere il più possibile gemelle.
++ La temperatura della stanza | Il calore influenza la crescita quanto la luce, e in cucina di solito fa più caldo. È una delle cause che rischiano di confondersi con quella che ti interessa.
+- La quantità di luce | No: la luce è proprio ciò che stai facendo variare. Se la tieni uguale nei due gruppi, non stai più facendo nessun esperimento.
+- L'altezza raggiunta dopo tre settimane | Non si può "tenere uguale" un risultato. Quello è ciò che misuri alla fine, e la speranza è proprio che venga diverso.
+
+[PASSO]
+titolo: Il gruppo di controllo
+domanda: Qual è il gruppo di controllo di questo esperimento?
++ Un gruppo di piante identiche, curate allo stesso modo, ma lasciate nella luce normale del corridoio | Il controllo è il metro di paragone: serve a sapere come sarebbero andate le cose senza il trattamento. Senza di lui una crescita di 9 cm non significa niente: 9 cm rispetto a che cosa?
+- Una pianta che non annaffi mai | Così hai cambiato due cose insieme, la luce e l'acqua. Un gruppo di controllo deve essere identico in tutto tranne che nella variabile che stai studiando.
+- Il gruppo che metti in piena luce | Quello è il gruppo sperimentale, cioè quello che riceve il trattamento. Il controllo è l'altro.
+- Non serve: basta misurare le stesse piante prima e dopo | È l'errore più comune di tutti. Le piante crescono comunque, col passare del tempo: senza un gruppo di paragone non puoi sapere quanto di quella crescita è merito della luce.
+
+[PASSO]
+titolo: La conclusione
+premessa: Dopo tre settimane hai i risultati. Le dieci piante in piena luce sono cresciute in media di 9,2 cm, le dieci in corridoio di 3,1 cm. Dentro ciascun gruppo, però, le singole piante vanno da 2 a 12 cm.
+domanda: Che cosa puoi concludere onestamente?
++ In queste condizioni le piante con più luce sono cresciute di più; per esserne sicuri serve ripetere la prova con più piante | Questa è la formula onesta: descrive che cosa hai osservato, dice in quali condizioni, e riconosce che un esperimento solo non basta. La scienza diventa solida quando i risultati si ripetono.
+- È dimostrato che la luce fa crescere le piante | "Dimostrato" è una parola grossa per venti piante su un davanzale. Un singolo esperimento sostiene un'ipotesi, non la dimostra una volta per tutte.
+- L'esperimento è fallito, perché alcune piante in piena luce sono cresciute solo 2 cm | Non è un fallimento: è variabilità, e c'è sempre. Nessun essere vivente è identico a un altro. Per questo si guardano le medie e si usano molti individui, non uno solo.
+- Marco aveva ragione: la cucina è il posto migliore della casa per le piante | Hai messo alla prova la luce, non "la cucina". Un esperimento risponde alla domanda che gli hai fatto, non a una domanda più grande.
+
+
+[CASO]
+titolo: La muffa sul pane
+icona: 🍞
+storia: In classe qualcuno sostiene che il pane ammuffisce prima se
+lo chiudi in un sacchetto di plastica; qualcun altro dice che conta
+solo il frigorifero. Tu vuoi scoprire se è l'umidità intrappolata
+nel sacchetto a far comparire la muffa più in fretta.
+
+[PASSO]
+titolo: L'ipotesi
+domanda: Quale ipotesi metti alla prova?
++ Il pane chiuso in un sacchetto sviluppa la muffa in meno giorni di quello lasciato all'aria | Precisa e verificabile: c'è una causa (il sacchetto chiuso, quindi l'umidità), un effetto misurabile (dopo quanti giorni compare la muffa) e un confronto. Se le fette nel sacchetto ammuffissero dopo, l'ipotesi sarebbe smentita.
+- La muffa è una schifezza che rovina il pane | È un giudizio, non un'ipotesi. La scienza parte da affermazioni che si possono controllare con una misura.
+- Il pane ammuffisce | Vero, ma non dice niente sul perché né sul quando. Un'ipotesi deve mettere in relazione due cose, non constatarne una.
+- Se metto il pane in frigorifero non ammuffirà mai | "Mai" è una parola che nessun esperimento può verificare: dovresti aspettare all'infinito. Meglio: "ammuffisce più tardi che a temperatura ambiente".
+
+[PASSO]
+titolo: Che cosa cambio
+domanda: Che cosa fai variare fra i gruppi di fette?
++ Se la fetta sta in un sacchetto chiuso oppure all'aria aperta | È l'unica differenza voluta. Tutto il resto delle fette deve essere il più possibile identico.
+- Il tipo di pane | Pani diversi hanno umidità e conservanti diversi: è una seconda causa che si mescolerebbe alla prima.
+- Il numero di giorni che aspetti | Il tempo non è una cosa che cambi fra i gruppi: è la stessa attesa per tutti, ed è proprio ciò che misuri.
+- La temperatura della stanza | Se un gruppo sta al caldo e uno al freddo, alla fine non saprai se ha contato l'umidità o il calore.
+
+[PASSO]
+titolo: Che cosa misuro
+domanda: Come registri il risultato in modo che due persone diverse ottengano lo stesso dato?
++ I giorni trascorsi fino alla comparsa della prima macchia di muffa visibile, controllando ogni giorno alla stessa ora | È un numero, ha una regola chiara ("prima macchia visibile") e un momento fisso di osservazione. Chiunque seguirebbe la stessa procedura e otterrebbe lo stesso dato.
+- Quanto è brutta la fetta alla fine della settimana | Non è misurabile e cambia da persona a persona. Se due osservatori non sono d'accordo, il dato non serve.
+- L'odore del pane | Difficile da misurare e molto soggettivo. Potresti farne un dato serio solo con una scala precisa e più osservatori "alla cieca", ed è complicato.
+- Il peso del sacchetto | Il peso cambia soprattutto per l'acqua che evapora, non per la muffa. Misureresti un'altra cosa senza accorgertene.
+
+[PASSO]
+titolo: Che cosa tengo uguale
+tipo: multipla
+domanda: Quali condizioni devono essere identiche per tutte le fette? Le risposte giuste sono più di una.
++ Lo stesso pane, comprato insieme, tagliato in fette uguali | Fette dello stesso filone hanno la stessa umidità di partenza e gli stessi ingredienti.
++ La stessa stanza e la stessa temperatura | Il calore accelera la crescita della muffa: se cambia fra i gruppi, non saprai a chi dare la colpa.
++ Lo stesso momento di partenza per tutte | Se una fetta parte due giorni dopo, i giorni contati non sono confrontabili.
++ Toccare tutte le fette allo stesso modo, o meglio non toccarle affatto | Sulle mani ci sono spore e umidità: una fetta maneggiata di più parte svantaggiata senza che tu lo sappia.
+- Se il sacchetto è aperto o chiuso | È l'unica cosa che deve essere diversa: è la variabile che stai studiando.
+- Il giorno in cui compare la muffa | È il risultato. Non si decide, si osserva.
+
+[PASSO]
+titolo: Il gruppo di controllo
+domanda: Come costruisci il gruppo di controllo?
++ Fette identiche, nella stessa stanza e nello stesso momento, lasciate semplicemente all'aria | Identiche in tutto tranne che nel sacchetto. Sono il paragone che dice come vanno le cose "senza trattamento".
+- Una fetta tenuta in frigorifero | Cambieresti insieme umidità e temperatura, e alla fine non sapresti quale delle due ha contato.
+- Nessuna fetta: basta guardare quella nel sacchetto | Senza confronto non puoi dire se quattro giorni sono tanti o pochi. Il numero da solo non significa nulla.
+- Una fetta di un altro tipo di pane, lasciata all'aria | Due differenze insieme, il pane e il sacchetto. Il controllo deve differire per una cosa sola.
+
+[PASSO]
+titolo: Il dato strano
+premessa: Al terzo giorno noti che una fetta del gruppo "all'aria" ha già una macchia di muffa, molto prima di tutte le altre. Ti ricordi che quella fetta ti era caduta sul pavimento mentre la sistemavi.
+domanda: Che cosa fai?
++ La escludi dal calcolo, ma scrivi nel quaderno che l'hai esclusa e perché | Si può scartare un dato quando sai che qualcosa è andato storto nella procedura. Ciò che non si può fare è scartarlo di nascosto: la nota nel quaderno permette a chiunque di controllare la tua scelta e di non fidarsi ciecamente.
+- La cancelli e non ne parli con nessuno | Questo si chiama truccare i dati, anche quando lo si fa in buona fede. Chi legge il tuo esperimento deve poter vedere tutte le scelte che hai fatto.
+- La tieni nel conteggio come se niente fosse | Sai che quella fetta ha subito un trattamento diverso dalle altre: tenerla dentro senza dire nulla sporca il risultato allo stesso modo.
+- Butti via tutto l'esperimento e ricominci | Una fetta storta su venti non rovina il lavoro. Si annota, si esclude, si va avanti: ricominciare ogni volta renderebbe impossibile qualunque ricerca.
+
+
+[CASO]
+titolo: Studiare con la musica
+icona: 🎧
+storia: Metà della classe giura di ricordare meglio studiando con
+la musica nelle orecchie; l'altra metà dice che è una scusa.
+Decidete di scoprirlo con un esperimento fatto in classe, su di voi.
+Attenzione: quando i soggetti sono persone, le trappole sono di più.
+
+[PASSO]
+titolo: L'ipotesi
+domanda: Quale ipotesi vi permette di arrivare a una risposta?
++ Chi memorizza un elenco di parole ascoltando musica ne ricorda un numero diverso rispetto a chi lo fa in silenzio | Precisa: dice che cosa si fa (memorizzare un elenco), che cosa cambia (musica o silenzio) e che cosa si conta (quante parole). E ammette entrambi gli esiti, anche quello che vi smentisce.
+- La musica aiuta a concentrarsi | "Concentrarsi" non si conta. Bisogna scegliere un compito preciso e un risultato numerabile, altrimenti alla fine ognuno resterà della propria idea.
+- La musica classica è la migliore per studiare | Introduce un confronto fra generi che non avete previsto, e "migliore" non è definito. Una domanda alla volta.
+- Chi ascolta musica mentre studia prende voti più bassi | I voti dipendono da decine di cose: quanto uno studia, la materia, l'insegnante, il caso. Troppe cause per un esperimento di classe.
+
+[PASSO]
+titolo: Che cosa cambio
+domanda: Qual è la variabile indipendente?
++ La presenza o l'assenza della musica durante i dieci minuti di studio | Una sola differenza, chiara e sotto il vostro controllo.
+- Quante parole ricorda ciascuno | È il risultato che misurate alla fine, non la causa che decidete voi.
+- La bravura degli studenti | Non è una cosa che potete "cambiare": è una differenza che esiste già fra le persone. Proprio per questo va distribuita a caso fra i due gruppi.
+- Il volume della musica | Sarebbe un secondo esperimento, interessante ma diverso. Per ora la domanda è solo: musica sì o musica no.
+
+[PASSO]
+titolo: Chi va in quale gruppo
+domanda: Come dividete la classe nei due gruppi?
++ A sorte, per esempio estraendo i nomi da un sacchetto | L'estrazione a sorte sparpaglia fra i due gruppi tutte le differenze che non potete controllare: memoria, stanchezza, abitudini di studio. È il modo più semplice per impedire che un gruppo parta avvantaggiato.
+- Chi vuole la musica si mette nel gruppo con la musica | È la trappola più insidiosa. Chi sceglie la musica probabilmente è già abituato a studiare così: alla fine misurereste l'abitudine, non l'effetto della musica.
+- Da una parte i più bravi, dall'altra gli altri, per bilanciare | Così costruite di proposito due gruppi diversi in partenza, e la differenza finale sarà soprattutto la loro.
+- Prima metà dell'elenco in un gruppo, seconda metà nell'altro | L'elenco è alfabetico, quindi non è casuale: fratelli, cugini e compagni di banco finiscono spesso vicini. Meglio l'estrazione vera.
+
+[PASSO]
+titolo: Che cosa tengo uguale
+tipo: multipla
+domanda: Che cosa deve essere identico per i due gruppi? Le risposte giuste sono più di una.
++ L'elenco di parole da memorizzare | Elenchi diversi hanno difficoltà diverse: sarebbe una seconda causa nascosta.
++ Il tempo a disposizione per studiare | Più minuti significano più parole ricordate, indipendentemente dalla musica.
++ Il momento della giornata e il luogo | Alla settima ora si ricorda meno che alla prima: se un gruppo prova la mattina e l'altro il pomeriggio, la differenza potrebbe essere solo stanchezza.
++ Il test finale e il modo in cui viene corretto | Se un gruppo viene corretto con più indulgenza, il risultato è falsato senza che nessuno lo voglia.
+- La musica nelle orecchie | È l'unica cosa che deve cambiare: è ciò che state studiando.
+- Il numero di parole ricordate | È il risultato. Se fosse uguale per forza, non ci sarebbe niente da scoprire.
+
+[PASSO]
+titolo: Il gruppo di controllo
+domanda: Chi è il gruppo di controllo, e perché serve?
++ Il gruppo che studia lo stesso elenco, nello stesso tempo e nello stesso posto, ma in silenzio | È il paragone: dice quante parole si ricordano normalmente. Solo confrontando i due numeri la musica diventa una risposta e non un'impressione.
+- Il gruppo con la musica, perché è quello che state osservando | Quello è il gruppo sperimentale. Il controllo è sempre quello che non riceve il trattamento.
+- Nessuno: basta chiedere a ognuno se secondo lui la musica lo ha aiutato | Le impressioni personali sono proprio ciò che l'esperimento deve superare. Se bastassero, non servirebbe misurare niente.
+- Gli studenti di un'altra classe | Un'altra classe ha insegnanti, orari e abitudini diversi: troppe differenze in una volta. Il controllo deve venire dallo stesso gruppo di partenza, diviso a sorte.
+
+[PASSO]
+titolo: La conclusione
+premessa: Ecco i risultati. Gruppo con musica: 12,4 parole ricordate in media. Gruppo in silenzio: 13,1. Ma dentro ciascun gruppo si va da 6 a 19 parole, e in ogni gruppo ci sono dodici persone.
+domanda: Che cosa concludete?
++ La differenza fra i gruppi è piccola rispetto a quanto variano le persone dentro ciascun gruppo: questo esperimento non permette di decidere | È la conclusione più difficile da accettare e la più onesta. Quando la differenza fra i gruppi è molto minore della variabilità interna, può essere solo effetto del caso. Servono più persone e prove ripetute.
+- È dimostrato che la musica fa ricordare meno | Sette decimi di parola di differenza, con persone che vanno da 6 a 19: quel distacco può nascere dal caso. Sarebbe come dire chi è più alto fra due classi confrontando due studenti a testa.
+- L'esperimento è sbagliato, perché doveva venire una differenza netta | Un esperimento non è sbagliato quando non conferma l'ipotesi. Anzi: i risultati "negativi" sono informazioni preziose, e nella ricerca vera vengono pubblicati troppo poco.
+- Chi ha ricordato 19 parole dimostra che la musica funziona | Un singolo caso non dimostra niente: in ogni gruppo c'è sempre qualcuno che va molto bene. Per questo si guardano le medie e quanto sono sparpagliati i dati.
+
+
+[CASO]
+titolo: La ruggine sui chiodi
+icona: 🔩
+storia: Un chiodo dimenticato sul balcone per un mese si è coperto
+di ruggine. Un chiodo identico, rimasto nella scatola in cantina, è
+ancora lucido. Che cosa serve davvero perché il ferro arrugginisca:
+l'acqua, l'aria, o tutte e due?
+
+[PASSO]
+titolo: L'ipotesi
+domanda: Da quale ipotesi conviene partire?
++ Un chiodo di ferro immerso nell'acqua sviluppa ruggine in meno giorni di un chiodo tenuto all'asciutto | Una causa sola alla volta: l'acqua. Verificabile, misurabile e smentibile. All'aria e all'ossigeno penserai in un secondo momento.
+- Il ferro si arrugginisce | Vero ma inutile: non dice a quali condizioni, né quanto in fretta. Non c'è niente da confrontare.
+- L'acqua e l'aria insieme fanno arrugginire il ferro | È la risposta giusta dal punto di vista chimico, ma come ipotesi di partenza mette in gioco due cause in una volta. Prima si isola una causa, poi si aggiunge l'altra.
+- Il balcone è un posto che fa male ai chiodi | Sul balcone cambiano insieme umidità, pioggia, sbalzi di temperatura e polvere. Non isola niente.
+
+[PASSO]
+titolo: Che cosa cambio
+domanda: Che cosa fai variare fra i barattoli?
++ Se il chiodo è a contatto con l'acqua oppure no | Una differenza sola, decisa da te. È il cuore dell'esperimento.
+- Il tipo di chiodo | Chiodi di metalli diversi arrugginiscono in modi diversi: aggiungeresti una causa e perderesti la risposta.
+- Il tempo che aspetti | Il tempo scorre uguale per tutti i barattoli: è la cornice dell'esperimento, non una variabile.
+- La grandezza del barattolo | Non è ciò che vuoi studiare, e se cambia introduce differenze di aria e di evaporazione.
+
+[PASSO]
+titolo: Che cosa misuro
+domanda: Come registri quanto è arrugginito un chiodo?
++ I giorni fino alla prima macchia arancione, e alla fine la frazione di superficie coperta, confrontando con una scala di riferimento sempre uguale | Un tempo e una quantità, con un criterio fisso. Se fotografi i chiodi ogni giorno alla stessa distanza e con la stessa luce, chiunque può ricontrollare le tue valutazioni.
+- Quanto è brutto il chiodo alla fine | Giudizio personale: due osservatori darebbero due risposte. Un dato che non si può ricontrollare non serve a nessuno.
+- Se il chiodo si è rotto | La ruggine superficiale non spezza un chiodo in poche settimane. Misureresti un effetto che non arriva mai.
+- Il colore dell'acqua nel barattolo | Cambia anche per la polvere e per la luce. È un indizio, non una misura della ruggine sul chiodo.
+
+[PASSO]
+titolo: Che cosa tengo uguale
+tipo: multipla
+domanda: Che cosa deve essere identico in tutti i barattoli? Le risposte giuste sono più di una.
++ Chiodi nuovi, dello stesso tipo e della stessa scatola | Chiodi già usati o di leghe diverse partono da condizioni diverse.
++ Barattoli uguali, nello stesso posto | Luce, temperatura e aria devono essere le stesse per tutti.
++ Il momento in cui parte l'esperimento | Se un barattolo parte una settimana dopo, i giorni contati non sono confrontabili.
++ La pulizia iniziale dei chiodi e il modo di maneggiarli | Il grasso delle dita protegge il metallo: un chiodo toccato molto parte avvantaggiato senza che tu lo sappia.
+- La presenza dell'acqua | È l'unica cosa che deve cambiare: è la variabile che stai studiando.
+- La quantità di ruggine alla fine | È il risultato dell'esperimento, non una condizione da imporre.
+
+[PASSO]
+titolo: Il gruppo di controllo
+domanda: Qual è il controllo?
++ Un chiodo identico in un barattolo asciutto, nello stesso posto e per lo stesso tempo | Uguale in tutto tranne che nell'acqua. Se resta lucido mentre l'altro arrugginisce, la differenza si può attribuire all'acqua.
+- Il chiodo nell'acqua, perché è quello che osservi di più | Quello è il gruppo sperimentale: riceve il trattamento di cui vuoi conoscere l'effetto.
+- Un chiodo lasciato fuori sul balcone | Sul balcone cambiano insieme troppe cose. Il controllo deve stare nelle stesse condizioni del gruppo sperimentale, meno una.
+- Una vite di plastica in acqua | La plastica non arrugginisce in nessun caso: il confronto non dice niente sul ferro.
+
+[PASSO]
+titolo: Un passo più in là
+premessa: Dopo due settimane il chiodo nell'acqua è coperto di ruggine, quello asciutto è intatto. A questo punto ti chiedi se all'acqua serva anche l'ossigeno dell'aria per fare il suo effetto.
+domanda: Quale terzo barattolo aggiungi per rispondere?
++ Un chiodo in acqua fatta bollire e raffreddata, coperta da uno strato d'olio che impedisce all'aria di tornare dentro | La bollitura caccia via quasi tutto l'ossigeno disciolto e l'olio gli impedisce di rientrare. Così hai acqua senza ossigeno: se il chiodo resta lucido, hai scoperto che l'acqua da sola non basta. È così che si isola una causa alla volta.
+- Un chiodo in acqua salata | Interessante, ma risponde a un'altra domanda: se il sale acceleri la ruggine. Il sale non toglie l'ossigeno, anzi rende tutto più veloce.
+- Un chiodo in un barattolo chiuso senza niente dentro | Chiuso o no, dentro c'è aria umida. E soprattutto manca l'acqua, quindi non stai isolando l'ossigeno.
+- Un chiodo in frigorifero dentro l'acqua | Cambieresti la temperatura, non l'ossigeno. Il freddo rallenta tutto e confonderebbe la risposta.
