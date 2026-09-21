@@ -590,14 +590,25 @@ h2 { font-size: 1.3rem; margin: 0 0 10px; letter-spacing: -.01em; }
   margin-bottom: 18px;
 }
 
+.guida {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  color: var(--testo);
+  background: var(--accento-chiaro);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 0 0 18px;
+}
+
 .pillola {
   border: 1px solid var(--bordo-forte);
   background: var(--superficie);
   color: var(--testo);
   border-radius: 999px;
-  padding: 7px 15px;
+  min-height: 44px;
+  padding: 9px 18px;
   font: inherit;
-  font-size: .9rem;
+  font-size: .98rem;
   cursor: pointer;
 }
 
@@ -610,70 +621,170 @@ h2 { font-size: 1.3rem; margin: 0 0 10px; letter-spacing: -.01em; }
   font-weight: 700;
 }
 
-.riga-conversione {
+.pillola-altre {
+  border-style: dashed;
+  color: var(--testo-tenue);
+  font-size: .9rem;
+}
+
+/* la domanda scritta come una frase */
+
+.frase {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 18px;
+  gap: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
 }
 
+.frase-parola { color: var(--testo-tenue); }
+
 .campo-valore {
-  flex: 1 1 110px;
-  min-width: 100px;
-  min-height: 46px;
+  flex: 0 1 130px;
+  min-width: 90px;
+  min-height: 52px;
   padding: 10px 14px;
-  border: 1px solid var(--bordo-forte);
-  border-radius: 10px;
+  border: 2px solid var(--accento);
+  border-radius: 12px;
   background: var(--superficie);
   color: var(--testo);
   font: inherit;
-  font-size: 1.1rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 
 .scelta-unita {
-  flex: 1 1 130px;
-  min-height: 46px;
+  flex: 0 1 190px;
+  min-height: 52px;
   padding: 10px 12px;
   border: 1px solid var(--bordo-forte);
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--superficie);
   color: var(--testo);
   font: inherit;
-  font-size: .95rem;
+  font-size: 1rem;
 }
 
 .campo-valore:focus,
 .scelta-unita:focus { border-color: var(--accento); }
 
-.freccia-conversione {
-  flex: none;
-  color: var(--testo-tenue);
-  font-size: 1.2rem;
+/* numeri pronti */
+
+.esempi {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 20px;
 }
+
+.esempi-etichetta {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .85rem;
+  color: var(--testo-tenue);
+}
+
+.bottone-esempio {
+  border: 1px solid var(--bordo-forte);
+  background: var(--superficie-alt);
+  color: var(--testo);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font: inherit;
+  font-size: .92rem;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+.bottone-esempio:hover { border-color: var(--accento); color: var(--accento); }
+
+/* il risultato */
 
 .risultato-grande {
   background: var(--superficie);
   border: 1px solid var(--bordo);
   border-radius: var(--raggio);
-  padding: 20px;
+  padding: 22px 20px;
   box-shadow: var(--ombra);
   text-align: center;
-  line-height: 1.35;
+  line-height: 1.25;
   overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
 }
 
-.risultato-da { color: var(--testo-tenue); font-size: 1rem; }
-.risultato-valore { font-size: 1.9rem; font-weight: 700; color: var(--accento); }
-.risultato-unita { font-size: 1.15rem; color: var(--accento); }
+.risultato-partenza { font-size: 1.2rem; color: var(--testo-tenue); }
+.risultato-simbolo-piccolo { font-weight: 700; }
+
+.risultato-uguale {
+  font-size: 1.1rem;
+  color: var(--testo-tenue);
+  margin: 4px 0;
+}
+
+.risultato-valore { font-size: 2.3rem; font-weight: 700; color: var(--accento); }
+.risultato-unita { font-size: 1.4rem; font-weight: 700; color: var(--accento); }
+
+.risultato-nome {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .85rem;
+  color: var(--testo-tenue);
+  margin-top: 6px;
+}
+
 .risultato-vuoto { color: var(--testo-tenue); font-size: .95rem; }
+
+/* i due bottoni per muoversi di un gradino */
+
+.passi-gradino {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.bottone-passo {
+  flex: 1 1 0;
+  min-height: 48px;
+  border: 1px solid var(--bordo-forte);
+  border-radius: 12px;
+  background: var(--superficie);
+  color: var(--accento);
+  font: inherit;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .88rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 10px;
+}
+
+.bottone-passo:hover:not(:disabled) { border-color: var(--accento); }
+.bottone-passo:disabled { opacity: .35; cursor: not-allowed; color: var(--testo-tenue); }
 
 .spiegazione-scala {
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  font-size: .9rem;
-  color: var(--testo-tenue);
-  margin: 12px 0 20px;
+  font-size: .95rem;
+  color: var(--testo);
+  margin: 14px 0 22px;
   text-align: center;
+}
+
+.suggerimento {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .82rem;
+  color: var(--testo-tenue);
+  text-align: center;
+  margin: 0 0 8px;
+}
+
+.titolo-blocco { font-size: 1.1rem; margin: 26px 0 4px; }
+
+.didascalia {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .85rem;
+  color: var(--testo-tenue);
+  margin: 0 0 14px;
 }
 
 .nota-grandezza {
@@ -706,26 +817,46 @@ h2 { font-size: 1.3rem; margin: 0 0 10px; letter-spacing: -.01em; }
 }
 
 .gradino {
+  position: relative;
   flex: 1 0 auto;
-  min-width: 62px;
+  min-width: 68px;
+  min-height: 62px;
   border: 1px solid var(--bordo-forte);
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--superficie);
   color: var(--testo);
   font: inherit;
-  padding: 9px 6px;
+  padding: 12px 6px 9px;
   cursor: pointer;
   text-align: center;
 }
 
 .gradino:hover { border-color: var(--accento); }
-.gradino-simbolo { display: block; font-weight: 700; font-size: 1rem; }
+.gradino-simbolo { display: block; font-weight: 700; font-size: 1.1rem; }
 .gradino-nome {
   display: block;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  font-size: .64rem;
+  font-size: .66rem;
+  line-height: 1.25;
   color: var(--testo-tenue);
-  margin-top: 2px;
+  margin-top: 3px;
+}
+
+/* le targhette "da" e "a": l'informazione non è affidata al solo colore */
+.targhetta {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .64rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--testo-tenue);
+  color: var(--sfondo);
 }
 
 .gradino.partenza { border-color: var(--accento); border-width: 2px; }
@@ -735,14 +866,15 @@ h2 { font-size: 1.3rem; margin: 0 0 10px; letter-spacing: -.01em; }
 }
 .gradino.arrivo .gradino-simbolo,
 .gradino.arrivo .gradino-nome { color: var(--testo-su-accento); }
+.gradino.arrivo .targhetta { background: var(--testo); color: var(--sfondo); }
 
 .salto {
   flex: none;
   align-self: center;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  font-size: .64rem;
+  font-size: .68rem;
   color: var(--testo-tenue);
-  padding: 0 2px;
+  padding: 0 3px;
 }
 
 /* la tabella delle cifre */
@@ -772,16 +904,19 @@ h2 { font-size: 1.3rem; margin: 0 0 10px; letter-spacing: -.01em; }
 .tabella-cifre th.colonna-extra { background: transparent; border-color: transparent; }
 
 .tabella-cifre td.cifra {
-  width: 30px;
-  height: 38px;
+  width: 34px;
+  height: 46px;
   text-align: center;
   border: 1px solid var(--bordo);
   background: var(--superficie);
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 700;
 }
 
-.tabella-cifre td.cifra-zero { color: var(--bordo-forte); font-weight: 400; }
+/* le cifre del numero scritto sono colorate, gli zeri di contorno no:
+   così si vede a colpo d'occhio che le cifre non si spostano mai */
+.tabella-cifre td.cifra-viva { color: var(--accento); }
+.tabella-cifre td.cifra-zero { color: var(--testo-tenue); opacity: .55; font-weight: 400; }
 
 .tabella-cifre td.cifra-virgola {
   border-right: 3px solid var(--accento);
@@ -801,10 +936,26 @@ h2 { font-size: 1.3rem; margin: 0 0 10px; letter-spacing: -.01em; }
 
 /* lo stesso valore in tutte le unità */
 
-.tutte-unita h4 {
-  font-size: .95rem;
-  margin: 0 0 10px;
+.tutte-unita {
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+  background: var(--superficie-alt);
+  margin-top: 22px;
 }
+
+.tutte-unita summary {
+  cursor: pointer;
+  padding: 14px 18px;
+  font-weight: 700;
+  font-size: .95rem;
+  list-style: none;
+}
+
+.tutte-unita summary::-webkit-details-marker { display: none; }
+.tutte-unita summary::before { content: "▸ "; color: var(--accento); }
+.tutte-unita[open] summary::before { content: "▾ "; }
+.tutte-unita[open] summary { border-bottom: 1px solid var(--bordo); }
+.tutte-unita .elenco-valori { padding: 14px 18px; }
 
 .elenco-valori {
   display: grid;

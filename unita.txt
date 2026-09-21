@@ -15,6 +15,9 @@
 #   nota:   una frase che compare sotto la scala (facoltativa)
 #   scala:  scrivi "no" se i passaggi non sono potenze di dieci
 #           (come per il tempo). Se non scrivi nulla vale "sì".
+#   avanzata: scrivi "sì" per tenere la grandezza nascosta dietro
+#           il pulsante "+ altre grandezze", così la schermata
+#           iniziale resta semplice.
 #
 # Poi l'elenco delle unità, dalla più grande alla più piccola:
 #
@@ -109,8 +112,9 @@ unita: mm³ | millimetro cubo | 10^-9
 
 
 [GRANDEZZA]
-nome: Prefissi del Sistema Internazionale
+nome: Prefissi
 icona: 🔬
+avanzata: sì
 nota: Gli stessi prefissi si attaccano a qualunque unità: un megametro, un microgrammo, un nanosecondo. Fra kilo e mega, e fra milli e micro, il salto vale mille.
 unita: G | giga | 10^9
 unita: M | mega | 10^6
@@ -129,6 +133,7 @@ unita: n | nano | 10^-9
 nome: Tempo
 icona: ⏳
 scala: no
+avanzata: sì
 nota: Il tempo non segue le potenze di dieci: sotto il secondo sì, sopra il secondo no. È l'unico caso in cui la scala a gradini non funziona e bisogna moltiplicare e dividere per i fattori giusti.
 unita: giorno | giorno | 86400
 unita: h | ora | 3600

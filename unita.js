@@ -23,6 +23,7 @@
   var unitaPartenza = null;
   var unitaArrivo = null;
   var testoValore = "1";
+  var mostraAvanzate = false;
 
   /* lo stato dell'allenamento */
   var livello = "facile";
@@ -116,7 +117,7 @@
      2. Lettura del file unita.txt
      ========================================================== */
 
-  var CHIAVI = ["nome", "icona", "nota", "scala"];
+  var CHIAVI = ["nome", "icona", "nota", "scala", "avanzata"];
 
   function leggiGrandezze(testo) {
     var elenco = [];
@@ -131,7 +132,7 @@
       if (riga === "" || riga.charAt(0) === "#") continue;
 
       if (riga.toUpperCase() === "[GRANDEZZA]") {
-        g = { nome: "", icona: "📐", nota: "", scala: true, unita: [] };
+        g = { nome: "", icona: "📐", nota: "", scala: true, avanzata: false, unita: [] };
         elenco.push(g);
         ultimaChiave = null;
         continue;
@@ -174,10 +175,14 @@
           }
           if (chiave === "scala") {
             g.scala = !/^(no|n)$/i.test(valore);
+            ultimaChiave = null;
+          } else if (chiave === "avanzata") {
+            g.avanzata = /^(s|si|sì|y|yes)$/i.test(valore);
+            ultimaChiave = null;
           } else {
             g[chiave] = valore;
+            ultimaChiave = chiave;
           }
-          ultimaChiave = chiave === "scala" ? null : chiave;
           continue;
         }
       }
@@ -189,7 +194,6 @@
       errori.push("riga " + numeroRiga + ": non ho capito \"" + riga.slice(0, 40) + "\". La salto.");
     }
 
-    /* controlli finali */
     var buone = [];
     elenco.forEach(function (gr) {
       if (!gr.nome) {
@@ -200,9 +204,7 @@
         errori.push("« " + gr.nome + " » ha meno di due unità: l'ho saltata.");
         return;
       }
-      /* dalla più grande alla più piccola, qualunque ordine abbia il file */
       gr.unita.sort(function (a, b) { return b.fattore - a.fattore; });
-      /* la scala a gradini funziona solo se tutte le unità sono potenze di dieci */
       if (gr.scala) {
         gr.scala = gr.unita.every(function (u) { return u.esp !== null; });
       }
@@ -241,77 +243,163 @@
     }
     g.colonnaMax = u[0].esp + u[0].caselle - 1;
     g.colonnaMin = u[u.length - 1].esp;
-    g.numeroColonne = g.colonnaMax - g.colonnaMin + 1 + 2;  /* due caselle in più per i decimali */
+    g.numeroColonne = g.colonnaMax - g.colonnaMin + 1 + 2;
+  }
+
+  /* l'unità da cui conviene partire: quella che vale 1 */
+  function unitaDiRiferimento(g) {
+    for (var i = 0; i < g.unita.length; i++) {
+      if (g.unita[i].fattore === 1) return g.unita[i];
+    }
+    return g.unita[Math.floor(g.unita.length / 2)];
+  }
+
+  /* Si parte dalla conversione più familiare: se c'è un'unità che vale
+     mille (il chilo), si parte da quella e si arriva all'unità di
+     riferimento; altrimenti si parte dal riferimento e si scende di uno. */
+  function apriGrandezza(g) {
+    grandezzaScelta = g;
+    var riferimento = unitaDiRiferimento(g);
+    var posizione = g.unita.indexOf(riferimento);
+    var mille = null;
+    g.unita.forEach(function (u) { if (u.esp === 3) mille = u; });
+
+    if (mille && mille !== riferimento) {
+      unitaPartenza = mille;
+      unitaArrivo = riferimento;
+    } else {
+      unitaPartenza = riferimento;
+      unitaArrivo = g.unita[Math.min(g.unita.length - 1, posizione + 1)];
+      if (unitaArrivo === unitaPartenza) unitaArrivo = g.unita[Math.max(0, posizione - 1)];
+    }
   }
 
   /* ==========================================================
-     3. La scala: disegno
+     3. La scala
      ========================================================== */
 
   function disegnaScala() {
     var g = grandezzaScelta;
     var zona = elemento("div");
 
-    /* scelta della grandezza */
+    zona.appendChild(elemento("p", "guida",
+      "Scrivi un numero, scegli le due unità e guarda dove finisce la virgola."));
+
+    /* le grandezze */
     var scelte = elemento("div", "scelte-grandezza");
     grandezze.forEach(function (gr) {
+      if (gr.avanzata && !mostraAvanzate) return;
       var b = elemento("button", "pillola" + (gr === g ? " attiva" : ""));
       b.type = "button";
-      b.appendChild(elemento("span", null, (gr.icona || "") + " " + gr.nome));
+      b.textContent = (gr.icona || "") + " " + gr.nome;
       b.addEventListener("click", function () {
-        grandezzaScelta = gr;
-        unitaPartenza = gr.unita[0];
-        unitaArrivo = gr.unita[gr.unita.length - 1];
+        apriGrandezza(gr);
         mostra();
       });
       scelte.appendChild(b);
     });
+
+    if (grandezze.some(function (gr) { return gr.avanzata; })) {
+      var altre = elemento("button", "pillola pillola-altre");
+      altre.type = "button";
+      altre.textContent = mostraAvanzate ? "− meno grandezze" : "+ altre grandezze";
+      altre.addEventListener("click", function () {
+        mostraAvanzate = !mostraAvanzate;
+        mostra();
+      });
+      scelte.appendChild(altre);
+    }
     zona.appendChild(scelte);
 
-    /* riga del calcolo: valore, da, a */
-    var riga = elemento("div", "riga-conversione");
+    /* la domanda, scritta come una frase */
+    var frase = elemento("div", "frase");
+    frase.appendChild(elemento("span", "frase-parola", "Quanto fa"));
 
     var campo = elemento("input", "campo-valore");
     campo.type = "text";
     campo.inputMode = "decimal";
     campo.value = testoValore;
-    campo.setAttribute("aria-label", "valore da convertire");
+    campo.setAttribute("aria-label", "numero da convertire");
     campo.addEventListener("input", function () {
       testoValore = campo.value;
       aggiornaRisultato();
     });
-    riga.appendChild(campo);
+    frase.appendChild(campo);
 
-    var sceltaDa = selettoreUnita(g, unitaPartenza, function (u) {
+    frase.appendChild(selettoreUnita(g, unitaPartenza, function (u) {
       unitaPartenza = u;
       mostra();
-    });
-    riga.appendChild(sceltaDa);
+    }));
 
-    riga.appendChild(elemento("span", "freccia-conversione", "→"));
+    frase.appendChild(elemento("span", "frase-parola", "in"));
 
-    var sceltaA = selettoreUnita(g, unitaArrivo, function (u) {
+    frase.appendChild(selettoreUnita(g, unitaArrivo, function (u) {
       unitaArrivo = u;
       mostra();
+    }));
+
+    frase.appendChild(elemento("span", "frase-parola", "?"));
+    zona.appendChild(frase);
+
+    /* numeri pronti, per non dover scrivere */
+    var esempi = elemento("div", "esempi");
+    esempi.appendChild(elemento("span", "esempi-etichetta", "prova con:"));
+    ["1", "2,5", "0,045", "350"].forEach(function (v) {
+      var b = elemento("button", "bottone-esempio", v);
+      b.type = "button";
+      b.addEventListener("click", function () {
+        testoValore = v;
+        mostra();
+      });
+      esempi.appendChild(b);
     });
-    riga.appendChild(sceltaA);
+    zona.appendChild(esempi);
 
-    zona.appendChild(riga);
-
-    /* il risultato grande */
+    /* il risultato */
     var risultato = elemento("div", "risultato-grande");
     risultato.id = "risultato-grande";
+    risultato.setAttribute("role", "status");
+    risultato.setAttribute("aria-live", "polite");
     zona.appendChild(risultato);
+
+    /* i due bottoni per muoversi di un gradino */
+    var passi = elemento("div", "passi-gradino");
+    var indice = g.unita.indexOf(unitaArrivo);
+
+    var sinistra = elemento("button", "bottone-passo", "◀  un gradino più grande");
+    sinistra.type = "button";
+    sinistra.disabled = indice <= 0;
+    sinistra.addEventListener("click", function () {
+      unitaArrivo = g.unita[indice - 1];
+      mostra();
+    });
+    passi.appendChild(sinistra);
+
+    var destra = elemento("button", "bottone-passo", "un gradino più piccolo  ▶");
+    destra.type = "button";
+    destra.disabled = indice >= g.unita.length - 1;
+    destra.addEventListener("click", function () {
+      unitaArrivo = g.unita[indice + 1];
+      mostra();
+    });
+    passi.appendChild(destra);
+    zona.appendChild(passi);
 
     var spiegazione = elemento("p", "spiegazione-scala");
     spiegazione.id = "spiegazione-scala";
     zona.appendChild(spiegazione);
 
     /* la striscia dei gradini */
+    zona.appendChild(elemento("p", "suggerimento",
+      "Tocca un gradino per cambiare l'unità di arrivo."));
     zona.appendChild(disegnaGradini(g));
 
     /* la tabella delle cifre */
     if (g.scala && g.numeroColonne <= 18) {
+      zona.appendChild(elemento("h3", "titolo-blocco", "Dove finisce la virgola"));
+      zona.appendChild(elemento("p", "didascalia",
+        "Ogni casella è una cifra. Le cifre colorate sono quelle del tuo numero: " +
+        "restano sempre le stesse, si muove solo la virgola."));
       var involucro = elemento("div", "involucro-tabella");
       involucro.id = "involucro-tabella";
       zona.appendChild(involucro);
@@ -321,12 +409,15 @@
         "quindi ti mostro solo la scala dei gradini."));
     }
 
-    if (g.nota) zona.appendChild(elemento("p", "nota-grandezza", g.nota));
+    /* lo stesso valore in tutte le unità, richiudibile */
+    var dettagli = elemento("details", "tutte-unita");
+    dettagli.appendChild(elemento("summary", null, "Lo stesso valore in tutte le unità"));
+    var lista = elemento("div", "elenco-valori");
+    lista.id = "elenco-valori";
+    dettagli.appendChild(lista);
+    zona.appendChild(dettagli);
 
-    /* lo stesso valore in tutte le unità */
-    var tutte = elemento("div", "tutte-unita");
-    tutte.id = "tutte-unita";
-    zona.appendChild(tutte);
+    if (g.nota) zona.appendChild(elemento("p", "nota-grandezza", g.nota));
 
     return zona;
   }
@@ -357,6 +448,8 @@
       cella.type = "button";
       if (u === unitaPartenza) cella.classList.add("partenza");
       if (u === unitaArrivo) cella.classList.add("arrivo");
+      if (u === unitaPartenza) cella.appendChild(elemento("span", "targhetta", "da"));
+      if (u === unitaArrivo) cella.appendChild(elemento("span", "targhetta", "a"));
       cella.appendChild(elemento("span", "gradino-simbolo", u.simbolo));
       cella.appendChild(elemento("span", "gradino-nome", u.nome));
       cella.setAttribute("aria-label", "porta il risultato in " + u.nome);
@@ -371,19 +464,18 @@
     return involucro;
   }
 
-  /* ricalcola risultato, spiegazione, tabella ed elenco */
   function aggiornaRisultato() {
     var g = grandezzaScelta;
     var risultato = document.getElementById("risultato-grande");
     var spiegazione = document.getElementById("spiegazione-scala");
     var tabella = document.getElementById("involucro-tabella");
-    var tutte = document.getElementById("tutte-unita");
+    var lista = document.getElementById("elenco-valori");
     if (!risultato) return;
 
     svuota(risultato);
     svuota(spiegazione);
     if (tabella) svuota(tabella);
-    svuota(tutte);
+    if (lista) svuota(lista);
 
     var n = leggiNumero(testoValore);
 
@@ -393,18 +485,22 @@
       return;
     }
 
-    /* il risultato */
-    var testoRisultato;
-    if (g.scala) {
-      testoRisultato = scriviNumero(converti(n, unitaPartenza, unitaArrivo));
-    } else {
-      testoRisultato = convertiNumerico(testoValore, unitaPartenza, unitaArrivo);
-    }
+    var testoRisultato = g.scala
+      ? scriviNumero(converti(n, unitaPartenza, unitaArrivo))
+      : convertiNumerico(testoValore, unitaPartenza, unitaArrivo);
 
-    risultato.appendChild(elemento("span", "risultato-da",
-      scriviNumero(n) + " " + unitaPartenza.simbolo + "  ="));
-    risultato.appendChild(elemento("span", "risultato-valore", " " + testoRisultato));
-    risultato.appendChild(elemento("span", "risultato-unita", " " + unitaArrivo.simbolo));
+    var partenza = elemento("div", "risultato-partenza");
+    partenza.appendChild(elemento("span", "risultato-numero-piccolo", scriviNumero(n)));
+    partenza.appendChild(elemento("span", "risultato-simbolo-piccolo", " " + unitaPartenza.simbolo));
+    risultato.appendChild(partenza);
+
+    risultato.appendChild(elemento("div", "risultato-uguale", "="));
+
+    var arrivo = elemento("div", "risultato-arrivo");
+    arrivo.appendChild(elemento("span", "risultato-valore", testoRisultato));
+    arrivo.appendChild(elemento("span", "risultato-unita", " " + unitaArrivo.simbolo));
+    risultato.appendChild(arrivo);
+    risultato.appendChild(elemento("div", "risultato-nome", unitaArrivo.nome));
 
     /* la spiegazione */
     if (g.scala) {
@@ -412,39 +508,34 @@
       if (posti === 0) {
         spiegazione.textContent = "Stessa unità: il numero non cambia.";
       } else {
-        var verso = posti > 0 ? "destra" : "sinistra";
         var quanti = Math.abs(posti);
-        var fattore = "1" + ripeti("0", quanti);
+        var verso = posti > 0 ? "destra" : "sinistra";
         spiegazione.textContent =
-          "Le cifre restano le stesse: si sposta solo la virgola, di " + quanti +
-          (quanti === 1 ? " posto" : " posti") + " verso " + verso + ". " +
-          "Equivale a " + (posti > 0 ? "moltiplicare" : "dividere") + " per " + fattore + ".";
+          "La virgola si sposta di " + quanti + (quanti === 1 ? " posto" : " posti") +
+          " verso " + verso + ", cioè si " + (posti > 0 ? "moltiplica" : "divide") +
+          " per 1" + ripeti("0", quanti) + ".";
       }
     } else {
       var rapporto = unitaPartenza.fattore / unitaArrivo.fattore;
-      var operazione = rapporto >= 1
-        ? "moltiplicare per " + conVirgola(rapporto)
-        : "dividere per " + conVirgola(1 / rapporto);
       spiegazione.textContent = rapporto === 1
         ? "Stessa unità: il numero non cambia."
-        : "Qui i passaggi non sono potenze di dieci, quindi non basta spostare la virgola: " +
-          "bisogna " + operazione + ".";
+        : "Qui non basta spostare la virgola: bisogna " +
+          (rapporto >= 1 ? "moltiplicare per " + conVirgola(rapporto)
+                         : "dividere per " + conVirgola(1 / rapporto)) + ".";
     }
 
-    /* la tabella delle cifre */
     if (tabella) tabella.appendChild(disegnaTabella(g, n, unitaPartenza, unitaArrivo));
 
-    /* lo stesso valore in tutte le unità */
-    tutte.appendChild(elemento("h4", null, "Lo stesso valore in tutte le unità"));
-    var lista = elemento("div", "elenco-valori");
-    g.unita.forEach(function (u) {
-      var voce = elemento("div", "valore-unita" + (u === unitaArrivo ? " evidenziato" : ""));
-      var v = g.scala ? scriviNumero(converti(n, unitaPartenza, u)) : convertiNumerico(testoValore, unitaPartenza, u);
-      voce.appendChild(elemento("span", "valore-numero", v));
-      voce.appendChild(elemento("span", "valore-simbolo", " " + u.simbolo));
-      lista.appendChild(voce);
-    });
-    tutte.appendChild(lista);
+    if (lista) {
+      g.unita.forEach(function (u) {
+        var voce = elemento("div", "valore-unita" + (u === unitaArrivo ? " evidenziato" : ""));
+        var v = g.scala ? scriviNumero(converti(n, unitaPartenza, u))
+                        : convertiNumerico(testoValore, unitaPartenza, u);
+        voce.appendChild(elemento("span", "valore-numero", v));
+        voce.appendChild(elemento("span", "valore-simbolo", " " + u.simbolo));
+        lista.appendChild(voce);
+      });
+    }
   }
 
   /* La tabella con una casella per ogni potenza di dieci.
@@ -458,13 +549,12 @@
     var colonne = [];
     for (var j = g.colonnaMax; j >= g.colonnaMin - extra; j--) colonne.push(j);
 
-    /* riga dei nomi delle unità */
     var intestazione = elemento("tr");
     g.unita.forEach(function (u) {
       var cella = elemento("th", null, u.simbolo);
       cella.colSpan = u.caselle;
       if (u === aUnita) cella.className = "colonna-arrivo";
-      if (u === daUnita) cella.className = (cella.className + " colonna-partenza").trim();
+      else if (u === daUnita) cella.className = "colonna-partenza";
       intestazione.appendChild(cella);
     });
     var vuota = elemento("th", "colonna-extra", "");
@@ -472,11 +562,11 @@
     intestazione.appendChild(vuota);
     tabella.appendChild(intestazione);
 
-    /* riga delle cifre */
     var rigaCifre = elemento("tr");
     colonne.forEach(function (j) {
       var cella = elemento("td", "cifra", cifraInColonna(assoluto, j));
-      if (!significativa(assoluto, j)) cella.classList.add("cifra-zero");
+      if (significativa(assoluto, j)) cella.classList.add("cifra-viva");
+      else cella.classList.add("cifra-zero");
       if (j === aUnita.esp) cella.classList.add("cifra-virgola");
       rigaCifre.appendChild(cella);
     });
@@ -517,7 +607,6 @@
     if (j >= g.unita.length) j = i - distanza;
     if (j < 0 || j === i) { j = i === 0 ? 1 : i - 1; }
 
-    /* un numero con una, due o tre cifre e al massimo due decimali */
     var quante = 1 + Math.floor(Math.random() * 3);
     var cifre = String(1 + Math.floor(Math.random() * 9));
     for (var k = 1; k < quante; k++) cifre += String(Math.floor(Math.random() * 10));
@@ -547,6 +636,9 @@
 
   function disegnaAllenamento() {
     var zona = elemento("div");
+
+    zona.appendChild(elemento("p", "guida",
+      "Gli esercizi sono generati a caso: puoi farne quanti vuoi, non finiscono mai."));
 
     var scelte = elemento("div", "scelte-grandezza");
     ["facile", "medio", "difficile"].forEach(function (l) {
@@ -583,11 +675,10 @@
     scheda.appendChild(elemento("div", "etichetta-passo", esercizio.grandezza.nome));
 
     var domanda = elemento("p", "domanda-esercizio");
-    domanda.appendChild(document.createTextNode("Converti "));
+    domanda.appendChild(document.createTextNode("Quanto fa "));
     domanda.appendChild(elemento("strong", null,
       scriviNumero(esercizio.numero) + " " + esercizio.da.simbolo));
-    domanda.appendChild(document.createTextNode(" in "));
-    domanda.appendChild(elemento("strong", null, esercizio.a.nome + " (" + esercizio.a.simbolo + ")"));
+    domanda.appendChild(document.createTextNode(" in " + esercizio.a.nome + "?"));
     scheda.appendChild(domanda);
 
     var riga = elemento("form", "riga-risposta");
@@ -596,7 +687,7 @@
     campo.inputMode = "decimal";
     campo.autocomplete = "off";
     campo.setAttribute("aria-label", "la tua risposta");
-    campo.placeholder = "la tua risposta";
+    campo.placeholder = "…";
     riga.appendChild(campo);
     riga.appendChild(elemento("span", "unita-risposta", esercizio.a.simbolo));
     var controlla = elemento("button", "bottone", "Controlla");
@@ -605,6 +696,8 @@
     scheda.appendChild(riga);
 
     var esito = elemento("div");
+    esito.setAttribute("role", "status");
+    esito.setAttribute("aria-live", "polite");
     scheda.appendChild(esito);
 
     function controllaRisposta(ev) {
@@ -635,15 +728,9 @@
     fatti++;
 
     var corretta = data !== null && scriviNumero(data) === testoAtteso;
-    if (corretta) {
-      giuste++;
-      serie++;
-    } else {
-      serie = 0;
-    }
+    if (corretta) { giuste++; serie++; } else { serie = 0; }
 
     var messaggio = elemento("p", "esito " + (corretta ? "bene" : "male"));
-    messaggio.setAttribute("role", "status");
     messaggio.textContent = corretta
       ? "Giusto: " + testoAtteso + " " + esercizio.a.simbolo
       : (data === null ? "Non ho capito il numero. " : "Non è questa. ") +
@@ -725,9 +812,7 @@
         contenitore.appendChild(avviso);
         return;
       }
-      grandezzaScelta = grandezze[0];
-      unitaPartenza = grandezzaScelta.unita[0];
-      unitaArrivo = grandezzaScelta.unita[grandezzaScelta.unita.length - 1];
+      apriGrandezza(grandezze[0]);
       mostra();
     })
     .catch(function (errore) {
