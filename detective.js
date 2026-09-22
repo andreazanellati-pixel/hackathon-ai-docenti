@@ -22,7 +22,20 @@
   var indicePasso = 0;      /* a che passo siamo dentro il caso */
   var esiti = [];           /* per ogni passo: true se risposto giusto */
   var selezioni = [];       /* risposte scelte nel passo in corso (domande a risposta multipla) */
+  var opzioniMostrate = []; /* le risposte del passo in corso, nell'ordine mescolato */
   var passoConcluso = false;
+
+  /* restituisce una copia mescolata, senza toccare l'originale */
+  function mescola(elenco) {
+    var copia = elenco.slice();
+    for (var i = copia.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var scambio = copia[i];
+      copia[i] = copia[j];
+      copia[j] = scambio;
+    }
+    return copia;
+  }
 
   /* ==========================================================
      1. Lettura del file casi.txt
@@ -311,7 +324,13 @@
     var contenitore = elemento("div", "risposte");
     var bottoniRisposta = [];
 
-    passo.opzioni.forEach(function (opzione, indice) {
+    /* Le risposte vengono mescolate a ogni visualizzazione. Nel file
+       casi.txt la risposta giusta si scrive comoda per prima, ma se
+       comparisse sempre in cima si imparerebbe a cliccare la A senza
+       nemmeno leggere. Rifacendo lo stesso caso l'ordine cambia. */
+    opzioniMostrate = mescola(passo.opzioni);
+
+    opzioniMostrate.forEach(function (opzione, indice) {
       var bottone = elemento("button", "risposta");
       bottone.type = "button";
       var segno = elemento("span", "segno", passo.tipo === "multipla" ? "" : String.fromCharCode(65 + indice));
@@ -372,7 +391,8 @@
     passoConcluso = true;
 
     var tuttoGiusto = true;
-    passo.opzioni.forEach(function (opzione, indice) {
+    /* si scorre l'ordine mescolato, lo stesso con cui sono stati creati i bottoni */
+    opzioniMostrate.forEach(function (opzione, indice) {
       var scelta = selezioni.indexOf(indice) >= 0;
       var bottone = bottoniRisposta[indice];
       bottone.disabled = true;

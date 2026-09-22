@@ -30,6 +30,11 @@
 # Il segno + indica la risposta giusta, il segno - una sbagliata.
 # La barra verticale | separa la risposta dalla sua spiegazione.
 #
+# L'ordine in cui le scrivi non conta: il sito mescola le risposte
+# ogni volta che mostra la domanda, quindi la giusta non capita
+# sempre nello stesso posto. Puoi tranquillamente scriverla per
+# prima, che è più comodo da rileggere.
+#
 # ALTRE COSE DA SAPERE
 # --------------------
 # - Le righe che iniziano con # sono commenti: il sito le ignora.
