@@ -537,7 +537,7 @@
         ? "un " + analita.tipo + " forte, in acqua si dissocia tutto."
         : "un " + analita.tipo + " debole, p" + (analita.tipo === "acido" ? "Ka" : "Kb") +
           " = " + conVirgola(analita.pK) + ".") +
-      (analita.dove ? " Si trova in " + analita.dove + "." : "") +
+      (analita.dove ? " Dove si trova: " + analita.dove + "." : "") +
       " Si titola con " + nomeTitolante() + ", che e' " +
       (analita.tipo === "acido" ? "una base forte." : "un acido forte.");
   }

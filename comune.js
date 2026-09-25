@@ -18,7 +18,7 @@ window.App = (function () {
      senza, chi ha gia' visitato il sito continuerebbe a vedere la
      versione vecchia anche per giorni.
      ------------------------------------------------------------ */
-  var VERSIONE = "3";
+  var VERSIONE = "4";
 
   /* ---------- funzioni di appoggio ---------- */
 

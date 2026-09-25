@@ -155,7 +155,7 @@ icona: 🔬
 disciplina: Biologia
 anni: 2 5
 cartella: enzimi
-stato: in arrivo
+stato: pronta
 descrizione: Temperatura, pH, substrato e inibitori da regolare. La velocità sale, poi crolla: la denaturazione si vede accadere.
 
 [STAZIONE]
