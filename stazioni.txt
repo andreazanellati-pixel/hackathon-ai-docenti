@@ -218,7 +218,7 @@ icona: 🍃
 disciplina: Biologia
 anni: 5
 cartella: fotosintesi
-stato: in arrivo
+stato: pronta
 descrizione: Luce, anidride carbonica e temperatura da regolare. Si scopre il fattore limitante: ne alzi uno e non succede niente finché non alzi quello giusto.
 
 [STAZIONE]

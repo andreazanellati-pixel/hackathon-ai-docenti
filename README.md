@@ -30,6 +30,7 @@ così si vede il piano di lavoro.
 | 💧 Diffusione e osmosi | 1ª, 2ª | Due scomparti e una membrana. L'osmosi non e' rappresentata: emerge dal moto a caso delle particelle, e si ferma da sola quando il dislivello fa da contrappeso |
 | 🧫 Mitosi e meiosi a confronto | 2ª, 3ª | Le fasi una per una, coi cromosomi del padre e della madre disegnati a colori diversi, e il grafico della quantita di DNA accanto al numero di cromosomi: si vede che non cambiano nello stesso momento |
 | 🦠 Epidemia e vaccinazione | 2ª, 5ª | R0, R effettivo e soglia di gregge. Si vede perche' vaccinare il 95% ferma il morbillo e il 90% no, e perche' un'epidemia si spegne molto prima di aver contagiato tutti |
+| 🌿 La fotosintesi | 2ª, 5ª | Luce, anidride carbonica e temperatura. Il fattore limitante non e' raccontato: il sito prova ad aumentare ognuna delle tre cose e dice quale fa salire di piu' il guadagno |
 | 🌍 Terra, Sole e Luna | 1ª | Inclinazione dell'asse, latitudine e giorno dell'anno: durata del dì, altezza del Sole e stagioni. Portando l'asse a zero le stagioni spariscono |
 | 📈 Trovare l'epicentro | 3ª, 4ª | Tre sismogrammi, il ritardo fra onde S e P, la dromocrona: si triangola come fanno i sismologi |
 | 📊 Genetica di popolazioni | 4ª | Quattro esperimenti guidati sulla deriva genetica e la selezione, con la popolazione disegnata allele per allele e una spiegazione che accompagna passo passo |
@@ -37,7 +38,7 @@ così si vede il piano di lavoro.
 | 🌱 Gli incroci di Mendel | 3ª | Quadrati di Punnett a uno e due caratteri, e figli generati davvero a caso: le proporzioni emergono solo sui grandi numeri |
 
 **In costruzione:** molecole, potenziale d'azione,
-fotosintesi, elettroforesi, vulcani, rocce, interno della
+elettroforesi, vulcani, rocce, interno della
 Terra, tettonica, bilancio radiativo.
 
 ## Per chi insegna: modificare i contenuti
@@ -64,6 +65,7 @@ istruzioni scritte in cima:
 | `stazioni/pile/elettrodi.txt` | gli elettrodi con i potenziali standard |
 | `stazioni/divisione-cellulare/fasi.txt` | le fasi della divisione, coi loro testi e i loro numeri |
 | `stazioni/epidemia/malattie.txt` | le malattie con il loro R0 e i giorni contagiosi |
+| `stazioni/fotosintesi/piante.txt` | le piante con Pmax, K per la CO2 e respirazione |
 
 Si modifica il testo, si salva **in UTF-8**, si ricarica la pagina. Non
 serve toccare il codice. Se una riga viene scritta male il sito non si
