@@ -1,13 +1,14 @@
 ===========================================================
-IL DETECTIVE DEGLI ESPERIMENTI
+LABORATORIO DIGITALE DI SCIENZE NATURALI
 Istruzioni per la pubblicazione sul sito della scuola
 ===========================================================
 
 CHE COS'E'
 ----------
-Un sito didattico di scienze naturali per una prima di liceo
-scientifico, su metodo scientifico e unita' di misura. Si usa dal
-computer e dal telefono, senza installare nulla e senza registrarsi.
+Un sito didattico di scienze naturali per il liceo scientifico delle
+scienze applicate. Raccoglie diverse "stazioni": simulazioni e
+strumenti da usare in classe e a casa. Si usa dal computer e dal
+telefono, senza installare nulla e senza registrarsi.
 
 Autore: Andrea Zanellati
 Versione online gia' funzionante, per vedere com'e' fatto:
@@ -16,26 +17,33 @@ https://andreazanellati-pixel.github.io/hackathon-ai-docenti
 
 COSA CARICARE
 -------------
-In questa cartella ci sono anche alcuni file di servizio che NON
-servono al sito. I file da caricare sono soltanto questi nove, tutti
-insieme, nella STESSA cartella, senza rinominarli e senza creare
-sottocartelle:
+Si carica TUTTA la cartella, mantenendo la struttura, sottocartelle
+comprese. Questa e' la struttura:
 
-    index.html      la pagina, punto d'ingresso
-    stile.css       l'aspetto grafico
-    comune.js       codice condiviso
-    detective.js    codice della sezione "I casi"
-    unita.js        codice della sezione "Convertire"
-    si.js           codice della sezione "Sistema Internazionale"
-    casi.txt        i contenuti dei casi
-    si.txt          i contenuti sulle unita' del Sistema Internazionale
-    unita.txt       le scale di conversione
+    index.html          la pagina iniziale, punto d'ingresso
+    stile.css           l'aspetto grafico, comune a tutto
+    comune.js           codice condiviso
+    home.js             costruisce la pagina iniziale
+    stazioni.txt        l'elenco delle stazioni
 
-Il file da aprire e' index.html.
+    stazioni/
+        detective/               index.html, detective.js, casi.txt
+        sistema-internazionale/  index.html, si.js, si.txt
+        convertire/              index.html, unita.js, unita.txt
 
-Gli altri file presenti nella cartella (README.md, CLAUDE.md,
-prompt-da-usare.md, questo stesso file) riguardano il lavoro di
-preparazione e si possono ignorare.
+Man mano che si aggiungono stazioni, compaiono nuove sottocartelle
+dentro "stazioni". Il resto non cambia.
+
+Il file da aprire e' index.html nella cartella principale.
+
+Gli altri file presenti (README.md, CLAUDE.md, prompt-da-usare.md,
+questo stesso file) riguardano il lavoro di preparazione e si possono
+ignorare.
+
+IMPORTANTE: i nomi delle cartelle e dei file non vanno cambiati, e
+vanno rispettate maiuscole e minuscole. Il server di GitHub distingue
+"Casi.txt" da "casi.txt", il computer di casa no: un file rinominato
+funziona in locale e si rompe una volta pubblicato.
 
 
 REQUISITI TECNICI
@@ -56,17 +64,28 @@ ATTENZIONE: UN SOLO PUNTO DELICATO
 Il sito DEVE essere servito da un server web, cioe' raggiunto da un
 indirizzo che comincia con http:// o https://.
 
-Se apri index.html con un doppio clic dal disco, la pagina si vede
-ma resta vuota: per motivi di sicurezza i browser non permettono a
-una pagina aperta in quel modo di leggere gli altri file della
-cartella, e i contenuti stanno appunto in file di testo.
+Se apri index.html con un doppio clic dal disco, la pagina si vede ma
+resta vuota: per motivi di sicurezza i browser non permettono a una
+pagina aperta in quel modo di leggere gli altri file della cartella, e
+i contenuti stanno appunto in file di testo.
 
 Caricato su un sito qualsiasi, funziona senza problemi.
 
-Se il sito della scuola usa un CMS (WordPress, Joomla, Drupal), la
-via piu' semplice e' caricare la cartella via FTP in una sottocartella
-- per esempio /scienze/detective/ - e linkarla da una pagina del sito.
+Se il sito della scuola usa un CMS (WordPress, Joomla, Drupal), la via
+piu' semplice e' caricare la cartella via FTP in una sottocartella - per
+esempio /scienze/laboratorio/ - e linkarla da una pagina del sito.
 Inserire i file dentro un articolo del CMS di solito non funziona.
+
+
+QUANDO ARRIVA UN AGGIORNAMENTO
+------------------------------
+Si sostituiscono i file cambiati, tenendoli nelle stesse cartelle.
+
+Dentro il sito c'e' un numero di versione che viene aumentato a ogni
+aggiornamento: serve a costringere i browser a riscaricare i file. Per
+questo, quando arriva un aggiornamento, vanno sostituiti ANCHE i file
+index.html indicati, non solo quelli con le modifiche: sono loro a
+contenere il numero nuovo.
 
 
 PRIVACY
@@ -76,20 +95,20 @@ Il sito non raccoglie e non trasmette alcun dato.
     - nessun cookie
     - nessun sistema di statistiche o tracciamento
     - nessuna risorsa caricata da server esterni
-    - nessun dato personale nei contenuti: i casi parlano di
+    - nessun dato personale nei contenuti: gli esempi parlano di
       persone inventate
-    - i punteggi degli esercizi restano nel browser di chi li fa e
+    - punteggi e preferenze restano nel browser di chi usa il sito e
       non escono dal suo dispositivo
 
-Non e' quindi necessaria alcuna informativa aggiuntiva oltre a
-quella generale del sito della scuola.
+Non e' quindi necessaria alcuna informativa aggiuntiva oltre a quella
+generale del sito della scuola.
 
 
 COME SI MODIFICANO I CONTENUTI
 ------------------------------
-I tre file .txt si aprono con il Blocco note e contengono le
-istruzioni scritte in cima. Si modifica il testo, si salva, si
-ricarica la pagina: non serve toccare il codice.
+I file .txt si aprono con il Blocco note e contengono le istruzioni
+scritte in cima. Si modifica il testo, si salva, si ricarica la pagina:
+non serve toccare il codice.
 
 Importante: vanno salvati con codifica UTF-8, altrimenti le lettere
 accentate si rovinano. Nel Blocco note di Windows si sceglie in
@@ -101,11 +120,13 @@ segnala in alto quale riga rivedere.
 
 IN CASO DI PROBLEMI
 -------------------
-Se il sito si vede ma compare l'avviso "Non riesco a leggere il file
-casi.txt", vuol dire quasi sempre una di queste due cose:
+Se compare l'avviso "Non riesco a leggere il file ...", vuol dire quasi
+sempre una di queste tre cose:
 
     1. la pagina e' stata aperta dal disco invece che dal server
-    2. i file .txt non sono stati caricati, oppure sono finiti in
-       una cartella diversa da index.html
+    2. i file non sono stati caricati tutti, oppure la struttura delle
+       cartelle non e' stata rispettata
+    3. un nome di file o di cartella e' stato cambiato, anche solo
+       nelle maiuscole
 
 ===========================================================

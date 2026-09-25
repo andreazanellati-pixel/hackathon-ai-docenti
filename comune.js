@@ -1,13 +1,24 @@
 /* ============================================================
-   Parti comuni ai due strumenti del sito
+   Parti comuni a tutto il laboratorio
    ------------------------------------------------------------
-   Qui stanno le cose che servono sia al detective dei casi sia
-   alla scala delle unità: il tema chiaro/scuro, il passaggio da
-   una sezione all'altra, e qualche funzione di appoggio.
+   Qui stanno le cose che servono a tutte le stazioni: il tema
+   chiaro/scuro, la lettura dei file di testo e qualche funzione
+   di appoggio. Questo file viene caricato da ogni pagina.
    ============================================================ */
 
 window.App = (function () {
   "use strict";
+
+  /* ------------------------------------------------------------
+     IL NUMERO DI VERSIONE
+
+     Ogni volta che si modifica un file del sito bisogna aumentare
+     di uno questo numero, E anche i "?v=" scritti dentro le pagine
+     HTML. Serve a costringere i browser a riscaricare i file:
+     senza, chi ha gia' visitato il sito continuerebbe a vedere la
+     versione vecchia anche per giorni.
+     ------------------------------------------------------------ */
+  var VERSIONE = "1";
 
   /* ---------- funzioni di appoggio ---------- */
 
@@ -43,7 +54,8 @@ window.App = (function () {
   /* ---------- lettura dei file di testo ---------- */
 
   function caricaTesto(nomeFile) {
-    return fetch(nomeFile).then(function (risposta) {
+    var separatore = nomeFile.indexOf("?") >= 0 ? "&" : "?";
+    return fetch(nomeFile + separatore + "v=" + VERSIONE).then(function (risposta) {
       if (!risposta.ok) throw new Error("risposta del server " + risposta.status);
       return risposta.text();
     });
@@ -59,7 +71,7 @@ window.App = (function () {
         "Apri il sito con un server locale oppure dal suo indirizzo su GitHub Pages."));
     } else {
       avviso.appendChild(document.createTextNode(
-        "Controlla che il file " + nomeFile + " si trovi nella stessa cartella di index.html. " +
+        "Controlla che il file " + nomeFile + " si trovi nella stessa cartella della pagina. " +
         "Dettaglio tecnico: " + dettaglio));
     }
     return avviso;
@@ -73,7 +85,7 @@ window.App = (function () {
     avviso.appendChild(elemento("strong", null,
       "Attenzione: alcune parti di " + nomeFile + " non sono state lette."));
     avviso.appendChild(document.createTextNode(
-      "Il resto del sito funziona normalmente. Righe da rivedere:"));
+      "Il resto della pagina funziona normalmente. Righe da rivedere:"));
     var lista = elemento("ul");
     errori.slice(0, 12).forEach(function (testo) {
       lista.appendChild(elemento("li", null, testo));
@@ -98,58 +110,28 @@ window.App = (function () {
   function avviaTema() {
     var bottone = document.getElementById("bottone-tema");
     var icona = document.getElementById("icona-tema");
-    if (!bottone) return;
 
-    function aggiorna() { icona.textContent = scuroAttivo() ? "☀️" : "🌙"; }
-
-    var salvato = leggi("detective-tema");
+    var salvato = leggi("laboratorio-tema");
     if (salvato === "scuro" || salvato === "chiaro") {
       document.documentElement.setAttribute("data-tema", salvato);
     }
+    if (!bottone) return;
+
+    function aggiorna() { icona.textContent = scuroAttivo() ? "☀️" : "🌙"; }
     aggiorna();
 
     bottone.addEventListener("click", function () {
       var nuovo = scuroAttivo() ? "chiaro" : "scuro";
       document.documentElement.setAttribute("data-tema", nuovo);
-      salva("detective-tema", nuovo);
+      salva("laboratorio-tema", nuovo);
       aggiorna();
     });
   }
 
-  /* ---------- passaggio da una sezione all'altra ---------- */
-
-  function avviaNavigazione() {
-    var bottoni = [].slice.call(document.querySelectorAll("[data-sezione]"));
-    if (bottoni.length === 0) return;
-
-    function mostra(nome) {
-      bottoni.forEach(function (b) {
-        var suo = b.getAttribute("data-sezione");
-        var attivo = suo === nome;
-        b.classList.toggle("attivo", attivo);
-        b.setAttribute("aria-selected", attivo ? "true" : "false");
-        var sezione = document.getElementById("sezione-" + suo);
-        if (sezione) sezione.hidden = !attivo;
-      });
-      salva("sezione-aperta", nome);
-    }
-
-    bottoni.forEach(function (b) {
-      b.addEventListener("click", function () {
-        mostra(b.getAttribute("data-sezione"));
-        window.scrollTo(0, 0);
-      });
-    });
-
-    var ultima = leggi("sezione-aperta");
-    var esiste = bottoni.some(function (b) { return b.getAttribute("data-sezione") === ultima; });
-    mostra(esiste ? ultima : bottoni[0].getAttribute("data-sezione"));
-  }
-
   avviaTema();
-  avviaNavigazione();
 
   return {
+    versione: VERSIONE,
     elemento: elemento,
     svuota: svuota,
     leggi: leggi,

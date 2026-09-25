@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Il detective degli esperimenti</title>
-<meta name="description" content="Due strumenti per una prima di liceo scientifico: progettare esperimenti passo per passo e imparare a convertire le unità di misura.">
-<link rel="stylesheet" href="stile.css">
+<title>Laboratorio digitale di scienze naturali</title>
+<meta name="description" content="Simulazioni e strumenti di scienze naturali per il liceo scientifico: metodo scientifico, chimica, biologia e scienze della Terra.">
+<link rel="stylesheet" href="stile.css?v=1">
 </head>
 <body>
 
 <header class="intestazione">
   <div class="intestazione-titolo">
-    <span class="lente" aria-hidden="true">🔍</span>
+    <span class="lente" aria-hidden="true">🔬</span>
     <div>
-      <h1>Il detective degli esperimenti</h1>
-      <p class="sottotitolo">Progettare esperimenti · Misurare e convertire</p>
+      <h1>Laboratorio digitale di scienze naturali</h1>
+      <p class="sottotitolo">Liceo scientifico delle scienze applicate</p>
     </div>
   </div>
   <button id="bottone-tema" class="bottone-icona" type="button" aria-label="Cambia tema chiaro o scuro">
@@ -22,42 +22,25 @@
   </button>
 </header>
 
-<nav class="navigazione" aria-label="Scegli lo strumento">
-  <button type="button" data-sezione="detective" aria-selected="true">🔍 I casi</button>
-  <button type="button" data-sezione="si" aria-selected="false">🧭 Il Sistema Internazionale</button>
-  <button type="button" data-sezione="unita" aria-selected="false">📐 Convertire</button>
-</nav>
-
 <main>
-  <section id="sezione-detective">
-    <div id="applicazione">
-      <p class="caricamento">Carico i casi…</p>
-    </div>
-  </section>
+  <p class="guida">
+    Ogni stazione è un piccolo esperimento da fare sullo schermo: si muovono
+    le manopole e si guarda che cosa succede. Non serve installare nulla né
+    registrarsi, e funziona anche dal telefono.
+  </p>
 
-  <section id="sezione-si" hidden>
-    <div id="si-contenuto">
-      <p class="caricamento">Carico il Sistema Internazionale…</p>
-    </div>
-  </section>
-
-  <section id="sezione-unita" hidden>
-    <div id="unita-contenuto">
-      <p class="caricamento">Carico le unità di misura…</p>
-    </div>
-  </section>
+  <div id="elenco-stazioni">
+    <p class="caricamento">Carico le stazioni…</p>
+  </div>
 </main>
 
 <footer class="pie">
-  <p>I contenuti di questo sito stanno in tre file di testo:
-  <code>casi.txt</code> per i casi, <code>unita.txt</code> per le conversioni
-  e <code>si.txt</code> per il Sistema Internazionale.
-  Aprili con un editor di testo per modificarli o aggiungerne di nuovi.</p>
+  <p>L'elenco delle stazioni sta nel file <code>stazioni.txt</code>, e i contenuti di
+  ciascuna in file di testo dentro la sua cartella. Si aprono con un editor di
+  testo e si modificano senza toccare il codice.</p>
 </footer>
 
-<script src="comune.js"></script>
-<script src="detective.js"></script>
-<script src="unita.js"></script>
-<script src="si.js"></script>
+<script src="comune.js?v=1"></script>
+<script src="home.js?v=1"></script>
 </body>
 </html>

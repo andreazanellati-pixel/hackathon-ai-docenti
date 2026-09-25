@@ -1,78 +1,64 @@
-# Il detective degli esperimenti
+# Laboratorio digitale di scienze naturali
 
-Un sito didattico per una prima di liceo scientifico, su **metodo
-scientifico e misure**. Funziona da computer e da telefono, non
-richiede installazioni né registrazioni.
+Simulazioni e strumenti per il liceo scientifico delle scienze applicate.
+Ogni stazione è un piccolo esperimento da fare sullo schermo: si muovono
+le manopole e si guarda che cosa succede. Funziona da computer e da
+telefono, non richiede installazioni né registrazioni.
 
-👉 **[Apri il sito](https://andreazanellati-pixel.github.io/hackathon-ai-docenti)**
+👉 **[Apri il laboratorio](https://andreazanellati-pixel.github.io/hackathon-ai-docenti)**
 
-## Che cosa contiene
+## Le stazioni
 
-**🔍 I casi** — quattordici casi in cui qualcuno sostiene qualcosa e
-qualcun altro non ci crede. Lo studente non deve indovinare chi ha
-ragione: deve progettare l'esperimento che lo scopre, passo per passo
-— ipotesi, variabile da cambiare, variabile da misurare, variabili da
-tenere costanti, gruppo di controllo, conclusione. Ogni risposta,
-giusta o sbagliata, spiega il perché. Alla fine compare il riepilogo
-dell'esperimento corretto.
+La pagina iniziale le raggruppa per disciplina e si possono filtrare per
+anno di corso. Quelle ancora da costruire compaiono nell'elenco, spente,
+così si vede il piano di lavoro.
 
-I casi coprono trappole metodologiche diverse: la causa nascosta, il
-dato anomalo, l'assegnazione a sorte, il placebo e il doppio cieco,
-l'errore di misura, la correlazione che non è causa, l'errore
-sistematico, la guarigione spontanea, il campione non rappresentativo,
-la relazione dose-effetto, il confronto equo, la riproducibilità,
-l'effetto apprendimento.
+**Pronte**
 
-**🧭 Il Sistema Internazionale** — le sette unità fondamentali, tredici
-grandezze derivate e tredici prefissi da tera a femto, ognuno con
-esempi concreti. La formula di ogni grandezza derivata è disegnata
-come frazione: toccandola si accendono, nella mappa in alto, le unità
-fondamentali che la compongono.
+| Stazione | Anni | Che cosa si fa |
+|---|---|---|
+| 🔍 Il detective degli esperimenti | 1ª–5ª | Quattordici casi in cui progettare l'esperimento che scopre chi ha ragione: ipotesi, variabili, gruppo di controllo, conclusione |
+| 🧭 Il Sistema Internazionale | 1ª | Le sette unità fondamentali, le grandezze derivate con la loro formula e i prefissi da tera a femto, con esempi concreti |
+| 📐 Convertire le unità | 1ª | La scala dove si vede la virgola spostarsi casella per casella, e un allenamento con esercizi generati a caso |
 
-**📐 Convertire** — la scala delle unità, dove si vede la virgola
-spostarsi casella per casella, e un allenamento con esercizi generati
-a caso su tre livelli.
+**In costruzione:** particelle e stati della materia, diffusione e osmosi,
+stechiometria, molecole, teoria degli urti, equilibrio chimico,
+titolazione, pile, enzimi, mitosi e meiosi, incroci di Mendel, dal DNA
+alla proteina, genetica di popolazioni, potenziale d'azione, epidemie,
+fotosintesi, elettroforesi, Terra-Sole-Luna, vulcani, rocce, epicentro,
+interno della Terra, tettonica, bilancio radiativo.
 
 ## Per chi insegna: modificare i contenuti
 
-Tutti i contenuti stanno in tre file di testo, che si aprono con il
-Blocco note e hanno le istruzioni scritte in cima:
+Tutto sta in file di testo, che si aprono con il Blocco note e hanno le
+istruzioni scritte in cima:
 
 | File | Contiene |
-|------|----------|
-| `casi.txt` | i casi del detective |
-| `si.txt` | unità fondamentali, grandezze derivate, prefissi |
-| `unita.txt` | le scale di conversione |
+|---|---|
+| `stazioni.txt` | l'elenco delle stazioni della pagina iniziale |
+| `stazioni/detective/casi.txt` | i casi del detective |
+| `stazioni/sistema-internazionale/si.txt` | unità fondamentali, derivate, prefissi |
+| `stazioni/convertire/unita.txt` | le scale di conversione |
 
-Si modifica il testo, si salva, si ricarica la pagina. Non serve
-toccare il codice. Se una riga viene scritta male il sito non si
+Si modifica il testo, si salva **in UTF-8**, si ricarica la pagina. Non
+serve toccare il codice. Se una riga viene scritta male il sito non si
 blocca: la salta e segnala quale riga rivedere.
 
 ## Per chi pubblica il sito
 
 Sito statico: solo HTML, CSS e JavaScript. Nessuna libreria esterna,
-nessun passaggio di compilazione, nessun database, nessun linguaggio
-lato server.
+nessun database, nessun linguaggio lato server, nessuna compilazione.
 
-Vanno caricati **tutti insieme nella stessa cartella**, senza
-rinominarli, questi nove file:
+Si carica **l'intera cartella mantenendo la struttura**, sottocartelle
+comprese. Il punto d'ingresso è `index.html` nella cartella principale.
 
-```
-index.html   stile.css
-comune.js    detective.js   unita.js   si.js
-casi.txt     unita.txt      si.txt
-```
+**Va servito da un server web.** Aprendo `index.html` con un doppio clic
+dal disco il sito resta vuoto: per sicurezza i browser impediscono a una
+pagina aperta così di leggere gli altri file della cartella.
 
-Il punto d'ingresso è `index.html`.
-
-**Va servito da un server web.** Aprendo `index.html` con un doppio
-clic dal disco il sito resta vuoto: per sicurezza i browser impediscono
-a una pagina aperta così di leggere gli altri file della cartella.
-Caricato su un qualsiasi sito, funziona.
-
-**Privacy:** il sito non invia dati da nessuna parte, non usa cookie,
-non carica risorse esterne e non contiene dati personali. I punteggi
-restano nel browser di chi lo usa.
+**Privacy:** il sito non invia dati da nessuna parte, non usa cookie, non
+carica risorse esterne e non contiene dati personali. Punteggi e
+preferenze restano nel browser di chi lo usa.
 
 ## Licenza d'uso
 

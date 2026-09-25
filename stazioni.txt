@@ -1,0 +1,299 @@
+# ============================================================
+# LE STAZIONI DEL LABORATORIO
+# ============================================================
+#
+# Questo file governa la pagina iniziale. Per aggiungere una
+# stazione, o per cambiarne l'ordine, si modifica questo file:
+# non serve toccare il codice.
+#
+# COME SI SCRIVE UNA STAZIONE
+# ---------------------------
+# Ogni stazione comincia con la riga [STAZIONE] e contiene:
+#
+#   titolo:      come si chiama
+#   icona:       una emoji (facoltativa)
+#   disciplina:  Metodo e misura, Chimica, Biologia oppure
+#                Scienze della Terra. Le stazioni vengono
+#                raggruppate per disciplina, nell'ordine in cui
+#                le discipline compaiono in questo file.
+#   anni:        in quali anni si usa, per esempio  1 3 4
+#   cartella:    il nome della cartella dentro "stazioni"
+#   stato:       pronta     se la stazione esiste e funziona
+#                in arrivo  se è ancora da costruire: compare
+#                nell'elenco ma spenta, e non si può aprire
+#   descrizione: una o due righe che dicono che cosa si fa
+#
+# ALTRE COSE DA SAPERE
+# --------------------
+# - Le righe che iniziano con # sono commenti: il sito le ignora.
+# - Se un testo è lungo puoi andare a capo: le righe che non
+#   iniziano con una parola chiave si attaccano alla precedente.
+# - Se una riga è scritta male il sito non si blocca: la salta e
+#   ti segnala quale riga rivedere.
+# - Le stazioni "in arrivo" servono a vedere il piano di lavoro.
+#   Quando una viene costruita si cambia solo la parola "stato".
+#
+# ============================================================
+
+
+# ------------------------------------------------------------
+# METODO E MISURA
+# ------------------------------------------------------------
+
+[STAZIONE]
+titolo: Il detective degli esperimenti
+icona: 🔍
+disciplina: Metodo e misura
+anni: 1 2 3 4 5
+cartella: detective
+stato: pronta
+descrizione: Quattordici casi in cui qualcuno sostiene qualcosa e qualcun altro non ci crede. Si progetta l'esperimento che lo scopre: ipotesi, variabili, gruppo di controllo, conclusione.
+
+[STAZIONE]
+titolo: Il Sistema Internazionale
+icona: 🧭
+disciplina: Metodo e misura
+anni: 1
+cartella: sistema-internazionale
+stato: pronta
+descrizione: Le sette unità fondamentali, le grandezze derivate con la loro formula, e i prefissi da tera a femto. Ognuna con esempi concreti.
+
+[STAZIONE]
+titolo: Convertire le unità
+icona: 📐
+disciplina: Metodo e misura
+anni: 1
+cartella: convertire
+stato: pronta
+descrizione: La scala delle unità, dove si vede la virgola spostarsi casella per casella, e un allenamento con esercizi generati a caso.
+
+
+# ------------------------------------------------------------
+# CHIMICA
+# ------------------------------------------------------------
+
+[STAZIONE]
+titolo: Le particelle e gli stati della materia
+icona: 🧊
+disciplina: Chimica
+anni: 1 3
+cartella: particelle
+stato: in arrivo
+descrizione: Un contenitore di particelle da scaldare e raffreddare. Si vedono i tre stati, i passaggi di stato e la curva di riscaldamento che si disegna da sola, con i suoi plateau.
+
+[STAZIONE]
+titolo: Diffusione e osmosi
+icona: 💧
+disciplina: Chimica
+anni: 1 2
+cartella: diffusione
+stato: in arrivo
+descrizione: Due scomparti separati da una membrana. Si sceglie che cosa la attraversa e si guarda dove va l'acqua.
+
+[STAZIONE]
+titolo: Il banco di stechiometria
+icona: ⚗️
+disciplina: Chimica
+anni: 2 3
+cartella: stechiometria
+stato: in arrivo
+descrizione: Reagenti da dosare e reazioni da bilanciare. Il reagente limitante si riconosce perché l'altro avanza sul banco.
+
+[STAZIONE]
+titolo: Il costruttore di molecole
+icona: 🔗
+disciplina: Chimica
+anni: 3 5
+cartella: molecole
+stato: in arrivo
+descrizione: Atomi e legami da comporre: geometria, polarità e, in quinta, gli isomeri da contare.
+
+[STAZIONE]
+titolo: La teoria degli urti
+icona: 💥
+disciplina: Chimica
+anni: 4
+cartella: urti
+stato: in arrivo
+descrizione: Particelle che si scontrano, energia di attivazione da superare, catalizzatore che abbassa la barriera. Si contano gli urti efficaci.
+
+[STAZIONE]
+titolo: L'equilibrio chimico
+icona: ⚖️
+disciplina: Chimica
+anni: 4
+cartella: equilibrio
+stato: in arrivo
+descrizione: Una reazione reversibile che si rimescola quando cambi concentrazione, temperatura o volume. Il principio di Le Chatelier smette di essere una filastrocca.
+
+[STAZIONE]
+titolo: La titolazione acido-base
+icona: 🧪
+disciplina: Chimica
+anni: 4
+cartella: titolazione
+stato: in arrivo
+descrizione: Una buretta goccia a goccia, il pH che cambia e la curva che nasce sotto gli occhi, con il salto al punto equivalente.
+
+[STAZIONE]
+titolo: Pile ed elettrolisi
+icona: 🔋
+disciplina: Chimica
+anni: 4
+cartella: pile
+stato: in arrivo
+descrizione: Si scelgono gli elettrodi, si prevede la forza elettromotrice e si guarda da che parte vanno gli elettroni.
+
+
+# ------------------------------------------------------------
+# BIOLOGIA
+# ------------------------------------------------------------
+
+[STAZIONE]
+titolo: Il banco degli enzimi
+icona: 🔬
+disciplina: Biologia
+anni: 2 5
+cartella: enzimi
+stato: in arrivo
+descrizione: Temperatura, pH, substrato e inibitori da regolare. La velocità sale, poi crolla: la denaturazione si vede accadere.
+
+[STAZIONE]
+titolo: Mitosi e meiosi a confronto
+icona: 🧫
+disciplina: Biologia
+anni: 2
+cartella: divisione-cellulare
+stato: in arrivo
+descrizione: I cromosomi passo per passo, con il crossing-over che produce davvero varietà invece di essere una frase da ricordare.
+
+[STAZIONE]
+titolo: Gli incroci di Mendel
+icona: 🌱
+disciplina: Biologia
+anni: 3
+cartella: mendel
+stato: in arrivo
+descrizione: Quadrati di Punnett generati all'infinito, testcross e alberi genealogici, collegati alla meiosi.
+
+[STAZIONE]
+titolo: Dal DNA alla proteina
+icona: 🧬
+disciplina: Biologia
+anni: 3 5
+cartella: dna-proteina
+stato: in arrivo
+descrizione: Si trascrive, si traduce con il codice genetico, e si inserisce una mutazione per vedere che cosa combina uno scivolamento di lettura.
+
+[STAZIONE]
+titolo: Genetica di popolazioni
+icona: 📊
+disciplina: Biologia
+anni: 4
+cartella: popolazioni
+stato: in arrivo
+descrizione: Una popolazione che evolve generazione dopo generazione. Nelle popolazioni piccole domina il caso, in quelle grandi la selezione.
+
+[STAZIONE]
+titolo: Il potenziale d'azione
+icona: ⚡
+disciplina: Biologia
+anni: 4
+cartella: potenziale-azione
+stato: in arrivo
+descrizione: Canali ionici, soglia, tutto-o-niente e periodo refrattario: si stimola il neurone e si guarda che cosa succede.
+
+[STAZIONE]
+titolo: Epidemia e vaccinazione
+icona: 🦠
+disciplina: Biologia
+anni: 4
+cartella: epidemia
+stato: in arrivo
+descrizione: Un contagio che si diffonde in una popolazione. La soglia dell'immunità di gregge diventa un numero che si vede.
+
+[STAZIONE]
+titolo: La fotosintesi
+icona: 🍃
+disciplina: Biologia
+anni: 5
+cartella: fotosintesi
+stato: in arrivo
+descrizione: Luce, anidride carbonica e temperatura da regolare. Si scopre il fattore limitante: ne alzi uno e non succede niente finché non alzi quello giusto.
+
+[STAZIONE]
+titolo: Elettroforesi e PCR
+icona: 🧾
+disciplina: Biologia
+anni: 5
+cartella: elettroforesi
+stato: in arrivo
+descrizione: Si taglia il DNA con gli enzimi di restrizione, si carica il gel e si leggono le bande.
+
+
+# ------------------------------------------------------------
+# SCIENZE DELLA TERRA
+# ------------------------------------------------------------
+
+[STAZIONE]
+titolo: Terra, Sole e Luna
+icona: 🌍
+disciplina: Scienze della Terra
+anni: 1
+cartella: terra-sole-luna
+stato: in arrivo
+descrizione: Inclinazione dell'asse, latitudine e data da scegliere. Metti l'asse a zero e le stagioni spariscono.
+
+[STAZIONE]
+titolo: Dal magma al vulcano
+icona: 🌋
+disciplina: Scienze della Terra
+anni: 3
+cartella: vulcani
+stato: in arrivo
+descrizione: Silice, gas e viscosità del magma decidono se l'eruzione è effusiva o esplosiva, e che forma prende l'edificio.
+
+[STAZIONE]
+titolo: Il ciclo delle rocce
+icona: 🪨
+disciplina: Scienze della Terra
+anni: 3
+cartella: rocce
+stato: in arrivo
+descrizione: Una chiave dicotomica per riconoscere le rocce, e il ciclo litogenetico da percorrere.
+
+[STAZIONE]
+titolo: Trovare l'epicentro
+icona: 📈
+disciplina: Scienze della Terra
+anni: 3 4
+cartella: epicentro
+stato: in arrivo
+descrizione: Tre sismogrammi, il ritardo fra onde S e onde P, le dromocrone: si triangola come fanno i sismologi veri.
+
+[STAZIONE]
+titolo: Dentro la Terra con le onde
+icona: 🌐
+disciplina: Scienze della Terra
+anni: 5
+cartella: interno-terra
+stato: in arrivo
+descrizione: I percorsi delle onde sismiche e la zona d'ombra: come si è capito che il nucleo esterno è liquido.
+
+[STAZIONE]
+titolo: La tettonica delle placche
+icona: 🗺️
+disciplina: Scienze della Terra
+anni: 5
+cartella: tettonica
+stato: in arrivo
+descrizione: Placche da muovere: nascono dorsali, fosse e catene montuose, e si capisce perché vulcani e terremoti stanno dove stanno.
+
+[STAZIONE]
+titolo: Il bilancio radiativo
+icona: ☀️
+disciplina: Scienze della Terra
+anni: 4 5
+cartella: bilancio-radiativo
+stato: in arrivo
+descrizione: Quanta energia arriva dal Sole e quanta ne riparte. L'effetto serra come conto che deve tornare.
