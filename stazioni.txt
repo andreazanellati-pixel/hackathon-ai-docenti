@@ -114,7 +114,7 @@ icona: 💥
 disciplina: Chimica
 anni: 4
 cartella: urti
-stato: in arrivo
+stato: pronta
 descrizione: Particelle che si scontrano, energia di attivazione da superare, catalizzatore che abbassa la barriera. Si contano gli urti efficaci.
 
 [STAZIONE]

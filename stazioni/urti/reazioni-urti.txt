@@ -1,0 +1,45 @@
+# ============================================================
+# LE REAZIONI DELLA TEORIA DEGLI URTI
+# ============================================================
+#
+# Ogni riga descrive una reazione con i numeri che dicono quanto
+# e' difficile farla partire.
+#
+# COME SI SCRIVE UNA REAZIONE
+# ---------------------------
+#
+#   nome | equazione | Ea | Ea col catalizzatore | delta H | orientamento | nota
+#
+# Ea           l'energia di attivazione, in kJ per mole: la
+#              collinetta che le molecole devono scavalcare
+#              perche' l'urto sia utile. Piu' e' alta, piu' la
+#              reazione e' lenta.
+#
+# Ea col       la stessa collinetta quando c'e' un catalizzatore.
+# catalizzatore Deve essere piu' bassa di Ea. Il catalizzatore
+#              non cambia il delta H e non sposta l'equilibrio:
+#              abbassa soltanto la collinetta, e la abbassa in
+#              tutti e due i versi.
+#
+# delta H      il dislivello fra reagenti e prodotti, in kJ per
+#              mole. NEGATIVO se la reazione scalda.
+#
+# orientamento un numero fra 0 e 1: la probabilita' che due
+#              molecole che si scontrano siano girate nel verso
+#              giusto. Vale 1 per due palline qualsiasi, ma
+#              scende molto per molecole grandi e complicate,
+#              che devono presentarsi con la faccia giusta.
+#
+# I numeri si scrivono con la virgola o con il punto.
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Se una riga e' scritta male viene saltata e segnalata.
+#
+# ============================================================
+
+Acqua ossigenata che si decompone | 2 H2O2 -> 2 H2O + O2 | 75 | 23 | -196 | 0,6 | da sola ci mette anni, ma basta un pezzetto di fegato, che contiene catalasi, e parte all'istante
+Ammoniaca dal suo azoto | N2 + 3 H2 -> 2 NH3 | 230 | 105 | -92 | 0,05 | senza il catalizzatore di ferro il processo Haber non sarebbe mai esistito
+Anidride solforosa che si ossida | 2 SO2 + O2 -> 2 SO3 | 250 | 75 | -198 | 0,1 | il catalizzatore e' ossido di vanadio, ed e' quello che rende possibile fare l'acido solforico
+Metano che brucia | CH4 + 2 O2 -> CO2 + 2 H2O | 160 | 160 | -890 | 0,3 | libera tantissima energia ma non parte da sola: serve una scintilla che scavalchi la collina
+Marmo e acido cloridrico | CaCO3 + 2 HCl -> CaCl2 + H2O + CO2 | 40 | 40 | -20 | 0,8 | la reazione da bicchiere: si vede l'effervescenza e si sente il gas che sale
+Ozono che si distrugge | 2 O3 -> 3 O2 | 120 | 20 | -285 | 0,4 | il catalizzatore qui e' il cloro dei vecchi gas per frigoriferi, ed e' il motivo del buco nell'ozono
