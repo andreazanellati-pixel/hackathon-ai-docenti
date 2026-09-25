@@ -141,7 +141,7 @@ icona: 🔋
 disciplina: Chimica
 anni: 4
 cartella: pile
-stato: in arrivo
+stato: pronta
 descrizione: Si scelgono gli elettrodi, si prevede la forza elettromotrice e si guarda da che parte vanno gli elettroni.
 
 

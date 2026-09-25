@@ -1,0 +1,55 @@
+# ============================================================
+# GLI ELETTRODI
+# ============================================================
+#
+# Ogni riga descrive una semireazione di riduzione, cioe' un
+# metallo con il suo ione, e il potenziale standard che le
+# corrisponde.
+#
+# COME SI SCRIVE UN ELETTRODO
+# ---------------------------
+#
+#   nome | semireazione | E0 | elettroni | massa molare | quanti ioni | nota
+#
+# semireazione  si scrive sempre nel verso della RIDUZIONE, cioe'
+#               con gli elettroni a sinistra:
+#                   Cu2+ + 2 e- -> Cu
+#
+# E0            il potenziale standard di riduzione, in volt,
+#               misurato rispetto all'elettrodo a idrogeno, che
+#               per convenzione vale zero. Piu' e' alto, piu'
+#               quella sostanza "tira" gli elettroni a se'.
+#
+# elettroni     quanti elettroni entrano nella semireazione.
+#
+# massa molare  in grammi per mole: serve per calcolare quanta
+#               sostanza si deposita in un'elettrolisi.
+#
+# quanti ioni   il coefficiente dello ione nella semireazione.
+#               Vale 1 per quasi tutti i metalli. Vale 2 per
+#               l'idrogeno, perche' la sua semireazione e'
+#               2 H+ + 2 e- -> H2.
+#
+# I numeri si scrivono con la virgola o con il punto. Attenzione
+# ai segni: i potenziali negativi vanno scritti con il meno.
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Se una riga e' scritta male viene saltata e segnalata.
+#
+# ============================================================
+
+Litio | Li+ + e- -> Li | -3,04 | 1 | 6,94 | 1 | il metallo che cede elettroni piu' facilmente di tutti, ed e' per questo che le sue batterie rendono tanto
+Potassio | K+ + e- -> K | -2,93 | 1 | 39,1 | 1 | reagisce con l'acqua cosi' in fretta che prende fuoco
+Calcio | Ca2+ + 2 e- -> Ca | -2,87 | 2 | 40,1 | 1 | quello delle ossa e del marmo
+Sodio | Na+ + e- -> Na | -2,71 | 1 | 23,0 | 1 | in natura non si trova mai da solo, proprio perche' cede subito il suo elettrone
+Magnesio | Mg2+ + 2 e- -> Mg | -2,37 | 2 | 24,3 | 1 | si attacca alle navi come anodo sacrificale, per farle arrugginire di meno
+Alluminio | Al3+ + 3 e- -> Al | -1,66 | 3 | 27,0 | 1 | si ricava solo per elettrolisi, e per questo costa tanta corrente
+Zinco | Zn2+ + 2 e- -> Zn | -0,76 | 2 | 65,4 | 1 | l'anodo della pila Daniell, e la copertura del ferro zincato
+Ferro | Fe2+ + 2 e- -> Fe | -0,44 | 2 | 55,85 | 1 | arrugginisce perche' cede elettroni all'ossigeno dell'aria
+Nichel | Ni2+ + 2 e- -> Ni | -0,25 | 2 | 58,7 | 1 | si usa per nichelare, cioe' rivestire altri metalli
+Stagno | Sn2+ + 2 e- -> Sn | -0,14 | 2 | 118,7 | 1 | la latta delle scatolette e' ferro rivestito di stagno
+Piombo | Pb2+ + 2 e- -> Pb | -0,13 | 2 | 207,2 | 1 | l'elettrodo delle vecchie batterie delle automobili
+Idrogeno | 2 H+ + 2 e- -> H2 | 0,00 | 2 | 2,0 | 2 | e' il riferimento: per convenzione il suo potenziale vale zero, e tutti gli altri si misurano rispetto a lui
+Rame | Cu2+ + 2 e- -> Cu | 0,34 | 2 | 63,5 | 1 | il catodo della pila Daniell
+Argento | Ag+ + e- -> Ag | 0,80 | 1 | 107,9 | 1 | si usa per argentare le posate, per elettrolisi
+Oro | Au3+ + 3 e- -> Au | 1,50 | 3 | 197,0 | 1 | tiene gli elettroni cosi' stretti che non si ossida mai: per questo resta lucido per secoli
