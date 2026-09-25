@@ -31,6 +31,7 @@ così si vede il piano di lavoro.
 | 🧫 Mitosi e meiosi a confronto | 2ª, 3ª | Le fasi una per una, coi cromosomi del padre e della madre disegnati a colori diversi, e il grafico della quantita di DNA accanto al numero di cromosomi: si vede che non cambiano nello stesso momento |
 | 🦠 Epidemia e vaccinazione | 2ª, 5ª | R0, R effettivo e soglia di gregge. Si vede perche' vaccinare il 95% ferma il morbillo e il 90% no, e perche' un'epidemia si spegne molto prima di aver contagiato tutti |
 | 🌿 La fotosintesi | 2ª, 5ª | Luce, anidride carbonica e temperatura. Il fattore limitante non e' raccontato: il sito prova ad aumentare ognuna delle tre cose e dice quale fa salire di piu' il guadagno |
+| 🌡️ Il bilancio radiativo | 1ª, 5ª | Luce ricevuta, albedo ed effetto serra. La Terra senza atmosfera fa meno 18 gradi, con l'atmosfera piu' 15: quei 33 gradi si vedono comparire |
 | 🌍 Terra, Sole e Luna | 1ª | Inclinazione dell'asse, latitudine e giorno dell'anno: durata del dì, altezza del Sole e stagioni. Portando l'asse a zero le stagioni spariscono |
 | 📈 Trovare l'epicentro | 3ª, 4ª | Tre sismogrammi, il ritardo fra onde S e P, la dromocrona: si triangola come fanno i sismologi |
 | 📊 Genetica di popolazioni | 4ª | Quattro esperimenti guidati sulla deriva genetica e la selezione, con la popolazione disegnata allele per allele e una spiegazione che accompagna passo passo |
@@ -39,7 +40,7 @@ così si vede il piano di lavoro.
 
 **In costruzione:** molecole, potenziale d'azione,
 elettroforesi, vulcani, rocce, interno della
-Terra, tettonica, bilancio radiativo.
+Terra, tettonica.
 
 ## Per chi insegna: modificare i contenuti
 
@@ -66,6 +67,7 @@ istruzioni scritte in cima:
 | `stazioni/divisione-cellulare/fasi.txt` | le fasi della divisione, coi loro testi e i loro numeri |
 | `stazioni/epidemia/malattie.txt` | le malattie con il loro R0 e i giorni contagiosi |
 | `stazioni/fotosintesi/piante.txt` | le piante con Pmax, K per la CO2 e respirazione |
+| `stazioni/bilancio-radiativo/corpi.txt` | i pianeti con luce ricevuta, albedo ed effetto serra |
 
 Si modifica il testo, si salva **in UTF-8**, si ricarica la pagina. Non
 serve toccare il codice. Se una riga viene scritta male il sito non si

@@ -1,0 +1,48 @@
+# ============================================================
+# I PIANETI E GLI ALTRI CORPI
+# ============================================================
+#
+# Ogni riga descrive un corpo celeste con i numeri che ne
+# determinano la temperatura.
+#
+# COME SI SCRIVE UN CORPO
+# -----------------------
+#
+#   nome | luce ricevuta | albedo | coperte | temperatura misurata | nota
+#
+# luce ricevuta  quanta energia dal Sole arriva su ogni metro
+#                quadro, in watt. La Terra ne riceve 1361. Piu' un
+#                pianeta e' lontano, meno ne riceve: Marte 586,
+#                Giove appena 50.
+#
+# albedo         la frazione di luce che il corpo rimanda indietro
+#                senza assorbirla, da 0 a 1. La neve fresca
+#                rimanda indietro quasi tutto, il basalto scuro
+#                quasi niente. La Terra nel suo insieme sta
+#                attorno a 0,30, soprattutto per via delle nuvole.
+#
+# coperte        quanto l'atmosfera trattiene il calore che il
+#                suolo irradia. Zero vuol dire nessuna atmosfera,
+#                come sulla Luna. La Terra sta attorno a 0,64,
+#                Venere oltre cento.
+#                Il nome viene dall'immagine: e' come contare
+#                quante coperte ci sono sopra il pianeta.
+#
+# temperatura    quella misurata davvero, in gradi centigradi.
+# misurata       Serve per confrontare il conto con la realta'.
+#
+# I numeri si scrivono con la virgola o con il punto.
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Se una riga e' scritta male viene saltata e segnalata.
+#
+# ============================================================
+
+Terra | 1361 | 0,30 | 0,64 | 15 | il nostro pianeta com'e' adesso
+Terra senza atmosfera | 1361 | 0,30 | 0 | -18 | lo stesso pianeta, alla stessa distanza, ma senza niente che trattenga il calore
+Terra tutta ghiacciata | 1361 | 0,62 | 0,64 | -26 | com'era, secondo molti, durante le grandi glaciazioni di settecento milioni di anni fa
+Luna | 1361 | 0,12 | 0 | -20 | riceve la stessa luce della Terra, ma non ha atmosfera: di giorno 120 gradi, di notte meno 170
+Marte | 586 | 0,25 | 0,01 | -63 | un'atmosfera c'e', ma cosi' rarefatta da non trattenere quasi niente
+Venere | 2601 | 0,77 | 111 | 464 | rimanda indietro il 77 per cento della luce, eppure e' il pianeta piu' caldo del sistema solare: l'atmosfera di anidride carbonica fa tutto il resto
+Mercurio | 9083 | 0,12 | 0 | 167 | vicinissimo al Sole e senza atmosfera: fra il giorno e la notte ci sono seicento gradi di differenza
+Titano | 14,8 | 0,22 | 0,53 | -179 | la luna di Saturno con l'atmosfera piu' densa: laggiu' piove metano
