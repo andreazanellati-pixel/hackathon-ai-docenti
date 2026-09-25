@@ -173,7 +173,7 @@ icona: 🌱
 disciplina: Biologia
 anni: 3
 cartella: mendel
-stato: in arrivo
+stato: pronta
 descrizione: Quadrati di Punnett generati all'infinito, testcross e alberi genealogici, collegati alla meiosi.
 
 [STAZIONE]
@@ -182,7 +182,7 @@ icona: 🧬
 disciplina: Biologia
 anni: 3 5
 cartella: dna-proteina
-stato: in arrivo
+stato: pronta
 descrizione: Si trascrive, si traduce con il codice genetico, e si inserisce una mutazione per vedere che cosa combina uno scivolamento di lettura.
 
 [STAZIONE]

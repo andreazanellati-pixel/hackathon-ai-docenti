@@ -1,0 +1,87 @@
+# ============================================================
+# IL CODICE GENETICO
+# ============================================================
+#
+# Le sessantaquattro triplette dell'RNA messaggero e l'amminoacido
+# che ciascuna fa entrare nella catena. Tre triplette non ne
+# indicano nessuno: sono i segnali di fine.
+#
+# COME SI SCRIVE UNA RIGA
+# -----------------------
+#
+#   tripletta | sigla | nome per esteso
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Se una riga è scritta male viene saltata e segnalata.
+#
+# Questo file si può leggere come una tabella: guarda quante
+# triplette diverse portano lo stesso amminoacido, e guarda dove
+# si assomigliano. Quasi sempre cambia solo la terza lettera: per
+# questo molte mutazioni non hanno alcun effetto.
+#
+# ============================================================
+
+UUU | Phe | fenilalanina
+UUC | Phe | fenilalanina
+UUA | Leu | leucina
+UUG | Leu | leucina
+CUU | Leu | leucina
+CUC | Leu | leucina
+CUA | Leu | leucina
+CUG | Leu | leucina
+AUU | Ile | isoleucina
+AUC | Ile | isoleucina
+AUA | Ile | isoleucina
+AUG | Met | metionina
+GUU | Val | valina
+GUC | Val | valina
+GUA | Val | valina
+GUG | Val | valina
+UCU | Ser | serina
+UCC | Ser | serina
+UCA | Ser | serina
+UCG | Ser | serina
+CCU | Pro | prolina
+CCC | Pro | prolina
+CCA | Pro | prolina
+CCG | Pro | prolina
+ACU | Thr | treonina
+ACC | Thr | treonina
+ACA | Thr | treonina
+ACG | Thr | treonina
+GCU | Ala | alanina
+GCC | Ala | alanina
+GCA | Ala | alanina
+GCG | Ala | alanina
+UAU | Tyr | tirosina
+UAC | Tyr | tirosina
+UAA | STOP | segnale di fine
+UAG | STOP | segnale di fine
+CAU | His | istidina
+CAC | His | istidina
+CAA | Gln | glutammina
+CAG | Gln | glutammina
+AAU | Asn | asparagina
+AAC | Asn | asparagina
+AAA | Lys | lisina
+AAG | Lys | lisina
+GAU | Asp | acido aspartico
+GAC | Asp | acido aspartico
+GAA | Glu | acido glutammico
+GAG | Glu | acido glutammico
+UGU | Cys | cisteina
+UGC | Cys | cisteina
+UGA | STOP | segnale di fine
+UGG | Trp | triptofano
+CGU | Arg | arginina
+CGC | Arg | arginina
+CGA | Arg | arginina
+CGG | Arg | arginina
+AGU | Ser | serina
+AGC | Ser | serina
+AGA | Arg | arginina
+AGG | Arg | arginina
+GGU | Gly | glicina
+GGC | Gly | glicina
+GGA | Gly | glicina
+GGG | Gly | glicina

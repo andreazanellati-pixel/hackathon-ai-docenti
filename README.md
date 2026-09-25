@@ -24,13 +24,14 @@ così si vede il piano di lavoro.
 | 🌍 Terra, Sole e Luna | 1ª | Inclinazione dell'asse, latitudine e giorno dell'anno: durata del dì, altezza del Sole e stagioni. Portando l'asse a zero le stagioni spariscono |
 | 📈 Trovare l'epicentro | 3ª, 4ª | Tre sismogrammi, il ritardo fra onde S e P, la dromocrona: si triangola come fanno i sismologi |
 | 📊 Genetica di popolazioni | 4ª | Popolazioni che evolvono generazione dopo generazione: deriva, selezione, mutazione, Hardy-Weinberg |
+| 🧬 Dal DNA alla proteina | 3ª, 5ª | Trascrizione, codice genetico e traduzione. Si cambia una base e il sito dice che tipo di mutazione è venuta fuori |
+| 🌱 Gli incroci di Mendel | 3ª | Quadrati di Punnett a uno e due caratteri, e figli generati davvero a caso: le proporzioni emergono solo sui grandi numeri |
 
 **In costruzione:** diffusione e osmosi,
 stechiometria, molecole, teoria degli urti, equilibrio chimico,
-titolazione, pile, enzimi, mitosi e meiosi, incroci di Mendel, dal DNA
-alla proteina, genetica di popolazioni, potenziale d'azione, epidemie,
-fotosintesi, elettroforesi, vulcani, rocce, interno della Terra,
-tettonica, bilancio radiativo.
+titolazione, pile, enzimi, mitosi e meiosi, potenziale d'azione,
+epidemie, fotosintesi, elettroforesi, vulcani, rocce, interno della
+Terra, tettonica, bilancio radiativo.
 
 ## Per chi insegna: modificare i contenuti
 
@@ -45,6 +46,8 @@ istruzioni scritte in cima:
 | `stazioni/convertire/unita.txt` | le scale di conversione |
 | `stazioni/particelle/sostanze.txt` | le sostanze con calori specifici e latenti |
 | `stazioni/terra-sole-luna/luoghi.txt` | i luoghi con la loro latitudine |
+| `stazioni/dna-proteina/codice-genetico.txt` | le 64 triplette del codice genetico |
+| `stazioni/mendel/caratteri.txt` | i caratteri degli incroci |
 
 Si modifica il testo, si salva **in UTF-8**, si ricarica la pagina. Non
 serve toccare il codice. Se una riga viene scritta male il sito non si

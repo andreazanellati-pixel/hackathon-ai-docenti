@@ -1,0 +1,33 @@
+# ============================================================
+# I CARATTERI DEGLI INCROCI
+# ============================================================
+#
+# Ogni carattere ha una lettera, un fenotipo dominante e uno
+# recessivo. Per convenzione la lettera maiuscola indica l'allele
+# dominante e la minuscola quello recessivo.
+#
+# COME SI SCRIVE UN CARATTERE
+# ---------------------------
+#
+#   nome | lettera | fenotipo dominante | fenotipo recessivo
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Se una riga è scritta male viene saltata e segnalata.
+#
+# I primi sette sono quelli veri studiati da Mendel sul pisello
+# odoroso. Gli ultimi due riguardano la specie umana: vanno usati
+# con cautela, perché nella realtà quasi nessun carattere umano
+# dipende da un solo gene, e quelli che si citano di solito a
+# scuola sono in buona parte leggende.
+#
+# ============================================================
+
+Colore del seme | A | giallo | verde
+Forma del seme | B | liscio | rugoso
+Colore del fiore | C | viola | bianco
+Posizione del fiore | D | lungo il fusto | in cima
+Forma del baccello | E | gonfio | strozzato
+Colore del baccello | F | verde | giallo
+Altezza della pianta | G | alta | nana
+Gruppo sanguigno Rh | R | Rh positivo | Rh negativo
+Albinismo | N | pigmentazione normale | albinismo

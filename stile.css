@@ -1707,3 +1707,168 @@ a.carta-stazione:focus-visible {
 
 .campo-distanza { display: flex; align-items: center; gap: 8px; }
 .campo-distanza .campo-valore { flex: 0 0 96px; min-width: 0; font-size: 1.05rem; }
+
+/* ============================================================
+   Dal DNA alla proteina
+   ============================================================ */
+
+.zona-sequenze { margin-bottom: 20px; }
+
+.etichetta-filamento {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  margin: 18px 0 6px;
+}
+
+.etichetta-nome {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--accento);
+}
+
+.etichetta-nota {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .76rem;
+  color: var(--testo-tenue);
+}
+
+.filamento {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 32px;
+  border: 1px solid var(--bordo);
+  border-radius: 5px;
+  background: var(--superficie);
+  color: var(--testo);
+  font: inherit;
+  font-size: .95rem;
+  font-weight: 700;
+  font-family: Consolas, Menlo, monospace;
+}
+
+button.base { cursor: pointer; }
+button.base:hover { border-color: var(--accento); }
+button.base.scelta { box-shadow: 0 0 0 2px var(--accento); }
+
+.base-A { color: #1d6b45; }
+.base-T { color: #9b2f24; }
+.base-G { color: #1f5f8b; }
+.base-C { color: #8f6fd0; }
+.base-spenta { background: transparent; color: var(--testo-tenue); opacity: .6; }
+.base-rna { background: var(--superficie-alt); }
+.tripletta-alterna { background: var(--accento-chiaro); }
+
+.catena { display: flex; flex-wrap: wrap; gap: 5px; }
+
+.amminoacido {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--bordo-forte);
+  border-radius: 8px;
+  padding: 5px 9px;
+  background: var(--superficie);
+  min-width: 56px;
+}
+
+.amminoacido.inizio { border-color: var(--giusto); }
+.amminoacido-sigla { font-weight: 700; font-size: .92rem; }
+
+.amminoacido-nome {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .6rem;
+  color: var(--testo-tenue);
+  margin-top: 1px;
+}
+
+.griglia-codice {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  padding: 14px 18px;
+}
+
+@media (min-width: 560px) {
+  .griglia-codice { grid-template-columns: repeat(8, 1fr); }
+}
+
+.voce-codice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--bordo);
+  border-radius: 6px;
+  padding: 4px 2px;
+  font-size: .72rem;
+}
+
+.voce-codice.fine { border-color: var(--sbagliato); background: var(--sbagliato-sfondo); }
+.voce-tripletta { font-family: Consolas, Menlo, monospace; font-weight: 700; }
+.voce-sigla { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: .64rem; color: var(--testo-tenue); }
+
+/* ============================================================
+   Gli incroci di Mendel
+   ============================================================ */
+
+.scelta-genitore { margin-bottom: 14px; }
+.scelta-genitore:last-child { margin-bottom: 0; }
+.scelta-genitore .dato-nome { display: block; margin-bottom: 6px; }
+
+.gruppo-genotipi { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.gruppo-genotipi .pillola {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 7px 14px;
+}
+
+.genotipo { font-family: Consolas, Menlo, monospace; font-weight: 700; font-size: 1rem; }
+
+.fenotipo-breve {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .64rem;
+  color: var(--testo-tenue);
+}
+
+.pillola.attiva .fenotipo-breve { color: var(--testo-su-accento); opacity: .85; }
+
+.punnett { border-collapse: collapse; margin: 0 auto; }
+
+.punnett th.gamete {
+  background: var(--accento-chiaro);
+  color: var(--accento);
+  font-family: Consolas, Menlo, monospace;
+  font-weight: 700;
+  font-size: .95rem;
+  padding: 7px 10px;
+  border: 1px solid var(--bordo);
+}
+
+.punnett th.angolo { border: none; background: transparent; }
+
+.cella-punnett {
+  border: 1px solid var(--bordo);
+  background: var(--superficie);
+  padding: 8px 10px;
+  text-align: center;
+  min-width: 74px;
+}
+
+.cella-punnett .genotipo { display: block; }
+.cella-punnett .fenotipo-breve { display: block; margin-top: 2px; }
