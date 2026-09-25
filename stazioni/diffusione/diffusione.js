@@ -14,22 +14,23 @@
    ============================================================ */
 
 /* ------------------------------------------------------------
-   ATTENZIONE: STAZIONE NON ANCORA VALIDATA, NON PUBBLICARE
+   COME CI SI E' ARRIVATI
 
    Il primo modello mandava l'acqua nel verso sbagliato: la
    repulsione per volume escluso la spingeva FUORI dalla parte
    concentrata, cioe' il contrario dell'osmosi.
 
-   Il meccanismo corretto, ora implementato, e' l'ostruzione del
-   varco: il soluto che sta davanti al passaggio impedisce
-   all'acqua di uscire da quella parte. Dove c'e' piu' soluto
-   l'acqua esce meno, e quindi si accumula. Verso giusto.
+   Il meccanismo giusto e' l'ostruzione del varco: il soluto che
+   sta davanti al passaggio impedisce all'acqua di uscire da
+   quella parte. Dove c'e' piu' soluto l'acqua esce meno, e quindi
+   si accumula.
 
-   Restano due difetti da risolvere prima di pubblicarla:
-   - con concentrazioni uguali si vede ancora una deriva casuale
-     che uno studente potrebbe scambiare per osmosi
-   - il flusso non raggiunge un assestamento chiaro in tempi
-     ragionevoli: serve un contrappeso idrostatico meglio tarato
+   Quello da solo pero' non bastava: mancava la contropressione.
+   Senza di lei l'acqua continuava a passare all'infinito, e a
+   concentrazioni uguali si vedeva una deriva casuale che con
+   l'osmosi non c'entra. Adesso il dislivello ricaccia indietro
+   l'acqua, e il sistema si ferma dove le due spinte si pareggiano:
+   che e' esattamente la definizione di pressione osmotica.
    ------------------------------------------------------------ */
 
 (function () {
@@ -61,6 +62,7 @@
 
   var PORO = 0.5;         /* quanto è alto il varco nella membrana, in frazione */
   var BLOCCO = 40;        /* entro quanti pixel dal varco il soluto lo ostruisce */
+  var SPINTA_INDIETRO = 2.2;  /* quanto il dislivello ricaccia indietro l'acqua */
 
   /* ==========================================================
      1. Le particelle
@@ -125,6 +127,29 @@
      2. Il movimento
      ========================================================== */
 
+  /* Quanto l'acqua accumulata da una parte spinge indietro.
+     Man mano che il livello sale, quel peso in piu' ricaccia
+     l'acqua verso l'altra parte: e' la contropressione
+     idrostatica. Senza di lei l'acqua passerebbe per sempre, e
+     a concentrazioni uguali si vedrebbe una deriva casuale che
+     con l'osmosi non c'entra niente.
+
+     Il valore e' calcolato una volta per fotogramma e messo qui,
+     perche' contare l'acqua per ogni particella sarebbe lento. */
+  var squilibrio = 0;      /* (destra - sinistra) diviso il totale */
+
+  function aggiornaSquilibrio() {
+    var a = contaAcqua();
+    squilibrio = (a.destra - a.sinistra) / Math.max(1, acqua.length);
+  }
+
+  function contropressione(veniamoDaSinistra) {
+    /* andare verso la parte gia' piena costa, tornare indietro no */
+    var controcorrente = veniamoDaSinistra ? squilibrio : -squilibrio;
+    var p = Math.exp(-SPINTA_INDIETRO * controcorrente);
+    return p > 1 ? 1 : p;
+  }
+
   function muovi(elenco, dt, passaLaMembrana) {
     var velocita = 60 + temperatura * 1.4;
     var meta = larghezza / 2;
@@ -150,7 +175,8 @@
           nuovoY > aperturaAlta && nuovoY < aperturaBassa;
         /* l'acqua deve anche trovare il varco sgombro dal soluto */
         if (passaggioConsentito && elenco === acqua) {
-          passaggioConsentito = varcoLibero(p, nuovoY);
+          passaggioConsentito = varcoLibero(p, nuovoY) &&
+            Math.random() < contropressione(p.x < meta);
         }
         if (!passaggioConsentito) {
           nuovoX = p.x;            /* rimbalza sulla membrana */
@@ -370,6 +396,7 @@
     }
 
     if (inMoto && larghezza > 0) {
+      aggiornaSquilibrio();
       muovi(acqua, dt, true);
       muovi(soluto, dt, membrana === "permeabile");
       tempo += dt;
@@ -517,7 +544,8 @@
     [
       "Qui il fenomeno non è rappresentato ma succede davvero: nessuno dice all'acqua di andare verso la parte più concentrata. Ogni particella si muove a caso, e il risultato d'insieme emerge da quello.",
       "Le particelle sono poche centinaia invece che miliardi di miliardi, e si muovono in due dimensioni. Con numeri così piccoli le fluttuazioni si vedono a occhio: le concentrazioni ballano anche all'equilibrio. Nella realtà accade lo stesso, ma su numeri tanto grandi che non ce ne accorgiamo.",
-      "Il livello del liquido è disegnato in proporzione a quanta acqua c'è da quella parte. Nella realtà il dislivello crea una pressione che a un certo punto ferma il flusso: è la pressione osmotica, e questo modello non la calcola.",
+      "Il dislivello che si forma spinge indietro l'acqua, e il flusso si ferma quando le due spinte si pareggiano: è la pressione osmotica, ed è il motivo per cui il livello smette di salire. Qui però la contropressione è una regola di comodo tarata perché la cosa si veda accadere, non la formula di van 't Hoff: il livello finale cresce con la concentrazione, ma non in proporzione esatta.",
+      "Il soluto che ostruisce il varco è il meccanismo scelto per far nascere l'osmosi dal basso, senza dirla. Nella realtà il motivo è più sottile e riguarda l'acqua che, circondata da soluto, è un po' meno libera di andarsene.",
       "La membrana è un semplice varco che lascia passare le particelle piccole. Le membrane biologiche sono molto più selettive: scelgono in base alla forma, alla carica elettrica, e hanno canali e pompe.",
       "Non c'è il trasporto attivo: qui niente consuma energia per spostare sostanze contro il loro gradiente."
     ].forEach(function (t) { corpo.appendChild(elemento("p", null, t)); });

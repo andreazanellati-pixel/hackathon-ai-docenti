@@ -87,7 +87,7 @@ icona: 💧
 disciplina: Chimica
 anni: 1 2
 cartella: diffusione
-stato: in arrivo
+stato: pronta
 descrizione: Due scomparti separati da una membrana. Si sceglie che cosa la attraversa e si guarda dove va l'acqua.
 
 [STAZIONE]
