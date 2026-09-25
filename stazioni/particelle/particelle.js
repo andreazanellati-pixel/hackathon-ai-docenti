@@ -9,6 +9,8 @@
    Come funziona, in due parole:
    - la parte termodinamica e' calcolata con i numeri veri della
      sostanza, letti da sostanze.txt (calori specifici e latenti)
+   - la temperatura di ebollizione dipende dalla pressione, con
+     la relazione di Clausius-Clapeyron
    - le particelle sul canvas mostrano lo stato corrispondente:
      vibrano al loro posto nel solido, scorrono nel liquido,
      volano libere nel gas
@@ -23,6 +25,8 @@
   var contenitore = document.getElementById("stazione");
   if (!contenitore) return;
 
+  var R = 8.314;            /* costante dei gas, J/(mol·K) */
+
   /* ---------- stato ---------- */
 
   var sostanze = [];
@@ -31,6 +35,7 @@
 
   var massa = 0.1;          /* kg */
   var potenza = 200;        /* watt, negativa raffredda */
+  var pressione = 1;        /* atmosfere */
   var velocita = 20;        /* quante volte piu' veloce del tempo reale */
   var inMoto = false;
 
@@ -38,7 +43,7 @@
   var storia = [];          /* punti { e, t } per il grafico */
 
   var particelle = [];
-  var NUMERO = 150;
+  var numeroParticelle = 150;
 
   var tela = null, ctx = null, larghezza = 0, altezza = 0;
   var telaGrafico = null, ctxGrafico = null, larghezzaG = 0, altezzaG = 0;
@@ -52,6 +57,7 @@
     "fusione": "fusione",
     "ebollizione": "ebollizione",
     "partenza": "partenza",
+    "massa molare": "massaMolare",
     "calore solido": "cSolido",
     "calore liquido": "cLiquido",
     "calore gas": "cGas",
@@ -130,28 +136,42 @@
 
   /* ==========================================================
      2. La termodinamica
-     ----------------------------------------------------------
-     Dall'energia fornita si ricava la temperatura. Le soglie
-     sono le energie necessarie per arrivare a ogni tappa:
-       s1  fine riscaldamento del solido (si arriva alla fusione)
-       s2  fine della fusione (tutto liquido)
-       s3  fine riscaldamento del liquido (si arriva all'ebollizione)
-       s4  fine dell'ebollizione (tutto gas)
      ========================================================== */
+
+  /* La temperatura di ebollizione dipende dalla pressione. La
+     relazione e' quella di Clausius-Clapeyron: serve la massa
+     molare, ed e' per questo che sta in sostanze.txt. Se manca,
+     la pressione non ha effetto. */
+  function ebollizione() {
+    var s = sostanza;
+    if (typeof s.massaMolare !== "number" || s.massaMolare <= 0) return s.ebollizione;
+    if (pressione === 1) return s.ebollizione;
+
+    var t0 = s.ebollizione + 273.15;
+    var molare = s.massaMolare / 1000;                   /* da g/mol a kg/mol */
+    var inverso = 1 / t0 - (R / (s.lVaporizzazione * molare)) * Math.log(pressione);
+    if (inverso <= 0) return s.ebollizione;
+    var t = 1 / inverso - 273.15;
+
+    /* sotto la fusione l'ebollizione non ha piu' senso: la sostanza
+       sublimerebbe, cioe' passerebbe direttamente da solido a gas */
+    if (t < s.fusione + 1) t = s.fusione + 1;
+    return t;
+  }
 
   function soglie() {
     var s = sostanza;
+    var te = ebollizione();
     var s1 = massa * s.cSolido * (s.fusione - s.partenza);
     var s2 = s1 + massa * s.lFusione;
-    var s3 = s2 + massa * s.cLiquido * (s.ebollizione - s.fusione);
+    var s3 = s2 + massa * s.cLiquido * (te - s.fusione);
     var s4 = s3 + massa * s.lVaporizzazione;
     return { s1: s1, s2: s2, s3: s3, s4: s4 };
   }
 
-  /* quanta energia si puo' ancora fornire prima di fermarsi */
   function energiaMassima() {
     var g = soglie();
-    return g.s4 + massa * sostanza.cGas * (sostanza.ebollizione - sostanza.fusione) * 0.6;
+    return g.s4 + massa * sostanza.cGas * Math.max(40, ebollizione() - sostanza.fusione) * 0.6;
   }
 
   function energiaMinima() {
@@ -162,10 +182,8 @@
   function situazione(e) {
     var s = sostanza;
     var g = soglie();
+    var te = ebollizione();
 
-    if (e < 0) {
-      return { temperatura: s.partenza + e / (massa * s.cSolido), fase: "solido", frazione: 0 };
-    }
     if (e < g.s1) {
       return { temperatura: s.partenza + e / (massa * s.cSolido), fase: "solido", frazione: 0 };
     }
@@ -176,9 +194,9 @@
       return { temperatura: s.fusione + (e - g.s2) / (massa * s.cLiquido), fase: "liquido", frazione: 0 };
     }
     if (e < g.s4) {
-      return { temperatura: s.ebollizione, fase: "ebollizione", frazione: (e - g.s3) / (g.s4 - g.s3) };
+      return { temperatura: te, fase: "ebollizione", frazione: (e - g.s3) / (g.s4 - g.s3) };
     }
-    return { temperatura: s.ebollizione + (e - g.s4) / (massa * s.cGas), fase: "gas", frazione: 1 };
+    return { temperatura: te + (e - g.s4) / (massa * s.cGas), fase: "gas", frazione: 1 };
   }
 
   var NOMI_FASE = {
@@ -189,7 +207,6 @@
     gas: "gas"
   };
 
-  /* quanta parte della sostanza si comporta da liquido/gas, da 0 a 1 */
   function quotaLiquida(sit) {
     if (sit.fase === "solido") return 0;
     if (sit.fase === "fusione") return sit.frazione;
@@ -205,36 +222,47 @@
      3. Le particelle
      ========================================================== */
 
+  /* Quante particelle disegnare: piu' massa, piu' particelle. Cosi'
+     il cursore della massa si vede anche nel contenitore, non solo
+     nei numeri del grafico. */
+  function quanteParticelle() {
+    var frazione = (massa - 0.02) / (0.5 - 0.02);
+    return Math.round(60 + Math.max(0, Math.min(1, frazione)) * 130);
+  }
+
   function creaParticelle() {
+    numeroParticelle = quanteParticelle();
     particelle = [];
-    var colonne = Math.ceil(Math.sqrt(NUMERO * 1.6));
-    var righe = Math.ceil(NUMERO / colonne);
-    for (var i = 0; i < NUMERO; i++) {
+    var colonne = Math.ceil(Math.sqrt(numeroParticelle * 1.8));
+    var righe = Math.ceil(numeroParticelle / colonne);
+    var altezzaCumulo = Math.min(0.58, 0.10 + righe * 0.030);
+    for (var i = 0; i < numeroParticelle; i++) {
       var c = i % colonne;
       var r = Math.floor(i / colonne);
       particelle.push({
-        /* posizione a riposo nel reticolo del solido, in frazioni del contenitore */
-        rx: 0.18 + 0.64 * (colonne === 1 ? 0.5 : c / (colonne - 1)),
-        ry: 0.97 - 0.30 * (righe === 1 ? 0 : r / (righe - 1)),
+        rx: 0.16 + 0.68 * (colonne === 1 ? 0.5 : c / (colonne - 1)),
+        ry: 0.97 - altezzaCumulo * (righe === 1 ? 0 : r / (righe - 1)),
         x: 0, y: 0, vx: 0, vy: 0,
         stato: "solido",
         seme: Math.random() * Math.PI * 2
       });
     }
-    /* posizione iniziale: tutte al loro posto nel reticolo */
     particelle.forEach(function (p) { p.x = p.rx * larghezza; p.y = p.ry * altezza; });
   }
 
-  /* decide quante particelle sono liquide e quante gassose */
+  function raggioParticella() {
+    return numeroParticelle > 140 ? 4.2 : 5;
+  }
+
   function assegnaStati(sit) {
-    var nGas = Math.round(quotaGas(sit) * NUMERO);
-    var nLiquide = Math.round(quotaLiquida(sit) * NUMERO) - nGas;
+    var nGas = Math.round(quotaGas(sit) * numeroParticelle);
+    var nLiquide = Math.round(quotaLiquida(sit) * numeroParticelle) - nGas;
     if (nLiquide < 0) nLiquide = 0;
-    for (var i = 0; i < NUMERO; i++) {
+    for (var i = 0; i < numeroParticelle; i++) {
       /* le particelle piu' in alto passano di stato per prime:
-         e' cosi' che si vede il fronte di fusione salire */
-      if (i >= NUMERO - nGas) particelle[i].stato = "gas";
-      else if (i >= NUMERO - nGas - nLiquide) particelle[i].stato = "liquido";
+         cosi' si vede il fronte di fusione salire */
+      if (i >= numeroParticelle - nGas) particelle[i].stato = "gas";
+      else if (i >= numeroParticelle - nGas - nLiquide) particelle[i].stato = "liquido";
       else particelle[i].stato = "solido";
     }
   }
@@ -242,14 +270,13 @@
   function aggiornaParticelle(dt, sit) {
     var kelvin = Math.max(1, sit.temperatura + 273.15);
     var kelvinFusione = Math.max(1, sostanza.fusione + 273.15);
-    var agitazione = Math.sqrt(kelvin / kelvinFusione);   /* quanto sono veloci */
-    var raggio = 5;
+    var agitazione = Math.sqrt(kelvin / kelvinFusione);
+    var raggio = raggioParticella();
 
-    for (var i = 0; i < NUMERO; i++) {
+    for (var i = 0; i < numeroParticelle; i++) {
       var p = particelle[i];
 
       if (p.stato === "solido") {
-        /* vibra intorno al suo posto: piu' e' caldo, piu' l'oscillazione e' ampia */
         var ampiezza = Math.min(6, 1.4 * agitazione * agitazione);
         p.seme += dt * 9 * agitazione;
         p.x = p.rx * larghezza + Math.cos(p.seme * 1.7) * ampiezza;
@@ -257,7 +284,6 @@
         p.vx = 0; p.vy = 0;
 
       } else if (p.stato === "liquido") {
-        /* cade, si respinge dalle vicine e perde energia: si accumula sul fondo */
         p.vy += 260 * dt;
         p.vx += (Math.random() - 0.5) * 120 * agitazione * dt;
         p.vy += (Math.random() - 0.5) * 120 * agitazione * dt;
@@ -265,7 +291,6 @@
         muovi(p, dt, raggio);
 
       } else {
-        /* vola libera: la velocita' cresce come la radice della temperatura */
         var velocitaTipica = 26 * Math.sqrt(kelvin / kelvinFusione);
         var modulo = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
         if (modulo < 1) {
@@ -282,10 +307,10 @@
     }
 
     /* repulsione morbida fra particelle vicine, cosi' non si sovrappongono */
-    for (var a = 0; a < NUMERO; a++) {
+    for (var a = 0; a < numeroParticelle; a++) {
       var pa = particelle[a];
       if (pa.stato === "solido") continue;
-      for (var b = a + 1; b < NUMERO; b++) {
+      for (var b = a + 1; b < numeroParticelle; b++) {
         var pb = particelle[b];
         if (pb.stato === "solido") continue;
         var dx = pb.x - pa.x, dy = pb.y - pa.y;
@@ -315,34 +340,30 @@
      4. Disegno
      ========================================================== */
 
-  function coloreTema(nome, chiaro, scuro) {
+  function coloreTema(nome, ripiego) {
     var stile = getComputedStyle(document.documentElement).getPropertyValue(nome).trim();
-    return stile || chiaro || scuro;
+    return stile || ripiego;
   }
 
-  function disegnaContenitore(sit) {
+  function disegnaContenitore() {
     ctx.clearRect(0, 0, larghezza, altezza);
-
-    /* il fondo del contenitore */
     ctx.fillStyle = coloreTema("--superficie-alt", "#faf8f4");
     ctx.fillRect(0, 0, larghezza, altezza);
 
-    /* le particelle */
-    for (var i = 0; i < NUMERO; i++) {
+    var raggio = raggioParticella();
+    for (var i = 0; i < numeroParticelle; i++) {
       var p = particelle[i];
-      var raggio = p.stato === "gas" ? 3.6 : 5;
       ctx.globalAlpha = p.stato === "gas" ? 0.75 : 1;
       ctx.fillStyle = sostanza.colore;
       ctx.beginPath();
-      ctx.arc(p.x, p.y, raggio, 0, Math.PI * 2);
+      ctx.arc(p.x, p.y, p.stato === "gas" ? raggio * 0.8 : raggio, 0, Math.PI * 2);
       ctx.fill();
     }
     ctx.globalAlpha = 1;
 
-    /* la fiamma o il ghiaccio del riscaldatore, in basso */
+    /* il riscaldatore in basso: arancione se scalda, azzurro se raffredda */
     if (potenza !== 0) {
-      var caldo = potenza > 0;
-      ctx.fillStyle = caldo ? "rgba(214,120,40,.85)" : "rgba(80,150,210,.85)";
+      ctx.fillStyle = potenza > 0 ? "rgba(214,120,40,.85)" : "rgba(80,150,210,.85)";
       var quanti = Math.min(9, 2 + Math.round(Math.abs(potenza) / 120));
       for (var f = 0; f < quanti; f++) {
         var fx = larghezza * (f + 0.5) / quanti;
@@ -356,11 +377,20 @@
     }
   }
 
+  /* sceglie un passo "tondo" per le tacche dell'asse */
+  function passoTacche(intervallo) {
+    var candidati = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000];
+    for (var i = 0; i < candidati.length; i++) {
+      if (intervallo / candidati[i] <= 6) return candidati[i];
+    }
+    return candidati[candidati.length - 1];
+  }
+
   function disegnaGrafico(sit) {
     var c = ctxGrafico;
     c.clearRect(0, 0, larghezzaG, altezzaG);
 
-    var margineS = 46, margineD = 12, margineA = 12, margineB = 30;
+    var margineS = 48, margineD = 14, margineA = 12, margineB = 42;
     var w = larghezzaG - margineS - margineD;
     var h = altezzaG - margineA - margineB;
 
@@ -378,11 +408,10 @@
     if (sit.temperatura < tMinVisto) tMinVisto = sit.temperatura;
     if (sit.temperatura > tMaxVisto) tMaxVisto = sit.temperatura;
 
+    var te = ebollizione();
     var tMin = Math.min(sostanza.partenza, tMinVisto) - 15;
-    var tMax = Math.max(
-      sostanza.ebollizione + (sostanza.ebollizione - sostanza.fusione) * 0.5,
-      tMaxVisto
-    ) + 15;
+    var tMax = Math.max(te + (te - sostanza.fusione) * 0.5, tMaxVisto) + 15;
+
     function px(e) { return margineS + (e - eMin) / (eMax - eMin) * w; }
     function py(t) { return margineA + h - (t - tMin) / (tMax - tMin) * h; }
 
@@ -390,11 +419,28 @@
     var bordo = coloreTema("--bordo", "#ddd6c9");
     var accento = coloreTema("--accento", "#1f5f8b");
 
+    c.font = "11px system-ui, -apple-system, 'Segoe UI', sans-serif";
+    c.lineWidth = 1;
+
+    /* le tacche dell'energia, in kilojoule: e' qui che si vede
+       l'effetto della massa, perche' i numeri raddoppiano */
+    var passoKJ = passoTacche((eMax - eMin) / 1000);
+    c.strokeStyle = bordo;
+    c.fillStyle = tenue;
+    c.textAlign = "center";
+    var primo = Math.ceil(eMin / 1000 / passoKJ) * passoKJ;
+    for (var kj = primo; kj * 1000 <= eMax; kj += passoKJ) {
+      var x = px(kj * 1000);
+      c.beginPath();
+      c.moveTo(x, margineA + h); c.lineTo(x, margineA + h + 4);
+      c.stroke();
+      c.fillText(String(kj), x, margineA + h + 16);
+    }
+
     /* le due temperature notevoli */
     c.strokeStyle = bordo;
     c.setLineDash([4, 4]);
-    c.lineWidth = 1;
-    [sostanza.fusione, sostanza.ebollizione].forEach(function (t) {
+    [sostanza.fusione, te].forEach(function (t) {
       c.beginPath(); c.moveTo(margineS, py(t)); c.lineTo(margineS + w, py(t)); c.stroke();
     });
     c.setLineDash([]);
@@ -407,12 +453,11 @@
 
     /* etichette */
     c.fillStyle = tenue;
-    c.font = "11px system-ui, -apple-system, 'Segoe UI', sans-serif";
     c.textAlign = "right";
     c.fillText(Math.round(sostanza.fusione) + "°", margineS - 5, py(sostanza.fusione) + 4);
-    c.fillText(Math.round(sostanza.ebollizione) + "°", margineS - 5, py(sostanza.ebollizione) + 4);
+    c.fillText(Math.round(te) + "°", margineS - 5, py(te) + 4);
     c.textAlign = "center";
-    c.fillText("energia fornita →", margineS + w / 2, altezzaG - 8);
+    c.fillText("energia fornita (kJ)", margineS + w / 2, altezzaG - 8);
 
     /* la curva percorsa finora */
     if (storia.length > 1) {
@@ -420,8 +465,8 @@
       c.lineWidth = 2.5;
       c.beginPath();
       for (var i = 0; i < storia.length; i++) {
-        var x = px(storia[i].e), y = py(storia[i].t);
-        if (i === 0) c.moveTo(x, y); else c.lineTo(x, y);
+        var xx = px(storia[i].e), yy = py(storia[i].t);
+        if (i === 0) c.moveTo(xx, yy); else c.lineTo(xx, yy);
       }
       c.stroke();
     }
@@ -450,25 +495,24 @@
       energia = nuova;
 
       var ultimo = storia[storia.length - 1];
-      if (!ultimo || Math.abs(energia - ultimo.e) > (tetto - pavimento) / 400) {
+      if (!ultimo || Math.abs(energia - ultimo.e) > (tetto - pavimento) / 500) {
         storia.push({ e: energia, t: situazione(energia).temperatura });
-        if (storia.length > 3000) storia.shift();
+        if (storia.length > 4000) storia.shift();
       }
     }
 
     unFotogramma(dt);
-
     requestAnimationFrame(passo);
   }
 
   /* Disegna un fotogramma. Sta in una funzione a parte perche' serve
-     anche subito dopo il caricamento e a ogni cambio di sostanza: cosi'
-     la pagina e' gia' corretta prima che parta l'animazione. */
+     anche subito dopo il caricamento e ogni volta che si tocca un
+     comando: cosi' la pagina e' corretta anche a simulazione ferma. */
   function unFotogramma(dt) {
     var sit = situazione(energia);
     assegnaStati(sit);
     aggiornaParticelle(dt, sit);
-    disegnaContenitore(sit);
+    disegnaContenitore();
     disegnaGrafico(sit);
     aggiornaLetture(sit);
   }
@@ -488,6 +532,8 @@
     scrivi("lettura-kelvin", arrotonda(sit.temperatura + 273.15, 1) + " K");
     scrivi("lettura-fase", NOMI_FASE[sit.fase]);
     scrivi("lettura-energia", arrotonda(energia / 1000, 1) + " kJ");
+    scrivi("lettura-fusione", arrotonda(sostanza.fusione, 0) + " °C");
+    scrivi("lettura-ebollizione", arrotonda(ebollizione(), 0) + " °C");
 
     var riquadro = document.getElementById("riquadro-fase");
     if (riquadro) {
@@ -528,11 +574,11 @@
     creaParticelle();
   }
 
-  function cursore(etichetta, min, max, passoV, valore, unita, quandoCambia) {
+  function cursore(etichetta, min, max, passoV, valore, unita, formatta, quandoCambia) {
     var riga = elemento("div", "cursore");
     var testa = elemento("div", "cursore-testa");
     testa.appendChild(elemento("span", "cursore-nome", etichetta));
-    var lettura = elemento("span", "cursore-valore", valore + " " + unita);
+    var lettura = elemento("span", "cursore-valore", formatta(valore) + " " + unita);
     testa.appendChild(lettura);
     riga.appendChild(testa);
 
@@ -543,12 +589,19 @@
     input.setAttribute("aria-label", etichetta);
     input.addEventListener("input", function () {
       var v = parseFloat(input.value);
-      lettura.textContent = v + " " + unita;
+      lettura.textContent = formatta(v) + " " + unita;
       quandoCambia(v);
     });
     riga.appendChild(input);
+    riga.aggiorna = function (v) {
+      input.value = String(v);
+      lettura.textContent = formatta(v) + " " + unita;
+    };
     return riga;
   }
+
+  function comeSta(v) { return String(v); }
+  function conVirgola(v) { return String(v).replace(".", ","); }
 
   function costruisci() {
     svuota(contenitore);
@@ -591,6 +644,8 @@
     letture.appendChild(lettura("lettura-kelvin", "in kelvin"));
     letture.appendChild(lettura("lettura-fase", "stato"));
     letture.appendChild(lettura("lettura-energia", "energia fornita"));
+    letture.appendChild(lettura("lettura-fusione", "fonde a"));
+    letture.appendChild(lettura("lettura-ebollizione", "bolle a"));
     contenitore.appendChild(letture);
 
     /* che cosa sta succedendo */
@@ -621,31 +676,57 @@
     reset.addEventListener("click", function () {
       fermati();
       azzera();
-      document.getElementById("bottone-moto").textContent = "▶  Avvia";
+      unFotogramma(0);
     });
     riga.appendChild(reset);
     comandi.appendChild(riga);
 
-    comandi.appendChild(cursore("Riscaldatore", -600, 1000, 20, potenza, "W", function (v) {
-      potenza = v;
-    }));
+    comandi.appendChild(cursore("Riscaldatore", -600, 1000, 20, potenza, "W", comeSta,
+      function (v) { potenza = v; unFotogramma(0); }));
     comandi.appendChild(elemento("p", "nota-piccola",
       "Con il riscaldatore a valori negativi la sostanza viene raffreddata, e la curva torna indietro."));
 
-    comandi.appendChild(cursore("Massa", 20, 500, 10, Math.round(massa * 1000), "g", function (v) {
-      massa = v / 1000;
-      azzera();
-    }));
-    comandi.appendChild(cursore("Velocità della simulazione", 1, 60, 1, velocita, "×", function (v) {
-      velocita = v;
-    }));
+    comandi.appendChild(cursore("Massa", 20, 500, 10, Math.round(massa * 1000), "g", comeSta,
+      function (v) { massa = v / 1000; azzera(); unFotogramma(0); }));
+    comandi.appendChild(elemento("p", "nota-piccola",
+      "Con più massa servono più kilojoule per ogni tappa: guarda i numeri sotto il grafico, " +
+      "e le particelle nel contenitore, che aumentano."));
+
+    var cursorePressione = cursore("Pressione", 0.2, 5, 0.1, pressione, "atm", conVirgola,
+      function (v) { pressione = v; azzera(); unFotogramma(0); });
+    comandi.appendChild(cursorePressione);
+
+    var preset = elemento("div", "preset");
+    preset.appendChild(elemento("span", "esempi-etichetta", "prova con:"));
+    [
+      ["cima dell'Everest", 0.3],
+      ["livello del mare", 1],
+      ["pentola a pressione", 2]
+    ].forEach(function (p) {
+      var b = elemento("button", "bottone-esempio", p[0]);
+      b.type = "button";
+      b.addEventListener("click", function () {
+        pressione = p[1];
+        cursorePressione.aggiorna(p[1]);
+        azzera();
+        unFotogramma(0);
+      });
+      preset.appendChild(b);
+    });
+    comandi.appendChild(preset);
+    comandi.appendChild(elemento("p", "nota-piccola",
+      "La pressione sposta la temperatura di ebollizione, non quella di fusione. " +
+      "Cambiandola l'esperimento riparte da capo, così le due curve si possono confrontare."));
+
+    comandi.appendChild(cursore("Velocità della simulazione", 1, 60, 1, velocita, "×", comeSta,
+      function (v) { velocita = v; }));
     contenitore.appendChild(comandi);
 
     /* il grafico */
     contenitore.appendChild(elemento("h3", "titolo-blocco", "La curva di riscaldamento"));
     contenitore.appendChild(elemento("p", "didascalia",
-      "In verticale la temperatura, in orizzontale l'energia fornita. Le due righe tratteggiate sono " +
-      "la temperatura di fusione e quella di ebollizione."));
+      "In verticale la temperatura, in orizzontale l'energia fornita in kilojoule. Le due righe " +
+      "tratteggiate sono la temperatura di fusione e quella di ebollizione."));
     var scatolaG = elemento("div", "scatola-grafico");
     telaGrafico = document.createElement("canvas");
     telaGrafico.className = "tela";
@@ -658,15 +739,19 @@
     var dettagli = elemento("details", "tutte-unita");
     dettagli.appendChild(elemento("summary", null, "I numeri di questa sostanza"));
     var elenco = elemento("div", "elenco-valori");
-    [
+    var voci = [
       ["fonde a", sostanza.fusione + " °C"],
-      ["bolle a", sostanza.ebollizione + " °C"],
+      ["bolle a, a 1 atm", sostanza.ebollizione + " °C"],
       ["calore specifico, solido", sostanza.cSolido + " J/(kg·K)"],
       ["calore specifico, liquido", sostanza.cLiquido + " J/(kg·K)"],
       ["calore specifico, gas", sostanza.cGas + " J/(kg·K)"],
       ["calore latente di fusione", Math.round(sostanza.lFusione / 1000) + " kJ/kg"],
       ["calore latente di vaporizzazione", Math.round(sostanza.lVaporizzazione / 1000) + " kJ/kg"]
-    ].forEach(function (v) {
+    ];
+    if (typeof sostanza.massaMolare === "number") {
+      voci.push(["massa molare", arrotonda(sostanza.massaMolare, 1) + " g/mol"]);
+    }
+    voci.forEach(function (v) {
       var voce = elemento("div", "valore-unita");
       voce.appendChild(elemento("span", "valore-numero", v[0]));
       voce.appendChild(elemento("span", "valore-simbolo", v[1]));
@@ -683,10 +768,12 @@
     var corpo = elemento("div", "limiti-corpo");
     [
       "La temperatura è calcolata con i valori reali della sostanza: calori specifici e calori latenti presi da tabella. Quella parte è corretta.",
-      "Le particelle sul disegno, invece, non producono i passaggi di stato: li rappresentano. In una simulazione vera, i passaggi di stato emergerebbero dalle forze fra le particelle, e sarebbero molto meno puliti.",
-      "Le particelle sono duecento invece che miliardi di miliardi, e si muovono in due dimensioni invece che in tre.",
-      "Il riscaldamento è uniforme e istantaneo in tutta la sostanza: non ci sono punti più caldi di altri, e non si perde calore verso l'esterno.",
-      "La pressione è sempre quella atmosferica. Cambiandola, le temperature di fusione ed ebollizione cambierebbero: in montagna l'acqua bolle sotto i 100 gradi."
+      "L'effetto della pressione sull'ebollizione usa la relazione di Clausius-Clapeyron, che suppone il calore latente costante al variare della temperatura. In realtà cala un poco, quindi lontano da un'atmosfera il valore è approssimato: per l'acqua l'errore resta sotto il grado fra 0,5 e 2 atmosfere, e cresce agli estremi.",
+      "La pressione non sposta la temperatura di fusione. È una semplificazione quasi sempre lecita: per l'acqua servono più di cento atmosfere per abbassarla di un solo grado.",
+      "Sotto una certa pressione una sostanza sublima, cioè passa direttamente da solido a gas senza diventare liquida. Questo modello non lo rappresenta: tiene l'ebollizione appena sopra la fusione.",
+      "Le particelle sul disegno non producono i passaggi di stato: li rappresentano. In una simulazione costruita a partire dalle forze fra le particelle, i passaggi emergerebbero da soli e sarebbero molto meno puliti.",
+      "Le particelle sono qualche centinaio invece che miliardi di miliardi, e si muovono in due dimensioni invece che in tre.",
+      "Il riscaldamento è uniforme e istantaneo in tutta la sostanza: non ci sono punti più caldi di altri, e non si perde calore verso l'esterno."
     ].forEach(function (t) { corpo.appendChild(elemento("p", null, t)); });
     limiti.appendChild(corpo);
     contenitore.appendChild(limiti);
@@ -715,7 +802,7 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     larghezzaG = telaGrafico.parentNode.clientWidth;
-    altezzaG = Math.round(Math.min(260, Math.max(180, larghezzaG * 0.45)));
+    altezzaG = Math.round(Math.min(280, Math.max(190, larghezzaG * 0.48)));
     telaGrafico.width = larghezzaG * dpr; telaGrafico.height = altezzaG * dpr;
     telaGrafico.style.width = larghezzaG + "px"; telaGrafico.style.height = altezzaG + "px";
     ctxGrafico = telaGrafico.getContext("2d");
@@ -726,6 +813,7 @@
     if (!tela) return;
     adattaTele();
     creaParticelle();
+    unFotogramma(0);
   });
 
   /* ==========================================================

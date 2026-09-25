@@ -1538,7 +1538,7 @@ a.carta-stazione:focus-visible {
 }
 
 @media (min-width: 560px) {
-  .letture { grid-template-columns: repeat(4, 1fr); }
+  .letture { grid-template-columns: repeat(3, 1fr); }
 }
 
 .lettura {
@@ -1653,3 +1653,12 @@ a.carta-stazione:focus-visible {
 }
 
 .limiti-corpo p { margin: 10px 0 0; }
+
+/* i pulsanti rapidi dentro i comandi di una simulazione */
+.preset {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin: -6px 0 12px;
+}

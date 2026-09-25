@@ -14,6 +14,9 @@
 #   nome:        come si chiama
 #   formula:     la formula chimica (facoltativa)
 #   colore:      il colore delle particelle, in esadecimale
+#   massa molare: in grammi per mole. Serve a calcolare come
+#                cambia la temperatura di ebollizione al variare
+#                della pressione.
 #   fusione:     temperatura di fusione, in gradi Celsius
 #   ebollizione: temperatura di ebollizione, in gradi Celsius
 #   partenza:    da quale temperatura comincia la simulazione
@@ -40,6 +43,7 @@
 [SOSTANZA]
 nome: Acqua
 formula: H₂O
+massa molare: 18,0
 colore: #3f8fd0
 fusione: 0
 ebollizione: 100
@@ -54,6 +58,7 @@ nota: Guarda quanto è lungo il secondo plateau rispetto al primo: per far evapo
 [SOSTANZA]
 nome: Etanolo
 formula: C₂H₅OH
+massa molare: 46,1
 colore: #8f6fd0
 fusione: -114
 ebollizione: 78
@@ -68,6 +73,7 @@ nota: Bolle a 78 gradi, molto prima dell'acqua: per questo evapora in fretta dal
 [SOSTANZA]
 nome: Azoto
 formula: N₂
+massa molare: 28,0
 colore: #4fb3a5
 fusione: -210
 ebollizione: -196
@@ -82,6 +88,7 @@ nota: Fra fusione ed ebollizione ci sono solo quattordici gradi: l'azoto è liqu
 [SOSTANZA]
 nome: Mercurio
 formula: Hg
+massa molare: 200,6
 colore: #9aa4b0
 fusione: -39
 ebollizione: 357
@@ -96,6 +103,7 @@ nota: L'unico metallo liquido a temperatura ambiente, e infatti la sua fusione �
 [SOSTANZA]
 nome: Piombo
 formula: Pb
+massa molare: 207,2
 colore: #7b7f8c
 fusione: 327
 ebollizione: 1749
@@ -110,6 +118,7 @@ nota: Parte da temperatura ambiente allo stato solido e fonde a 327 gradi: si pu
 [SOSTANZA]
 nome: Ferro
 formula: Fe
+massa molare: 55,8
 colore: #b0705a
 fusione: 1538
 ebollizione: 2861
