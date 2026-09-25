@@ -277,7 +277,7 @@ icona: 🌐
 disciplina: Scienze della Terra
 anni: 5
 cartella: interno-terra
-stato: in arrivo
+stato: pronta
 descrizione: I percorsi delle onde sismiche e la zona d'ombra: come si è capito che il nucleo esterno è liquido.
 
 [STAZIONE]

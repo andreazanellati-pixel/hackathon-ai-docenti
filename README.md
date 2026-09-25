@@ -32,6 +32,7 @@ così si vede il piano di lavoro.
 | 🦠 Epidemia e vaccinazione | 2ª, 5ª | R0, R effettivo e soglia di gregge. Si vede perche' vaccinare il 95% ferma il morbillo e il 90% no, e perche' un'epidemia si spegne molto prima di aver contagiato tutti |
 | 🌿 La fotosintesi | 2ª, 5ª | Luce, anidride carbonica e temperatura. Il fattore limitante non e' raccontato: il sito prova ad aumentare ognuna delle tre cose e dice quale fa salire di piu' il guadagno |
 | 🌡️ Il bilancio radiativo | 1ª, 5ª | Luce ricevuta, albedo ed effetto serra. La Terra senza atmosfera fa meno 18 gradi, con l'atmosfera piu' 15: quei 33 gradi si vedono comparire |
+| 🌐 Dentro la Terra con le onde | 3ª, 4ª | I raggi sismici sono calcolati uno per uno con la legge di Snell su una sfera. La zona d'ombra non e' disegnata: esce dal conto, e viene fra 98 e 140 gradi contro i 103-143 misurati |
 | 🌍 Terra, Sole e Luna | 1ª | Inclinazione dell'asse, latitudine e giorno dell'anno: durata del dì, altezza del Sole e stagioni. Portando l'asse a zero le stagioni spariscono |
 | 📈 Trovare l'epicentro | 3ª, 4ª | Tre sismogrammi, il ritardo fra onde S e P, la dromocrona: si triangola come fanno i sismologi |
 | 📊 Genetica di popolazioni | 4ª | Quattro esperimenti guidati sulla deriva genetica e la selezione, con la popolazione disegnata allele per allele e una spiegazione che accompagna passo passo |
@@ -39,8 +40,7 @@ così si vede il piano di lavoro.
 | 🌱 Gli incroci di Mendel | 3ª | Quadrati di Punnett a uno e due caratteri, e figli generati davvero a caso: le proporzioni emergono solo sui grandi numeri |
 
 **In costruzione:** molecole, potenziale d'azione,
-elettroforesi, vulcani, rocce, interno della
-Terra, tettonica.
+elettroforesi, vulcani, rocce, tettonica.
 
 ## Per chi insegna: modificare i contenuti
 
@@ -68,6 +68,7 @@ istruzioni scritte in cima:
 | `stazioni/epidemia/malattie.txt` | le malattie con il loro R0 e i giorni contagiosi |
 | `stazioni/fotosintesi/piante.txt` | le piante con Pmax, K per la CO2 e respirazione |
 | `stazioni/bilancio-radiativo/corpi.txt` | i pianeti con luce ricevuta, albedo ed effetto serra |
+| `stazioni/interno-terra/strati.txt` | gli strati della Terra con le velocita' sismiche |
 
 Si modifica il testo, si salva **in UTF-8**, si ricarica la pagina. Non
 serve toccare il codice. Se una riga viene scritta male il sito non si
