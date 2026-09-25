@@ -1,0 +1,122 @@
+# ============================================================
+# LE SOSTANZE DEL LABORATORIO DELLE PARTICELLE
+# ============================================================
+#
+# Ogni sostanza ha i suoi valori reali: temperature di fusione e
+# di ebollizione, calori specifici e calori latenti. Sono questi
+# numeri a decidere quanto sono lunghi i plateau della curva di
+# riscaldamento, quindi vanno presi da una tabella seria.
+#
+# COME SI SCRIVE UNA SOSTANZA
+# ---------------------------
+# Ogni sostanza comincia con la riga [SOSTANZA] e contiene:
+#
+#   nome:        come si chiama
+#   formula:     la formula chimica (facoltativa)
+#   colore:      il colore delle particelle, in esadecimale
+#   fusione:     temperatura di fusione, in gradi Celsius
+#   ebollizione: temperatura di ebollizione, in gradi Celsius
+#   partenza:    da quale temperatura comincia la simulazione
+#
+#   calore solido / calore liquido / calore gas
+#                calore specifico nei tre stati, in J/(kg·K)
+#
+#   latente fusione / latente vaporizzazione
+#                calore latente, in J/kg
+#
+#   nota:        una frase che compare sotto la simulazione
+#
+# ALTRE COSE DA SAPERE
+# --------------------
+# - Le righe che iniziano con # sono commenti: il sito le ignora.
+# - I numeri si scrivono con il punto o con la virgola, come
+#   preferisci: 4186 oppure 4186,0
+# - Se una riga è scritta male il sito non si blocca: la salta e
+#   ti segnala quale riga rivedere.
+#
+# ============================================================
+
+
+[SOSTANZA]
+nome: Acqua
+formula: H₂O
+colore: #3f8fd0
+fusione: 0
+ebollizione: 100
+partenza: -30
+calore solido: 2090
+calore liquido: 4186
+calore gas: 2010
+latente fusione: 334000
+latente vaporizzazione: 2260000
+nota: Guarda quanto è lungo il secondo plateau rispetto al primo: per far evaporare l'acqua serve quasi sette volte l'energia che serve per fonderla. È il motivo per cui il sudore raffredda così bene, e per cui una pentola impiega un attimo a bollire e un'eternità a svuotarsi.
+
+[SOSTANZA]
+nome: Etanolo
+formula: C₂H₅OH
+colore: #8f6fd0
+fusione: -114
+ebollizione: 78
+partenza: -140
+calore solido: 1200
+calore liquido: 2440
+calore gas: 1420
+latente fusione: 108000
+latente vaporizzazione: 855000
+nota: Bolle a 78 gradi, molto prima dell'acqua: per questo evapora in fretta dalla pelle e dà una sensazione di freddo. È anche il principio della distillazione, che separa l'alcol dall'acqua sfruttando proprio questa differenza.
+
+[SOSTANZA]
+nome: Azoto
+formula: N₂
+colore: #4fb3a5
+fusione: -210
+ebollizione: -196
+partenza: -230
+calore solido: 1040
+calore liquido: 2040
+calore gas: 1040
+latente fusione: 25700
+latente vaporizzazione: 199000
+nota: Fra fusione ed ebollizione ci sono solo quattordici gradi: l'azoto è liquido in una finestra strettissima, e a temperatura ambiente è il gas che respiriamo per quattro quinti. L'azoto liquido dei laboratori bolle continuamente, perché per lui la stanza è un forno.
+
+[SOSTANZA]
+nome: Mercurio
+formula: Hg
+colore: #9aa4b0
+fusione: -39
+ebollizione: 357
+partenza: -70
+calore solido: 140
+calore liquido: 140
+calore gas: 104
+latente fusione: 11400
+latente vaporizzazione: 295000
+nota: L'unico metallo liquido a temperatura ambiente, e infatti la sua fusione è sotto lo zero. Il calore specifico è bassissimo: bastano pochi joule per scaldarlo di un grado, trenta volte meno che per l'acqua. Per questo funzionava bene nei termometri.
+
+[SOSTANZA]
+nome: Piombo
+formula: Pb
+colore: #7b7f8c
+fusione: 327
+ebollizione: 1749
+partenza: 20
+calore solido: 130
+calore liquido: 160
+calore gas: 140
+latente fusione: 24500
+latente vaporizzazione: 871000
+nota: Parte da temperatura ambiente allo stato solido e fonde a 327 gradi: si può fondere su un fornello da cucina, ed è il motivo per cui è stato usato per millenni per fare tubi, proiettili e caratteri da stampa.
+
+[SOSTANZA]
+nome: Ferro
+formula: Fe
+colore: #b0705a
+fusione: 1538
+ebollizione: 2861
+partenza: 20
+calore solido: 450
+calore liquido: 820
+calore gas: 450
+latente fusione: 247000
+latente vaporizzazione: 6090000
+nota: Per fondere il ferro servono più di millecinquecento gradi: ecco perché l'età del ferro arriva molto dopo quella del bronzo, che fonde intorno ai mille. Il calore latente di vaporizzazione è enorme: far bollire il ferro è, in pratica, quasi impossibile fuori da un laboratorio.

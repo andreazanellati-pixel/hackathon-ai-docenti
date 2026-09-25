@@ -78,7 +78,7 @@ icona: 🧊
 disciplina: Chimica
 anni: 1 3
 cartella: particelle
-stato: in arrivo
+stato: pronta
 descrizione: Un contenitore di particelle da scaldare e raffreddare. Si vedono i tre stati, i passaggi di stato e la curva di riscaldamento che si disegna da sola, con i suoi plateau.
 
 [STAZIONE]

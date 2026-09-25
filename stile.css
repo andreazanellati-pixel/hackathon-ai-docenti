@@ -1510,3 +1510,146 @@ a.carta-stazione:focus-visible {
   text-align: center;
   margin-top: 30px;
 }
+
+/* ============================================================
+   Le simulazioni: pezzi comuni a tutte le stazioni
+   ============================================================ */
+
+.scatola-particelle,
+.scatola-grafico {
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+  overflow: hidden;
+  background: var(--superficie-alt);
+  box-shadow: var(--ombra);
+  margin-bottom: 16px;
+  line-height: 0;
+}
+
+.tela { display: block; width: 100%; }
+
+/* le letture degli strumenti */
+
+.letture {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 560px) {
+  .letture { grid-template-columns: repeat(4, 1fr); }
+}
+
+.lettura {
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: 12px;
+  padding: 11px 12px;
+  text-align: center;
+}
+
+.lettura-valore {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accento);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+.lettura-nome {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .72rem;
+  color: var(--testo-tenue);
+  margin-top: 3px;
+}
+
+/* il riquadro che racconta che cosa sta succedendo */
+
+.riquadro-fase {
+  background: var(--superficie-alt);
+  border-left: 4px solid var(--bordo-forte);
+  border-radius: 0 10px 10px 0;
+  padding: 13px 15px;
+  margin-bottom: 18px;
+  transition: border-color .25s, background .25s;
+}
+
+/* durante un passaggio di stato il riquadro si accende:
+   e' il momento che deve saltare all'occhio */
+.riquadro-fase.in-passaggio {
+  border-left-color: var(--accento);
+  background: var(--accento-chiaro);
+}
+
+.spiegazione-fase {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .92rem;
+}
+
+/* i comandi */
+
+.comandi {
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+  padding: 16px 18px;
+  box-shadow: var(--ombra);
+  margin-bottom: 20px;
+}
+
+.comandi .bottoni { margin-top: 0; margin-bottom: 16px; }
+
+.cursore { margin-bottom: 14px; }
+.cursore:last-child { margin-bottom: 0; }
+
+.cursore-testa {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .85rem;
+  margin-bottom: 5px;
+}
+
+.cursore-nome { color: var(--testo-tenue); }
+.cursore-valore { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.cursore input[type="range"] {
+  width: 100%;
+  height: 34px;
+  accent-color: var(--accento);
+  cursor: pointer;
+}
+
+/* i limiti del modello, richiudibili */
+
+.limiti {
+  border: 1px dashed var(--bordo-forte);
+  border-radius: var(--raggio);
+  margin-top: 22px;
+}
+
+.limiti summary {
+  cursor: pointer;
+  padding: 13px 16px;
+  font-weight: 700;
+  font-size: .9rem;
+  list-style: none;
+  color: var(--testo-tenue);
+}
+
+.limiti summary::-webkit-details-marker { display: none; }
+.limiti summary::before { content: "⚠️ "; }
+.limiti[open] summary { border-bottom: 1px dashed var(--bordo-forte); }
+
+.limiti-corpo {
+  padding: 4px 16px 14px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .86rem;
+  color: var(--testo-tenue);
+}
+
+.limiti-corpo p { margin: 10px 0 0; }

@@ -20,8 +20,9 @@ così si vede il piano di lavoro.
 | 🔍 Il detective degli esperimenti | 1ª–5ª | Quattordici casi in cui progettare l'esperimento che scopre chi ha ragione: ipotesi, variabili, gruppo di controllo, conclusione |
 | 🧭 Il Sistema Internazionale | 1ª | Le sette unità fondamentali, le grandezze derivate con la loro formula e i prefissi da tera a femto, con esempi concreti |
 | 📐 Convertire le unità | 1ª | La scala dove si vede la virgola spostarsi casella per casella, e un allenamento con esercizi generati a caso |
+| 🧊 Le particelle e gli stati della materia | 1ª, 3ª | Un contenitore di particelle da scaldare e raffreddare: i tre stati, i passaggi di stato e la curva di riscaldamento con i suoi plateau |
 
-**In costruzione:** particelle e stati della materia, diffusione e osmosi,
+**In costruzione:** diffusione e osmosi,
 stechiometria, molecole, teoria degli urti, equilibrio chimico,
 titolazione, pile, enzimi, mitosi e meiosi, incroci di Mendel, dal DNA
 alla proteina, genetica di popolazioni, potenziale d'azione, epidemie,
@@ -39,6 +40,7 @@ istruzioni scritte in cima:
 | `stazioni/detective/casi.txt` | i casi del detective |
 | `stazioni/sistema-internazionale/si.txt` | unità fondamentali, derivate, prefissi |
 | `stazioni/convertire/unita.txt` | le scale di conversione |
+| `stazioni/particelle/sostanze.txt` | le sostanze con calori specifici e latenti |
 
 Si modifica il testo, si salva **in UTF-8**, si ricarica la pagina. Non
 serve toccare il codice. Se una riga viene scritta male il sito non si
