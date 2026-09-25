@@ -1,0 +1,30 @@
+# ============================================================
+# GLI INDICATORI
+# ============================================================
+#
+# Un indicatore e' una sostanza che cambia colore in un certo
+# intervallo di pH. Serve a capire quando la titolazione e'
+# arrivata al punto giusto.
+#
+# COME SI SCRIVE UN INDICATORE
+# ----------------------------
+#
+#   nome | pH di inizio | pH di fine | colore acido | colore basico
+#
+# I due colori si scrivono in codice esadecimale, quello che si
+# usa sul web: # seguito da sei cifre. Per trovarne uno basta
+# cercare in rete "selettore colori esadecimale".
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Attenzione: il # dei colori sta in mezzo alla riga, non
+# all'inizio, quindi non crea problemi.
+#
+# ============================================================
+
+Metilarancio | 3,1 | 4,4 | #d94f1e | #e8c33a
+Verde bromocresolo | 3,8 | 5,4 | #d8c93a | #2f7ec4
+Rosso metile | 4,4 | 6,2 | #cf3b2f | #e2d55a
+Blu bromotimolo | 6,0 | 7,6 | #cfc63c | #2f6fc4
+Fenolftaleina | 8,2 | 10,0 | #f2efe6 | #d8409a
+Timolftaleina | 9,3 | 10,5 | #f2efe6 | #2f52c4
+Nessun indicatore | 0,0 | 0,0 | #dfe8ee | #dfe8ee

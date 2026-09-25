@@ -21,6 +21,7 @@ così si vede il piano di lavoro.
 | 🧭 Il Sistema Internazionale | 1ª | Le sette unità fondamentali, le grandezze derivate con la loro formula e i prefissi da tera a femto, con esempi concreti |
 | 📐 Convertire le unità | 1ª | La scala dove si vede la virgola spostarsi casella per casella, e un allenamento con esercizi generati a caso |
 | 🧊 Le particelle e gli stati della materia | 1ª, 3ª | Un contenitore di particelle da scaldare e raffreddare: i tre stati, i passaggi di stato e la curva di riscaldamento con i suoi plateau. Si regola anche la pressione, e la temperatura di ebollizione si sposta |
+| 🧪 La titolazione acido-base | 4ª | Una buretta che gocciola, il pH ricalcolato goccia dopo goccia e la curva che nasce sotto gli occhi. Si sceglie l'indicatore e si scopre quando mente |
 | 🌍 Terra, Sole e Luna | 1ª | Inclinazione dell'asse, latitudine e giorno dell'anno: durata del dì, altezza del Sole e stagioni. Portando l'asse a zero le stagioni spariscono |
 | 📈 Trovare l'epicentro | 3ª, 4ª | Tre sismogrammi, il ritardo fra onde S e P, la dromocrona: si triangola come fanno i sismologi |
 | 📊 Genetica di popolazioni | 4ª | Quattro esperimenti guidati sulla deriva genetica e la selezione, con la popolazione disegnata allele per allele e una spiegazione che accompagna passo passo |
@@ -29,7 +30,7 @@ così si vede il piano di lavoro.
 
 **In costruzione:** diffusione e osmosi,
 stechiometria, molecole, teoria degli urti, equilibrio chimico,
-titolazione, pile, enzimi, mitosi e meiosi, potenziale d'azione,
+pile, enzimi, mitosi e meiosi, potenziale d'azione,
 epidemie, fotosintesi, elettroforesi, vulcani, rocce, interno della
 Terra, tettonica, bilancio radiativo.
 
@@ -48,6 +49,8 @@ istruzioni scritte in cima:
 | `stazioni/terra-sole-luna/luoghi.txt` | i luoghi con la loro latitudine |
 | `stazioni/dna-proteina/codice-genetico.txt` | le 64 triplette del codice genetico |
 | `stazioni/mendel/caratteri.txt` | i caratteri degli incroci |
+| `stazioni/titolazione/soluzioni.txt` | gli acidi e le basi da titolare, con i loro pKa |
+| `stazioni/titolazione/indicatori.txt` | gli indicatori con l'intervallo di viraggio e i colori |
 
 Si modifica il testo, si salva **in UTF-8**, si ricarica la pagina. Non
 serve toccare il codice. Se una riga viene scritta male il sito non si

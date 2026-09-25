@@ -1,0 +1,39 @@
+# ============================================================
+# LE SOSTANZE DA TITOLARE
+# ============================================================
+#
+# Ogni riga descrive una sostanza che si puo' mettere nella
+# beuta e titolare.
+#
+# COME SI SCRIVE UNA SOSTANZA
+# ---------------------------
+#
+#   nome | formula | tipo | forza | dove si trova
+#
+#   tipo   e' la parola  acido  oppure  base
+#   forza  e' la parola  forte  oppure il valore di pKa
+#          (per gli acidi) o di pKb (per le basi)
+#
+# Esempi:
+#   Acido cloridrico | HCl | acido | forte | acido dello stomaco
+#   Acido acetico | CH3COOH | acido | 4,76 | aceto
+#
+# Piu' il pKa e' basso, piu' l'acido e' forte. Un acido con
+# pKa 2 e' molto piu' forte di uno con pKa 10.
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Se una riga e' scritta male viene saltata e segnalata.
+#
+# ============================================================
+
+Acido cloridrico | HCl | acido | forte | l'acido dello stomaco
+Acido acetico | CH3COOH | acido | 4,76 | l'aceto
+Acido formico | HCOOH | acido | 3,75 | la puntura delle formiche
+Acido benzoico | C6H5COOH | acido | 4,20 | conservante E210
+Acido lattico | C3H6O3 | acido | 3,86 | i muscoli affaticati e lo yogurt
+Acido ipocloroso | HClO | acido | 7,53 | la candeggina diluita
+Ione ammonio | NH4+ | acido | 9,25 | i fertilizzanti
+Idrossido di sodio | NaOH | base | forte | la soda caustica
+Ammoniaca | NH3 | base | 4,75 | i detersivi per vetri
+Metilammina | CH3NH2 | base | 3,36 | odore di pesce andato a male
+Piridina | C5H5N | base | 8,77 | un solvente di laboratorio
