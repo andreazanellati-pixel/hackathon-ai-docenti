@@ -23,6 +23,7 @@ così si vede il piano di lavoro.
 | 🧊 Le particelle e gli stati della materia | 1ª, 3ª | Un contenitore di particelle da scaldare e raffreddare: i tre stati, i passaggi di stato e la curva di riscaldamento con i suoi plateau. Si regola anche la pressione, e la temperatura di ebollizione si sposta |
 | 🧪 La titolazione acido-base | 4ª | Una buretta che gocciola, il pH ricalcolato goccia dopo goccia e la curva che nasce sotto gli occhi. Si sceglie l'indicatore e si scopre quando mente |
 | 🔬 Il banco degli enzimi | 2ª, 5ª | Substrato, temperatura, pH e inibitori da regolare. La denaturazione si vede accadere, e non si torna indietro: raffreddando l'enzima resta rovinato |
+| ⚖️ L'equilibrio chimico | 4ª | Una reazione reversibile in un recipiente col pistone. Q e K sono sempre scritti uno accanto all'altro: si disturba il sistema, si vede Q allontanarsi e poi tornare |
 | 🌍 Terra, Sole e Luna | 1ª | Inclinazione dell'asse, latitudine e giorno dell'anno: durata del dì, altezza del Sole e stagioni. Portando l'asse a zero le stagioni spariscono |
 | 📈 Trovare l'epicentro | 3ª, 4ª | Tre sismogrammi, il ritardo fra onde S e P, la dromocrona: si triangola come fanno i sismologi |
 | 📊 Genetica di popolazioni | 4ª | Quattro esperimenti guidati sulla deriva genetica e la selezione, con la popolazione disegnata allele per allele e una spiegazione che accompagna passo passo |
@@ -30,7 +31,7 @@ così si vede il piano di lavoro.
 | 🌱 Gli incroci di Mendel | 3ª | Quadrati di Punnett a uno e due caratteri, e figli generati davvero a caso: le proporzioni emergono solo sui grandi numeri |
 
 **In costruzione:** diffusione e osmosi,
-stechiometria, molecole, teoria degli urti, equilibrio chimico,
+stechiometria, molecole, teoria degli urti,
 pile, mitosi e meiosi, potenziale d'azione,
 epidemie, fotosintesi, elettroforesi, vulcani, rocce, interno della
 Terra, tettonica, bilancio radiativo.
@@ -53,6 +54,7 @@ istruzioni scritte in cima:
 | `stazioni/titolazione/soluzioni.txt` | gli acidi e le basi da titolare, con i loro pKa |
 | `stazioni/titolazione/indicatori.txt` | gli indicatori con l'intervallo di viraggio e i colori |
 | `stazioni/enzimi/enzimi.txt` | gli enzimi con Km, Vmax, temperature e pH |
+| `stazioni/equilibrio/reazioni.txt` | le reazioni reversibili con K, temperatura e delta H |
 
 Si modifica il testo, si salva **in UTF-8**, si ricarica la pagina. Non
 serve toccare il codice. Se una riga viene scritta male il sito non si

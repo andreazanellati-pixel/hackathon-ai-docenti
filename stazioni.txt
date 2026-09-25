@@ -123,7 +123,7 @@ icona: ⚖️
 disciplina: Chimica
 anni: 4
 cartella: equilibrio
-stato: in arrivo
+stato: pronta
 descrizione: Una reazione reversibile che si rimescola quando cambi concentrazione, temperatura o volume. Il principio di Le Chatelier smette di essere una filastrocca.
 
 [STAZIONE]
