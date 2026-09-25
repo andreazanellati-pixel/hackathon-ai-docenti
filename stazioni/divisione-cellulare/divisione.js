@@ -86,11 +86,24 @@
         errori.push("riga " + (i + 1) + ": il DNA e il numero di cellule devono essere numeri.");
         return;
       }
+      /* "2n" vale due volte il corredo singolo, "n" una, "4n" quattro:
+         serve perche' in anafase i cromatidi che si staccano diventano
+         cromosomi a tutti gli effetti, e il numero raddoppia per un
+         istante prima che la cellula si divida */
+      var testoCromosomi = p[3].trim();
+      var m = testoCromosomi.match(/^(\d*)\s*n$/i);
+      if (!m) {
+        errori.push("riga " + (i + 1) + ": i cromosomi vanno scritti come n, 2n oppure 4n.");
+        return;
+      }
+      var quante = m[1] === "" ? 1 : parseInt(m[1], 10);
+
       elenco.push({
         processo: proc,
         nome: p[1].trim(),
         disegno: disegno,
-        cromosomi: p[3].trim(),
+        cromosomi: testoCromosomi,
+        quante: quante,
         dna: dna,
         cellule: cellule,
         descrizione: p[6].trim()
@@ -149,8 +162,12 @@
     for (var lato = 0; lato < (duplicato ? 2 : 1); lato++) {
       var xc = x + (duplicato ? (lato === 0 ? -stacco : stacco) : 0);
 
-      /* il cromatide che ha subito lo scambio e' meta' e meta' */
-      var scambiato = scambio && scambio.avviene && lato === (quale === "padre" ? 1 : 0);
+      /* Il cromatide che ha subito lo scambio e' meta' e meta'.
+         Quando il cromosoma e' duplicato lo scambio tocca uno solo
+         dei due cromatidi, come nella realta'; quando invece e'
+         gia' singolo - nei gameti - il pezzo scambiato ce l'ha lui. */
+      var scambiato = scambio && scambio.avviene &&
+        (!duplicato || lato === (quale === "padre" ? 1 : 0));
       var punto = scambio ? scambio.punto : 0.5;
 
       c.fillStyle = colore;
@@ -487,8 +504,7 @@
     if (!f) return;
     var elenco = faseAttuali();
 
-    letturaCromosomi.textContent = f.cromosomi === "2n"
-      ? "2n = " + (coppie * 2) : "n = " + coppie;
+    letturaCromosomi.textContent = f.cromosomi + " = " + (f.quante * coppie);
     letturaDna.textContent = f.dna + "C";
     letturaCellule.textContent = String(f.cellule);
 

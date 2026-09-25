@@ -28,13 +28,14 @@ così si vede il piano di lavoro.
 | ⚗️ Il banco di stechiometria | 1ª, 2ª | Si mettono i reagenti sul banco e si vede quale finisce per primo. Il conto passaggio per passaggio, dai grammi alle moli e ritorno, con la bilancia di Lavoisier che deve sempre tornare |
 | 🔋 Pile ed elettrolisi | 4ª | Si scelgono i due elettrodi e si legge la tensione. La scala dei potenziali mette tutti i metalli in fila: chi sta in basso cede elettroni a chi sta in alto, ed e' per questo che il ferro arrugginisce e l'oro no |
 | 💧 Diffusione e osmosi | 1ª, 2ª | Due scomparti e una membrana. L'osmosi non e' rappresentata: emerge dal moto a caso delle particelle, e si ferma da sola quando il dislivello fa da contrappeso |
+| 🧫 Mitosi e meiosi a confronto | 2ª, 3ª | Le fasi una per una, coi cromosomi del padre e della madre disegnati a colori diversi, e il grafico della quantita di DNA accanto al numero di cromosomi: si vede che non cambiano nello stesso momento |
 | 🌍 Terra, Sole e Luna | 1ª | Inclinazione dell'asse, latitudine e giorno dell'anno: durata del dì, altezza del Sole e stagioni. Portando l'asse a zero le stagioni spariscono |
 | 📈 Trovare l'epicentro | 3ª, 4ª | Tre sismogrammi, il ritardo fra onde S e P, la dromocrona: si triangola come fanno i sismologi |
 | 📊 Genetica di popolazioni | 4ª | Quattro esperimenti guidati sulla deriva genetica e la selezione, con la popolazione disegnata allele per allele e una spiegazione che accompagna passo passo |
 | 🧬 Dal DNA alla proteina | 3ª, 5ª | Trascrizione, codice genetico e traduzione. Si cambia una base e il sito dice che tipo di mutazione è venuta fuori |
 | 🌱 Gli incroci di Mendel | 3ª | Quadrati di Punnett a uno e due caratteri, e figli generati davvero a caso: le proporzioni emergono solo sui grandi numeri |
 
-**In costruzione:** molecole, mitosi e meiosi, potenziale d'azione,
+**In costruzione:** molecole, potenziale d'azione,
 epidemie, fotosintesi, elettroforesi, vulcani, rocce, interno della
 Terra, tettonica, bilancio radiativo.
 
@@ -60,6 +61,7 @@ istruzioni scritte in cima:
 | `stazioni/urti/reazioni-urti.txt` | le reazioni con energia di attivazione e catalizzatore |
 | `stazioni/stechiometria/reazioni-stechiometria.txt` | le reazioni bilanciate con le masse molari |
 | `stazioni/pile/elettrodi.txt` | gli elettrodi con i potenziali standard |
+| `stazioni/divisione-cellulare/fasi.txt` | le fasi della divisione, coi loro testi e i loro numeri |
 
 Si modifica il testo, si salva **in UTF-8**, si ricarica la pagina. Non
 serve toccare il codice. Se una riga viene scritta male il sito non si

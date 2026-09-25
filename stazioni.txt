@@ -164,7 +164,7 @@ icona: 🧫
 disciplina: Biologia
 anni: 2
 cartella: divisione-cellulare
-stato: in arrivo
+stato: pronta
 descrizione: I cromosomi passo per passo, con il crossing-over che produce davvero varietà invece di essere una frase da ricordare.
 
 [STAZIONE]
