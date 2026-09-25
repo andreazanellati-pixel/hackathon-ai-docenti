@@ -32,6 +32,32 @@
 
   var figliGenerati = null;   /* conteggio dei fenotipi estratti a caso */
   var quantiFigli = 0;
+  var incrocioScelto = 0;
+
+  /* Incroci gia' pronti: le lettere A, a, B, b vengono sostituite
+     con quelle dei caratteri scelti. */
+  var INCROCI = [
+    {
+      titolo: "Due eterozigoti",
+      sottotitolo: "Aa × Aa · la proporzione 3 : 1",
+      duplice: false, madre: ["Aa"], padre: ["Aa"]
+    },
+    {
+      titolo: "Incrocio di prova",
+      sottotitolo: "Aa × aa · serve a scoprire un genotipo nascosto",
+      duplice: false, madre: ["Aa"], padre: ["aa"]
+    },
+    {
+      titolo: "Il diibrido di Mendel",
+      sottotitolo: "AaBb × AaBb · la proporzione 9 : 3 : 3 : 1",
+      duplice: true, madre: ["Aa", "Bb"], padre: ["Aa", "Bb"]
+    },
+    {
+      titolo: "Incrocio di prova diibrido",
+      sottotitolo: "AaBb × aabb · quattro fenotipi in parti uguali",
+      duplice: true, madre: ["Aa", "Bb"], padre: ["aa", "bb"]
+    }
+  ];
 
   /* ==========================================================
      1. I caratteri
@@ -315,6 +341,13 @@
     return zona;
   }
 
+  /* Il secondo carattere deve essere diverso dal primo. */
+  function altroCarattere() {
+    if (secondo && secondo !== primo) return secondo;
+    var diversi = caratteri.filter(function (c) { return c !== primo; });
+    return diversi[0] || primo;
+  }
+
   function costruisci() {
     svuota(contenitore);
 
@@ -325,13 +358,45 @@
       "Scegli il carattere e i genotipi dei due genitori. Il quadrato di Punnett mette insieme " +
       "tutti i gameti possibili: ogni casella è un incontro che può capitare."));
 
-    /* uno o due caratteri */
+    /* incroci gia' pronti, per partire senza dover regolare niente */
+    contenitore.appendChild(elemento("h3", "titolo-blocco", "Incroci da provare"));
+    var pronti = elemento("div", "griglia-esperimenti");
+    INCROCI.forEach(function (x, i) {
+      var b = elemento("button", "carta-esperimento" + (incrocioScelto === i ? " scelta" : ""));
+      b.type = "button";
+      b.appendChild(elemento("div", "esperimento-titolo", x.titolo));
+      b.appendChild(elemento("div", "esperimento-sottotitolo", x.sottotitolo));
+      b.addEventListener("click", function () {
+        incrocioScelto = i;
+        duplice = x.duplice;
+        if (duplice) secondo = altroCarattere();
+        madre[0] = x.madre[0].replace(/A/g, primo.lettera).replace(/a/g, primo.lettera.toLowerCase());
+        padre[0] = x.padre[0].replace(/A/g, primo.lettera).replace(/a/g, primo.lettera.toLowerCase());
+        if (duplice) {
+          madre[1] = x.madre[1].replace(/B/g, secondo.lettera).replace(/b/g, secondo.lettera.toLowerCase());
+          padre[1] = x.padre[1].replace(/B/g, secondo.lettera).replace(/b/g, secondo.lettera.toLowerCase());
+        }
+        figliGenerati = null;
+        costruisci();
+      });
+      pronti.appendChild(b);
+    });
+    contenitore.appendChild(pronti);
+
+    /* quanti caratteri alla volta */
+    contenitore.appendChild(elemento("h3", "titolo-blocco", "Quanti caratteri alla volta"));
     var modi = elemento("div", "scelte-grandezza");
-    [[false, "Un carattere"], [true, "Due caratteri"]].forEach(function (m) {
+    [[false, "Uno solo · incrocio monoibrido"], [true, "Due insieme · incrocio diibrido"]].forEach(function (m) {
       var b = elemento("button", "pillola" + (duplice === m[0] ? " attiva" : ""), m[1]);
       b.type = "button";
       b.addEventListener("click", function () {
         duplice = m[0];
+        if (duplice) {
+          secondo = altroCarattere();
+          madre[1] = secondo.lettera + secondo.lettera.toLowerCase();
+          padre[1] = secondo.lettera + secondo.lettera.toLowerCase();
+        }
+        incrocioScelto = -1;
         figliGenerati = null;
         costruisci();
       });
@@ -339,15 +404,27 @@
     });
     contenitore.appendChild(modi);
 
+    contenitore.appendChild(elemento("p", "nota-piccola", duplice
+      ? "Con due caratteri ogni genitore produce quattro tipi di gamete invece di due, e il quadrato diventa di sedici caselle. Se i due geni si assortiscono in modo indipendente - la terza legge di Mendel - dall'incrocio di due doppi eterozigoti esce la proporzione 9 : 3 : 3 : 1."
+      : "Un carattere alla volta: ogni genitore produce due tipi di gamete e il quadrato ha quattro caselle. Dall'incrocio di due eterozigoti esce la proporzione 3 : 1."));
+
     /* quale carattere */
+    contenitore.appendChild(elemento("h3", "titolo-blocco",
+      duplice ? "Il primo carattere" : "Quale carattere"));
     var scelta = elemento("div", "scelte-grandezza");
     caratteri.forEach(function (c) {
       var b = elemento("button", "pillola" + (primo === c ? " attiva" : ""), c.nome);
       b.type = "button";
       b.addEventListener("click", function () {
         primo = c;
+        if (duplice && secondo === primo) {
+          secondo = caratteri.filter(function (x) { return x !== c; })[0] || c;
+          madre[1] = secondo.lettera + secondo.lettera.toLowerCase();
+          padre[1] = secondo.lettera + secondo.lettera.toLowerCase();
+        }
         madre[0] = c.lettera + c.lettera.toLowerCase();
         padre[0] = c.lettera + c.lettera.toLowerCase();
+        incrocioScelto = -1;
         figliGenerati = null;
         costruisci();
       });
@@ -356,15 +433,17 @@
     contenitore.appendChild(scelta);
 
     if (duplice) {
+      contenitore.appendChild(elemento("h3", "titolo-blocco", "Il secondo carattere"));
       var scelta2 = elemento("div", "scelte-grandezza");
       caratteri.forEach(function (c) {
         if (c === primo) return;
-        var b = elemento("button", "pillola pillola-altre" + (secondo === c ? " attiva" : ""), c.nome);
+        var b = elemento("button", "pillola" + (secondo === c ? " attiva" : ""), c.nome);
         b.type = "button";
         b.addEventListener("click", function () {
           secondo = c;
           madre[1] = c.lettera + c.lettera.toLowerCase();
           padre[1] = c.lettera + c.lettera.toLowerCase();
+          incrocioScelto = -1;
           figliGenerati = null;
           costruisci();
         });
@@ -374,6 +453,7 @@
     }
 
     /* i genitori */
+    contenitore.appendChild(elemento("h3", "titolo-blocco", "I genotipi dei genitori"));
     var genitori = elemento("div", "comandi");
     genitori.appendChild(sceltaGenitore("madre", 0));
     genitori.appendChild(sceltaGenitore("padre", 0));
