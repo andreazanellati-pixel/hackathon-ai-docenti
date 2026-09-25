@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Il detective degli esperimenti</title>
-<meta name="description" content="Quattordici casi in cui progettare passo per passo l'esperimento che scopre chi ha ragione.">
+<title>Epidemia e vaccinazione</title>
+<meta name="description" content="R0, R effettivo e soglia di immunità di gregge: si vede perché vaccinare il 95% ferma il morbillo e il 90% no.">
 <link rel="stylesheet" href="../../stile.css?v=11">
 </head>
 <body>
@@ -15,10 +15,10 @@
 
 <header class="intestazione">
   <div class="intestazione-titolo">
-    <span class="lente" aria-hidden="true">🔍</span>
+    <span class="lente" aria-hidden="true">🦠</span>
     <div>
-      <h1>Il detective degli esperimenti</h1>
-      <p class="sottotitolo">Progetta l'esperimento che risolve il caso</p>
+      <h1>Epidemia e vaccinazione</h1>
+      <p class="sottotitolo">Perché un'epidemia si ferma prima di finire le persone</p>
     </div>
   </div>
   <button id="bottone-tema" class="bottone-icona" type="button" aria-label="Cambia tema chiaro o scuro">
@@ -27,17 +27,16 @@
 </header>
 
 <main>
-  <div id="applicazione">
-    <p class="caricamento">Carico i casi…</p>
+  <div id="stazione">
+    <p class="caricamento">Preparo la popolazione…</p>
   </div>
 </main>
 
 <footer class="pie">
-  <p>I casi di questa stazione stanno nel file <code>casi.txt</code>: aprilo con un
-  editor di testo per modificarli o aggiungerne di nuovi.</p>
+  <p>Le malattie con il loro R0 stanno in <code>malattie.txt</code>: si apre con un qualsiasi blocco note.</p>
 </footer>
 
 <script src="../../comune.js?v=11"></script>
-<script src="detective.js?v=11"></script>
+<script src="epidemia.js?v=11"></script>
 </body>
 </html>

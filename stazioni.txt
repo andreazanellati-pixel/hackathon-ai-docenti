@@ -209,7 +209,7 @@ icona: 🦠
 disciplina: Biologia
 anni: 4
 cartella: epidemia
-stato: in arrivo
+stato: pronta
 descrizione: Un contagio che si diffonde in una popolazione. La soglia dell'immunità di gregge diventa un numero che si vede.
 
 [STAZIONE]
