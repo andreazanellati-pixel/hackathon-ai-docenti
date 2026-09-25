@@ -1872,3 +1872,59 @@ button.base.scelta { box-shadow: 0 0 0 2px var(--accento); }
 
 .cella-punnett .genotipo { display: block; }
 .cella-punnett .fenotipo-breve { display: block; margin-top: 2px; }
+
+/* ============================================================
+   Gli esperimenti guidati
+   ============================================================ */
+
+.griglia-esperimenti {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+  margin-bottom: 18px;
+}
+
+@media (min-width: 560px) {
+  .griglia-esperimenti { grid-template-columns: 1fr 1fr; }
+}
+
+.carta-esperimento {
+  text-align: left;
+  border: 1px solid var(--bordo-forte);
+  border-radius: var(--raggio);
+  background: var(--superficie);
+  padding: 13px 15px;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color .15s, transform .15s;
+}
+
+.carta-esperimento:hover { border-color: var(--accento); transform: translateY(-2px); }
+
+.carta-esperimento.scelta {
+  border-color: var(--accento);
+  background: var(--accento-chiaro);
+  box-shadow: 0 0 0 1px var(--accento);
+}
+
+.esperimento-titolo { font-weight: 700; font-size: 1rem; }
+
+.esperimento-sottotitolo {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .8rem;
+  color: var(--testo-tenue);
+  margin-top: 3px;
+}
+
+/* la conclusione che compare a esperimento finito */
+
+.conclusione {
+  background: var(--giusto-sfondo);
+  border-left: 4px solid var(--giusto);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 16px;
+  margin: 16px 0 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .93rem;
+}

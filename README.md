@@ -23,7 +23,7 @@ così si vede il piano di lavoro.
 | 🧊 Le particelle e gli stati della materia | 1ª, 3ª | Un contenitore di particelle da scaldare e raffreddare: i tre stati, i passaggi di stato e la curva di riscaldamento con i suoi plateau. Si regola anche la pressione, e la temperatura di ebollizione si sposta |
 | 🌍 Terra, Sole e Luna | 1ª | Inclinazione dell'asse, latitudine e giorno dell'anno: durata del dì, altezza del Sole e stagioni. Portando l'asse a zero le stagioni spariscono |
 | 📈 Trovare l'epicentro | 3ª, 4ª | Tre sismogrammi, il ritardo fra onde S e P, la dromocrona: si triangola come fanno i sismologi |
-| 📊 Genetica di popolazioni | 4ª | Popolazioni che evolvono generazione dopo generazione: deriva, selezione, mutazione, Hardy-Weinberg |
+| 📊 Genetica di popolazioni | 4ª | Quattro esperimenti guidati sulla deriva genetica e la selezione, con la popolazione disegnata allele per allele e una spiegazione che accompagna passo passo |
 | 🧬 Dal DNA alla proteina | 3ª, 5ª | Trascrizione, codice genetico e traduzione. Si cambia una base e il sito dice che tipo di mutazione è venuta fuori |
 | 🌱 Gli incroci di Mendel | 3ª | Quadrati di Punnett a uno e due caratteri, e figli generati davvero a caso: le proporzioni emergono solo sui grandi numeri |
 
