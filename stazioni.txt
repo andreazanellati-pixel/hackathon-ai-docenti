@@ -286,7 +286,7 @@ icona: 🗺️
 disciplina: Scienze della Terra
 anni: 5
 cartella: tettonica
-stato: in arrivo
+stato: pronta
 descrizione: Placche da muovere: nascono dorsali, fosse e catene montuose, e si capisce perché vulcani e terremoti stanno dove stanno.
 
 [STAZIONE]

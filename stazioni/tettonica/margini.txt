@@ -1,0 +1,53 @@
+# ============================================================
+# I MARGINI FRA LE PLACCHE
+# ============================================================
+#
+# Ogni riga descrive un posto vero del mondo dove due placche si
+# incontrano, e dice di che tipo di margine si tratta.
+#
+# COME SI SCRIVE UN MARGINE
+# -------------------------
+#
+#   nome | tipo | velocita' | profondita' dei terremoti | descrizione
+#
+# tipo   una di queste cinque parole:
+#
+#          divergente        le due placche si allontanano e in
+#                            mezzo nasce crosta nuova
+#          oceano-continente una placca oceanica scivola sotto
+#                            una continentale
+#          oceano-oceano     una placca oceanica scivola sotto
+#                            un'altra oceanica
+#          continenti        due continenti si scontrano e
+#                            nessuno dei due riesce a sprofondare
+#          trasforme         le due placche scorrono una accanto
+#                            all'altra, senza costruire ne'
+#                            distruggere crosta
+#
+# velocita'   di quanti centimetri all'anno si muovono le due
+#             placche una rispetto all'altra. Sono velocita'
+#             misurate davvero, oggi, con il GPS e con i
+#             satelliti: piu' o meno la velocita' con cui
+#             crescono le unghie.
+#
+# profondita' fin dove arrivano i terremoti, in chilometri.
+# terremoti   E' un numero che dice molto: dove una placca
+#             sprofonda i terremoti sono profondi anche seicento
+#             chilometri, dove le placche si allontanano restano
+#             sempre nei primi venti.
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Se una riga e' scritta male viene saltata e segnalata.
+#
+# ============================================================
+
+Dorsale medio-atlantica | divergente | 2,5 | 20 | l'Oceano Atlantico si allarga di due centimetri e mezzo all'anno, e l'Islanda sta proprio sopra la spaccatura: la si puo' attraversare a piedi
+Dorsale del Pacifico orientale | divergente | 15 | 15 | la dorsale piu' veloce del mondo: qui nasce crosta nuova sei volte piu' in fretta che nell'Atlantico
+Rift dell'Africa orientale | divergente | 0,6 | 25 | un continente che si sta spaccando in due sotto i nostri occhi: fra qualche milione di anni ci sara' un oceano
+Ande, Cile | oceano-continente | 7 | 600 | la placca di Nazca sprofonda sotto il Sudamerica: da qui vengono le Ande, i vulcani e i terremoti piu' forti mai registrati
+Giappone | oceano-oceano | 8 | 600 | due placche oceaniche, una fossa profonda ottomila metri e un arco di isole vulcaniche
+Isole Marianne | oceano-oceano | 4 | 600 | qui c'e' il punto piu' profondo degli oceani, quasi undicimila metri sotto il livello del mare
+Himalaya | continenti | 5 | 90 | l'India spinge contro l'Asia da cinquanta milioni di anni: nessuno dei due sprofonda, e la crosta si accartoccia verso l'alto
+Alpi | continenti | 0,8 | 60 | l'Africa spinge contro l'Europa: le Alpi crescono ancora, anche se l'erosione le consuma quasi alla stessa velocita'
+Faglia di Sant'Andrea | trasforme | 3,4 | 20 | la California scorre verso nord-ovest: fra dieci milioni di anni Los Angeles sara' di fronte a San Francisco
+Faglia Nord Anatolica | trasforme | 2,4 | 20 | attraversa la Turchia da est a ovest, e nel Novecento si e' rotta a pezzi, uno dopo l'altro, procedendo verso ovest
