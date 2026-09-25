@@ -487,6 +487,13 @@
     var dt = Math.min(0.05, (istante - ultimoIstante) / 1000);
     ultimoIstante = istante;
 
+    /* se la pagina era nascosta quando e' stata costruita, le misure
+       erano zero: appena si puo', si rifanno */
+    if (larghezza <= 0 && tela && tela.parentNode.clientWidth > 0) {
+      adattaTele();
+      creaParticelle();
+    }
+
     if (inMoto) {
       var nuova = energia + potenza * velocita * dt;
       var tetto = energiaMassima(), pavimento = energiaMinima();

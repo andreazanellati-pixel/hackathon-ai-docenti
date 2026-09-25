@@ -1,0 +1,27 @@
+# ============================================================
+# I LUOGHI DELLA STAZIONE TERRA, SOLE E LUNA
+# ============================================================
+#
+# Ogni luogo è solo un nome e una latitudine: servono come
+# scorciatoie per il cursore. La latitudine si scrive in gradi,
+# positiva a nord dell'equatore e negativa a sud.
+#
+# COME SI SCRIVE UN LUOGO
+# -----------------------
+#
+#   nome | latitudine
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Se una riga è scritta male viene saltata e segnalata.
+#
+# ============================================================
+
+Polo Nord | 90
+Circolo polare artico | 66,56
+Oslo | 59,9
+Milano | 45,5
+Roma | 41,9
+Tropico del Cancro | 23,44
+Equatore | 0
+Sydney | -33,9
+Circolo polare antartico | -66,56

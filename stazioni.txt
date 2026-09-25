@@ -241,7 +241,7 @@ icona: 🌍
 disciplina: Scienze della Terra
 anni: 1
 cartella: terra-sole-luna
-stato: in arrivo
+stato: pronta
 descrizione: Inclinazione dell'asse, latitudine e data da scegliere. Metti l'asse a zero e le stagioni spariscono.
 
 [STAZIONE]

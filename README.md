@@ -20,7 +20,8 @@ così si vede il piano di lavoro.
 | 🔍 Il detective degli esperimenti | 1ª–5ª | Quattordici casi in cui progettare l'esperimento che scopre chi ha ragione: ipotesi, variabili, gruppo di controllo, conclusione |
 | 🧭 Il Sistema Internazionale | 1ª | Le sette unità fondamentali, le grandezze derivate con la loro formula e i prefissi da tera a femto, con esempi concreti |
 | 📐 Convertire le unità | 1ª | La scala dove si vede la virgola spostarsi casella per casella, e un allenamento con esercizi generati a caso |
-| 🧊 Le particelle e gli stati della materia | 1ª, 3ª | Un contenitore di particelle da scaldare e raffreddare: i tre stati, i passaggi di stato e la curva di riscaldamento con i suoi plateau |
+| 🧊 Le particelle e gli stati della materia | 1ª, 3ª | Un contenitore di particelle da scaldare e raffreddare: i tre stati, i passaggi di stato e la curva di riscaldamento con i suoi plateau. Si regola anche la pressione, e la temperatura di ebollizione si sposta |
+| 🌍 Terra, Sole e Luna | 1ª | Inclinazione dell'asse, latitudine e giorno dell'anno: durata del dì, altezza del Sole e stagioni. Portando l'asse a zero le stagioni spariscono |
 
 **In costruzione:** diffusione e osmosi,
 stechiometria, molecole, teoria degli urti, equilibrio chimico,
@@ -41,6 +42,7 @@ istruzioni scritte in cima:
 | `stazioni/sistema-internazionale/si.txt` | unità fondamentali, derivate, prefissi |
 | `stazioni/convertire/unita.txt` | le scale di conversione |
 | `stazioni/particelle/sostanze.txt` | le sostanze con calori specifici e latenti |
+| `stazioni/terra-sole-luna/luoghi.txt` | i luoghi con la loro latitudine |
 
 Si modifica il testo, si salva **in UTF-8**, si ricarica la pagina. Non
 serve toccare il codice. Se una riga viene scritta male il sito non si
