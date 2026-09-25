@@ -25,6 +25,7 @@ così si vede il piano di lavoro.
 | 🔬 Il banco degli enzimi | 2ª, 5ª | Substrato, temperatura, pH e inibitori da regolare. La denaturazione si vede accadere, e non si torna indietro: raffreddando l'enzima resta rovinato |
 | ⚖️ L'equilibrio chimico | 4ª | Una reazione reversibile in un recipiente col pistone. Q e K sono sempre scritti uno accanto all'altro: si disturba il sistema, si vede Q allontanarsi e poi tornare |
 | 💥 La teoria degli urti | 4ª | Energia di attivazione, temperatura, concentrazione e catalizzatori. La curva di Maxwell e Boltzmann con l'area colorata oltre la collina, e la regola dei dieci gradi messa alla prova |
+| ⚗️ Il banco di stechiometria | 1ª, 2ª | Si mettono i reagenti sul banco e si vede quale finisce per primo. Il conto passaggio per passaggio, dai grammi alle moli e ritorno, con la bilancia di Lavoisier che deve sempre tornare |
 | 🌍 Terra, Sole e Luna | 1ª | Inclinazione dell'asse, latitudine e giorno dell'anno: durata del dì, altezza del Sole e stagioni. Portando l'asse a zero le stagioni spariscono |
 | 📈 Trovare l'epicentro | 3ª, 4ª | Tre sismogrammi, il ritardo fra onde S e P, la dromocrona: si triangola come fanno i sismologi |
 | 📊 Genetica di popolazioni | 4ª | Quattro esperimenti guidati sulla deriva genetica e la selezione, con la popolazione disegnata allele per allele e una spiegazione che accompagna passo passo |
@@ -32,8 +33,7 @@ così si vede il piano di lavoro.
 | 🌱 Gli incroci di Mendel | 3ª | Quadrati di Punnett a uno e due caratteri, e figli generati davvero a caso: le proporzioni emergono solo sui grandi numeri |
 
 **In costruzione:** diffusione e osmosi,
-stechiometria, molecole,
-pile, mitosi e meiosi, potenziale d'azione,
+molecole, pile, mitosi e meiosi, potenziale d'azione,
 epidemie, fotosintesi, elettroforesi, vulcani, rocce, interno della
 Terra, tettonica, bilancio radiativo.
 
@@ -57,6 +57,7 @@ istruzioni scritte in cima:
 | `stazioni/enzimi/enzimi.txt` | gli enzimi con Km, Vmax, temperature e pH |
 | `stazioni/equilibrio/reazioni.txt` | le reazioni reversibili con K, temperatura e delta H |
 | `stazioni/urti/reazioni-urti.txt` | le reazioni con energia di attivazione e catalizzatore |
+| `stazioni/stechiometria/reazioni-stechiometria.txt` | le reazioni bilanciate con le masse molari |
 
 Si modifica il testo, si salva **in UTF-8**, si ricarica la pagina. Non
 serve toccare il codice. Se una riga viene scritta male il sito non si

@@ -96,7 +96,7 @@ icona: ⚗️
 disciplina: Chimica
 anni: 2 3
 cartella: stechiometria
-stato: in arrivo
+stato: pronta
 descrizione: Reagenti da dosare e reazioni da bilanciare. Il reagente limitante si riconosce perché l'altro avanza sul banco.
 
 [STAZIONE]

@@ -1,0 +1,45 @@
+# ============================================================
+# LE REAZIONI DEL BANCO DI STECHIOMETRIA
+# ============================================================
+#
+# Ogni riga descrive una reazione gia' bilanciata, con la massa
+# molare di ogni sostanza scritta accanto alla sua formula.
+#
+# COME SI SCRIVE UNA REAZIONE
+# ---------------------------
+#
+#   nome | reagenti | prodotti | nota
+#
+# Nei reagenti e nei prodotti ogni sostanza si scrive cosi':
+#
+#   coefficiente  formula  [massa molare]
+#
+# Il coefficiente si omette quando vale 1. La massa molare va
+# fra parentesi quadre, in grammi per mole. Le sostanze si
+# separano con il segno +.
+#
+# Per esempio:
+#
+#   N2 [28,0] + 3 H2 [2,0]
+#
+# vuol dire: una mole di azoto, che pesa 28 grammi per mole, e
+# tre moli di idrogeno, che pesa 2 grammi per mole.
+#
+# ATTENZIONE: l'equazione deve essere gia' bilanciata. Il sito
+# controlla che la massa dei reagenti e quella dei prodotti
+# tornino, e se non tornano lo segnala.
+#
+# I numeri si scrivono con la virgola o con il punto.
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Se una riga e' scritta male viene saltata e segnalata.
+#
+# ============================================================
+
+Sintesi dell'ammoniaca | N2 [28,0] + 3 H2 [2,0] | 2 NH3 [17,0] | il processo con cui si fanno i fertilizzanti
+Combustione del metano | CH4 [16,0] + 2 O2 [32,0] | CO2 [44,0] + 2 H2O [18,0] | quello che succede nei fornelli di casa
+Sintesi dell'acqua | 2 H2 [2,0] + O2 [32,0] | 2 H2O [18,0] | la reazione che spinge i razzi
+Marmo e acido cloridrico | CaCO3 [100,1] + 2 HCl [36,45] | CaCl2 [111,0] + H2O [18,0] + CO2 [44,0] | l'effervescenza che si vede in laboratorio
+Sale da cucina | 2 Na [23,0] + Cl2 [71,0] | 2 NaCl [58,5] | un metallo che brucia e un gas velenoso danno il sale
+Ferro dall'altoforno | Fe2O3 [159,7] + 3 CO [28,0] | 2 Fe [55,85] + 3 CO2 [44,0] | come si ricava il ferro dal suo minerale
+Nastro di magnesio che brucia | 2 Mg [24,3] + O2 [32,0] | 2 MgO [40,3] | la fiamma bianca accecante del laboratorio
