@@ -22,13 +22,15 @@ così si vede il piano di lavoro.
 | 📐 Convertire le unità | 1ª | La scala dove si vede la virgola spostarsi casella per casella, e un allenamento con esercizi generati a caso |
 | 🧊 Le particelle e gli stati della materia | 1ª, 3ª | Un contenitore di particelle da scaldare e raffreddare: i tre stati, i passaggi di stato e la curva di riscaldamento con i suoi plateau. Si regola anche la pressione, e la temperatura di ebollizione si sposta |
 | 🌍 Terra, Sole e Luna | 1ª | Inclinazione dell'asse, latitudine e giorno dell'anno: durata del dì, altezza del Sole e stagioni. Portando l'asse a zero le stagioni spariscono |
+| 📈 Trovare l'epicentro | 3ª, 4ª | Tre sismogrammi, il ritardo fra onde S e P, la dromocrona: si triangola come fanno i sismologi |
+| 📊 Genetica di popolazioni | 4ª | Popolazioni che evolvono generazione dopo generazione: deriva, selezione, mutazione, Hardy-Weinberg |
 
 **In costruzione:** diffusione e osmosi,
 stechiometria, molecole, teoria degli urti, equilibrio chimico,
 titolazione, pile, enzimi, mitosi e meiosi, incroci di Mendel, dal DNA
 alla proteina, genetica di popolazioni, potenziale d'azione, epidemie,
-fotosintesi, elettroforesi, Terra-Sole-Luna, vulcani, rocce, epicentro,
-interno della Terra, tettonica, bilancio radiativo.
+fotosintesi, elettroforesi, vulcani, rocce, interno della Terra,
+tettonica, bilancio radiativo.
 
 ## Per chi insegna: modificare i contenuti
 

@@ -191,7 +191,7 @@ icona: 📊
 disciplina: Biologia
 anni: 4
 cartella: popolazioni
-stato: in arrivo
+stato: pronta
 descrizione: Una popolazione che evolve generazione dopo generazione. Nelle popolazioni piccole domina il caso, in quelle grandi la selezione.
 
 [STAZIONE]
@@ -268,7 +268,7 @@ icona: 📈
 disciplina: Scienze della Terra
 anni: 3 4
 cartella: epicentro
-stato: in arrivo
+stato: pronta
 descrizione: Tre sismogrammi, il ritardo fra onde S e onde P, le dromocrone: si triangola come fanno i sismologi veri.
 
 [STAZIONE]

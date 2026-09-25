@@ -1662,3 +1662,48 @@ a.carta-stazione:focus-visible {
   gap: 7px;
   margin: -6px 0 12px;
 }
+
+/* ============================================================
+   Trovare l'epicentro
+   ============================================================ */
+
+.sismogrammi { margin-bottom: 20px; }
+
+.riga-sismica {
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+  background: var(--superficie);
+  box-shadow: var(--ombra);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.scatola-sismogramma { line-height: 0; background: var(--superficie-alt); }
+
+.sotto-sismogramma {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--bordo);
+}
+
+.dato-sismico { display: flex; align-items: baseline; gap: 8px; }
+
+.dato-nome {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: .8rem;
+  color: var(--testo-tenue);
+}
+
+.dato-valore {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--accento);
+  font-variant-numeric: tabular-nums;
+}
+
+.campo-distanza { display: flex; align-items: center; gap: 8px; }
+.campo-distanza .campo-valore { flex: 0 0 96px; min-width: 0; font-size: 1.05rem; }
