@@ -259,7 +259,7 @@ icona: 🪨
 disciplina: Scienze della Terra
 anni: 3
 cartella: rocce
-stato: in arrivo
+stato: pronta
 descrizione: Una chiave dicotomica per riconoscere le rocce, e il ciclo litogenetico da percorrere.
 
 [STAZIONE]
