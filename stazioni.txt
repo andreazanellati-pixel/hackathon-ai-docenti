@@ -250,7 +250,7 @@ icona: 🌋
 disciplina: Scienze della Terra
 anni: 3
 cartella: vulcani
-stato: in arrivo
+stato: pronta
 descrizione: Silice, gas e viscosità del magma decidono se l'eruzione è effusiva o esplosiva, e che forma prende l'edificio.
 
 [STAZIONE]

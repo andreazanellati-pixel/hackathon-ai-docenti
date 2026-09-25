@@ -34,6 +34,7 @@ così si vede il piano di lavoro.
 | 🌡️ Il bilancio radiativo | 1ª, 5ª | Luce ricevuta, albedo ed effetto serra. La Terra senza atmosfera fa meno 18 gradi, con l'atmosfera piu' 15: quei 33 gradi si vedono comparire |
 | 🌐 Dentro la Terra con le onde | 3ª, 4ª | I raggi sismici sono calcolati uno per uno con la legge di Snell su una sfera. La zona d'ombra non e' disegnata: esce dal conto, e viene fra 98 e 140 gradi contro i 103-143 misurati |
 | 🗺️ La tettonica delle placche | 3ª, 4ª | Cinque modi di incontrarsi, con le velocita' misurate col GPS. E il conto del tempo: alla velocita' di oggi un Atlantico ci mette 200 milioni di anni, e le rocce dicono che ha cominciato 180 milioni di anni fa |
+| 🌋 Dal magma al vulcano | 3ª, 4ª | Silice, temperatura e gas decidono se il vulcano cola o esplode. Il tipo di eruzione non e' scelto: esce dal confronto fra quanto il gas spinge e quanto il magma lo trattiene |
 | 🌍 Terra, Sole e Luna | 1ª | Inclinazione dell'asse, latitudine e giorno dell'anno: durata del dì, altezza del Sole e stagioni. Portando l'asse a zero le stagioni spariscono |
 | 📈 Trovare l'epicentro | 3ª, 4ª | Tre sismogrammi, il ritardo fra onde S e P, la dromocrona: si triangola come fanno i sismologi |
 | 📊 Genetica di popolazioni | 4ª | Quattro esperimenti guidati sulla deriva genetica e la selezione, con la popolazione disegnata allele per allele e una spiegazione che accompagna passo passo |
@@ -41,7 +42,7 @@ così si vede il piano di lavoro.
 | 🌱 Gli incroci di Mendel | 3ª | Quadrati di Punnett a uno e due caratteri, e figli generati davvero a caso: le proporzioni emergono solo sui grandi numeri |
 
 **In costruzione:** molecole, potenziale d'azione,
-elettroforesi, vulcani, rocce.
+elettroforesi, rocce.
 
 ## Per chi insegna: modificare i contenuti
 
@@ -71,6 +72,7 @@ istruzioni scritte in cima:
 | `stazioni/bilancio-radiativo/corpi.txt` | i pianeti con luce ricevuta, albedo ed effetto serra |
 | `stazioni/interno-terra/strati.txt` | gli strati della Terra con le velocita' sismiche |
 | `stazioni/tettonica/margini.txt` | i margini fra le placche con le velocita' misurate |
+| `stazioni/vulcani/magmi.txt` | i magmi con silice, temperatura e gas |
 
 Si modifica il testo, si salva **in UTF-8**, si ricarica la pagina. Non
 serve toccare il codice. Se una riga viene scritta male il sito non si
