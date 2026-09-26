@@ -3,7 +3,7 @@ LABORATORIO DIGITALE DI SCIENZE NATURALI
 Istruzioni per la pubblicazione sul sito della scuola
 ===========================================================
 
-CHE COS'E'
+CHE COS'È
 ----------
 Un sito didattico di scienze naturali per il liceo scientifico delle
 scienze applicate. Raccoglie diverse "stazioni": simulazioni e
@@ -11,14 +11,14 @@ strumenti da usare in classe e a casa. Si usa dal computer e dal
 telefono, senza installare nulla e senza registrarsi.
 
 Autore: Andrea Zanellati
-Versione online gia' funzionante, per vedere com'e' fatto:
+Versione online già funzionante, per vedere com'è fatto:
 https://andreazanellati-pixel.github.io/hackathon-ai-docenti
 
 
 COSA CARICARE
 -------------
 Si carica TUTTA la cartella, mantenendo la struttura, sottocartelle
-comprese. Questa e' la struttura:
+comprese. Questa è la struttura:
 
     index.html          la pagina iniziale, punto d'ingresso
     stile.css           l'aspetto grafico, comune a tutto
@@ -34,7 +34,7 @@ comprese. Questa e' la struttura:
 Man mano che si aggiungono stazioni, compaiono nuove sottocartelle
 dentro "stazioni". Il resto non cambia.
 
-Il file da aprire e' index.html nella cartella principale.
+Il file da aprire è index.html nella cartella principale.
 
 Gli altri file presenti (README.md, CLAUDE.md, prompt-da-usare.md,
 questo stesso file) riguardano il lavoro di preparazione e si possono
@@ -56,12 +56,12 @@ Sito completamente statico: solo HTML, CSS e JavaScript.
     - NON ci sono librerie esterne da scaricare
     - NON vengono contattati server esterni
 
-Funziona su qualsiasi hosting, anche il piu' semplice.
+Funziona su qualsiasi hosting, anche il più semplice.
 
 
 ATTENZIONE: UN SOLO PUNTO DELICATO
 ----------------------------------
-Il sito DEVE essere servito da un server web, cioe' raggiunto da un
+Il sito DEVE essere servito da un server web, cioè raggiunto da un
 indirizzo che comincia con http:// o https://.
 
 Se apri index.html con un doppio clic dal disco, la pagina si vede ma
@@ -72,7 +72,7 @@ i contenuti stanno appunto in file di testo.
 Caricato su un sito qualsiasi, funziona senza problemi.
 
 Se il sito della scuola usa un CMS (WordPress, Joomla, Drupal), la via
-piu' semplice e' caricare la cartella via FTP in una sottocartella - per
+più semplice è caricare la cartella via FTP in una sottocartella - per
 esempio /scienze/laboratorio/ - e linkarla da una pagina del sito.
 Inserire i file dentro un articolo del CMS di solito non funziona.
 
@@ -81,7 +81,7 @@ QUANDO ARRIVA UN AGGIORNAMENTO
 ------------------------------
 Si sostituiscono i file cambiati, tenendoli nelle stesse cartelle.
 
-Dentro il sito c'e' un numero di versione che viene aumentato a ogni
+Dentro il sito c'è un numero di versione che viene aumentato a ogni
 aggiornamento: serve a costringere i browser a riscaricare i file. Per
 questo, quando arriva un aggiornamento, vanno sostituiti ANCHE i file
 index.html indicati, non solo quelli con le modifiche: sono loro a
@@ -100,7 +100,7 @@ Il sito non raccoglie e non trasmette alcun dato.
     - punteggi e preferenze restano nel browser di chi usa il sito e
       non escono dal suo dispositivo
 
-Non e' quindi necessaria alcuna informativa aggiuntiva oltre a quella
+Non è quindi necessaria alcuna informativa aggiuntiva oltre a quella
 generale del sito della scuola.
 
 
@@ -123,10 +123,10 @@ IN CASO DI PROBLEMI
 Se compare l'avviso "Non riesco a leggere il file ...", vuol dire quasi
 sempre una di queste tre cose:
 
-    1. la pagina e' stata aperta dal disco invece che dal server
+    1. la pagina è stata aperta dal disco invece che dal server
     2. i file non sono stati caricati tutti, oppure la struttura delle
-       cartelle non e' stata rispettata
-    3. un nome di file o di cartella e' stato cambiato, anche solo
+       cartelle non è stata rispettata
+    3. un nome di file o di cartella è stato cambiato, anche solo
        nelle maiuscole
 
 ===========================================================

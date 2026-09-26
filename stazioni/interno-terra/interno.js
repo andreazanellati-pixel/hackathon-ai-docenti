@@ -620,8 +620,8 @@
     contenitore.appendChild(elemento("p", "nota-piccola",
       "Questi intervalli non sono scritti nel programma: vengono fuori dal calcolo dei raggi, uno per " +
       "uno. Sulla Terra vera l'ombra delle onde P è misurata fra 103 e 143 gradi: con sette strati " +
-      "soltanto il conto ne azzecca la posizione a cinque gradi di distanza. Se cambi le velocità in " +
-      "strati.txt, l'ombra si sposta."));
+      "soltanto il conto ne azzecca la posizione a cinque gradi di distanza. Cambiando le velocità " +
+      "degli strati, l'ombra si sposta di conseguenza."));
 
     contenitore.appendChild(elemento("h3", "titolo-blocco", "Dove mettere la stazione"));
     var comandi = elemento("div", "comandi");
@@ -643,10 +643,10 @@
     contenitore.appendChild(rigaB);
 
     contenitore.appendChild(elemento("p", "nota-piccola",
-      "Per capire perché il nucleo esterno è liquido, apri strati.txt e scrivi un numero qualsiasi " +
-      "al posto dello zero nelle due velocità S del nucleo esterno, come se fosse solido. Ricarica la " +
-      "pagina: l'ombra delle onde S sparisce. Siccome nella realtà quell'ombra c'è, il nucleo " +
-      "esterno non può essere solido. È esattamente il ragionamento che fece Inge Lehmann."));
+      "Ecco come si è capito che il nucleo esterno è liquido. Se fosse stato solido, le onde S lo " +
+      "avrebbero attraversato e sarebbero riapparse dall'altra parte del mondo, come fanno le P. " +
+      "Invece oltre una certa distanza non arrivano più, e non tornano mai: quel silenzio è la prova. " +
+      "È esattamente il ragionamento che fece Inge Lehmann."));
 
     var limiti = elemento("details", "limiti");
     limiti.appendChild(elemento("summary", null, "Che cosa questo modello semplifica"));

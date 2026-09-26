@@ -26,19 +26,19 @@ così si vede il piano di lavoro.
 | ⚖️ L'equilibrio chimico | 4ª | Una reazione reversibile in un recipiente col pistone. Q e K sono sempre scritti uno accanto all'altro: si disturba il sistema, si vede Q allontanarsi e poi tornare |
 | 💥 La teoria degli urti | 4ª | Energia di attivazione, temperatura, concentrazione e catalizzatori. La curva di Maxwell e Boltzmann con l'area colorata oltre la collina, e la regola dei dieci gradi messa alla prova |
 | ⚗️ Il banco di stechiometria | 1ª, 2ª | Si mettono i reagenti sul banco e si vede quale finisce per primo. Il conto passaggio per passaggio, dai grammi alle moli e ritorno, con la bilancia di Lavoisier che deve sempre tornare |
-| 🔋 Pile ed elettrolisi | 4ª | Si scelgono i due elettrodi e si legge la tensione. La scala dei potenziali mette tutti i metalli in fila: chi sta in basso cede elettroni a chi sta in alto, ed e' per questo che il ferro arrugginisce e l'oro no |
-| 💧 Diffusione e osmosi | 1ª, 2ª | Due scomparti e una membrana. L'osmosi non e' rappresentata: emerge dal moto a caso delle particelle, e si ferma da sola quando il dislivello fa da contrappeso |
+| 🔋 Pile ed elettrolisi | 4ª | Si scelgono i due elettrodi e si legge la tensione. La scala dei potenziali mette tutti i metalli in fila: chi sta in basso cede elettroni a chi sta in alto, ed è per questo che il ferro arrugginisce e l'oro no |
+| 💧 Diffusione e osmosi | 1ª, 2ª | Due scomparti e una membrana. L'osmosi non è rappresentata: emerge dal moto a caso delle particelle, e si ferma da sola quando il dislivello fa da contrappeso |
 | 🧫 Mitosi e meiosi a confronto | 2ª, 3ª | Le fasi una per una, coi cromosomi del padre e della madre disegnati a colori diversi, e il grafico della quantita di DNA accanto al numero di cromosomi: si vede che non cambiano nello stesso momento |
-| 🦠 Epidemia e vaccinazione | 2ª, 5ª | R0, R effettivo e soglia di gregge. Si vede perche' vaccinare il 95% ferma il morbillo e il 90% no, e perche' un'epidemia si spegne molto prima di aver contagiato tutti |
-| 🌿 La fotosintesi | 2ª, 5ª | Luce, anidride carbonica e temperatura. Il fattore limitante non e' raccontato: il sito prova ad aumentare ognuna delle tre cose e dice quale fa salire di piu' il guadagno |
-| 🌡️ Il bilancio radiativo | 1ª, 5ª | Luce ricevuta, albedo ed effetto serra. La Terra senza atmosfera fa meno 18 gradi, con l'atmosfera piu' 15: quei 33 gradi si vedono comparire |
-| 🌐 Dentro la Terra con le onde | 3ª, 4ª | I raggi sismici sono calcolati uno per uno con la legge di Snell su una sfera. La zona d'ombra non e' disegnata: esce dal conto, e viene fra 98 e 140 gradi contro i 103-143 misurati |
-| 🗺️ La tettonica delle placche | 3ª, 4ª | Cinque modi di incontrarsi, con le velocita' misurate col GPS. E il conto del tempo: alla velocita' di oggi un Atlantico ci mette 200 milioni di anni, e le rocce dicono che ha cominciato 180 milioni di anni fa |
-| 🌋 Dal magma al vulcano | 3ª, 4ª | Silice, temperatura e gas decidono se il vulcano cola o esplode. Il tipo di eruzione non e' scelto: esce dal confronto fra quanto il gas spinge e quanto il magma lo trattiene |
+| 🦠 Epidemia e vaccinazione | 2ª, 5ª | R0, R effettivo e soglia di gregge. Si vede perché vaccinare il 95% ferma il morbillo e il 90% no, e perché un'epidemia si spegne molto prima di aver contagiato tutti |
+| 🌿 La fotosintesi | 2ª, 5ª | Luce, anidride carbonica e temperatura. Il fattore limitante non è raccontato: il sito prova ad aumentare ognuna delle tre cose e dice quale fa salire di più il guadagno |
+| 🌡️ Il bilancio radiativo | 1ª, 5ª | Luce ricevuta, albedo ed effetto serra. La Terra senza atmosfera fa meno 18 gradi, con l'atmosfera più 15: quei 33 gradi si vedono comparire |
+| 🌐 Dentro la Terra con le onde | 3ª, 4ª | I raggi sismici sono calcolati uno per uno con la legge di Snell su una sfera. La zona d'ombra non è disegnata: esce dal conto, e viene fra 98 e 140 gradi contro i 103-143 misurati |
+| 🗺️ La tettonica delle placche | 3ª, 4ª | Cinque modi di incontrarsi, con le velocità misurate col GPS. E il conto del tempo: alla velocità di oggi un Atlantico ci mette 200 milioni di anni, e le rocce dicono che ha cominciato 180 milioni di anni fa |
+| 🌋 Dal magma al vulcano | 3ª, 4ª | Silice, temperatura e gas decidono se il vulcano cola o esplode. Il tipo di eruzione non è scelto: esce dal confronto fra quanto il gas spinge e quanto il magma lo trattiene |
 | 🪨 Il ciclo delle rocce | 1ª, 3ª | Si prende una roccia e la si accompagna in giro scegliendo passo per passo cosa le capita. Il punto è che da quasi ogni stato partono più strade: il cerchio dei libri fa credere il contrario |
 | ⚡ Il potenziale d'azione | 5ª | Le equazioni vere di Hodgkin e Huxley, quelle del Nobel. Soglia, tutto-o-niente e periodo refrattario non sono programmati da nessuna parte: vengono fuori da soli |
-| 🧫 Elettroforesi e PCR | 5ª | Si moltiplica il DNA con la PCR, lo si fa correre nel gel e si confrontano le bande a occhio. Il caso si cambia riscrivendo un file: gli studenti non possono averlo gia' visto |
-| 🔗 Il costruttore di molecole | 3ª, 5ª | Geometria e polarita' calcolate davvero: le zone di elettroni si respingono e trovano il loro posto, poi i legami si sommano come frecce nello spazio. Per questo l'anidride carbonica risulta apolare da sola |
+| 🧫 Elettroforesi e PCR | 5ª | Si moltiplica il DNA con la PCR, lo si fa correre nel gel e si confrontano le bande a occhio. Il caso si cambia riscrivendo un file: gli studenti non possono averlo già visto |
+| 🔗 Il costruttore di molecole | 3ª, 5ª | Geometria e polarità calcolate davvero: le zone di elettroni si respingono e trovano il loro posto, poi i legami si sommano come frecce nello spazio. Per questo l'anidride carbonica risulta apolare da sola |
 | 🌍 Terra, Sole e Luna | 1ª | Inclinazione dell'asse, latitudine e giorno dell'anno: durata del dì, altezza del Sole e stagioni. Portando l'asse a zero le stagioni spariscono |
 | 📈 Trovare l'epicentro | 3ª, 4ª | Tre sismogrammi, il ritardo fra onde S e P, la dromocrona: si triangola come fanno i sismologi |
 | 📊 Genetica di popolazioni | 4ª | Quattro esperimenti guidati sulla deriva genetica e la selezione, con la popolazione disegnata allele per allele e una spiegazione che accompagna passo passo |
@@ -47,8 +47,9 @@ così si vede il piano di lavoro.
 
 ## Per chi insegna: modificare i contenuti
 
-Tutto sta in file di testo, che si aprono con il Blocco note e hanno le
-istruzioni scritte in cima:
+Nelle pagine non c'è scritto da nessuna parte: gli studenti non devono
+vederlo. Ma tutti i contenuti stanno in file di testo, che si aprono con
+il Blocco note e hanno le istruzioni scritte in cima:
 
 | File | Contiene |
 |---|---|
@@ -71,16 +72,28 @@ istruzioni scritte in cima:
 | `stazioni/epidemia/malattie.txt` | le malattie con il loro R0 e i giorni contagiosi |
 | `stazioni/fotosintesi/piante.txt` | le piante con Pmax, K per la CO2 e respirazione |
 | `stazioni/bilancio-radiativo/corpi.txt` | i pianeti con luce ricevuta, albedo ed effetto serra |
-| `stazioni/interno-terra/strati.txt` | gli strati della Terra con le velocita' sismiche |
-| `stazioni/tettonica/margini.txt` | i margini fra le placche con le velocita' misurate |
+| `stazioni/interno-terra/strati.txt` | gli strati della Terra con le velocità sismiche |
+| `stazioni/tettonica/margini.txt` | i margini fra le placche con le velocità misurate |
 | `stazioni/vulcani/magmi.txt` | i magmi con silice, temperatura e gas |
 | `stazioni/potenziale-azione/condizioni.txt` | le condizioni della membrana: veleni, farmaci, potassio |
 | `stazioni/elettroforesi/campioni.txt` | i campioni di DNA e le lunghezze dei loro pezzi |
-| `stazioni/molecole/molecole.txt` e `elettronegativita.txt` | le molecole e gli elementi con la loro elettronegativita' |
+| `stazioni/molecole/molecole.txt` e `elettronegativita.txt` | le molecole e gli elementi con la loro elettronegatività |
 
 Si modifica il testo, si salva **in UTF-8**, si ricarica la pagina. Non
 serve toccare il codice. Se una riga viene scritta male il sito non si
 blocca: la salta e segnala quale riga rivedere.
+
+## Un esperimento da fare con i file di testo
+
+Nella stazione **Dentro la Terra con le onde**, il nucleo esterno ha la
+velocità delle onde S scritta **zero** in `strati.txt`, perché è liquido.
+Prova a metterci un numero qualsiasi, come se fosse solido, e a ricaricare
+la pagina: l'ombra delle onde S passa da 98-180 gradi a 98-142, cioè le
+onde tornano a farsi sentire dall'altra parte del mondo. Siccome nella
+realtà non si sentono, il nucleo esterno non può essere solido.
+
+È il ragionamento con cui nel 1926 si capì com'è fatta la Terra dentro, e
+si può rifare in classe cambiando un numero. Poi rimetti lo zero.
 
 ## Per chi pubblica il sito
 
