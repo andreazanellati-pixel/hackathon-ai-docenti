@@ -200,7 +200,7 @@ icona: ⚡
 disciplina: Biologia
 anni: 4
 cartella: potenziale-azione
-stato: in arrivo
+stato: pronta
 descrizione: Canali ionici, soglia, tutto-o-niente e periodo refrattario: si stimola il neurone e si guarda che cosa succede.
 
 [STAZIONE]
