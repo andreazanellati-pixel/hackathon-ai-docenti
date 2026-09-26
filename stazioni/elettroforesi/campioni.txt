@@ -1,0 +1,43 @@
+# ============================================================
+# I CAMPIONI DA FAR CORRERE SUL GEL
+# ============================================================
+#
+# Ogni riga descrive un campione di DNA gia' tagliato dagli
+# enzimi di restrizione, cioe' ridotto in pezzi di varie
+# lunghezze.
+#
+# COME SI SCRIVE UN CAMPIONE
+# --------------------------
+#
+#   nome | tipo | lunghezze | descrizione
+#
+# tipo        una di queste tre parole:
+#
+#               scala     il "righello" del gel: una miscela di
+#                         pezzi di lunghezza nota, che serve a
+#                         misurare tutti gli altri
+#               traccia   il campione da identificare
+#               campione  i campioni da confrontare con la traccia
+#
+# lunghezze   le lunghezze dei pezzi, in paia di basi, separate
+#             da virgole. Piu' un pezzo e' corto, piu' corre
+#             lontano nel gel.
+#
+# COME SI COSTRUISCE UN CASO
+# --------------------------
+# Basta dare alla traccia le stesse lunghezze di UNO dei
+# campioni. Chi risolve l'esercizio deve accorgersene guardando
+# le bande, non i numeri: sul gel i numeri non si vedono.
+#
+# Cambiando queste righe si prepara un caso nuovo, e gli studenti
+# non possono averlo gia' visto.
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+#
+# ============================================================
+
+Scala di riferimento | scala | 10000, 5000, 3000, 2000, 1500, 1000, 750, 500, 250, 100 | la miscela di pezzi di lunghezza nota, sempre nella prima corsia
+Traccia trovata | traccia | 4000, 2500, 1200, 600, 300 | il campione raccolto, di cui non sappiamo la provenienza
+Campione 1 | campione | 6000, 3200, 1800, 900, 400 | il primo dei tre da confrontare
+Campione 2 | campione | 4000, 2500, 1200, 600, 300 | il secondo dei tre da confrontare
+Campione 3 | campione | 5000, 2500, 1200, 700, 300 | il terzo: attenzione, somiglia parecchio ma non e' identico

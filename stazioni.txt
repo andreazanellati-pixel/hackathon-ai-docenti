@@ -227,7 +227,7 @@ icona: 🧾
 disciplina: Biologia
 anni: 5
 cartella: elettroforesi
-stato: in arrivo
+stato: pronta
 descrizione: Si taglia il DNA con gli enzimi di restrizione, si carica il gel e si leggono le bande.
 
 
