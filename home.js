@@ -168,12 +168,11 @@
         "Nessuna stazione per questo anno. Prova a scegliere « tutti »."));
     }
 
-    var pronte = stazioni.filter(function (s) { return s.pronta; }).length;
-    contenitore.appendChild(elemento("p", "conto-stazioni",
-      pronte === stazioni.length
-        ? "Tutte e " + pronte + " le stazioni sono pronte."
-        : pronte + (pronte === 1 ? " stazione pronta" : " stazioni pronte") +
-          " su " + stazioni.length + ". Le altre sono in costruzione."));
+    /* Qui c'era il conto delle stazioni pronte. Serviva finche' il
+       laboratorio era in costruzione, per far vedere il piano di
+       lavoro. Adesso che ci sono tutte non dice piu' niente a
+       nessuno, e le stazioni ancora da fare - se un giorno ce ne
+       saranno - si riconoscono gia' dalla loro targhetta. */
   }
 
   /* ==========================================================

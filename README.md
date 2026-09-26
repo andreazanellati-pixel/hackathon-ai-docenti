@@ -10,8 +10,7 @@ telefono, non richiede installazioni né registrazioni.
 ## Le stazioni
 
 La pagina iniziale le raggruppa per disciplina e si possono filtrare per
-anno di corso. Quelle ancora da costruire compaiono nell'elenco, spente,
-così si vede il piano di lavoro.
+anno di corso.
 
 **Tutte e ventisette, pronte**
 
