@@ -1,20 +1,20 @@
 /* ============================================================
    Dal magma al vulcano
    ------------------------------------------------------------
-   Perche' certi vulcani colano tranquilli per anni e altri
+   Perché certi vulcani colano tranquilli per anni e altri
    saltano per aria in un pomeriggio. Non dipende da quanto sono
    grandi: dipende dal magma che hanno dentro.
 
    Come funziona, in due parole:
-   - la vischiosita' e' calcolata dalla percentuale di silice e
-     dalla temperatura. La formula e' una approssimazione tarata
+   - la viscosità è calcolata dalla percentuale di silice e
+     dalla temperatura. La formula è una approssimazione tarata
      sui valori da manuale, e lo dice fra i limiti
-   - il tipo di eruzione non e' una scelta a tavolino: esce dal
+   - il tipo di eruzione non è una scelta a tavolino: esce dal
      confronto fra quanto il gas spinge e quanto il magma lo
-     trattiene. E' l'incontro fra le due cose a decidere
-   - la forma del vulcano e' disegnata di conseguenza: lo scudo
+     trattiene. È l'incontro fra le due cose a decidere
+   - la forma del vulcano è disegnata di conseguenza: lo scudo
      largo e basso dove la lava cola, il cono ripido dove si
-     alternano lava e ceneri, la caldera dove la montagna e'
+     alternano lava e ceneri, la caldera dove la montagna è
      saltata via
    ============================================================ */
 
@@ -43,7 +43,7 @@
   var cursoreS = null, cursoreT = null, cursoreG = null;
 
   /* ==========================================================
-     1. Gli esperimenti gia' pronti
+     1. Gli esperimenti già pronti
      ========================================================== */
 
   var ESPERIMENTI = [
@@ -54,7 +54,7 @@
     },
     {
       titolo: "Le fontane dell'Etna",
-      sottotitolo: "Stesso magma fluido, ma con cinque volte piu' gas",
+      sottotitolo: "Stesso magma fluido, ma con cinque volte più gas",
       magma: "Basaltico ricco di gas"
     },
     {
@@ -64,7 +64,7 @@
     },
     {
       titolo: "Quando salta la montagna",
-      sottotitolo: "Yellowstone: cosi' denso che il gas non riesce proprio a uscire",
+      sottotitolo: "Yellowstone: così denso che il gas non riesce proprio a uscire",
       magma: "Riolitico"
     },
     {
@@ -120,8 +120,8 @@
      3. Il modello
      ========================================================== */
 
-  /* Quanto il magma e' denso e appiccicoso. Si scrive come
-     potenza di dieci perche' fra un magma e l'altro cambia di
+  /* Quanto il magma è denso e appiccicoso. Si scrive come
+     potenza di dieci perché fra un magma e l'altro cambia di
      miliardi di volte: fra il basalto fluido e la riolite
      fredda ci sono otto zeri di differenza. */
   function logVischiosita() {
@@ -139,7 +139,7 @@
     return Math.max(0, Math.min(1, (lv - 1) / 6));
   }
 
-  /* La spinta dell'esplosione: il gas che c'e' per la parte di
+  /* La spinta dell'esplosione: il gas che c'è per la parte di
      gas che non riesce a uscire. Una cosa sola delle due non
      basta mai. */
   function forza() {
@@ -213,7 +213,7 @@
       c.bezierCurveTo(cx * 1.1, suolo - altezza * 0.15, larghezza - cx * 0.6, suolo - altezza * 0.1,
         larghezza, suolo);
     } else if (tipo === "caldera") {
-      /* la cima e' saltata via: resta un catino */
+      /* la cima è saltata via: resta un catino */
       var mezzo = Math.min(larghezza * 0.3, 130);
       c.moveTo(0, suolo);
       c.lineTo(cx - mezzo - 40, suolo - altezza * 0.16);
@@ -222,7 +222,7 @@
       c.lineTo(cx + mezzo + 40, suolo - altezza * 0.16);
       c.lineTo(larghezza, suolo);
     } else {
-      /* il cono, tanto piu' ripido quanto piu' e' vischioso */
+      /* il cono, tanto più ripido quanto più è vischioso */
       var pendenza = 0.26 + Math.min(0.24, logVischiosita() / 28);
       var mezzaBase = Math.min(larghezza * 0.42, altezza * pendenza * 3.1);
       c.moveTo(cx - mezzaBase, suolo);
@@ -304,7 +304,7 @@
   }
 
   /* ==========================================================
-     5. Il grafico: chi e' fluido e chi no
+     5. Il grafico: chi è fluido e chi no
      ========================================================== */
 
   function disegnaGrafico() {
@@ -337,10 +337,10 @@
       c.beginPath(); c.moveTo(X(j), su); c.lineTo(X(j), su + h); c.stroke();
       c.fillText(j + "%", X(j), su + h + 14);
     }
-    c.fillText("quanta silice c'e' nel magma", sx + w / 2, altezzaG - 4);
+    c.fillText("quanta silice c'è nel magma", sx + w / 2, altezzaG - 4);
     c.save();
     c.translate(12, su + h / 2); c.rotate(-Math.PI / 2);
-    c.fillText("vischiosita'", 0, 0);
+    c.fillText("viscosità", 0, 0);
     c.restore();
 
     /* la curva alla temperatura di adesso */
@@ -399,23 +399,23 @@
   }
 
   var RACCONTI = {
-    "effusiva": "Il magma e' abbastanza fluido da lasciare uscire il gas man mano che risale, senza " +
-      "accumulare pressione. Cosi' la lava esce e cola, e si puo' stare a guardarla da vicino. Vulcani " +
-      "come questo non costruiscono montagne ripide: fanno scudi larghi e bassi, perche' la lava scorre " +
-      "lontano prima di fermarsi. Le Hawaii sono fatte cosi'.",
+    "effusiva": "Il magma è abbastanza fluido da lasciare uscire il gas man mano che risale, senza " +
+      "accumulare pressione. Così la lava esce e cola, e si può stare a guardarla da vicino. Vulcani " +
+      "come questo non costruiscono montagne ripide: fanno scudi larghi e bassi, perché la lava scorre " +
+      "lontano prima di fermarsi. Le Hawaii sono fatte così.",
     "stromboliana": "Il gas riesce ancora a uscire, ma non del tutto liscio: si raccoglie in bolle " +
       "grandi che scoppiano a intervalli regolari, sparando in aria brandelli di lava. Sono le fontane " +
       "e i botti dello Stromboli e dell'Etna: spettacolari, rumorosi, e quasi sempre innocui per chi " +
       "sta a distanza.",
-    "vulcaniana": "Adesso il magma e' abbastanza denso da tappare il condotto fra un'eruzione e " +
-      "l'altra. La pressione si accumula sotto il tappo finche' non lo fa saltare, e ogni tanto parte " +
+    "vulcaniana": "Adesso il magma è abbastanza denso da tappare il condotto fra un'eruzione e " +
+      "l'altra. La pressione si accumula sotto il tappo finché non lo fa saltare, e ogni tanto parte " +
       "un'esplosione che lancia in alto una colonna di cenere. Alla lunga si costruisce un cono ripido, " +
       "fatto a strati alterni di lava e di cenere.",
-    "pliniana": "Il magma e' cosi' denso che il gas non riesce proprio a uscire: resta dentro in " +
-      "bollicine sotto pressione enorme, finche' il magma non si frantuma tutto insieme. Viene fuori " +
-      "una colonna che arriva nella stratosfera e poi, quando non regge piu', ricade lungo i fianchi " +
-      "come una valanga di cenere rovente. E' quello che successe a Pompei nel 79, ed e' il tipo di " +
-      "eruzione che ha ucciso piu' gente nella storia.",
+    "pliniana": "Il magma è così denso che il gas non riesce proprio a uscire: resta dentro in " +
+      "bollicine sotto pressione enorme, finché il magma non si frantuma tutto insieme. Viene fuori " +
+      "una colonna che arriva nella stratosfera e poi, quando non regge più, ricade lungo i fianchi " +
+      "come una valanga di cenere rovente. È quello che successe a Pompei nel 79, ed è il tipo di " +
+      "eruzione che ha ucciso più gente nella storia.",
     "catastrofica": "Qui non si costruisce nessuna montagna: la si distrugge. Il magma vischioso e " +
       "gonfio di gas sta sotto una crosta che a un certo punto cede tutta insieme, e il terreno " +
       "sprofonda formando un catino largo decine di chilometri. Eruzioni di questa taglia ne avvengono " +
@@ -515,7 +515,7 @@
     if (avvisoErrori) contenitore.appendChild(avvisoErrori);
 
     contenitore.appendChild(elemento("p", "guida",
-      "Non tutti i vulcani esplodono. Alcuni colano lava per anni e ci si puo' camminare accanto, " +
+      "Non tutti i vulcani esplodono. Alcuni colano lava per anni e ci si può camminare accanto, " +
       "altri fanno saltare per aria mezza montagna in un pomeriggio. La differenza non sta nella " +
       "grandezza del vulcano, ma in due numeri del magma che ha dentro."));
 
@@ -542,7 +542,7 @@
     contenitore.appendChild(scatola);
 
     var letture = elemento("div", "letture");
-    letture.appendChild(unaLettura("quanto e' denso il magma", function (n) { letturaVisco = n; }));
+    letture.appendChild(unaLettura("quanto è denso il magma", function (n) { letturaVisco = n; }));
     letture.appendChild(unaLettura("tipo di eruzione", function (n) { letturaTipo = n; }));
     letture.appendChild(unaLettura("colonna di cenere", function (n) { letturaAltezza = n; }));
     contenitore.appendChild(letture);
@@ -570,8 +570,8 @@
 
     contenitore.appendChild(elemento("p", "nota-piccola",
       "Prova questo: tieni la silice al minimo e porta il gas al massimo. Non succede quasi niente, " +
-      "perche' da un magma fluido il gas esce e basta. Poi rimetti il gas a meta' e alza la silice: " +
-      "adesso salta tutto. Non e' il gas a fare l'esplosione, e' il gas che non riesce a uscire."));
+      "perché da un magma fluido il gas esce e basta. Poi rimetti il gas a metà e alza la silice: " +
+      "adesso salta tutto. Non è il gas a fare l'esplosione, è il gas che non riesce a uscire."));
 
     contenitore.appendChild(elemento("h3", "titolo-blocco", "La silice comanda"));
     var scatolaG = elemento("div", "scatola-grafico");
@@ -580,7 +580,7 @@
     contenitore.appendChild(scatolaG);
     contenitore.appendChild(elemento("p", "nota-piccola",
       "Guarda la scala di sinistra: ogni tacca vale dieci volte. Fra il basalto delle Hawaii e la " +
-      "riolite di Yellowstone non c'e' il doppio o il triplo di differenza: ci sono otto zeri."));
+      "riolite di Yellowstone non c'è il doppio o il triplo di differenza: ci sono otto zeri."));
 
     contenitore.appendChild(elemento("h3", "titolo-blocco", "Quale magma"));
     var scelte = elemento("div", "scelte-grandezza");
@@ -599,12 +599,12 @@
     limiti.appendChild(elemento("summary", null, "Che cosa questo modello semplifica"));
     var corpo = elemento("div", "limiti-corpo");
     [
-      "La formula della vischiosita' e' una approssimazione tarata sui valori da manuale: basalto a 1200 gradi attorno a cento, andesite attorno a centomila, riolite fredda attorno a un miliardo. I modelli veri usati dai vulcanologi tengono conto di tutti gli ossidi presenti, non della sola silice.",
-      "Manca l'acqua sciolta nel magma, che oltre a essere il gas principale rende il magma piu' fluido. Un magma riolitico ricco d'acqua e' molto meno vischioso di quanto dica questo conto.",
-      "Mancano i cristalli. Un magma che si raffredda comincia a cristallizzare, e i cristalli sospesi lo rendono vischioso molto piu' in fretta di quanto direbbe la sola temperatura.",
-      "Il tipo di eruzione qui dipende solo dal magma. Nella realta' contano anche la forma del condotto, quanto magma c'e' in tutto, e se c'e' acqua esterna: una falda o il mare che entrano in contatto col magma fanno esplodere anche un basalto fluidissimo.",
-      "Le forme dei vulcani sono schematiche e non in scala. Un vulcano a scudo hawaiano e' largo centinaia di chilometri e alto pochi: disegnato in scala sembrerebbe una pianura.",
-      "Il conto dice come sarebbe un'eruzione con quel magma, non prevede quando avverra'. Prevedere le eruzioni e' un'altra cosa, e si fa sorvegliando terremoti, deformazioni del suolo e gas emessi."
+      "La formula della viscosità è una approssimazione tarata sui valori da manuale: basalto a 1200 gradi attorno a cento, andesite attorno a centomila, riolite fredda attorno a un miliardo. I modelli veri usati dai vulcanologi tengono conto di tutti gli ossidi presenti, non della sola silice.",
+      "Manca l'acqua sciolta nel magma, che oltre a essere il gas principale rende il magma più fluido. Un magma riolitico ricco d'acqua è molto meno vischioso di quanto dica questo conto.",
+      "Mancano i cristalli. Un magma che si raffredda comincia a cristallizzare, e i cristalli sospesi lo rendono vischioso molto più in fretta di quanto direbbe la sola temperatura.",
+      "Il tipo di eruzione qui dipende solo dal magma. Nella realtà contano anche la forma del condotto, quanto magma c'è in tutto, e se c'è acqua esterna: una falda o il mare che entrano in contatto col magma fanno esplodere anche un basalto fluidissimo.",
+      "Le forme dei vulcani sono schematiche e non in scala. Un vulcano a scudo hawaiano è largo centinaia di chilometri e alto pochi: disegnato in scala sembrerebbe una pianura.",
+      "Il conto dice come sarebbe un'eruzione con quel magma, non prevede quando avverrà. Prevedere le eruzioni è un'altra cosa, e si fa sorvegliando terremoti, deformazioni del suolo e gas emessi."
     ].forEach(function (t) { corpo.appendChild(elemento("p", null, t)); });
     limiti.appendChild(corpo);
     contenitore.appendChild(limiti);
@@ -651,7 +651,7 @@
         svuota(contenitore);
         var avviso = elemento("div", "avviso");
         avviso.appendChild(document.createTextNode(
-          "Il file magmi.txt e' stato letto ma non contiene magmi validi."));
+          "Il file magmi.txt è stato letto ma non contiene magmi validi."));
         contenitore.appendChild(avviso);
         return;
       }

@@ -6,12 +6,12 @@
 
    Tre esperimenti guidati portano lo studente ai tre risultati
    che contano: nelle popolazioni piccole il caso comanda, in
-   quelle grandi no, e la selezione si vede solo se e' abbastanza
+   quelle grandi no, e la selezione si vede solo se è abbastanza
    forte da battere il caso.
 
-   Il modello e' quello standard: selezione, mutazione e
-   campionamento binomiale dei gameti. E' stato verificato su
-   risultati noti, fra cui il piu' severo: la probabilita' che un
+   Il modello è quello standard: selezione, mutazione e
+   campionamento binomiale dei gameti. È stato verificato su
+   risultati noti, fra cui il più severo: la probabilità che un
    allele neutro si fissi deve valere quanto la sua frequenza di
    partenza.
    ============================================================ */
@@ -40,7 +40,7 @@
   var generazione = 0;
   var MAX_GENERAZIONI = 120;
 
-  var esperimento = 0;        /* quale esperimento guidato e' attivo */
+  var esperimento = 0;        /* quale esperimento guidato è attivo */
 
   var telaPop = null, ctxPop = null, larghezzaP = 0, altezzaP = 0;
   var telaGraf = null, ctxGraf = null, larghezzaG = 0, altezzaG = 0;
@@ -562,7 +562,7 @@
     conclusione.hidden = true;
     contenitore.appendChild(conclusione);
 
-    /* le manopole, nascoste finche' non servono */
+    /* le manopole, nascoste finché non servono */
     var apri = elemento("button", "pillola pillola-altre",
       mostraAvanzate ? "− nascondi le manopole" : "+ voglio regolare io");
     apri.type = "button";

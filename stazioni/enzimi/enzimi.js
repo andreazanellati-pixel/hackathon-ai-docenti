@@ -2,16 +2,16 @@
    Il banco degli enzimi
    ------------------------------------------------------------
    Si regolano substrato, temperatura, pH e inibitori, e si guarda
-   la velocita' della reazione salire, appiattirsi o crollare.
+   la velocità della reazione salire, appiattirsi o crollare.
 
    Come funziona, in due parole:
-   - la velocita' segue l'equazione di Michaelis e Menten:
+   - la velocità segue l'equazione di Michaelis e Menten:
      v = Vmax * [S] / (Km + [S])
-   - temperatura e pH moltiplicano la velocita' per un fattore
+   - temperatura e pH moltiplicano la velocità per un fattore
      fra zero e uno
-   - la denaturazione e' una cosa a parte, e soprattutto NON si
+   - la denaturazione è una cosa a parte, e soprattutto NON si
      torna indietro: sopra la temperatura di rovina gli enzimi si
-     sformano man mano, e raffreddando restano sformati. E' il
+     sformano man mano, e raffreddando restano sformati. È il
      motivo per cui un uovo sodo non torna crudo
    - gli inibitori agiscono nel modo giusto per il loro tipo:
      il competitivo alza il Km, il non competitivo abbassa il
@@ -28,8 +28,8 @@
   if (!contenitore) return;
 
   var KI = 1.0;             /* costante di inibizione, mmol/L */
-  var K0 = 0.02;            /* con che rapidita' si rovina, alla temperatura di rovina */
-  var LARGHEZZA_ROVINA = 2.5; /* ogni 2,5 gradi in piu', la rovina accelera di e volte */
+  var K0 = 0.02;            /* con che rapidità si rovina, alla temperatura di rovina */
+  var LARGHEZZA_ROVINA = 2.5; /* ogni 2,5 gradi in più, la rovina accelera di e volte */
 
   /* ---------- stato ---------- */
 
@@ -61,13 +61,13 @@
   var sagome = [];          /* gli enzimi disegnati */
 
   /* ==========================================================
-     1. Gli esperimenti gia' pronti
+     1. Gli esperimenti già pronti
      ========================================================== */
 
   var ESPERIMENTI = [
     {
       titolo: "La curva di Michaelis e Menten",
-      sottotitolo: "Aggiungi substrato: la velocita' sale, poi si appiattisce",
+      sottotitolo: "Aggiungi substrato: la velocità sale, poi si appiattisce",
       enzima: "Amilasi salivare", substrato: 0.5, temperatura: 37, ph: 6.8,
       inibitore: "nessuno", quantoInibitore: 0, grafico: "substrato"
     },
@@ -154,7 +154,7 @@
      ========================================================== */
 
   /* Quanto conta la temperatura sul lavoro dell'enzima, senza
-     contare la rovina: scaldando la chimica va piu' in fretta,
+     contare la rovina: scaldando la chimica va più in fretta,
      ma lontano dal suo optimum l'enzima lavora peggio. */
   function fattoreTemperatura(t) {
     var scarto = t <= enzima.tOttimale ? enzima.tOttimale - t : t - enzima.tOttimale;
@@ -167,8 +167,8 @@
     return Math.exp(-q * q);
   }
 
-  /* Con che rapidita' l'enzima si sta rovinando, in una frazione
-     al secondo. Sotto la temperatura di rovina e' quasi zero. */
+  /* Con che rapidità l'enzima si sta rovinando, in una frazione
+     al secondo. Sotto la temperatura di rovina è quasi zero. */
   function rapiditaRovina(t) {
     return K0 * Math.exp((t - enzima.tRovina) / LARGHEZZA_ROVINA);
   }
@@ -188,13 +188,13 @@
     return enzima.vmax;
   }
 
-  /* La velocita' vera, adesso, con l'enzima ridotto com'e'. */
+  /* La velocità vera, adesso, con l'enzima ridotto com'è. */
   function velocita() {
     return vmaxEffettivo() * attivo * fattoreTemperatura(temperatura) * fattorePh(ph) *
       substrato / (kmEffettivo() + substrato);
   }
 
-  /* La velocita' che ci sarebbe con l'enzima ancora tutto intero:
+  /* La velocità che ci sarebbe con l'enzima ancora tutto intero:
      serve per disegnare le curve. */
   function velocitaTeorica(s, t, p) {
     return vmaxEffettivo() * fattoreTemperatura(t) * fattorePh(p) * s / (kmEffettivo() + s);
@@ -206,7 +206,7 @@
 
   function unPasso(dt) {
     if (dt <= 0) return;
-    prodotto += velocita() * dt / 60;      /* Vmax e' in micromoli al minuto */
+    prodotto += velocita() * dt / 60;      /* Vmax è in micromoli al minuto */
     tempo += dt;
     var k = rapiditaRovina(temperatura);
     attivo = attivo * Math.exp(-k * dt);
@@ -257,7 +257,7 @@
   }
 
   function muoviScena(dt) {
-    var spinta = 0.4 + temperatura / 60;   /* piu' caldo, piu' si agitano */
+    var spinta = 0.4 + temperatura / 60;   /* più caldo, più si agitano */
     particelle.forEach(function (p) {
       p.x += p.vx * spinta * dt * 60;
       p.y += p.vy * spinta * dt * 60;
@@ -271,7 +271,7 @@
       }
     });
 
-    /* quanto spesso gli enzimi afferrano: in proporzione alla velocita' */
+    /* quanto spesso gli enzimi afferrano: in proporzione alla velocità */
     var quota = enzima.vmax > 0 ? velocita() / enzima.vmax : 0;
     sagome.forEach(function (s) {
       if (attivo < 0.5 && Math.random() < (0.5 - attivo) * dt * 2) s.rovinato = true;
@@ -296,7 +296,7 @@
     var c = ctx;
     c.clearRect(0, 0, larghezza, altezza);
 
-    /* il fondo, di colore piu' caldo quando la temperatura sale */
+    /* il fondo, di colore più caldo quando la temperatura sale */
     var caldo = Math.min(1, Math.max(0, (temperatura - 10) / 80));
     c.fillStyle = "rgb(" + Math.round(244 + caldo * 11) + "," +
       Math.round(244 - caldo * 30) + "," + Math.round(238 - caldo * 50) + ")";
@@ -325,7 +325,7 @@
 
       c.beginPath();
       if (s.rovinato) {
-        /* un enzima rovinato non ha piu' la sua forma */
+        /* un enzima rovinato non ha più la sua forma */
         c.moveTo(x - r, y);
         for (var a = 0; a <= Math.PI * 2 + 0.01; a += Math.PI / 6) {
           var rr = r * (0.7 + 0.5 * Math.abs(Math.sin(a * 3 + s.fase)));
@@ -431,7 +431,7 @@
     c.fillText(asse.nome, sx + w / 2, altezzaG - 5);
     c.save();
     c.translate(12, su + h / 2); c.rotate(-Math.PI / 2);
-    c.fillText("velocita' (µmol/min)", 0, 0);
+    c.fillText("velocità (µmol/min)", 0, 0);
     c.restore();
 
     /* la curva senza inibitore, per confronto */
@@ -468,7 +468,7 @@
       c.fillText("Km", X(kmv) + 4, su + h - 5);
     }
 
-    /* dove siamo adesso, con l'enzima ridotto com'e' davvero */
+    /* dove siamo adesso, con l'enzima ridotto com'è davvero */
     c.beginPath();
     c.arc(X(asse.ora), Y(velocita()), 5, 0, Math.PI * 2);
     c.fillStyle = accento; c.fill();
@@ -497,56 +497,56 @@
     var quota = piena > 0 ? v / piena : 0;
 
     if (attivo < 0.02) {
-      return "L'enzima e' rovinato. Puoi raffreddare quanto vuoi: non torna come prima, perche' la " +
-        "catena si e' sformata e non si ripiega da sola. E' lo stesso motivo per cui un uovo sodo non " +
+      return "L'enzima è rovinato. Puoi raffreddare quanto vuoi: non torna come prima, perché la " +
+        "catena si è sformata e non si ripiega da sola. È lo stesso motivo per cui un uovo sodo non " +
         "torna crudo. Per ricominciare serve enzima nuovo.";
     }
     if (attivo < 0.95) {
       if (rapiditaRovina(temperatura) > 0.005) {
-        return "Attenzione: a questa temperatura l'enzima si sta rovinando proprio adesso. Ne e' rimasto " +
-          "integro il " + Math.round(attivo * 100) + "%, e quello perso non si recupera piu'.";
+        return "Attenzione: a questa temperatura l'enzima si sta rovinando proprio adesso. Ne è rimasto " +
+          "integro il " + Math.round(attivo * 100) + "%, e quello perso non si recupera più.";
       }
-      return "Adesso la temperatura non fa piu' danni, ma il danno di prima resta: e' integro solo il " +
-        Math.round(attivo * 100) + "%. La velocita' e' percio' molto piu' bassa di quella segnata dalla " +
+      return "Adesso la temperatura non fa più danni, ma il danno di prima resta: è integro solo il " +
+        Math.round(attivo * 100) + "%. La velocità è perciò molto più bassa di quella segnata dalla " +
         "curva, che vale per l'enzima intero. Per tornare al massimo serve enzima nuovo.";
     }
     if (tipoInibitore === "competitivo" && inibitore > 0) {
       return "L'inibitore competitivo si infila nel sito attivo al posto del substrato. Il Km apparente " +
-        "e' salito a " + conVirgola(arrotonda(kmEffettivo(), 1)) + " mmol/L, ma il Vmax e' rimasto quello: " +
+        "è salito a " + conVirgola(arrotonda(kmEffettivo(), 1)) + " mmol/L, ma il Vmax è rimasto quello: " +
         "aggiungendo tanto substrato l'enzima torna al massimo. Prova ad alzare il substrato e guarda la curva.";
     }
     if (tipoInibitore === "non competitivo" && inibitore > 0) {
       return "L'inibitore non competitivo si attacca in un altro punto e storce l'enzima. Il Km non cambia, " +
-        "ma il Vmax e' sceso a " + Math.round(vmaxEffettivo()) + ": qui il substrato non puo' farci niente, " +
+        "ma il Vmax è sceso a " + Math.round(vmaxEffettivo()) + ": qui il substrato non può farci niente, " +
         "per quanto ne aggiungi.";
     }
     if (tipoInibitore === "incompetitivo" && inibitore > 0) {
-      return "L'inibitore incompetitivo si attacca solo all'enzima che ha gia' preso il substrato. " +
+      return "L'inibitore incompetitivo si attacca solo all'enzima che ha già preso il substrato. " +
         "Abbassa tutti e due: Km a " + conVirgola(arrotonda(kmEffettivo(), 1)) + " e Vmax a " +
         Math.round(vmaxEffettivo()) + ".";
     }
     if (fattorePh(ph) < 0.3) {
-      return "A pH " + conVirgola(arrotonda(ph, 1)) + " questo enzima e' quasi fermo: lavora bene attorno " +
+      return "A pH " + conVirgola(arrotonda(ph, 1)) + " questo enzima è quasi fermo: lavora bene attorno " +
         "a pH " + conVirgola(enzima.phOttimale) + ". Il pH cambia le cariche elettriche degli amminoacidi, " +
         "e il sito attivo perde la forma che gli serve.";
     }
     if (Math.abs(temperatura - enzima.tOttimale) > 15) {
       return temperatura < enzima.tOttimale
-        ? "Fa troppo freddo: le molecole si muovono piano e si incontrano di rado. L'enzima non e' rovinato, " +
+        ? "Fa troppo freddo: le molecole si muovono piano e si incontrano di rado. L'enzima non è rovinato, " +
           "solo rallentato - scaldando riparte."
-        : "Siamo lontani dall'optimum, che per questo enzima e' " + conVirgola(enzima.tOttimale) + " gradi.";
+        : "Siamo lontani dall'optimum, che per questo enzima è " + conVirgola(enzima.tOttimale) + " gradi.";
     }
     if (substrato > enzima.km * 6) {
-      return "Il substrato e' abbondante: tutti i siti attivi sono occupati quasi sempre, e la velocita' " +
-        "e' al " + Math.round(quota * 100) + "% del massimo. Aggiungerne ancora non serve quasi a niente: " +
-        "e' la saturazione, il tratto piatto della curva.";
+      return "Il substrato è abbondante: tutti i siti attivi sono occupati quasi sempre, e la velocità " +
+        "è al " + Math.round(quota * 100) + "% del massimo. Aggiungerne ancora non serve quasi a niente: " +
+        "è la saturazione, il tratto piatto della curva.";
     }
     if (substrato < enzima.km) {
-      return "C'e' poco substrato: molti siti attivi restano vuoti e la velocita' cresce quasi in proporzione " +
-        "a quanto ne aggiungi. Il Km di questo enzima e' " + conVirgola(enzima.km) + " mmol/L: e' la " +
-        "concentrazione alla quale va a meta' velocita'.";
+      return "C'è poco substrato: molti siti attivi restano vuoti e la velocità cresce quasi in proporzione " +
+        "a quanto ne aggiungi. Il Km di questo enzima è " + conVirgola(enzima.km) + " mmol/L: è la " +
+        "concentrazione alla quale va a metà velocità.";
     }
-    return "Siamo attorno al Km: la velocita' e' circa meta' del massimo, e la curva sta piegando. " +
+    return "Siamo attorno al Km: la velocità è circa metà del massimo, e la curva sta piegando. " +
       "Da qui in avanti aggiungere substrato rende sempre meno.";
   }
 
@@ -673,8 +673,8 @@
     if (avvisoErrori) contenitore.appendChild(avvisoErrori);
 
     contenitore.appendChild(elemento("p", "guida",
-      "Un enzima e' una proteina che fa avvenire in fretta una reazione che da sola andrebbe lentissima. " +
-      "Funziona perche' ha una tasca, il sito attivo, fatta apposta per il suo substrato: se quella tasca " +
+      "Un enzima è una proteina che fa avvenire in fretta una reazione che da sola andrebbe lentissima. " +
+      "Funziona perché ha una tasca, il sito attivo, fatta apposta per il suo substrato: se quella tasca " +
       "perde la forma, l'enzima smette di funzionare. Qui puoi cambiare le condizioni e guardare cosa succede."));
 
     /* --- esperimenti pronti --- */
@@ -706,7 +706,7 @@
       "con la tacca del sito attivo. Quando un enzima si rovina perde la forma e diventa grigio."));
 
     var letture = elemento("div", "letture");
-    letture.appendChild(unaLettura("velocita' (µmol/min)", function (n) { letturaV = n; }));
+    letture.appendChild(unaLettura("velocità (µmol/min)", function (n) { letturaV = n; }));
     letture.appendChild(unaLettura("enzima integro", function (n) { letturaAttivo = n; }));
     letture.appendChild(unaLettura("prodotto (µmol)", function (n) { letturaProdotto = n; }));
     contenitore.appendChild(letture);
@@ -730,7 +730,7 @@
     /* --- il grafico --- */
     contenitore.appendChild(elemento("h3", "titolo-blocco", "Il grafico"));
     var scelteG = elemento("div", "scelte-grandezza");
-    [["substrato", "velocita' e substrato"], ["temperatura", "velocita' e temperatura"], ["ph", "velocita' e pH"]]
+    [["substrato", "velocità e substrato"], ["temperatura", "velocità e temperatura"], ["ph", "velocità e pH"]]
       .forEach(function (g) {
         var b = elemento("button", "pillola", g[1]);
         b.type = "button"; b.dato = g[0];
@@ -746,8 +746,8 @@
     contenitore.appendChild(scatolaG);
 
     contenitore.appendChild(elemento("p", "nota-piccola",
-      "Il pallino pieno dice dove sei adesso. Se l'enzima si e' gia' rovinato in parte, compare anche un " +
-      "pallino vuoto piu' in alto: e' la velocita' che avresti con l'enzima ancora intero."));
+      "Il pallino pieno dice dove sei adesso. Se l'enzima si è già rovinato in parte, compare anche un " +
+      "pallino vuoto più in alto: è la velocità che avresti con l'enzima ancora intero."));
 
     /* --- quale enzima --- */
     contenitore.appendChild(elemento("h3", "titolo-blocco", "Quale enzima"));
@@ -812,17 +812,17 @@
 
     contenitore.appendChild(elemento("p", "nota-piccola",
       "Con un inibitore acceso il grafico mostra anche, in grigio, la curva che ci sarebbe senza: " +
-      "confrontando le due si vede subito quale dei due numeri e' cambiato, il Km o il Vmax."));
+      "confrontando le due si vede subito quale dei due numeri è cambiato, il Km o il Vmax."));
 
     /* --- i limiti del modello --- */
     var limiti = elemento("details", "limiti");
     limiti.appendChild(elemento("summary", null, "Che cosa questo modello semplifica"));
     var corpo = elemento("div", "limiti-corpo");
     [
-      "Il substrato non si consuma mai: e' come se qualcuno continuasse a rimetterne. In una provetta vera la reazione rallenta da sola man mano che il substrato finisce.",
-      "L'optimum di temperatura e la temperatura di rovina qui sono due numeri scritti nel file, presi dai libri. Nella realta' sono due effetti che si intrecciano, e l'optimum che si misura dipende anche da quanto dura la misura.",
-      "La campana del pH e' simmetrica. Le curve vere spesso non lo sono, perche' dipendono da piu' amminoacidi che si caricano a pH diversi.",
-      "La rovina dell'enzima e' senza ritorno, come nella realta'. Alcuni enzimi pero', se il danno e' piccolo, si ripiegano di nuovo: qui non succede mai.",
+      "Il substrato non si consuma mai: è come se qualcuno continuasse a rimetterne. In una provetta vera la reazione rallenta da sola man mano che il substrato finisce.",
+      "L'optimum di temperatura e la temperatura di rovina qui sono due numeri scritti nel file, presi dai libri. Nella realtà sono due effetti che si intrecciano, e l'optimum che si misura dipende anche da quanto dura la misura.",
+      "La campana del pH è simmetrica. Le curve vere spesso non lo sono, perché dipendono da più amminoacidi che si caricano a pH diversi.",
+      "La rovina dell'enzima è senza ritorno, come nella realtà. Alcuni enzimi però, se il danno è piccolo, si ripiegano di nuovo: qui non succede mai.",
       "L'equazione di Michaelis e Menten vale per un enzima con un solo sito attivo e nessuna regolazione. Gli enzimi allosterici, come quelli che regolano le vie metaboliche, danno una curva a esse e non questa.",
       "Le molecole disegnate sono poche e grandi: servono a far vedere il meccanismo, non sono in scala. In una goccia di saliva ci sono miliardi di molecole di enzima."
     ].forEach(function (t) { corpo.appendChild(elemento("p", null, t)); });
@@ -873,7 +873,7 @@
         svuota(contenitore);
         var avviso = elemento("div", "avviso");
         avviso.appendChild(document.createTextNode(
-          "Il file enzimi.txt e' stato letto ma non contiene enzimi validi."));
+          "Il file enzimi.txt è stato letto ma non contiene enzimi validi."));
         contenitore.appendChild(avviso);
         return;
       }

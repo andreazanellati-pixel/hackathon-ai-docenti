@@ -7,9 +7,9 @@
    distanza; tre distanze danno tre circonferenze, e le tre
    circonferenze si incontrano nell'epicentro.
 
-   E' il metodo vero: quello che si usa davvero per localizzare un
-   terremoto. Qui e' in due dimensioni e con velocita' costanti,
-   ma il procedimento e' identico.
+   È il metodo vero: quello che si usa davvero per localizzare un
+   terremoto. Qui è in due dimensioni e con velocità costanti,
+   ma il procedimento è identico.
 
      onde P   6,5 km/s   arrivano per prime (P come "prime")
      onde S   3,7 km/s   arrivano dopo      (S come "seconde")
@@ -30,7 +30,7 @@
   var VS = 3.7;     /* km/s */
   var FATTORE = 1 / VS - 1 / VP;      /* secondi di ritardo per ogni km */
 
-  var LATO = 400;   /* il territorio e' un quadrato di 400 km di lato */
+  var LATO = 400;   /* il territorio è un quadrato di 400 km di lato */
 
   /* ---------- stato ---------- */
 
@@ -82,7 +82,7 @@
     soluzioneMostrata = false;
   }
 
-  /* il sismogramma: rumore, poi le onde P, poi le onde S piu' ampie */
+  /* il sismogramma: rumore, poi le onde P, poi le onde S più ampie */
   function generaTraccia(s) {
     var durata = 90;                 /* secondi mostrati */
     var punti = 900;
@@ -560,8 +560,8 @@
     disegnaTutto();
   });
 
-  /* se la pagina e' stata costruita mentre era nascosta, le misure
-     valevano zero: si riprova finche' non ci sono larghezze vere */
+  /* se la pagina è stata costruita mentre era nascosta, le misure
+     valevano zero: si riprova finché non ci sono larghezze vere */
   function controlla() {
     if (larghezzaM <= 0) {
       adattaTele();

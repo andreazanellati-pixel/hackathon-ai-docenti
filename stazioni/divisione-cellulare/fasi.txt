@@ -24,7 +24,7 @@
 #               equatore-coppie  le coppie di omologhi sulla linea
 #               separa-cromatidi i cromatelli che si staccano
 #               separa-omologhi  gli omologhi interi che si staccano
-#               due-cellule    due cellule figlie gia' separate
+#               due-cellule    due cellule figlie già separate
 #               due-equatore   due cellule, cromosomi in fila
 #               due-separa     due cellule, cromatidi che si staccano
 #               quattro-cellule  quattro cellule figlie
@@ -34,35 +34,35 @@
 #             con i suoi due cromatidi, conta sempre uno.
 #             Si scrive con la lettera n: 2n vuol dire il corredo
 #             doppio, n quello singolo, 4n il doppio del doppio.
-#             Serve scrivere 4n nell'anafase della mitosi, perche'
-#             li' per un istante ogni cromatide staccato conta come
+#             Serve scrivere 4n nell'anafase della mitosi, perché
+#             lì per un istante ogni cromatide staccato conta come
 #             un cromosoma intero.
 #
-# DNA         quanto DNA c'e' in OGNI cellula, in unita' C.
+# DNA         quanto DNA c'è in OGNI cellula, in unità C.
 #             Una cellula appena nata ha 2C; dopo la duplicazione
-#             ne ha 4C; un gamete ne ha 1C. E' il numero che
-#             confonde di piu', perche' cambia in momenti diversi
+#             ne ha 4C; un gamete ne ha 1C. È il numero che
+#             confonde di più, perché cambia in momenti diversi
 #             rispetto al numero di cromosomi.
 #
 # cellule     quante cellule ci sono in quel momento.
 #
 # Le righe che iniziano con # sono commenti: il sito le ignora.
-# Se una riga e' scritta male viene saltata e segnalata.
+# Se una riga è scritta male viene saltata e segnalata.
 #
 # ============================================================
 
-mitosi | Interfase - G1 | interfase | 2n | 2 | 1 | La cellula fa il suo mestiere e cresce. I cromosomi sono lunghi filamenti sottili, sparsi nel nucleo: non si vedono nemmeno al microscopio. Ogni cromosoma e' ancora fatto di un filamento solo.
-mitosi | Interfase - S, la duplicazione | duplicati | 2n | 4 | 1 | Ogni cromosoma si copia. Adesso e' fatto di due cromatidi identici, attaccati al centromero. Attenzione: il DNA e' raddoppiato, ma il NUMERO di cromosomi non e' cambiato, perche' i due cromatidi attaccati contano come uno solo.
+mitosi | Interfase - G1 | interfase | 2n | 2 | 1 | La cellula fa il suo mestiere e cresce. I cromosomi sono lunghi filamenti sottili, sparsi nel nucleo: non si vedono nemmeno al microscopio. Ogni cromosoma è ancora fatto di un filamento solo.
+mitosi | Interfase - S, la duplicazione | duplicati | 2n | 4 | 1 | Ogni cromosoma si copia. Adesso è fatto di due cromatidi identici, attaccati al centromero. Attenzione: il DNA è raddoppiato, ma il NUMERO di cromosomi non è cambiato, perché i due cromatidi attaccati contano come uno solo.
 mitosi | Profase | duplicati | 2n | 4 | 1 | I filamenti si avvolgono su se stessi e diventano corti e spessi: adesso si vedono. La membrana del nucleo si sfalda e si forma il fuso, fatto di fibre che partono dai due poli.
 mitosi | Metafase | equatore | 2n | 4 | 1 | Tutti i cromosomi si mettono in fila sulla linea di mezzo, uno accanto all'altro. Le fibre del fuso li tengono per il centromero, una da un polo e una dall'altro.
-mitosi | Anafase | separa-cromatidi | 4n | 4 | 1 | Le fibre tirano e i due cromatidi di ogni cromosoma si staccano, andando ai poli opposti. Da questo istante ogni cromatide e' un cromosoma a se'. Ai due poli arriva lo stesso identico corredo. Nota il conteggio: per un istante i cromosomi sono il doppio, perche' ogni cromatide staccato e' ormai un cromosoma a se'. Torneranno 2n appena la cellula si divide.
-mitosi | Telofase e citodieresi | due-cellule | 2n | 2 | 2 | Si riformano i due nuclei e la cellula si strozza in mezzo. Le due figlie hanno lo stesso numero di cromosomi della madre e gli stessi identici geni: e' servita a crescere, a riparare, a sostituire cellule vecchie.
+mitosi | Anafase | separa-cromatidi | 4n | 4 | 1 | Le fibre tirano e i due cromatidi di ogni cromosoma si staccano, andando ai poli opposti. Da questo istante ogni cromatide è un cromosoma a sé. Ai due poli arriva lo stesso identico corredo. Nota il conteggio: per un istante i cromosomi sono il doppio, perché ogni cromatide staccato è ormai un cromosoma a sé. Torneranno 2n appena la cellula si divide.
+mitosi | Telofase e citodieresi | due-cellule | 2n | 2 | 2 | Si riformano i due nuclei e la cellula si strozza in mezzo. Le due figlie hanno lo stesso numero di cromosomi della madre e gli stessi identici geni: è servita a crescere, a riparare, a sostituire cellule vecchie.
 meiosi | Interfase - G1 | interfase | 2n | 2 | 1 | Si parte esattamente come nella mitosi: una cellula con il corredo doppio, un cromosoma da ciascun genitore.
 meiosi | Interfase - S, la duplicazione | duplicati | 2n | 4 | 1 | Anche qui ogni cromosoma si duplica e diventa di due cromatidi. Il DNA raddoppia. Fin qui le due divisioni sono identiche: da adesso in poi cambiano.
-meiosi | Profase I - appaiamento e crossing over | appaiati | 2n | 4 | 1 | Ecco la novita' che la mitosi non ha: i cromosomi omologhi, quello del padre e quello della madre, si cercano e si accostano a due a due. Mentre sono attaccati si scambiano dei pezzi: e' il crossing over, e da qui nascono cromosomi che non erano ne' del padre ne' della madre.
-meiosi | Metafase I | equatore-coppie | 2n | 4 | 1 | Le COPPIE di omologhi si mettono sulla linea di mezzo, non i singoli cromosomi. E si dispongono a caso: il cromosoma del padre puo' finire di qua o di la', e ogni coppia decide per conto suo. E' la seconda fonte di varieta'.
-meiosi | Anafase I | separa-omologhi | 2n | 4 | 1 | Si separano gli OMOLOGHI interi, ognuno con i suoi due cromatidi ancora attaccati. E' la differenza decisiva: nella mitosi si staccavano i cromatidi, qui si staccano i cromosomi interi. Per questo il numero si dimezza.
-meiosi | Telofase I | due-cellule | n | 2 | 2 | Nascono due cellule con il corredo gia' dimezzato: da 2n a n. Ogni cromosoma pero' e' ancora fatto di due cromatidi, quindi c'e' ancora da lavorare.
+meiosi | Profase I - appaiamento e crossing over | appaiati | 2n | 4 | 1 | Ecco la novità che la mitosi non ha: i cromosomi omologhi, quello del padre e quello della madre, si cercano e si accostano a due a due. Mentre sono attaccati si scambiano dei pezzi: è il crossing over, e da qui nascono cromosomi che non erano né del padre né della madre.
+meiosi | Metafase I | equatore-coppie | 2n | 4 | 1 | Le COPPIE di omologhi si mettono sulla linea di mezzo, non i singoli cromosomi. E si dispongono a caso: il cromosoma del padre può finire di qua o di là, e ogni coppia decide per conto suo. È la seconda fonte di varietà.
+meiosi | Anafase I | separa-omologhi | 2n | 4 | 1 | Si separano gli OMOLOGHI interi, ognuno con i suoi due cromatidi ancora attaccati. È la differenza decisiva: nella mitosi si staccavano i cromatidi, qui si staccano i cromosomi interi. Per questo il numero si dimezza.
+meiosi | Telofase I | due-cellule | n | 2 | 2 | Nascono due cellule con il corredo già dimezzato: da 2n a n. Ogni cromosoma però è ancora fatto di due cromatidi, quindi c'è ancora da lavorare.
 meiosi | Metafase II | due-equatore | n | 2 | 2 | Le due cellule ripartono subito, senza duplicare di nuovo il DNA. I cromosomi si allineano sulla linea di mezzo, questa volta uno per uno come in una mitosi.
 meiosi | Anafase II | due-separa | 2n | 2 | 2 | Adesso si staccano i cromatidi, come nella mitosi. In tutte e due le cellule contemporaneamente. Anche qui, per un istante, i cromosomi contati sono il doppio.
-meiosi | Telofase II | quattro-cellule | n | 1 | 4 | Quattro cellule, ognuna con meta' del corredo e meta' del DNA, e tutte e quattro diverse fra loro. Sono i gameti. Quando due gameti si incontrano il corredo doppio si ricostituisce: ecco perche' la meiosi deve dimezzare.
+meiosi | Telofase II | quattro-cellule | n | 1 | 4 | Quattro cellule, ognuna con metà del corredo e metà del DNA, e tutte e quattro diverse fra loro. Sono i gameti. Quando due gameti si incontrano il corredo doppio si ricostituisce: ecco perché la meiosi deve dimezzare.

@@ -3,34 +3,34 @@
 # ============================================================
 #
 # Ogni riga descrive uno strato, dalla superficie verso il
-# centro, con la velocita' delle onde sismiche al suo tetto e
+# centro, con la velocità delle onde sismiche al suo tetto e
 # al suo fondo.
 #
 # COME SI SCRIVE UNO STRATO
 # -------------------------
 #
-#   nome | profondita' tetto | profondita' fondo | P sopra | P sotto | S sopra | S sotto | nota
+#   nome | profondità tetto | profondità fondo | P sopra | P sotto | S sopra | S sotto | nota
 #
-# profondita'  in chilometri sotto la superficie. Il centro
+# profondità  in chilometri sotto la superficie. Il centro
 #              della Terra sta a 6371 km.
 #
-# P sopra      la velocita' delle onde P, in chilometri al
+# P sopra      la velocità delle onde P, in chilometri al
 # e P sotto    secondo, al tetto e al fondo dello strato. In
-#              mezzo il sito fa variare la velocita' un po'
+#              mezzo il sito fa variare la velocità un po'
 #              alla volta.
 #
 # S sopra      la stessa cosa per le onde S. Attenzione: le onde
-# e S sotto    S sono onde di taglio, e un liquido non si puo'
-#              tagliare. In un liquido la loro velocita' e' ZERO,
+# e S sotto    S sono onde di taglio, e un liquido non si può
+#              tagliare. In un liquido la loro velocità è ZERO,
 #              e le onde S semplicemente non passano.
 #
-# E' PROPRIO DA QUI CHE SI CAPISCE TUTTO
+# È PROPRIO DA QUI CHE SI CAPISCE TUTTO
 # --------------------------------------
-# Nessuno e' mai sceso sotto i dodici chilometri. Sappiamo com'e'
-# fatta la Terra dentro perche' le onde dei terremoti la
+# Nessuno è mai sceso sotto i dodici chilometri. Sappiamo com'è
+# fatta la Terra dentro perché le onde dei terremoti la
 # attraversano e ne escono cambiate. Il nucleo esterno ha la
-# velocita' S scritta a zero perche' e' liquido: e lo sappiamo
-# perche' le onde S, oltre una certa distanza, non arrivano piu'.
+# velocità S scritta a zero perché è liquido: e lo sappiamo
+# perché le onde S, oltre una certa distanza, non arrivano più.
 #
 # Prova a scrivere un numero al posto dello zero, come se il
 # nucleo fosse solido, e guarda la zona d'ombra delle onde S
@@ -39,14 +39,14 @@
 # I numeri si scrivono con la virgola o con il punto.
 #
 # Le righe che iniziano con # sono commenti: il sito le ignora.
-# Se una riga e' scritta male viene saltata e segnalata.
+# Se una riga è scritta male viene saltata e segnalata.
 #
 # ============================================================
 
-Crosta | 0 | 35 | 6,5 | 6,8 | 3,7 | 3,9 | il guscio su cui viviamo: sotto gli oceani e' spesso appena sette chilometri
+Crosta | 0 | 35 | 6,5 | 6,8 | 3,7 | 3,9 | il guscio su cui viviamo: sotto gli oceani è spesso appena sette chilometri
 Mantello superiore | 35 | 410 | 8,0 | 8,6 | 4,5 | 4,7 | qui sta l'astenosfera, la fascia su cui scivolano le placche
 Zona di transizione | 410 | 660 | 9,0 | 10,2 | 4,9 | 5,6 | i minerali cambiano struttura per la pressione, e le onde accelerano di colpo
-Mantello inferiore | 660 | 2600 | 10,8 | 13,6 | 5,9 | 7,2 | il pezzo piu' grosso della Terra: quasi duemila chilometri di roccia solida che scorre lentissima
+Mantello inferiore | 660 | 2600 | 10,8 | 13,6 | 5,9 | 7,2 | il pezzo più grosso della Terra: quasi duemila chilometri di roccia solida che scorre lentissima
 Strato D, il fondo del mantello | 2600 | 2891 | 13,6 | 13,7 | 7,2 | 7,3 | gli ultimi trecento chilometri, dove la roccia tocca il nucleo rovente e le onde smettono di accelerare
-Nucleo esterno | 2891 | 5150 | 8,0 | 10,4 | 0 | 0 | liquido. La velocita' delle onde P crolla di colpo da 13,7 a 8,0, e le onde S si fermano qui
-Nucleo interno | 5150 | 6371 | 11,0 | 11,3 | 3,5 | 3,7 | solido, nonostante sia piu' caldo del nucleo esterno: e' la pressione enorme a tenerlo compatto
+Nucleo esterno | 2891 | 5150 | 8,0 | 10,4 | 0 | 0 | liquido. La velocità delle onde P crolla di colpo da 13,7 a 8,0, e le onde S si fermano qui
+Nucleo interno | 5150 | 6371 | 11,0 | 11,3 | 3,5 | 3,7 | solido, nonostante sia più caldo del nucleo esterno: è la pressione enorme a tenerlo compatto

@@ -2,7 +2,7 @@
 # LE REAZIONI REVERSIBILI
 # ============================================================
 #
-# Ogni riga descrive una reazione che puo' andare avanti e
+# Ogni riga descrive una reazione che può andare avanti e
 # indietro, e i numeri che servono a calcolarne l'equilibrio.
 #
 # COME SI SCRIVE UNA REAZIONE
@@ -11,7 +11,7 @@
 #   nome | reagenti | prodotti | K | T di riferimento | delta H | nota
 #
 # reagenti   le sostanze di sinistra, separate da +, con davanti
-# e prodotti il loro coefficiente quando non e' 1.
+# e prodotti il loro coefficiente quando non è 1.
 #            Per esempio:  N2 + 3 H2        oppure    2 NH3
 #
 # K          la costante di equilibrio, scritta con le
@@ -29,29 +29,29 @@
 #            della temperatura.
 #
 # I numeri si scrivono con la virgola o con il punto.
-# Per i numeri molto piccoli o molto grandi si puo' usare la
+# Per i numeri molto piccoli o molto grandi si può usare la
 # notazione scientifica: 3,6e8 vuol dire 3,6 per 10 alla ottava.
 #
 # COLORI (facoltativo)
 # ----------------------
-# Dopo la nota si puo' aggiungere un altro | e poi un colore per
+# Dopo la nota si può aggiungere un altro | e poi un colore per
 # ogni sostanza, nell'ordine in cui compaiono, separati da virgola:
 #
 #   ... | la mia nota | #a8552a, #e8e4da
 #
-# Servono quando il colore e' parte della lezione, come nel tubo
+# Servono quando il colore è parte della lezione, come nel tubo
 # del biossido di azoto. Se si lasciano stare, il sito usa colori
 # suoi. Attenzione: il # dei colori sta in mezzo alla riga, non
 # all'inizio, quindi non crea problemi.
 #
 # Le righe che iniziano con # sono commenti: il sito le ignora.
-# Se una riga e' scritta male viene saltata e segnalata.
+# Se una riga è scritta male viene saltata e segnalata.
 #
 # ============================================================
 
-Sintesi dell'ammoniaca | N2 + 3 H2 | 2 NH3 | 0,16 | 450 | -92 | il processo Haber-Bosch, con cui si fanno i fertilizzanti che sfamano meta' del mondo
-Il tubo che cambia colore | 2 NO2 | N2O4 | 216 | 25 | -57 | il biossido di azoto e' bruno, il suo dimero e' incolore: qui l'equilibrio si vede a occhio | #a8552a, #e8e4da
-Acido iodidrico | H2 + I2 | 2 HI | 50 | 450 | -9,4 | la reazione su cui si studia l'equilibrio da sempre, perche' le moli non cambiano
+Sintesi dell'ammoniaca | N2 + 3 H2 | 2 NH3 | 0,16 | 450 | -92 | il processo Haber-Bosch, con cui si fanno i fertilizzanti che sfamano metà del mondo
+Il tubo che cambia colore | 2 NO2 | N2O4 | 216 | 25 | -57 | il biossido di azoto è bruno, il suo dimero è incolore: qui l'equilibrio si vede a occhio | #a8552a, #e8e4da
+Acido iodidrico | H2 + I2 | 2 HI | 50 | 450 | -9,4 | la reazione su cui si studia l'equilibrio da sempre, perché le moli non cambiano
 Sintesi dell'acido solforico | 2 SO2 + O2 | 2 SO3 | 280 | 600 | -198 | il passaggio centrale del processo delle camere di contatto
 Il gas d'acqua | CO + H2O | CO2 + H2 | 4,9 | 500 | -41 | si usa per ricavare idrogeno dal metano e dal vapore
 Dissociazione dell'acido fluoridrico | HF | H + F | 0,00068 | 25 | 12 | un acido debole visto come un equilibrio qualsiasi

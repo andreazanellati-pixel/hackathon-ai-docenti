@@ -1,24 +1,24 @@
 /* ============================================================
    Il bilancio radiativo
    ------------------------------------------------------------
-   Perche' un pianeta ha la temperatura che ha. Si regolano la
+   Perché un pianeta ha la temperatura che ha. Si regolano la
    luce che riceve, quanta ne rimanda indietro e quanto la sua
    atmosfera trattiene il calore, e la temperatura viene fuori
    da sola.
 
    Come funziona, in due parole:
-   - la temperatura non e' scritta da nessuna parte: e' quella
+   - la temperatura non è scritta da nessuna parte: è quella
      alla quale l'energia che entra e quella che esce si
      pareggiano. Si ricava dalla legge di Stefan e Boltzmann
-   - l'atmosfera e' trattata come un certo numero di coperte che
-     rimandano indietro il calore. E' il modello a strati, il
-     piu' semplice che dia i numeri giusti: con zero coperte la
-     Terra fa meno 18 gradi, con quelle che ha fa piu' 15
-   - accanto al risultato del conto c'e' sempre la temperatura
-     misurata davvero, cosi' si vede quanto il modello ci prende
-   - l'albedo si puo' cambiare a mano e si vede il circolo
-     vizioso del ghiaccio: piu' ghiaccio, piu' luce rimandata
-     indietro, piu' freddo, ancora piu' ghiaccio
+   - l'atmosfera è trattata come un certo numero di coperte che
+     rimandano indietro il calore. È il modello a strati, il
+     più semplice che dia i numeri giusti: con zero coperte la
+     Terra fa meno 18 gradi, con quelle che ha fa più 15
+   - accanto al risultato del conto c'è sempre la temperatura
+     misurata davvero, così si vede quanto il modello ci prende
+   - l'albedo si può cambiare a mano e si vede il circolo
+     vizioso del ghiaccio: più ghiaccio, più luce rimandata
+     indietro, più freddo, ancora più ghiaccio
    ============================================================ */
 
 (function () {
@@ -50,7 +50,7 @@
   var cursoreL = null, cursoreA = null, cursoreC = null;
 
   /* ==========================================================
-     1. Gli esperimenti gia' pronti
+     1. Gli esperimenti già pronti
      ========================================================== */
 
   var ESPERIMENTI = [
@@ -60,18 +60,18 @@
       corpo: "Terra senza atmosfera"
     },
     {
-      titolo: "La Terra com'e'",
-      sottotitolo: "Le stesse condizioni piu' l'effetto serra: piu' 15",
+      titolo: "La Terra com'è",
+      sottotitolo: "Le stesse condizioni più l'effetto serra: più 15",
       corpo: "Terra"
     },
     {
       titolo: "Il circolo del ghiaccio",
-      sottotitolo: "Piu' ghiaccio rimanda indietro piu' luce, e fa ancora piu' freddo",
+      sottotitolo: "Più ghiaccio rimanda indietro più luce, e fa ancora più freddo",
       corpo: "Terra tutta ghiacciata"
     },
     {
       titolo: "Venere, il caso estremo",
-      sottotitolo: "Rimanda indietro tre quarti della luce ed e' il pianeta piu' caldo",
+      sottotitolo: "Rimanda indietro tre quarti della luce ed è il pianeta più caldo",
       corpo: "Venere"
     },
     {
@@ -131,23 +131,23 @@
      ========================================================== */
 
   /* Quanta energia il pianeta assorbe davvero, su ogni metro
-     quadro della sua superficie. Si divide per quattro perche'
-     la luce colpisce un disco ma il pianeta e' una sfera, e la
-     superficie di una sfera e' quattro volte quella del suo
+     quadro della sua superficie. Si divide per quattro perché
+     la luce colpisce un disco ma il pianeta è una sfera, e la
+     superficie di una sfera è quattro volte quella del suo
      disco. */
   function assorbita(l, a) {
     return l * (1 - a) / 4;
   }
 
   /* La temperatura a cui un corpo deve stare per riemettere
-     esattamente quello che assorbe: e' la legge di Stefan e
+     esattamente quello che assorbe: è la legge di Stefan e
      Boltzmann girata al contrario. In kelvin. */
   function temperaturaSenzaAtmosfera(l, a) {
     return Math.pow(assorbita(l, a) / SIGMA, 0.25);
   }
 
   /* Con l'atmosfera: ogni coperta rimanda indietro il calore, e
-     il suolo deve scaldarsi di piu' per far uscire lo stesso. */
+     il suolo deve scaldarsi di più per far uscire lo stesso. */
   function temperaturaSuolo(l, a, c) {
     return temperaturaSenzaAtmosfera(l, a) * Math.pow(1 + c, 0.25);
   }
@@ -215,7 +215,7 @@
     fascio(cx + raggio * 0.5, cy - raggio * 0.7, larghezza - 20, 20,
       entra * scala, "#d97a4a", "esce come calore", entra);
 
-    /* l'atmosfera, tanto piu' spessa quante piu' coperte */
+    /* l'atmosfera, tanto più spessa quante più coperte */
     if (coperte > 0) {
       var spessore = Math.min(raggio * 0.75, 4 + Math.log(1 + coperte) * 12);
       var g = c.createRadialGradient(cx, cy, raggio, cx, cy, raggio + spessore);
@@ -232,7 +232,7 @@
       Math.round(70 + caldo * 60) + "," + Math.round(140 - caldo * 100) + ")";
     c.beginPath(); c.arc(cx, cy, raggio, 0, Math.PI * 2); c.fill();
 
-    /* la calotta di ghiaccio, tanto piu' grande quanto piu' albedo */
+    /* la calotta di ghiaccio, tanto più grande quanto più albedo */
     if (albedo > 0.2) {
       var quota = Math.min(1, (albedo - 0.2) / 0.5);
       c.fillStyle = "rgba(240, 248, 255, 0.85)";
@@ -280,9 +280,9 @@
 
     var asse;
     if (graficoScelto === "albedo") {
-      asse = { da: 0, a: 0.9, nome: "albedo, cioe' quanta luce viene rimandata indietro", ora: albedo };
+      asse = { da: 0, a: 0.9, nome: "albedo, cioè quanta luce viene rimandata indietro", ora: albedo };
     } else if (graficoScelto === "coperte") {
-      asse = { da: 0, a: 3, nome: "quante coperte, cioe' quanto trattiene l'atmosfera", ora: coperte };
+      asse = { da: 0, a: 3, nome: "quante coperte, cioè quanto trattiene l'atmosfera", ora: coperte };
     } else {
       asse = { da: 100, a: 3000, nome: "luce ricevuta (watt al metro quadro)", ora: luce };
     }
@@ -317,7 +317,7 @@
     }
     c.fillText(asse.nome, sx + w / 2, altezzaG - 4);
 
-    /* la riga dello zero, cioe' il gelo */
+    /* la riga dello zero, cioè il gelo */
     if (basso < 0 && alto > 0) {
       c.strokeStyle = "#6fa8c9"; c.setLineDash([4, 4]); c.lineWidth = 1.5;
       c.beginPath(); c.moveTo(sx, Y(0)); c.lineTo(sx + w, Y(0)); c.stroke();
@@ -356,24 +356,24 @@
     var serra = effettoSerra();
 
     if (coperte <= 0.001) {
-      return "Senza atmosfera il conto e' semplice: il pianeta si scalda finche' il calore che emette " +
+      return "Senza atmosfera il conto è semplice: il pianeta si scalda finché il calore che emette " +
         "pareggia la luce che assorbe, e si ferma a " + conVirgola(arrotonda(t, 1)) + " gradi. " +
-        "Nient'altro. E' quello che succede sulla Luna, che riceve la nostra stessa luce.";
+        "Nient'altro. È quello che succede sulla Luna, che riceve la nostra stessa luce.";
     }
 
     var frase = "L'atmosfera trattiene parte del calore che il suolo emette e glielo rimanda indietro. " +
-      "Per riuscire a far uscire comunque tutta l'energia che entra, il suolo deve scaldarsi di piu': " +
+      "Per riuscire a far uscire comunque tutta l'energia che entra, il suolo deve scaldarsi di più: " +
       "da " + conVirgola(arrotonda(senza, 1)) + " gradi passa a " + conVirgola(arrotonda(t, 1)) +
-      ", cioe' " + conVirgola(arrotonda(serra, 1)) + " gradi in piu'. Questo e' l'effetto serra, e " +
+      ", cioè " + conVirgola(arrotonda(serra, 1)) + " gradi in più. Questo è l'effetto serra, e " +
       "senza di lui la Terra sarebbe un deserto ghiacciato.";
 
     if (serra > 200) {
-      frase += " Su Venere pero' la stessa cosa e' andata fuori controllo: l'acqua e' evaporata tutta, " +
-        "il vapore ha trattenuto ancora piu' calore, e alla fine anche le rocce hanno ceduto la loro " +
-        "anidride carbonica. Oggi laggiu' il piombo fonderebbe.";
+      frase += " Su Venere però la stessa cosa è andata fuori controllo: l'acqua è evaporata tutta, " +
+        "il vapore ha trattenuto ancora più calore, e alla fine anche le rocce hanno ceduto la loro " +
+        "anidride carbonica. Oggi laggiù il piombo fonderebbe.";
     } else if (t > 0 && senza < 0) {
       frase += " Nota una cosa: senza l'effetto serra qui l'acqua sarebbe ghiacciata, con l'effetto " +
-        "serra e' liquida. Tutta la differenza fra un pianeta vivo e una palla di ghiaccio sta in " +
+        "serra è liquida. Tutta la differenza fra un pianeta vivo e una palla di ghiaccio sta in " +
         "quei gradi.";
     }
     return frase;
@@ -444,13 +444,13 @@
     frase.textContent = racconta();
 
     var scarto = inGradi(tempOra()) - corpo.vera;
-    schedaCorpo.textContent = corpo.nome + ": il conto da' " +
+    schedaCorpo.textContent = corpo.nome + ": il conto dà " +
       conVirgola(arrotonda(inGradi(tempOra()), 1)) + " gradi, la misura vera dice " +
       conVirgola(corpo.vera) + ". " +
       (Math.abs(scarto) < 2
-        ? "Uno scarto di meno di due gradi, con un modello cosi' semplice: e' il motivo per cui questo " +
+        ? "Uno scarto di meno di due gradi, con un modello così semplice: è il motivo per cui questo " +
           "conto si studia ancora."
-        : "Lo scarto e' di " + conVirgola(arrotonda(Math.abs(scarto), 1)) + " gradi: il modello e' " +
+        : "Lo scarto è di " + conVirgola(arrotonda(Math.abs(scarto), 1)) + " gradi: il modello è " +
           "grossolano, e per corpi con giorni lunghissimi o atmosfere strane non basta.") +
       (corpo.nota ? " " + corpo.nota.charAt(0).toUpperCase() + corpo.nota.slice(1) + "." : "");
 
@@ -471,8 +471,8 @@
     if (avvisoErrori) contenitore.appendChild(avvisoErrori);
 
     contenitore.appendChild(elemento("p", "guida",
-      "Un pianeta si scalda finche' il calore che emette pareggia la luce che assorbe. La temperatura " +
-      "non e' una sua proprieta': e' il punto in cui i conti tornano. Cambia una sola delle cose in " +
+      "Un pianeta si scalda finché il calore che emette pareggia la luce che assorbe. La temperatura " +
+      "non è una sua proprietà: è il punto in cui i conti tornano. Cambia una sola delle cose in " +
       "gioco, e quel punto si sposta."));
 
     contenitore.appendChild(elemento("h3", "titolo-blocco", "Esperimenti da provare"));
@@ -498,7 +498,7 @@
     contenitore.appendChild(scatola);
 
     var letture = elemento("div", "letture");
-    letture.appendChild(unaLettura("il conto da'", function (n) { letturaTemp = n; }));
+    letture.appendChild(unaLettura("il conto dà", function (n) { letturaTemp = n; }));
     letture.appendChild(unaLettura("senza atmosfera sarebbe", function (n) { letturaSenza = n; }));
     letture.appendChild(unaLettura("misurata davvero", function (n) { letturaVera = n; }));
     contenitore.appendChild(letture);
@@ -547,8 +547,8 @@
     contenitore.appendChild(comandi);
 
     contenitore.appendChild(elemento("p", "nota-piccola",
-      "Con l'albedo si vede il circolo del ghiaccio: alzalo, la temperatura scende, e nella realta' " +
-      "il freddo formerebbe altro ghiaccio, che alzerebbe ancora l'albedo. E' un meccanismo che si " +
+      "Con l'albedo si vede il circolo del ghiaccio: alzalo, la temperatura scende, e nella realtà " +
+      "il freddo formerebbe altro ghiaccio, che alzerebbe ancora l'albedo. È un meccanismo che si " +
       "rinforza da solo, e per questo le glaciazioni arrivano e se ne vanno in fretta."));
 
     /* --- i corpi --- */
@@ -570,12 +570,12 @@
     limiti.appendChild(elemento("summary", null, "Che cosa questo modello semplifica"));
     var corpoL = elemento("div", "limiti-corpo");
     [
-      "Tutto il pianeta ha una temperatura sola. Nella realta' l'equatore e i poli, il giorno e la notte, sono mondi diversi: sulla Luna si passa da 120 gradi a meno 170 nello stesso posto.",
-      "L'atmosfera e' trattata come un certo numero di coperte che rimandano indietro il calore. E' il modello piu' semplice che dia i numeri giusti, ma non distingue l'anidride carbonica dal vapore acqueo, e non tiene conto di quanto le nuvole complichino le cose: schermano la luce e trattengono il calore, tutte e due insieme.",
-      "L'albedo e' un numero fisso che si regola a mano. Nella realta' dipende dalla temperatura stessa - ghiaccio, nuvole, vegetazione - e questo crea proprio quei circoli che si rinforzano da soli.",
-      "Non c'e' il tempo: il pianeta e' sempre all'equilibrio. Gli oceani veri ci mettono decenni a scaldarsi, ed e' il motivo per cui il clima risponde alle nostre emissioni con molto ritardo.",
-      "Non c'e' calore che venga da dentro il pianeta. Per la Terra e' trascurabile, per Giove no: lui ne emette piu' di quanto ne riceva dal Sole.",
-      "I numeri dei corpi celesti sono valori medi da manuale. Il valore delle «coperte» in particolare non si misura: e' ricavato all'indietro dalla temperatura vera, quindi per quei corpi il confronto fra conto e misura non e' una verifica indipendente. Lo e' invece quando si cambiano le manopole a mano."
+      "Tutto il pianeta ha una temperatura sola. Nella realtà l'equatore e i poli, il giorno e la notte, sono mondi diversi: sulla Luna si passa da 120 gradi a meno 170 nello stesso posto.",
+      "L'atmosfera è trattata come un certo numero di coperte che rimandano indietro il calore. È il modello più semplice che dia i numeri giusti, ma non distingue l'anidride carbonica dal vapore acqueo, e non tiene conto di quanto le nuvole complichino le cose: schermano la luce e trattengono il calore, tutte e due insieme.",
+      "L'albedo è un numero fisso che si regola a mano. Nella realtà dipende dalla temperatura stessa - ghiaccio, nuvole, vegetazione - e questo crea proprio quei circoli che si rinforzano da soli.",
+      "Non c'è il tempo: il pianeta è sempre all'equilibrio. Gli oceani veri ci mettono decenni a scaldarsi, ed è il motivo per cui il clima risponde alle nostre emissioni con molto ritardo.",
+      "Non c'è calore che venga da dentro il pianeta. Per la Terra è trascurabile, per Giove no: lui ne emette più di quanto ne riceva dal Sole.",
+      "I numeri dei corpi celesti sono valori medi da manuale. Il valore delle «coperte» in particolare non si misura: è ricavato all'indietro dalla temperatura vera, quindi per quei corpi il confronto fra conto e misura non è una verifica indipendente. Lo è invece quando si cambiano le manopole a mano."
     ].forEach(function (t) { corpoL.appendChild(elemento("p", null, t)); });
     limiti.appendChild(corpoL);
     contenitore.appendChild(limiti);
@@ -622,7 +622,7 @@
         svuota(contenitore);
         var avviso = elemento("div", "avviso");
         avviso.appendChild(document.createTextNode(
-          "Il file corpi.txt e' stato letto ma non contiene corpi validi."));
+          "Il file corpi.txt è stato letto ma non contiene corpi validi."));
         contenitore.appendChild(avviso);
         return;
       }

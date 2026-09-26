@@ -1,0 +1,48 @@
+# ============================================================
+# LE MOLECOLE DA COSTRUIRE
+# ============================================================
+#
+# Ogni riga descrive una molecola con un atomo al centro e gli
+# altri attaccati intorno.
+#
+# COME SI SCRIVE UNA MOLECOLA
+# ---------------------------
+#
+#   nome | formula | atomo centrale | atomi legati | coppie solitarie | nota
+#
+# atomi legati      i simboli degli atomi attaccati al centro,
+#                   separati da virgole. Possono essere diversi
+#                   fra loro: è proprio quello che rende
+#                   polare il cloroformio.
+#
+# coppie solitarie  quante coppie di elettroni restano
+#                   sull'atomo centrale senza fare legami.
+#                   Contano eccome: occupano spazio e piegano
+#                   la molecola.
+#
+# IL SITO NON SA GIÀ LE RISPOSTE
+# -------------------------------
+# La geometria viene ricavata contando quante zone di elettroni
+# ci sono intorno al centro, secondo la regola VSEPR: si
+# respingono, e si dispongono il più lontano possibile fra loro.
+# La polarità viene calcolata sommando i legami come frecce,
+# una per una, tenendo conto delle direzioni.
+# Aggiungendo una riga qui, il sito calcola tutto anche per
+# quella molecola.
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+#
+# ============================================================
+
+Anidride carbonica | CO2 | C | O, O | 0 | due legami molto polari che si annullano, perché tirano in due direzioni opposte
+Acqua | H2O | O | H, H | 2 | la molecola più importante che ci sia, ed è piegata: se fosse dritta la vita non esisterebbe
+Ammoniaca | NH3 | N | H, H, H | 1 | la coppia solitaria in cima spinge i tre idrogeni verso il basso
+Metano | CH4 | C | H, H, H, H | 0 | quattro legami identici disposti perfettamente: la molecola non ha nessun lato più negativo
+Tetracloruro di carbonio | CCl4 | C | Cl, Cl, Cl, Cl | 0 | legami molto più polari di quelli del metano, ma di nuovo tutti uguali: risultato, apolare
+Cloroformio | CHCl3 | C | H, Cl, Cl, Cl | 0 | basta sostituire un cloro con un idrogeno e l'equilibrio si rompe
+Trifluoruro di boro | BF3 | B | F, F, F | 0 | piatta come una margherita a tre petali, e il boro si accontenta di sei elettroni
+Anidride solforosa | SO2 | S | O, O | 1 | sembra l'anidride carbonica, ma la coppia solitaria la piega e la rende polare
+Acido solfidrico | H2S | S | H, H | 2 | l'odore delle uova marce, e ha la stessa forma dell'acqua
+Pentacloruro di fosforo | PCl5 | P | Cl, Cl, Cl, Cl, Cl | 0 | cinque legami: due in verticale e tre a raggiera sull'equatore
+Esafluoruro di zolfo | SF6 | S | F, F, F, F, F, F | 0 | sei legami perfettamente simmetrici, come i vertici di un ottaedro
+Tetrafluoruro di xeno | XeF4 | Xe | F, F, F, F | 2 | un gas nobile che fa legami, cosa che si credeva impossibile fino al 1962

@@ -2,39 +2,39 @@
 # I PROCESSI CHE TRASFORMANO LE ROCCE
 # ============================================================
 #
-# Ogni riga descrive un processo: una cosa che puo' succedere a
+# Ogni riga descrive un processo: una cosa che può succedere a
 # una roccia e che la trasforma in qualcos'altro.
 #
 # COME SI SCRIVE UN PROCESSO
 # --------------------------
 #
-#   nome | da | a | temperatura | profondita' | descrizione
+#   nome | da | a | temperatura | profondità | descrizione
 #
-# da    da quale stato parte. Si possono elencare piu' stati
+# da    da quale stato parte. Si possono elencare più stati
 #       separandoli con una virgola: vuol dire che il processo
-#       puo' agire su tutti quelli.
+#       può agire su tutti quelli.
 #       Le sigle sono quelle scritte in stati.txt.
 #
 # a     in quale stato arriva.
 #
 # temperatura  in gradi, indicativa.
-# profondita'  in chilometri sotto la superficie, indicativa.
+# profondità  in chilometri sotto la superficie, indicativa.
 #
-# IL CICLO NON E' UN CERCHIO
+# IL CICLO NON È UN CERCHIO
 # --------------------------
 # Guardando questo file si vede subito una cosa che le figure
-# dei libri nascondono: da quasi ogni stato partono piu' strade.
-# Una roccia sedimentaria puo' diventare metamorfica, ma puo'
-# anche tornare sedimento senza passare di li'. Non c'e' un
+# dei libri nascondono: da quasi ogni stato partono più strade.
+# Una roccia sedimentaria può diventare metamorfica, ma può
+# anche tornare sedimento senza passare di lì. Non c'è un
 # ordine obbligato: ci sono scorciatoie dappertutto.
 #
 # Le righe che iniziano con # sono commenti: il sito le ignora.
 #
 # ============================================================
 
-Raffreddamento in profondita' | magma | intrusiva | 700 | 10 | il magma resta intrappolato sotto terra e si raffredda lentissimo, anche per milioni di anni. I cristalli crescono grandi
-Eruzione | magma | effusiva | 1000 | 0 | il magma arriva in superficie e si raffredda in poche ore o giorni. Non c'e' tempo per fare cristalli grandi
-Erosione | intrusiva, effusiva, sedimentaria, metamorfica | sedimento | 15 | 0 | acqua, ghiaccio, vento e sbalzi di temperatura staccano pezzetti dalla roccia e se li portano via. E' il processo piu' lento e piu' potente che ci sia
+Raffreddamento in profondità | magma | intrusiva | 700 | 10 | il magma resta intrappolato sotto terra e si raffredda lentissimo, anche per milioni di anni. I cristalli crescono grandi
+Eruzione | magma | effusiva | 1000 | 0 | il magma arriva in superficie e si raffredda in poche ore o giorni. Non c'è tempo per fare cristalli grandi
+Erosione | intrusiva, effusiva, sedimentaria, metamorfica | sedimento | 15 | 0 | acqua, ghiaccio, vento e sbalzi di temperatura staccano pezzetti dalla roccia e se li portano via. È il processo più lento e più potente che ci sia
 Sedimentazione e litificazione | sedimento | sedimentaria | 50 | 2 | i pezzetti si depositano a strati, il peso di quelli sopra li schiaccia, e l'acqua che circola ci deposita in mezzo un cemento naturale
-Metamorfismo | intrusiva, effusiva, sedimentaria, metamorfica | metamorfica | 500 | 20 | calore e pressione riorganizzano i minerali senza mai far fondere la roccia. Se fondesse sarebbe magma, e non sarebbe piu' metamorfismo
+Metamorfismo | intrusiva, effusiva, sedimentaria, metamorfica | metamorfica | 500 | 20 | calore e pressione riorganizzano i minerali senza mai far fondere la roccia. Se fondesse sarebbe magma, e non sarebbe più metamorfismo
 Fusione | intrusiva, effusiva, sedimentaria, metamorfica | magma | 900 | 40 | la roccia sprofonda abbastanza da superare la sua temperatura di fusione. Da qui si ricomincia daccapo

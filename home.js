@@ -170,8 +170,10 @@
 
     var pronte = stazioni.filter(function (s) { return s.pronta; }).length;
     contenitore.appendChild(elemento("p", "conto-stazioni",
-      pronte + (pronte === 1 ? " stazione pronta" : " stazioni pronte") +
-      " su " + stazioni.length + ". Le altre sono in costruzione."));
+      pronte === stazioni.length
+        ? "Tutte e " + pronte + " le stazioni sono pronte."
+        : pronte + (pronte === 1 ? " stazione pronta" : " stazioni pronte") +
+          " su " + stazioni.length + ". Le altre sono in costruzione."));
   }
 
   /* ==========================================================

@@ -7,7 +7,7 @@
    disegna da sola, con i suoi plateau.
 
    Come funziona, in due parole:
-   - la parte termodinamica e' calcolata con i numeri veri della
+   - la parte termodinamica è calcolata con i numeri veri della
      sostanza, letti da sostanze.txt (calori specifici e latenti)
    - la temperatura di ebollizione dipende dalla pressione, con
      la relazione di Clausius-Clapeyron
@@ -36,10 +36,10 @@
   var massa = 0.1;          /* kg */
   var potenza = 200;        /* watt, negativa raffredda */
   var pressione = 1;        /* atmosfere */
-  var velocita = 20;        /* quante volte piu' veloce del tempo reale */
+  var velocita = 20;        /* quante volte più veloce del tempo reale */
   var inMoto = false;
 
-  var energia = 0;          /* joule forniti finora, puo' essere negativa */
+  var energia = 0;          /* joule forniti finora, può essere negativa */
   var storia = [];          /* punti { e, t } per il grafico */
 
   var particelle = [];
@@ -139,8 +139,8 @@
      ========================================================== */
 
   /* La temperatura di ebollizione dipende dalla pressione. La
-     relazione e' quella di Clausius-Clapeyron: serve la massa
-     molare, ed e' per questo che sta in sostanze.txt. Se manca,
+     relazione è quella di Clausius-Clapeyron: serve la massa
+     molare, ed è per questo che sta in sostanze.txt. Se manca,
      la pressione non ha effetto. */
   function ebollizione() {
     var s = sostanza;
@@ -153,8 +153,8 @@
     if (inverso <= 0) return s.ebollizione;
     var t = 1 / inverso - 273.15;
 
-    /* sotto la fusione l'ebollizione non ha piu' senso: la sostanza
-       sublimerebbe, cioe' passerebbe direttamente da solido a gas */
+    /* sotto la fusione l'ebollizione non ha più senso: la sostanza
+       sublimerebbe, cioè passerebbe direttamente da solido a gas */
     if (t < s.fusione + 1) t = s.fusione + 1;
     return t;
   }
@@ -222,7 +222,7 @@
      3. Le particelle
      ========================================================== */
 
-  /* Quante particelle disegnare: piu' massa, piu' particelle. Cosi'
+  /* Quante particelle disegnare: più massa, più particelle. Così
      il cursore della massa si vede anche nel contenitore, non solo
      nei numeri del grafico. */
   function quanteParticelle() {
@@ -259,8 +259,8 @@
     var nLiquide = Math.round(quotaLiquida(sit) * numeroParticelle) - nGas;
     if (nLiquide < 0) nLiquide = 0;
     for (var i = 0; i < numeroParticelle; i++) {
-      /* le particelle piu' in alto passano di stato per prime:
-         cosi' si vede il fronte di fusione salire */
+      /* le particelle più in alto passano di stato per prime:
+         così si vede il fronte di fusione salire */
       if (i >= numeroParticelle - nGas) particelle[i].stato = "gas";
       else if (i >= numeroParticelle - nGas - nLiquide) particelle[i].stato = "liquido";
       else particelle[i].stato = "solido";
@@ -306,7 +306,7 @@
       }
     }
 
-    /* repulsione morbida fra particelle vicine, cosi' non si sovrappongono */
+    /* repulsione morbida fra particelle vicine, così non si sovrappongono */
     for (var a = 0; a < numeroParticelle; a++) {
       var pa = particelle[a];
       if (pa.stato === "solido") continue;
@@ -394,7 +394,7 @@
     var w = larghezzaG - margineS - margineD;
     var h = altezzaG - margineA - margineB;
 
-    /* Gli assi si adattano a quello che si e' davvero percorso: se
+    /* Gli assi si adattano a quello che si è davvero percorso: se
        partissero sempre dallo zero assoluto, la curva finirebbe
        schiacciata in un angolo del grafico. */
     var eMin = 0, eMax = energiaMassima();
@@ -422,8 +422,8 @@
     c.font = "11px system-ui, -apple-system, 'Segoe UI', sans-serif";
     c.lineWidth = 1;
 
-    /* le tacche dell'energia, in kilojoule: e' qui che si vede
-       l'effetto della massa, perche' i numeri raddoppiano */
+    /* le tacche dell'energia, in kilojoule: è qui che si vede
+       l'effetto della massa, perché i numeri raddoppiano */
     var passoKJ = passoTacche((eMax - eMin) / 1000);
     c.strokeStyle = bordo;
     c.fillStyle = tenue;
@@ -487,8 +487,8 @@
     var dt = Math.min(0.05, (istante - ultimoIstante) / 1000);
     ultimoIstante = istante;
 
-    /* se la pagina era nascosta quando e' stata costruita, le misure
-       erano zero: appena si puo', si rifanno */
+    /* se la pagina era nascosta quando è stata costruita, le misure
+       erano zero: appena si può, si rifanno */
     if (larghezza <= 0 && tela && tela.parentNode.clientWidth > 0) {
       adattaTele();
       creaParticelle();
@@ -512,9 +512,9 @@
     requestAnimationFrame(passo);
   }
 
-  /* Disegna un fotogramma. Sta in una funzione a parte perche' serve
+  /* Disegna un fotogramma. Sta in una funzione a parte perché serve
      anche subito dopo il caricamento e ogni volta che si tocca un
-     comando: cosi' la pagina e' corretta anche a simulazione ferma. */
+     comando: così la pagina è corretta anche a simulazione ferma. */
   function unFotogramma(dt) {
     var sit = situazione(energia);
     assegnaStati(sit);

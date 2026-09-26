@@ -15,10 +15,10 @@ window.App = (function () {
      Ogni volta che si modifica un file del sito bisogna aumentare
      di uno questo numero, E anche i "?v=" scritti dentro le pagine
      HTML. Serve a costringere i browser a riscaricare i file:
-     senza, chi ha gia' visitato il sito continuerebbe a vedere la
+     senza, chi ha già visitato il sito continuerebbe a vedere la
      versione vecchia anche per giorni.
      ------------------------------------------------------------ */
-  var VERSIONE = "19";
+  var VERSIONE = "21";
 
   /* ---------- funzioni di appoggio ---------- */
 

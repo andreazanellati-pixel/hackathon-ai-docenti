@@ -1,9 +1,9 @@
 # ============================================================
-# DOVE PUO' TROVARSI LA MATERIA DELLE ROCCE
+# DOVE PUÒ TROVARSI LA MATERIA DELLE ROCCE
 # ============================================================
 #
 # Ogni riga descrive uno "stato": una forma in cui la materia
-# delle rocce puo' trovarsi lungo il suo giro.
+# delle rocce può trovarsi lungo il suo giro.
 #
 # COME SI SCRIVE UNO STATO
 # ------------------------
@@ -12,7 +12,7 @@
 #
 # sigla   una parola senza spazi, che serve al sito per
 #         collegare gli stati fra loro nel file processi.txt.
-#         Se la cambi qui, cambiala anche li'.
+#         Se la cambi qui, cambiala anche lì.
 #
 # esempi  qualche roccia vera di quel tipo, separate da virgola.
 #
@@ -21,7 +21,7 @@
 # ============================================================
 
 magma | Magma | magma basaltico, magma granitico | roccia fusa, fra i 700 e i 1300 gradi. Sta sotto terra: quando esce si chiama lava
-intrusiva | Roccia ignea intrusiva | granito, gabbro, diorite | magma raffreddato lentamente in profondita'. I cristalli hanno avuto tempo di crescere, e si vedono a occhio nudo
+intrusiva | Roccia ignea intrusiva | granito, gabbro, diorite | magma raffreddato lentamente in profondità. I cristalli hanno avuto tempo di crescere, e si vedono a occhio nudo
 effusiva | Roccia ignea effusiva | basalto, ossidiana, pomice | lava raffreddata in fretta all'aria o in acqua. I cristalli sono piccolissimi, o non ci sono proprio
 sedimento | Sedimenti sciolti | sabbia, ghiaia, argilla, limo | pezzetti di roccia staccati dall'erosione e trasportati da acqua, vento o ghiaccio. Non sono ancora una roccia
 sedimentaria | Roccia sedimentaria | arenaria, argillite, calcare | sedimenti compattati e cementati. Sono le uniche rocce che possono contenere fossili

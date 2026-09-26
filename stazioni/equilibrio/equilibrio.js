@@ -7,14 +7,14 @@
 
    Come funziona, in due parole:
    - la reazione non salta all'equilibrio: si integra passo passo
-     la velocita' netta, avanti meno indietro, cosi' il riassetto
-     si vede accadere invece di comparire gia' fatto
-   - il rapporto fra la costante diretta e quella inversa e'
-     tenuto uguale a K: e' il legame fra cinetica e termodinamica
+     la velocità netta, avanti meno indietro, così il riassetto
+     si vede accadere invece di comparire già fatto
+   - il rapporto fra la costante diretta e quella inversa è
+     tenuto uguale a K: è il legame fra cinetica e termodinamica
    - K cambia con la temperatura secondo l'equazione di van 't
      Hoff, quindi scaldare sposta davvero l'equilibrio, e lo
      sposta nel verso giusto a seconda del segno del delta H
-   - il quoziente di reazione Q e' sempre scritto accanto a K:
+   - il quoziente di reazione Q è sempre scritto accanto a K:
      Le Chatelier smette di essere una filastrocca quando si
      vede Q allontanarsi da K e poi tornarci
    ============================================================ */
@@ -55,7 +55,7 @@
   var granelli = [];        /* i pallini disegnati nel recipiente */
 
   /* ==========================================================
-     1. Gli esperimenti gia' pronti
+     1. Gli esperimenti già pronti
      ========================================================== */
 
   var ESPERIMENTI = [
@@ -154,7 +154,7 @@
 
       /* i colori sono facoltativi: se mancano si usa la tavolozza
          di casa. Servono a reazioni come quella del biossido di
-         azoto, dove il colore vero e' il bello della faccenda. */
+         azoto, dove il colore vero è il bello della faccenda. */
       var colori = null;
       if (p.length > 7 && p[7].trim() !== "") {
         colori = p[7].split(",").map(function (c) { return c.trim(); });
@@ -187,7 +187,7 @@
 
   /* La costante di equilibrio alla temperatura di adesso.
      Equazione di van 't Hoff: scaldando, una reazione esotermica
-     ha K piu' piccolo, una endotermica K piu' grande. */
+     ha K più piccolo, una endotermica K più grande. */
   function costante() {
     var t = temperatura + 273.15;
     var tr = reazione.tRif + 273.15;
@@ -212,8 +212,8 @@
     return sopra / sotto;
   }
 
-  /* La velocita' netta: quanto va avanti meno quanto torna
-     indietro. Le due costanti stanno fra loro come K, che e'
+  /* La velocità netta: quanto va avanti meno quanto torna
+     indietro. Le due costanti stanno fra loro come K, che è
      il legame fra cinetica e termodinamica. */
   function velocitaNetta() {
     var k = costante();
@@ -225,17 +225,17 @@
       if (s.coeff < 0) avanti *= Math.pow(c, -s.coeff);
       else indietro *= Math.pow(c, s.coeff);
     });
-    /* scaldare fa andare piu' in fretta tutte e due i versi */
+    /* scaldare fa andare più in fretta tutte e due i versi */
     var spinta = Math.exp((temperatura - reazione.tRif) / 120);
     return (avanti - indietro) * spinta;
   }
 
   function unPasso(dt) {
-    /* Si avanza a passetti piccoli, cosi' non si scavalca
-       l'equilibrio. In piu' ogni passetto viene accorciato quando
-       sarebbe troppo grosso rispetto a quello che c'e' in giro:
+    /* Si avanza a passetti piccoli, così non si scavalca
+       l'equilibrio. In più ogni passetto viene accorciato quando
+       sarebbe troppo grosso rispetto a quello che c'è in giro:
        serve alle reazioni con la costante molto lontana da uno,
-       dove la spinta di ritorno e' violenta e senza freno il
+       dove la spinta di ritorno è violenta e senza freno il
        calcolo si metterebbe a ballare. */
     var sottoPassi = 12;
     for (var n = 0; n < sottoPassi; n++) {
@@ -290,7 +290,7 @@
 
   function rimetti() {
     moli = [];
-    /* si parte sempre coi soli reagenti, cosi' si vede la reazione
+    /* si parte sempre coi soli reagenti, così si vede la reazione
        incamminarsi verso l'equilibrio */
     reazione.specie.forEach(function (s) {
       moli.push(s.coeff < 0 ? -s.coeff * 2 : 1e-9);
@@ -305,7 +305,7 @@
      5. Il recipiente
      ========================================================== */
 
-  /* Il colore di una sostanza: quello scritto nel file, se c'e',
+  /* Il colore di una sostanza: quello scritto nel file, se c'è,
      altrimenti uno preso dalla tavolozza. */
   function coloreSpecie(i) {
     if (reazione.colori && reazione.colori[i]) return reazione.colori[i];
@@ -420,7 +420,7 @@
 
   /* Il colore del gas: una media dei colori delle specie, pesata
      su quante ce ne sono. Serve soprattutto al biossido di azoto,
-     che e' bruno mentre il suo dimero e' incolore. */
+     che è bruno mentre il suo dimero è incolore. */
   function coloreGas() {
     var totale = 0;
     moli.forEach(function (m) { totale += m; });
@@ -529,7 +529,7 @@
 
   function conVirgola(v) { return String(v).replace(".", ","); }
 
-  /* Un numero leggibile anche quando e' piccolissimo o enorme. */
+  /* Un numero leggibile anche quando è piccolissimo o enorme. */
   function bello(v) {
     if (!isFinite(v)) return "—";
     if (v === 0) return "0";
@@ -549,19 +549,19 @@
     var verso = q < k ? "avanti" : "indietro";
 
     if (allEquilibrio()) {
-      return "Siamo all'equilibrio: Q vale quanto K, e le concentrazioni non cambiano piu'. " +
-        "Attenzione pero': la reazione non si e' fermata. Continua ad andare avanti e indietro alla " +
-        "stessa velocita', e quello che si consuma da una parte si riforma dall'altra. " +
+      return "Siamo all'equilibrio: Q vale quanto K, e le concentrazioni non cambiano più. " +
+        "Attenzione però: la reazione non si è fermata. Continua ad andare avanti e indietro alla " +
+        "stessa velocità, e quello che si consuma da una parte si riforma dall'altra. " +
         "Prova a disturbare il sistema con uno dei tasti qui sotto.";
     }
     if (q < k) {
-      return "Q vale " + bello(q) + " ed e' piu' piccolo di K, che vale " + bello(k) + ". " +
+      return "Q vale " + bello(q) + " ed è più piccolo di K, che vale " + bello(k) + ". " +
         "Ci sono troppi reagenti rispetto all'equilibrio, quindi la reazione va " + verso +
-        ": consuma reagenti e forma prodotti, finche' Q non arriva a K. Guarda le linee del grafico.";
+        ": consuma reagenti e forma prodotti, finché Q non arriva a K. Guarda le linee del grafico.";
     }
-    return "Q vale " + bello(q) + " ed e' piu' grande di K, che vale " + bello(k) + ". " +
+    return "Q vale " + bello(q) + " ed è più grande di K, che vale " + bello(k) + ". " +
       "Ci sono troppi prodotti, quindi la reazione va " + verso + ": i prodotti si riconvertono in " +
-      "reagenti finche' Q non ritorna a K.";
+      "reagenti finché Q non ritorna a K.";
   }
 
   function spiegaVolume() {
@@ -569,28 +569,28 @@
       return "In questa reazione il numero di molecole di gas non cambia: " +
         "a sinistra e a destra sono le stesse. Stringere o allargare il pistone cambia tutte le " +
         "concentrazioni nella stessa misura, Q resta uguale a K, e l'equilibrio non si sposta di niente. " +
-        "E' il controllo che serve per capire che non e' la pressione in se' a spostare le cose.";
+        "È il controllo che serve per capire che non è la pressione in sé a spostare le cose.";
     }
     if (reazione.deltaN < 0) {
-      return "Andando avanti, questa reazione passa da piu' molecole di gas a meno (" +
+      return "Andando avanti, questa reazione passa da più molecole di gas a meno (" +
         Math.abs(reazione.deltaN) + " in meno). Comprimendo, il sistema si difende dallo schiacciamento " +
         "andando dalla parte che occupa meno posto: quindi verso i prodotti.";
     }
-    return "Andando avanti, questa reazione fa piu' molecole di gas (" + reazione.deltaN +
-      " in piu'). Comprimendo, il sistema si sposta indietro, verso la parte che occupa meno posto.";
+    return "Andando avanti, questa reazione fa più molecole di gas (" + reazione.deltaN +
+      " in più). Comprimendo, il sistema si sposta indietro, verso la parte che occupa meno posto.";
   }
 
   function spiegaCalore() {
     var kj = arrotonda(reazione.deltaH / 1000, 1);
     if (reazione.deltaH < 0) {
       return "Questa reazione, andando avanti, libera calore: delta H vale " + conVirgola(kj) +
-        " kJ/mol. Il calore si puo' pensare come un prodotto. Se scaldi ne aggiungi, e il sistema lo " +
-        "smaltisce andando indietro: K diventa piu' piccolo e i prodotti calano. E' il guaio del " +
+        " kJ/mol. Il calore si può pensare come un prodotto. Se scaldi ne aggiungi, e il sistema lo " +
+        "smaltisce andando indietro: K diventa più piccolo e i prodotti calano. È il guaio del " +
         "processo Haber: per andare veloce servirebbe caldo, ma il caldo riduce la resa.";
     }
     return "Questa reazione, andando avanti, assorbe calore: delta H vale +" + conVirgola(kj) +
-      " kJ/mol. Il calore si puo' pensare come un reagente. Se scaldi ne aggiungi, e il sistema lo " +
-      "consuma andando avanti: K diventa piu' grande e i prodotti aumentano.";
+      " kJ/mol. Il calore si può pensare come un reagente. Se scaldi ne aggiungi, e il sistema lo " +
+      "consuma andando avanti: K diventa più grande e i prodotti aumentano.";
   }
 
   /* ==========================================================
@@ -741,8 +741,8 @@
     if (avvisoErrori) contenitore.appendChild(avvisoErrori);
 
     contenitore.appendChild(elemento("p", "guida",
-      "Una reazione reversibile non finisce mai: va avanti e indietro finche' i due versi non si " +
-      "pareggiano. Da li' in poi le concentrazioni restano ferme, ma le molecole continuano a " +
+      "Una reazione reversibile non finisce mai: va avanti e indietro finché i due versi non si " +
+      "pareggiano. Da lì in poi le concentrazioni restano ferme, ma le molecole continuano a " +
       "trasformarsi. Qui puoi disturbare il sistema e guardarlo rimettersi a posto."));
 
     /* --- esperimenti pronti --- */
@@ -776,7 +776,7 @@
     contenitore.appendChild(letture);
 
     contenitore.appendChild(elemento("p", "didascalia",
-      "Q e' fatto con la stessa formula di K, ma con le concentrazioni di adesso. Quando Q e K " +
+      "Q è fatto con la stessa formula di K, ma con le concentrazioni di adesso. Quando Q e K " +
       "coincidono siamo all'equilibrio: tutto Le Chatelier sta in questo confronto."));
 
     var bottoni = elemento("div", "bottoni");
@@ -812,7 +812,7 @@
     contenitore.appendChild(tabella);
     contenitore.appendChild(elemento("p", "nota-piccola",
       "Con + e − aggiungi o togli una sostanza sola, e guardi che cosa succede a tutte le altre. " +
-      "Aggiungendo un reagente si consuma anche l'altro reagente: e' il modo piu' rapido per capire " +
+      "Aggiungendo un reagente si consuma anche l'altro reagente: è il modo più rapido per capire " +
       "che il sistema risponde nel suo insieme."));
 
     /* --- il grafico --- */
@@ -862,15 +862,15 @@
     schedaNota = elemento("p", "nota-piccola", "");
     contenitore.appendChild(schedaNota);
 
-    contenitore.appendChild(elemento("h3", "titolo-blocco", "Perche' il volume conta, o non conta"));
+    contenitore.appendChild(elemento("h3", "titolo-blocco", "Perché il volume conta, o non conta"));
     schedaVolume = elemento("p", "nota-piccola", "");
     contenitore.appendChild(schedaVolume);
 
-    contenitore.appendChild(elemento("h3", "titolo-blocco", "Perche' la temperatura e' diversa"));
+    contenitore.appendChild(elemento("h3", "titolo-blocco", "Perché la temperatura è diversa"));
     schedaCalore = elemento("p", "nota-piccola", "");
     contenitore.appendChild(schedaCalore);
     contenitore.appendChild(elemento("p", "nota-piccola",
-      "La temperatura e' l'unica cosa che cambia K davvero. Aggiungere sostanze o stringere il pistone " +
+      "La temperatura è l'unica cosa che cambia K davvero. Aggiungere sostanze o stringere il pistone " +
       "sposta la composizione, ma K resta quello: cambia solo il punto in cui il sistema si ferma."));
 
     /* --- i limiti del modello --- */
@@ -878,10 +878,10 @@
     limiti.appendChild(elemento("summary", null, "Che cosa questo modello semplifica"));
     var corpo = elemento("div", "limiti-corpo");
     [
-      "La reazione e' trattata come se avvenisse in un urto solo fra le molecole scritte nell'equazione. Quasi nessuna reazione vera funziona cosi': procede per passaggi intermedi. L'equilibrio finale pero' e' quello giusto, perche' dipende solo da K.",
-      "I gas sono considerati ideali e le soluzioni diluite: si usano le concentrazioni al posto delle attivita'.",
-      "Il delta H e' considerato costante al variare della temperatura. Su intervalli di centinaia di gradi non e' proprio vero, e la K calcolata si scosta un po' da quella misurata.",
-      "Il tempo che ci mette il sistema a rimettersi a posto e' scelto per essere guardabile, non e' quello vero: certe reazioni impiegano ore, altre microsecondi.",
+      "La reazione è trattata come se avvenisse in un urto solo fra le molecole scritte nell'equazione. Quasi nessuna reazione vera funziona così: procede per passaggi intermedi. L'equilibrio finale però è quello giusto, perché dipende solo da K.",
+      "I gas sono considerati ideali e le soluzioni diluite: si usano le concentrazioni al posto delle attività.",
+      "Il delta H è considerato costante al variare della temperatura. Su intervalli di centinaia di gradi non è proprio vero, e la K calcolata si scosta un po' da quella misurata.",
+      "Il tempo che ci mette il sistema a rimettersi a posto è scelto per essere guardabile, non è quello vero: certe reazioni impiegano ore, altre microsecondi.",
       "Il volume si cambia e il sistema resta alla stessa temperatura. In un pistone vero, comprimere in fretta scalda il gas.",
       "I pallini colorati dicono le proporzioni fra le sostanze, non sono molecole in scala: in un litro di gas ce ne sono miliardi di miliardi."
     ].forEach(function (t) { corpo.appendChild(elemento("p", null, t)); });
@@ -942,16 +942,16 @@
         svuota(contenitore);
         var avviso = elemento("div", "avviso");
         avviso.appendChild(document.createTextNode(
-          "Il file reazioni.txt e' stato letto ma non contiene reazioni valide."));
+          "Il file reazioni.txt è stato letto ma non contiene reazioni valide."));
         contenitore.appendChild(avviso);
         return;
       }
 
-      /* Ogni reazione ha numeri suoi, e con una costante di velocita'
+      /* Ogni reazione ha numeri suoi, e con una costante di velocità
          uguale per tutte alcune si sistemerebbero in un lampo e altre
-         in un minuto. Qui la costante viene scelta perche' il riassetto
-         duri all'incirca lo stesso tempo, guardabile, per tutte: e' una
-         scelta di comodo, non un dato di natura, ed e' scritta fra i
+         in un minuto. Qui la costante viene scelta perché il riassetto
+         duri all'incirca lo stesso tempo, guardabile, per tutte: è una
+         scelta di comodo, non un dato di natura, ed è scritta fra i
          limiti del modello. */
       reazioni.forEach(function (r) {
         var partenza = 1;

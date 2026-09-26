@@ -2,18 +2,18 @@
    Terra, Sole e Luna
    ------------------------------------------------------------
    Si sceglie l'inclinazione dell'asse terrestre, la latitudine e
-   il giorno dell'anno, e si guardano la durata del di' e l'altezza
+   il giorno dell'anno, e si guardano la durata del dì e l'altezza
    del Sole a mezzogiorno.
 
    Il punto della stazione: portare l'inclinazione a zero e vedere
-   le stagioni sparire. Non e' la distanza dal Sole a farle: e'
+   le stagioni sparire. Non è la distanza dal Sole a farle: è
    l'asse inclinato.
 
-   La matematica e' quella standard dell'astronomia di posizione:
+   La matematica è quella standard dell'astronomia di posizione:
      declinazione   d = arcsen( sen(e) * sen(L) )
                     con L longitudine eclittica del Sole
      angolo orario  cos(H) = -tan(lat) * tan(d)
-     durata del di' = 2H/15 ore
+     durata del dì = 2H/15 ore
      altezza a mezzogiorno = 90 - |lat - d|
    ============================================================ */
 
@@ -78,12 +78,12 @@
      sempre zero, e non ci sarebbero stagioni. */
   function declinazione(g) {
     /* longitudine del Sole sull'eclittica, contata dall'equinozio
-       di primavera che cade intorno al 20 marzo, cioe' il giorno 80 */
+       di primavera che cade intorno al 20 marzo, cioè il giorno 80 */
     var longitudine = 360 / 365.24 * (g - 80);
     return Math.asin(Math.sin(inclinazione * GRADI) * Math.sin(longitudine * GRADI)) / GRADI;
   }
 
-  /* Durata del di' in ore. Restituisce 24 quando il Sole non
+  /* Durata del dì in ore. Restituisce 24 quando il Sole non
      tramonta mai e 0 quando non sorge mai. */
   function durataDelDi(g) {
     var d = declinazione(g);
@@ -199,7 +199,7 @@
     c.restore();
 
     /* l'asse: punta sempre nella stessa direzione nello spazio.
-       E' questo che fa le stagioni. */
+       È questo che fa le stagioni. */
     c.save();
     c.translate(pos.x, pos.y);
     c.strokeStyle = coloreTema("--accento", "#1f5f8b");
@@ -252,11 +252,11 @@
     c.save();
     c.translate(cx, cy);
 
-    /* la Terra inclinata: l'asse ruotato della declinazione, cosi'
-       si vede quale emisfero e' esposto al Sole */
+    /* la Terra inclinata: l'asse ruotato della declinazione, così
+       si vede quale emisfero è esposto al Sole */
     c.rotate(-d * GRADI);
 
-    /* notte a destra, di' a sinistra (il Sole sta a sinistra) */
+    /* notte a destra, dì a sinistra (il Sole sta a sinistra) */
     c.save();
     c.rotate(d * GRADI);
     c.fillStyle = "#2b3a4a";
@@ -310,7 +310,7 @@
   }
 
   /* ==========================================================
-     5. Disegno: la durata del di' lungo l'anno
+     5. Disegno: la durata del dì lungo l'anno
      ========================================================== */
 
   function disegnaGrafico() {
@@ -354,7 +354,7 @@
     });
     c.fillText("giorno dell'anno", margineS + w / 2, altezzaC - 6);
 
-    /* la curva della durata del di' */
+    /* la curva della durata del dì */
     c.strokeStyle = accento;
     c.lineWidth = 2.5;
     c.beginPath();
@@ -661,8 +661,8 @@
     var dt = Math.min(0.05, (istante - ultimoIstante) / 1000);
     ultimoIstante = istante;
 
-    /* se la pagina era nascosta quando e' stata costruita, le misure
-       erano zero: appena si puo', si rifanno */
+    /* se la pagina era nascosta quando è stata costruita, le misure
+       erano zero: appena si può, si rifanno */
     if (larghezzaO <= 0 && telaOrbita && telaOrbita.parentNode.clientWidth > 0) {
       adattaTele();
       tutto();

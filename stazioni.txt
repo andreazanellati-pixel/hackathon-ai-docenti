@@ -105,7 +105,7 @@ icona: 🔗
 disciplina: Chimica
 anni: 3 5
 cartella: molecole
-stato: in arrivo
+stato: pronta
 descrizione: Atomi e legami da comporre: geometria, polarità e, in quinta, gli isomeri da contare.
 
 [STAZIONE]

@@ -2,21 +2,21 @@
    Mitosi e meiosi a confronto
    ------------------------------------------------------------
    Si scorre fase per fase e si guarda che cosa succede ai
-   cromosomi. Accanto, il grafico della quantita' di DNA, che e'
-   la cosa che confonde di piu': il DNA raddoppia in un momento e
+   cromosomi. Accanto, il grafico della quantità di DNA, che è
+   la cosa che confonde di più: il DNA raddoppia in un momento e
    il numero di cromosomi cambia in un altro.
 
    Come funziona, in due parole:
    - le fasi, coi loro numeri e le loro descrizioni, stanno in
      fasi.txt: si possono riscrivere senza toccare il codice
    - i cromosomi sono disegnati davvero, uno per uno, coi colori
-     del padre e della madre: cosi' nell'anafase I si vede che a
+     del padre e della madre: così nell'anafase I si vede che a
      separarsi sono gli omologhi interi, e nell'anafase della
      mitosi che sono i cromatidi
    - il crossing over scambia pezzi veri fra gli omologhi, e i
      quattro gameti finali risultano diversi uno dall'altro
    - il conto delle combinazioni possibili, 2 elevato al numero
-     di coppie, e' scritto accanto: con 23 coppie fa piu' di otto
+     di coppie, è scritto accanto: con 23 coppie fa più di otto
      milioni, e questo prima ancora del crossing over
    ============================================================ */
 
@@ -76,7 +76,7 @@
       }
       var disegno = p[2].trim().toLowerCase();
       if (DISEGNI.indexOf(disegno) < 0) {
-        errori.push("riga " + (i + 1) + ": «" + disegno + "» non e' un disegno che conosco. " +
+        errori.push("riga " + (i + 1) + ": «" + disegno + "» non è un disegno che conosco. " +
           "Quelli buoni sono: " + DISEGNI.join(", ") + ".");
         return;
       }
@@ -87,7 +87,7 @@
         return;
       }
       /* "2n" vale due volte il corredo singolo, "n" una, "4n" quattro:
-         serve perche' in anafase i cromatidi che si staccano diventano
+         serve perché in anafase i cromatidi che si staccano diventano
          cromosomi a tutti gli effetti, e il numero raddoppia per un
          istante prima che la cellula si divida */
       var testoCromosomi = p[3].trim();
@@ -152,8 +152,8 @@
     return v || ripiego;
   }
 
-  /* Disegna un cromosoma: un bastoncino, o due se e' duplicato.
-     I colori dicono da chi viene ogni pezzo, cosi' il crossing
+  /* Disegna un cromosoma: un bastoncino, o due se è duplicato.
+     I colori dicono da chi viene ogni pezzo, così il crossing
      over si vede. */
   function cromosoma(c, x, y, altezzaC, duplicato, colore, scambio, quale) {
     var largo = Math.max(5, altezzaC * 0.16);
@@ -162,10 +162,10 @@
     for (var lato = 0; lato < (duplicato ? 2 : 1); lato++) {
       var xc = x + (duplicato ? (lato === 0 ? -stacco : stacco) : 0);
 
-      /* Il cromatide che ha subito lo scambio e' meta' e meta'.
-         Quando il cromosoma e' duplicato lo scambio tocca uno solo
-         dei due cromatidi, come nella realta'; quando invece e'
-         gia' singolo - nei gameti - il pezzo scambiato ce l'ha lui. */
+      /* Il cromatide che ha subito lo scambio è metà e metà.
+         Quando il cromosoma è duplicato lo scambio tocca uno solo
+         dei due cromatidi, come nella realtà; quando invece è
+         già singolo - nei gameti - il pezzo scambiato ce l'ha lui. */
       var scambiato = scambio && scambio.avviene &&
         (!duplicato || lato === (quale === "padre" ? 1 : 0));
       var punto = scambio ? scambio.punto : 0.5;
@@ -525,8 +525,8 @@
         "si dispongono in metafase I produce " + combinazioni() + " gameti diversi. Nella specie umana " +
         "le coppie sono 23, e fanno 8.388.608 combinazioni: e questo prima ancora di contare il " +
         "crossing over, che le rende praticamente infinite."
-      : "La mitosi non produce varieta': le due cellule figlie hanno gli stessi identici geni della " +
-        "madre. E' quello che serve per crescere e riparare, dove una copia sbagliata sarebbe un guaio.";
+      : "La mitosi non produce varietà: le due cellule figlie hanno gli stessi identici geni della " +
+        "madre. È quello che serve per crescere e riparare, dove una copia sbagliata sarebbe un guaio.";
 
     if (larghezza <= 0 && tela && tela.parentNode.clientWidth > 0) adattaTele();
     disegna();
@@ -559,7 +559,7 @@
 
     contenitore.appendChild(elemento("p", "guida",
       "Le due divisioni partono uguali e finiscono in modo opposto: la mitosi fa due copie identiche, " +
-      "la meiosi quattro cellule tutte diverse e con meta' del corredo. La differenza sta tutta in un " +
+      "la meiosi quattro cellule tutte diverse e con metà del corredo. La differenza sta tutta in un " +
       "passaggio, l'anafase I, e in una cosa che la mitosi non fa mai: appaiare gli omologhi."));
 
     /* --- quale processo --- */
@@ -634,13 +634,13 @@
     contenitore.appendChild(elenco);
 
     /* --- il grafico --- */
-    contenitore.appendChild(elemento("h3", "titolo-blocco", "Quanto DNA c'e' in ogni cellula"));
+    contenitore.appendChild(elemento("h3", "titolo-blocco", "Quanto DNA c'è in ogni cellula"));
     var scatolaG = elemento("div", "scatola-grafico");
     telaG = elemento("canvas", "tela");
     scatolaG.appendChild(telaG);
     contenitore.appendChild(scatolaG);
     contenitore.appendChild(elemento("p", "nota-piccola",
-      "Questo grafico e' la cosa che alle verifiche fa piu' danni, perche' il DNA e il numero di " +
+      "Questo grafico è la cosa che alle verifiche fa più danni, perché il DNA e il numero di " +
       "cromosomi non cambiano nello stesso momento. Il DNA raddoppia nella fase S, molto prima che " +
       "la cellula si divida; il numero di cromosomi resta fermo fino all'anafase. Guarda il grafico " +
       "e la lettura dei cromosomi insieme, fase per fase."));
@@ -678,11 +678,11 @@
     limiti.appendChild(elemento("summary", null, "Che cosa questo modello semplifica"));
     var corpo = elemento("div", "limiti-corpo");
     [
-      "Le fasi sono disegnate come quadri fermi, una dopo l'altra. Nella cellula vera il passaggio e' continuo, e i confini fra una fase e l'altra sono decisi da noi per comodita' di studio.",
+      "Le fasi sono disegnate come quadri fermi, una dopo l'altra. Nella cellula vera il passaggio è continuo, e i confini fra una fase e l'altra sono decisi da noi per comodità di studio.",
       "Ci sono al massimo quattro coppie di omologhi, per poterli vedere. Le cellule umane ne hanno ventitre, il cane trentanove, la felce anche parecchie centinaia.",
-      "Il crossing over qui avviene in un punto solo per coppia. Nella realta' ne avvengono in media due o tre per coppia, e non in punti a caso: certe zone del cromosoma si scambiano molto piu' spesso di altre.",
+      "Il crossing over qui avviene in un punto solo per coppia. Nella realtà ne avvengono in media due o tre per coppia, e non in punti a caso: certe zone del cromosoma si scambiano molto più spesso di altre.",
       "Non si vedono il fuso, i centrioli e la membrana nucleare che si sfalda e si riforma: il disegno mostra solo i cromosomi, che sono la cosa che conta per capire i numeri.",
-      "La meiosi e' disegnata come se andasse sempre bene. A volte non va: se due omologhi non si separano nasce un gamete con un cromosoma in piu' o in meno, ed e' l'origine di diverse sindromi.",
+      "La meiosi è disegnata come se andasse sempre bene. A volte non va: se due omologhi non si separano nasce un gamete con un cromosoma in più o in meno, ed è l'origine di diverse sindromi.",
       "Nella femmina umana la meiosi non produce quattro gameti uguali per importanza: uno solo diventa cellula uovo, gli altri tre si riducono a corpuscoli polari e si perdono."
     ].forEach(function (t) { corpo.appendChild(elemento("p", null, t)); });
     limiti.appendChild(corpo);
@@ -730,7 +730,7 @@
         svuota(contenitore);
         var avviso = elemento("div", "avviso");
         avviso.appendChild(document.createTextNode(
-          "Il file fasi.txt e' stato letto ma non contiene fasi valide."));
+          "Il file fasi.txt è stato letto ma non contiene fasi valide."));
         contenitore.appendChild(avviso);
         return;
       }

@@ -1,15 +1,15 @@
 /* ============================================================
    Il potenziale d'azione
    ------------------------------------------------------------
-   Si da' una scossa al neurone e si guarda che cosa risponde.
+   Si dà una scossa al neurone e si guarda che cosa risponde.
    Sotto una certa soglia non succede niente; sopra, parte un
    impulso sempre identico a se stesso.
 
    Come funziona, in due parole:
-   - il modello e' quello vero di Hodgkin e Huxley del 1952,
+   - il modello è quello vero di Hodgkin e Huxley del 1952,
      quello del premio Nobel: quattro equazioni che descrivono
      come si aprono e si chiudono i canali del sodio e del
-     potassio. Non e' una curva disegnata a mano
+     potassio. Non è una curva disegnata a mano
    - per questo il tutto-o-niente, la soglia e il periodo
      refrattario non sono programmati da nessuna parte: vengono
      fuori dalle equazioni, come vennero fuori a Hodgkin e
@@ -28,7 +28,7 @@
   var contenitore = document.getElementById("stazione");
   if (!contenitore) return;
 
-  var CM = 1.0;              /* capacita' della membrana, uF/cm2 */
+  var CM = 1.0;              /* capacità della membrana, uF/cm2 */
   var GL = 0.3, EL = -54.387;
   var PASSO = 0.005;         /* millisecondi per passo di calcolo */
   var DURATA = 35;           /* millisecondi mostrati */
@@ -52,28 +52,28 @@
   var traccia = null;        /* il risultato dell'ultima simulazione */
 
   /* ==========================================================
-     1. Gli esperimenti gia' pronti
+     1. Gli esperimenti già pronti
      ========================================================== */
 
   var ESPERIMENTI = [
     {
       titolo: "Sotto la soglia",
-      sottotitolo: "Una scossa debole: la membrana si muove appena e torna giu'",
+      sottotitolo: "Una scossa debole: la membrana si muove appena e torna giù",
       condizione: "Neurone normale", stimolo: 11, durata: 0.5, secondo: 0
     },
     {
       titolo: "Sopra la soglia",
-      sottotitolo: "Un pochino piu' forte, e parte tutto l'impulso",
+      sottotitolo: "Un pochino più forte, e parte tutto l'impulso",
       condizione: "Neurone normale", stimolo: 15, durata: 0.5, secondo: 0
     },
     {
-      titolo: "Molto piu' forte",
-      sottotitolo: "Sei volte la soglia: l'impulso e' quasi identico a prima",
+      titolo: "Molto più forte",
+      sottotitolo: "Sei volte la soglia: l'impulso è quasi identico a prima",
       condizione: "Neurone normale", stimolo: 80, durata: 0.5, secondo: 0
     },
     {
       titolo: "Due scosse ravvicinate",
-      sottotitolo: "La seconda e' fortissima e arriva dopo 5 ms: non serve lo stesso",
+      sottotitolo: "La seconda è fortissima e arriva dopo 5 ms: non serve lo stesso",
       condizione: "Neurone normale", stimolo: 80, durata: 0.5, secondo: 5
     },
     {
@@ -83,12 +83,12 @@
     },
     {
       titolo: "Dal dentista",
-      sottotitolo: "Con l'anestetico non parte piu' niente, per quanto forte",
+      sottotitolo: "Con l'anestetico non parte più niente, per quanto forte",
       condizione: "Anestetico locale", stimolo: 80, durata: 0.5, secondo: 0
     },
     {
       titolo: "Potassio alto nel sangue",
-      sottotitolo: "La membrana parte gia' depolarizzata: il cuore rischia",
+      sottotitolo: "La membrana parte già depolarizzata: il cuore rischia",
       condizione: "Potassio alto nel sangue", stimolo: 15, durata: 0.5, secondo: 0
     }
   ];
@@ -120,7 +120,7 @@
         return;
       }
       if (n[0] < 0 || n[1] < 0) {
-        errori.push("riga " + (i + 1) + ": le conducibilita' non possono essere negative.");
+        errori.push("riga " + (i + 1) + ": le conducibilità non possono essere negative.");
         return;
       }
       elenco.push({
@@ -137,7 +137,7 @@
      ------------------------------------------------------------
      Tre "cancelli" regolano i canali: m e h quelli del sodio, n
      quelli del potassio. Ognuno si apre e si chiude con una sua
-     rapidita', che dipende dal voltaggio del momento. Tutto il
+     rapidità, che dipende dal voltaggio del momento. Tutto il
      comportamento del neurone viene da qui.
      ========================================================== */
 
@@ -209,9 +209,9 @@
       if (v > picco) { picco = v; tempoPicco = t; }
       if (v < minimo) minimo = v;
 
-      /* Il voltaggio piu' alto raggiunto quando NESSUNA corrente
-         sta spingendo, e dopo che la scossa e' finita da un pezzo.
-         E' questo che distingue un impulso vero, che si alimenta
+      /* Il voltaggio più alto raggiunto quando NESSUNA corrente
+         sta spingendo, e dopo che la scossa è finita da un pezzo.
+         È questo che distingue un impulso vero, che si alimenta
          da solo, da una membrana alzata di forza dalla corrente. */
       if (corrente === 0 && t > 2 + durataStimolo + 0.5 && v > piccoLibero) piccoLibero = v;
 
@@ -222,11 +222,11 @@
       t += PASSO;
     }
 
-    /* Un impulso vero si riconosce perche' si alimenta da solo:
-       il voltaggio continua a salire DOPO che la scossa e' finita,
+    /* Un impulso vero si riconosce perché si alimenta da solo:
+       il voltaggio continua a salire DOPO che la scossa è finita,
        e supera lo zero. Senza questo controllo, una corrente
        enorme che alza la membrana di forza sembrerebbe un impulso
-       anche con i canali del sodio bloccati - e non lo e'. */
+       anche con i canali del sodio bloccati - e non lo è. */
     return {
       punti: punti, picco: picco, minimo: minimo,
       tempoPicco: tempoPicco,
@@ -235,8 +235,8 @@
     };
   }
 
-  /* La soglia: la corrente piu' piccola che fa partire l'impulso.
-     Si cerca dimezzando l'intervallo, non e' scritta da nessuna
+  /* La soglia: la corrente più piccola che fa partire l'impulso.
+     Si cerca dimezzando l'intervallo, non è scritta da nessuna
      parte. */
   function cercaSoglia() {
     var memoriaI = stimolo, memoriaS = secondoStimolo;
@@ -392,7 +392,7 @@
     if (soglia === null) {
       return "Qui non parte niente, per quanto forte sia la scossa. Con i canali del sodio bloccati " +
         "la membrana non ha modo di innescare la reazione a catena: ogni stimolo la sposta un po' e " +
-        "poi si spegne. E' esattamente quello che fa l'anestetico del dentista, e in modo totale il " +
+        "poi si spegne. È esattamente quello che fa l'anestetico del dentista, e in modo totale il " +
         "veleno del pesce palla.";
     }
 
@@ -400,23 +400,23 @@
       return "Due scosse identiche, la seconda dopo " + conVirgola(secondoStimolo) + " millisecondi. " +
         "Guarda se parte un secondo impulso oppure no. Subito dopo il primo, per qualche millisecondo, " +
         "non parte proprio niente per quanto si insista: i cancelli che chiudono il sodio sono ancora " +
-        "abbassati e finche' non si rialzano non c'e' scossa che tenga. Poi viene un periodo in cui " +
-        "riparte, ma solo con uno stimolo piu' forte del solito. E' il periodo refrattario, ed e' il " +
-        "motivo per cui un neurone non puo' sparare all'infinito. Prova questo: con la scossa a 20 " +
-        "servono quindici millisecondi, con la scossa a 40 ne bastano dodici. La soglia non e' fissa: " +
-        "si rialza dopo ogni impulso e poi torna giu' piano.";
+        "abbassati e finché non si rialzano non c'è scossa che tenga. Poi viene un periodo in cui " +
+        "riparte, ma solo con uno stimolo più forte del solito. È il periodo refrattario, ed è il " +
+        "motivo per cui un neurone non può sparare all'infinito. Prova questo: con la scossa a 20 " +
+        "servono quindici millisecondi, con la scossa a 40 ne bastano dodici. La soglia non è fissa: " +
+        "si rialza dopo ogni impulso e poi torna giù piano.";
     }
 
     if (soglia < 0.05) {
-      return "Attenzione: qui la membrana parte da sola, senza che nessuno la stimoli. Sta gia' a " +
-        Math.round(traccia.riposo) + " millivolt invece dei soliti meno 65, cioe' e' gia' oltre la " +
-        "soglia. E' quello che succede quando nel sangue il potassio si alza troppo, e non e' una " +
+      return "Attenzione: qui la membrana parte da sola, senza che nessuno la stimoli. Sta già a " +
+        Math.round(traccia.riposo) + " millivolt invece dei soliti meno 65, cioè è già oltre la " +
+        "soglia. È quello che succede quando nel sangue il potassio si alza troppo, e non è una " +
         "buona notizia: le cellule del cuore cominciano a contrarsi quando non dovrebbero. " +
-        "L'iperpotassiemia grave e' una delle emergenze piu' serie che ci siano.";
+        "L'iperpotassiemia grave è una delle emergenze più serie che ci siano.";
     }
 
     if (!traccia.partito) {
-      return "La scossa e' troppo debole: la membrana si solleva un poco e poi ricade da sola. Sotto " +
+      return "La scossa è troppo debole: la membrana si solleva un poco e poi ricade da sola. Sotto " +
         "la soglia i canali del sodio che si aprono sono troppo pochi, e il potassio che esce fa in " +
         "tempo a rimettere tutto a posto. Con questa membrana la soglia sta a " +
         conVirgola(arrotonda(soglia, 1)) + ": provala.";
@@ -425,11 +425,11 @@
     return "Sopra la soglia parte la reazione a catena: il sodio che entra depolarizza, e la " +
       "depolarizzazione apre altri canali del sodio, che fanno entrare altro sodio. In un millisecondo " +
       "si arriva a " + Math.round(traccia.picco) + " millivolt. Poi il sodio si chiude da solo e il " +
-      "potassio esce, riportando tutto giu' e anche un po' sotto. " +
+      "potassio esce, riportando tutto giù e anche un po' sotto. " +
       "Adesso guarda la cosa importante. Fra una scossa appena sotto la soglia e una appena sopra la " +
-      "differenza e' di pochi per cento, ma la risposta passa da niente a un salto di piu' di cento " +
-      "millivolt. Se invece la scossa la rendi sei volte piu' forte, il picco sale si' e no di qualche " +
-      "millivolt. E' il tutto-o-niente, e non e' una regola imparata a memoria: viene fuori da solo " +
+      "differenza è di pochi per cento, ma la risposta passa da niente a un salto di più di cento " +
+      "millivolt. Se invece la scossa la rendi sei volte più forte, il picco sale sì e no di qualche " +
+      "millivolt. È il tutto-o-niente, e non è una regola imparata a memoria: viene fuori da solo " +
       "dalle equazioni, come venne fuori a Hodgkin e Huxley.";
   }
 
@@ -518,8 +518,8 @@
     if (avvisoErrori) contenitore.appendChild(avvisoErrori);
 
     contenitore.appendChild(elemento("p", "guida",
-      "Un neurone non manda segnali piu' forti quando la notizia e' importante: manda sempre lo stesso " +
-      "identico impulso, o non lo manda affatto. Quello che cambia e' quanti ne manda al secondo. " +
+      "Un neurone non manda segnali più forti quando la notizia è importante: manda sempre lo stesso " +
+      "identico impulso, o non lo manda affatto. Quello che cambia è quanti ne manda al secondo. " +
       "Qui puoi dargli scosse di forza diversa e verificarlo."));
 
     contenitore.appendChild(elemento("h3", "titolo-blocco", "Esperimenti da provare"));
@@ -559,8 +559,8 @@
     contenitore.appendChild(elemento("p", "nota-piccola",
       "Ogni canale del sodio ha due cancelli: uno che apre in fretta, in rosso, e uno che chiude " +
       "piano, in viola. All'inizio apre il primo e il sodio entra; poi il secondo si abbassa e lo " +
-      "ferma, anche se il primo e' ancora aperto. Intanto il potassio, in verde, si e' svegliato e " +
-      "riporta tutto giu'. Il periodo refrattario e' il tempo che serve al cancello viola per " +
+      "ferma, anche se il primo è ancora aperto. Intanto il potassio, in verde, si è svegliato e " +
+      "riporta tutto giù. Il periodo refrattario è il tempo che serve al cancello viola per " +
       "rialzarsi: guarda quanto ci mette a tornare in alto."));
 
     contenitore.appendChild(elemento("h3", "titolo-blocco", "La scossa"));
@@ -579,7 +579,7 @@
     comandi.appendChild(cursoreS);
     contenitore.appendChild(comandi);
 
-    contenitore.appendChild(elemento("h3", "titolo-blocco", "In che condizioni e' la membrana"));
+    contenitore.appendChild(elemento("h3", "titolo-blocco", "In che condizioni è la membrana"));
     var scelte = elemento("div", "scelte-grandezza");
     condizioni.forEach(function (c) {
       var b = elemento("button", "pillola", c.nome);
@@ -596,12 +596,12 @@
     limiti.appendChild(elemento("summary", null, "Che cosa questo modello semplifica"));
     var corpo = elemento("div", "limiti-corpo");
     [
-      "Le equazioni sono quelle originali di Hodgkin e Huxley, ricavate nel 1952 misurando l'assone gigante del calamaro a 6 gradi. Un neurone umano a 37 gradi ha impulsi piu' rapidi, e canali di piu' tipi.",
-      "Si guarda un pezzetto di membrana fermo, non un assone intero: qui l'impulso non viaggia. Nella realta' si propaga, e la guaina mielinica lo fa saltare da un nodo all'altro moltiplicando la velocita' per cinquanta.",
-      "La pompa sodio-potassio non compare. E' lei che mantiene le concentrazioni ai due lati, consumando una fetta enorme dell'energia del corpo, ma su tempi di millisecondi il suo effetto diretto e' piccolo.",
-      "Ci sono solo due tipi di canale, sodio e potassio, piu' una perdita generica. I neuroni veri ne hanno decine di tipi diversi, ed e' per quello che si comportano in modi cosi' diversi fra loro.",
-      "Le condizioni alterate del file - anestetico, veleno, potassio alto - sono rese cambiando un solo numero. Nella realta' un farmaco agisce in modo piu' complicato, per esempio solo sui canali gia' aperti.",
-      "Il modello dice come risponde la membrana, non che cosa significhi il segnale. L'informazione sta nel ritmo degli impulsi e in quali neuroni li mandano, e questo e' un altro discorso."
+      "Le equazioni sono quelle originali di Hodgkin e Huxley, ricavate nel 1952 misurando l'assone gigante del calamaro a 6 gradi. Un neurone umano a 37 gradi ha impulsi più rapidi, e canali di più tipi.",
+      "Si guarda un pezzetto di membrana fermo, non un assone intero: qui l'impulso non viaggia. Nella realtà si propaga, e la guaina mielinica lo fa saltare da un nodo all'altro moltiplicando la velocità per cinquanta.",
+      "La pompa sodio-potassio non compare. È lei che mantiene le concentrazioni ai due lati, consumando una fetta enorme dell'energia del corpo, ma su tempi di millisecondi il suo effetto diretto è piccolo.",
+      "Ci sono solo due tipi di canale, sodio e potassio, più una perdita generica. I neuroni veri ne hanno decine di tipi diversi, ed è per quello che si comportano in modi così diversi fra loro.",
+      "Le condizioni alterate del file - anestetico, veleno, potassio alto - sono rese cambiando un solo numero. Nella realtà un farmaco agisce in modo più complicato, per esempio solo sui canali già aperti.",
+      "Il modello dice come risponde la membrana, non che cosa significhi il segnale. L'informazione sta nel ritmo degli impulsi e in quali neuroni li mandano, e questo è un altro discorso."
     ].forEach(function (t) { corpo.appendChild(elemento("p", null, t)); });
     limiti.appendChild(corpo);
     contenitore.appendChild(limiti);
@@ -648,7 +648,7 @@
         svuota(contenitore);
         var avviso = elemento("div", "avviso");
         avviso.appendChild(document.createTextNode(
-          "Il file condizioni.txt e' stato letto ma non contiene condizioni valide."));
+          "Il file condizioni.txt è stato letto ma non contiene condizioni valide."));
         contenitore.appendChild(avviso);
         return;
       }

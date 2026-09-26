@@ -7,13 +7,13 @@
    la concentrazione.
 
    Come funziona, in due parole:
-   - chi ha il potenziale standard piu' alto fa il catodo e si
-     riduce, l'altro fa l'anodo e si ossida. Non e' una regola
-     da imparare: e' la definizione di potenziale
-   - la forza elettromotrice e' la differenza fra i due
+   - chi ha il potenziale standard più alto fa il catodo e si
+     riduce, l'altro fa l'anodo e si ossida. Non è una regola
+     da imparare: è la definizione di potenziale
+   - la forza elettromotrice è la differenza fra i due
      potenziali, e i potenziali si correggono con l'equazione di
      Nernst quando le concentrazioni non sono 1 mol/L
-   - il delta G viene da -nFE, quindi una pila che funziona e'
+   - il delta G viene da -nFE, quindi una pila che funziona è
      esattamente una reazione spontanea
    - in elettrolisi si spinge al contrario con un generatore, e
      quanta sostanza si deposita lo dice la legge di Faraday
@@ -52,7 +52,7 @@
   var faseElettroni = 0;
 
   /* ==========================================================
-     1. Gli esperimenti gia' pronti
+     1. Gli esperimenti già pronti
      ========================================================== */
 
   var ESPERIMENTI = [
@@ -67,7 +67,7 @@
       sinistro: "Rame", destro: "Argento", cs: 1, cd: 1, modo: "pila"
     },
     {
-      titolo: "La coppia piu' potente",
+      titolo: "La coppia più potente",
       sottotitolo: "Litio contro oro: quasi quattro volt e mezzo",
       sinistro: "Litio", destro: "Oro", cs: 1, cd: 1, modo: "pila"
     },
@@ -141,7 +141,7 @@
   function potSinistro() { return potenziale(sinistro, concSinistra); }
   function potDestro() { return potenziale(destro, concDestra); }
 
-  /* Il catodo e' quello col potenziale piu' alto: si riduce.
+  /* Il catodo è quello col potenziale più alto: si riduce.
      L'altro fa l'anodo e si ossida. */
   function catodo() { return potDestro() >= potSinistro() ? destro : sinistro; }
   function anodo() { return potDestro() >= potSinistro() ? sinistro : destro; }
@@ -323,7 +323,7 @@
     var min = -3.2, max = 1.7;
     function Y(v) { return su + h * (max - v) / (max - min); }
 
-    /* la riga dello zero, cioe' l'idrogeno */
+    /* la riga dello zero, cioè l'idrogeno */
     c.strokeStyle = bordo; c.lineWidth = 1;
     c.fillStyle = tenue; c.font = "10px system-ui, sans-serif";
     c.textAlign = "right";
@@ -351,7 +351,7 @@
       c.fillText(el.nome, sx + 30, y + 3);
     });
 
-    /* la distanza fra i due, che e' la forza elettromotrice */
+    /* la distanza fra i due, che è la forza elettromotrice */
     var yA = Y(anodo().e0), yC = Y(catodo().e0);
     var xFreccia = sx + w - 16;
     c.strokeStyle = "#c06a28"; c.lineWidth = 2;
@@ -388,7 +388,7 @@
 
     if (sinistro === destro) {
       return "Hai scelto due volte lo stesso metallo. Con le concentrazioni uguali non succede niente: " +
-        "i due potenziali sono identici e la pila da' zero volt. Prova pero' a cambiare una delle due " +
+        "i due potenziali sono identici e la pila dà zero volt. Prova però a cambiare una delle due " +
         "concentrazioni: nasce lo stesso una tensione, piccola. Si chiama pila a concentrazione, e la " +
         "spinta non viene dalla chimica ma dalla voglia del sistema di pareggiare le concentrazioni.";
     }
@@ -396,15 +396,15 @@
     if (modo === "elettrolisi") {
       return "In elettrolisi comandi tu. Il generatore spinge gli elettroni al contrario di come " +
         "andrebbero da soli, e per riuscirci deve superare almeno " +
-        conVirgola(arrotonda(tensioneMinima(), 2)) + " V. Cosi' avviene una reazione che da sola non " +
-        "avverrebbe mai: e' il modo in cui si ricava l'alluminio, si argentano le posate e si ricarica " +
+        conVirgola(arrotonda(tensioneMinima(), 2)) + " V. Così avviene una reazione che da sola non " +
+        "avverrebbe mai: è il modo in cui si ricava l'alluminio, si argentano le posate e si ricarica " +
         "una batteria. In " + conVirgola(minuti) + " minuti a " + conVirgola(corrente) + " ampere " +
         "passano " + conVirgola(arrotonda(caricaPassata(), 0)) + " coulomb.";
     }
 
-    return an.nome + " ha il potenziale piu' basso (" + conVirgola(arrotonda(potAnodo(), 3)) +
-      " V), quindi tiene gli elettroni piu' debolmente: li cede e si ossida, facendo da anodo. " +
-      cat.nome + " ce l'ha piu' alto (" + conVirgola(arrotonda(potCatodo(), 3)) +
+    return an.nome + " ha il potenziale più basso (" + conVirgola(arrotonda(potAnodo(), 3)) +
+      " V), quindi tiene gli elettroni più debolmente: li cede e si ossida, facendo da anodo. " +
+      cat.nome + " ce l'ha più alto (" + conVirgola(arrotonda(potCatodo(), 3)) +
       " V): li prende e si riduce, facendo da catodo. Gli elettroni vanno sempre dall'anodo al catodo " +
       "passando per il filo, mai attraverso la soluzione. Il ponte salino serve solo a non far " +
       "accumulare carica nei due becher: senza di lui la pila si ferma dopo un istante.";
@@ -442,7 +442,7 @@
   function semplice(v) { return conVirgola(v); }
 
   /* il cursore delle concentrazioni lavora in potenze di dieci,
-     cosi' si arriva fino a un millesimo di mole per litro */
+     così si arriva fino a un millesimo di mole per litro */
   function daEsponente(e) { return Math.pow(10, e); }
   function mostraConc(e) {
     var v = daEsponente(e);
@@ -506,8 +506,8 @@
       letturaExtra.textContent = conVirgola(arrotonda(deltaG(), 0)) + " kJ/mol";
     } else {
       letturaVerso.textContent = "servono " + conVirgola(arrotonda(tensioneMinima(), 2)) + " V";
-      /* forzando la reazione al contrario, a depositarsi e' il metallo
-         che da solo si sarebbe sciolto: cioe' l'anodo della pila */
+      /* forzando la reazione al contrario, a depositarsi è il metallo
+         che da solo si sarebbe sciolto: cioè l'anodo della pila */
       var dep = anodo();
       letturaExtra.textContent = conVirgola(arrotonda(massaDepositata(dep), 3)) + " g di " + dep.nome.toLowerCase();
     }
@@ -550,9 +550,9 @@
     if (avvisoErrori) contenitore.appendChild(avvisoErrori);
 
     contenitore.appendChild(elemento("p", "guida",
-      "Una pila e' una reazione chimica a cui e' stato tolto il contatto diretto: i due pezzi stanno " +
+      "Una pila è una reazione chimica a cui è stato tolto il contatto diretto: i due pezzi stanno " +
       "in becher separati, e gli elettroni per passare da uno all'altro devono fare il giro attraverso " +
-      "un filo. Quel passaggio e' la corrente."));
+      "un filo. Quel passaggio è la corrente."));
 
     contenitore.appendChild(elemento("h3", "titolo-blocco", "Esperimenti da provare"));
     var griglia = elemento("div", "griglia-esperimenti");
@@ -602,9 +602,9 @@
     tabella = elemento("div", "involucro-tabella");
     contenitore.appendChild(tabella);
     contenitore.appendChild(elemento("p", "nota-piccola",
-      "La colonna E° e' il valore da tabella, valido a 1 mol/L e 25 gradi. La colonna E vero tiene " +
+      "La colonna E° è il valore da tabella, valido a 1 mol/L e 25 gradi. La colonna E vero tiene " +
       "conto della concentrazione che hai scelto, con l'equazione di Nernst: sono la stessa cosa solo " +
-      "quando la concentrazione e' esattamente 1 mol/L."));
+      "quando la concentrazione è esattamente 1 mol/L."));
 
     /* --- la scala --- */
     contenitore.appendChild(elemento("h3", "titolo-blocco", "La scala dei potenziali"));
@@ -614,8 +614,8 @@
     contenitore.appendChild(scatolaS);
     contenitore.appendChild(elemento("p", "nota-piccola",
       "Tutti gli elettrodi messi in fila per potenziale. Chi sta in basso cede elettroni a chiunque " +
-      "stia piu' in alto: e' il motivo per cui il ferro arrugginisce e l'oro no. La distanza fra i due " +
-      "scelti, segnata in arancione, e' proprio la tensione della pila."));
+      "stia più in alto: è il motivo per cui il ferro arrugginisce e l'oro no. La distanza fra i due " +
+      "scelti, segnata in arancione, è proprio la tensione della pila."));
 
     /* --- le manopole --- */
     contenitore.appendChild(elemento("h3", "titolo-blocco", "Le manopole"));
@@ -675,12 +675,12 @@
     limiti.appendChild(elemento("summary", null, "Che cosa questo modello semplifica"));
     var corpo = elemento("div", "limiti-corpo");
     [
-      "Ci sono solo elettrodi fatti da un metallo immerso nei propri ioni, piu' quello a idrogeno. Gli elettrodi a gas come il cloro, o quelli in cui tutte e due le forme sono sciolte, seguono la stessa equazione di Nernst ma con concentrazioni ai due lati, e qui non ci sono.",
-      "Si usano le concentrazioni al posto delle attivita'. Sopra circa 0,1 mol/L la tensione vera comincia a scostarsi da quella calcolata.",
-      "La tensione mostrata e' quella a circuito aperto, cioe' senza corrente che scorre. Appena una pila vera eroga corrente la tensione cala, per via della resistenza interna e di altri effetti che qui non ci sono.",
-      "In elettrolisi la tensione minima calcolata e' solo quella termodinamica. In pratica ne serve sempre un po' di piu', e a volte molta di piu': si chiama sovratensione.",
-      "Si suppone che all'elettrodo si scarichi solo la sostanza scelta. In una soluzione vera c'e' anche l'acqua, che spesso si scarica per prima e cambia tutto il risultato.",
-      "Le concentrazioni restano ferme mentre la pila lavora. In una pila vera si consumano, e la tensione cala fino a zero: e' quello che succede quando una batteria si scarica."
+      "Ci sono solo elettrodi fatti da un metallo immerso nei propri ioni, più quello a idrogeno. Gli elettrodi a gas come il cloro, o quelli in cui tutte e due le forme sono sciolte, seguono la stessa equazione di Nernst ma con concentrazioni ai due lati, e qui non ci sono.",
+      "Si usano le concentrazioni al posto delle attività. Sopra circa 0,1 mol/L la tensione vera comincia a scostarsi da quella calcolata.",
+      "La tensione mostrata è quella a circuito aperto, cioè senza corrente che scorre. Appena una pila vera eroga corrente la tensione cala, per via della resistenza interna e di altri effetti che qui non ci sono.",
+      "In elettrolisi la tensione minima calcolata è solo quella termodinamica. In pratica ne serve sempre un po' di più, e a volte molta di più: si chiama sovratensione.",
+      "Si suppone che all'elettrodo si scarichi solo la sostanza scelta. In una soluzione vera c'è anche l'acqua, che spesso si scarica per prima e cambia tutto il risultato.",
+      "Le concentrazioni restano ferme mentre la pila lavora. In una pila vera si consumano, e la tensione cala fino a zero: è quello che succede quando una batteria si scarica."
     ].forEach(function (t) { corpo.appendChild(elemento("p", null, t)); });
     limiti.appendChild(corpo);
     contenitore.appendChild(limiti);

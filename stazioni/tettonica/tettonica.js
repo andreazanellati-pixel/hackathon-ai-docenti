@@ -2,19 +2,19 @@
    La tettonica delle placche
    ------------------------------------------------------------
    Cinque modi di incontrarsi, e da ognuno viene fuori un pezzo
-   diverso di mondo. Accanto al disegno c'e' il conto del tempo:
+   diverso di mondo. Accanto al disegno c'è il conto del tempo:
    a due centimetri all'anno, quanto ci vuole a fare un oceano?
 
    Come funziona, in due parole:
-   - le velocita' sono quelle misurate davvero col GPS, e stanno
+   - le velocità sono quelle misurate davvero col GPS, e stanno
      in margini.txt
-   - il conto del tempo non e' un elenco di date imparate a
-     memoria: si moltiplica una velocita' per un tempo, e viene
-     fuori che il tempo geologico non e' un'astrazione ma una
+   - il conto del tempo non è un elenco di date imparate a
+     memoria: si moltiplica una velocità per un tempo, e viene
+     fuori che il tempo geologico non è un'astrazione ma una
      conseguenza dell'aritmetica
-   - l'eta' del fondale oceanico cresce in modo regolare
-     allontanandosi dalla dorsale, e da quella regolarita' si
-     ricava la velocita' di apertura: e' cosi' che si e'
+   - l'età del fondale oceanico cresce in modo regolare
+     allontanandosi dalla dorsale, e da quella regolarità si
+     ricava la velocità di apertura: è così che si è
      dimostrata l'espansione dei fondali
    ============================================================ */
 
@@ -45,7 +45,7 @@
   var cursoreAnni = null;
 
   /* ==========================================================
-     1. Gli esperimenti gia' pronti
+     1. Gli esperimenti già pronti
      ========================================================== */
 
   var ESPERIMENTI = [
@@ -56,7 +56,7 @@
     },
     {
       titolo: "Una placca che sprofonda",
-      sottotitolo: "Le Ande: terremoti fino a 600 chilometri di profondita'",
+      sottotitolo: "Le Ande: terremoti fino a 600 chilometri di profondità",
       margine: "Ande, Cile", anni: 1000000
     },
     {
@@ -97,17 +97,17 @@
       }
       var tipo = p[1].trim().toLowerCase();
       if (TIPI.indexOf(tipo) < 0) {
-        errori.push("riga " + (i + 1) + ": «" + tipo + "» non e' un tipo che conosco. " +
+        errori.push("riga " + (i + 1) + ": «" + tipo + "» non è un tipo che conosco. " +
           "Quelli buoni sono: " + TIPI.join(", ") + ".");
         return;
       }
       var vel = numero(p[2]), prof = numero(p[3]);
       if (vel === null || prof === null) {
-        errori.push("riga " + (i + 1) + ": la velocita' e la profondita' devono essere numeri.");
+        errori.push("riga " + (i + 1) + ": la velocità e la profondità devono essere numeri.");
         return;
       }
       if (vel <= 0) {
-        errori.push("riga " + (i + 1) + ": la velocita' deve essere maggiore di zero.");
+        errori.push("riga " + (i + 1) + ": la velocità deve essere maggiore di zero.");
         return;
       }
       elenco.push({
@@ -126,7 +126,7 @@
      ========================================================== */
 
   /* Quanti chilometri in tutto quel tempo. Un centimetro
-     all'anno fa dieci chilometri ogni milione di anni: e' la
+     all'anno fa dieci chilometri ogni milione di anni: è la
      conversione che rende il tempo geologico maneggevole. */
   function spostamento(annate) {
     return margine.velocita * annate / 100000;    /* km */
@@ -136,9 +136,9 @@
     return km * 100000 / margine.velocita;        /* anni */
   }
 
-  /* L'eta' del fondale a una certa distanza dalla dorsale: la
-     crosta nasce al centro e si allontana, quindi piu' e'
-     lontana piu' e' vecchia. */
+  /* L'età del fondale a una certa distanza dalla dorsale: la
+     crosta nasce al centro e si allontana, quindi più è
+     lontana più è vecchia. */
   function etaFondale(km) {
     return tempoPer(km / 2);
   }
@@ -312,7 +312,7 @@
       });
 
       freccia(cx - 70, ySuolo - 24, 1, conVirgola(margine.velocita) + " cm/anno");
-      /* i terremoti seguono la placca che scende: e' il piano di Benioff */
+      /* i terremoti seguono la placca che scende: è il piano di Benioff */
       var elenco = [];
       for (var k = 0; k <= 8; k++) {
         var q = k / 8;
@@ -401,7 +401,7 @@
       etichetta(larghezza * 0.5, 16, "visto dall'alto");
       terremoti([[larghezza * 0.42, altezza * 0.55], [larghezza * 0.55, altezza * 0.38],
         [larghezza * 0.3, altezza * 0.74]]);
-      etichetta(larghezza * 0.5, altezza - 8, "niente vulcani: non si crea ne' si distrugge crosta");
+      etichetta(larghezza * 0.5, altezza - 8, "niente vulcani: non si crea né si distrugge crosta");
     }
 
     /* la linea del mare, per i margini sott'acqua */
@@ -437,22 +437,22 @@
 
   var SPIEGAZIONI = {
     "divergente": "Le due placche si allontanano, e dalla spaccatura sale mantello caldo che si " +
-      "raffredda e diventa crosta nuova. E' l'unico posto dove la crosta si fabbrica. I terremoti ci " +
-      "sono ma restano superficiali, perche' non c'e' nessuna placca che sprofonda; i vulcani sono " +
+      "raffredda e diventa crosta nuova. È l'unico posto dove la crosta si fabbrica. I terremoti ci " +
+      "sono ma restano superficiali, perché non c'è nessuna placca che sprofonda; i vulcani sono " +
       "tanti e tranquilli, con lava fluida che cola invece di esplodere.",
-    "oceano-continente": "La placca oceanica e' piu' densa e sprofonda sotto quella continentale. " +
+    "oceano-continente": "La placca oceanica è più densa e sprofonda sotto quella continentale. " +
       "Scendendo si scalda e libera acqua, che fa fondere il mantello sopra di lei: il magma risale e " +
       "costruisce una catena di vulcani sul continente. I terremoti seguono la placca mentre scende, " +
-      "e si sentono fino a centinaia di chilometri di profondita'.",
-    "oceano-oceano": "Fra due placche oceaniche sprofonda la piu' vecchia, che essendosi raffreddata " +
-      "di piu' e' anche piu' pesante. Dove si piega si apre una fossa, la parte piu' profonda degli " +
+      "e si sentono fino a centinaia di chilometri di profondità.",
+    "oceano-oceano": "Fra due placche oceaniche sprofonda la più vecchia, che essendosi raffreddata " +
+      "di più è anche più pesante. Dove si piega si apre una fossa, la parte più profonda degli " +
       "oceani; il magma che risale costruisce un arco di isole vulcaniche.",
-    "continenti": "Qui nessuna delle due placche riesce a sprofondare: la crosta continentale e' " +
+    "continenti": "Qui nessuna delle due placche riesce a sprofondare: la crosta continentale è " +
       "troppo leggera per affondare nel mantello, come un pezzo di sughero nell'acqua. Allora si " +
       "accartoccia, si ripiega e si ispessisce verso l'alto e verso il basso. I vulcani sono pochi o " +
-      "nessuno, perche' non c'e' nessuna placca che scenda a produrre magma.",
+      "nessuno, perché non c'è nessuna placca che scenda a produrre magma.",
     "trasforme": "Le due placche scorrono una accanto all'altra, quindi qui non si crea e non si " +
-      "distrugge crosta. Per questo non ci sono vulcani. Ci sono pero' terremoti forti, perche' le due " +
+      "distrugge crosta. Per questo non ci sono vulcani. Ci sono però terremoti forti, perché le due " +
       "placche non scivolano lisce: si incastrano, accumulano spinta per decenni e poi si liberano di " +
       "colpo."
   };
@@ -558,8 +558,8 @@
     if (avvisoErrori) contenitore.appendChild(avvisoErrori);
 
     contenitore.appendChild(elemento("p", "guida",
-      "Le placche si muovono alla velocita' con cui crescono le unghie. Sembra niente, ma il tempo a " +
-      "disposizione e' enorme: ed e' per questo che da quel movimento lentissimo vengono fuori gli " +
+      "Le placche si muovono alla velocità con cui crescono le unghie. Sembra niente, ma il tempo a " +
+      "disposizione è enorme: ed è per questo che da quel movimento lentissimo vengono fuori gli " +
       "oceani, le montagne e i terremoti."));
 
     contenitore.appendChild(elemento("h3", "titolo-blocco", "Esempi da guardare"));
@@ -587,12 +587,12 @@
     scatola.appendChild(tela);
     contenitore.appendChild(scatola);
     contenitore.appendChild(elemento("p", "didascalia",
-      "I pallini gialli sono i terremoti. Guarda dove stanno: e' la cosa che rivela meglio che cosa " +
+      "I pallini gialli sono i terremoti. Guarda dove stanno: è la cosa che rivela meglio che cosa " +
       "sta succedendo sotto."));
 
     var letture = elemento("div", "letture");
-    letture.appendChild(unaLettura("quanto si e' spostata", function (n) { letturaSpostamento = n; }));
-    letture.appendChild(unaLettura("velocita' misurata oggi", function (n) { letturaTipo = n; }));
+    letture.appendChild(unaLettura("quanto si è spostata", function (n) { letturaSpostamento = n; }));
+    letture.appendChild(unaLettura("velocità misurata oggi", function (n) { letturaTipo = n; }));
     letture.appendChild(unaLettura("terremoti fino a", function (n) { letturaProfondita = n; }));
     contenitore.appendChild(letture);
 
@@ -601,7 +601,7 @@
     riquadro.appendChild(frase);
     contenitore.appendChild(riquadro);
 
-    contenitore.appendChild(elemento("h3", "titolo-blocco", "Quanto tempo e' passato"));
+    contenitore.appendChild(elemento("h3", "titolo-blocco", "Quanto tempo è passato"));
     var comandi = elemento("div", "comandi");
     cursoreAnni = cursore("Lascia passare il tempo", 3, 8.3, 0.05, anni, function (v) {
       anni = v; esperimentoScelto = -1; aggiorna();
@@ -613,11 +613,11 @@
     contoTempo = elemento("div", "involucro-tabella");
     contenitore.appendChild(contoTempo);
     contenitore.appendChild(elemento("p", "nota-piccola",
-      "Un centimetro all'anno fa dieci chilometri ogni milione di anni: e' la conversione che rende " +
-      "maneggevole il tempo geologico. Guarda l'ultima riga: alla velocita' di oggi, per aprire un " +
+      "Un centimetro all'anno fa dieci chilometri ogni milione di anni: è la conversione che rende " +
+      "maneggevole il tempo geologico. Guarda l'ultima riga: alla velocità di oggi, per aprire un " +
       "Atlantico largo cinquemila chilometri ci vogliono duecento milioni di anni. Le rocce dicono che " +
       "l'Atlantico ha cominciato ad aprirsi centottanta milioni di anni fa. Due strade indipendenti " +
-      "che portano allo stesso numero: e' una delle conferme piu' belle della tettonica. Prova poi a " +
+      "che portano allo stesso numero: è una delle conferme più belle della tettonica. Prova poi a " +
       "cambiare margine: con la dorsale del Pacifico ci vuole un sesto del tempo."));
 
     contenitore.appendChild(elemento("h3", "titolo-blocco", "Quale posto del mondo"));
@@ -637,11 +637,11 @@
     limiti.appendChild(elemento("summary", null, "Che cosa questo modello semplifica"));
     var corpo = elemento("div", "limiti-corpo");
     [
-      "I disegni sono sezioni schematiche, non in scala: la crosta e' disegnata molto piu' spessa di com'e'. Se fosse in scala, la crosta oceanica sarebbe un tratto di matita su un foglio alto mezzo metro.",
-      "Le velocita' sono quelle di oggi, misurate col GPS, e vengono usate come se fossero sempre state cosi'. Non e' vero: l'India, per esempio, correva a quindici centimetri all'anno prima di sbattere contro l'Asia, e poi ha rallentato.",
-      "I margini veri non sono linee dritte ne' sempre dello stesso tipo: lungo il Mediterraneo si passa da subduzione a collisione a scorrimento in poche centinaia di chilometri.",
-      "Non c'e' il motore: qui si vede che cosa succede ai margini, non perche' le placche si muovano. Le correnti nel mantello, il peso della placca che sprofonda e la spinta della dorsale sono tutte cose che questa stazione non mostra.",
-      "Il conto del tempo suppone una velocita' costante e un movimento in linea retta. Le placche invece ruotano attorno a un punto, e la velocita' cambia lungo il margine: vicino al polo di rotazione e' quasi zero."
+      "I disegni sono sezioni schematiche, non in scala: la crosta è disegnata molto più spessa di com'è. Se fosse in scala, la crosta oceanica sarebbe un tratto di matita su un foglio alto mezzo metro.",
+      "Le velocità sono quelle di oggi, misurate col GPS, e vengono usate come se fossero sempre state così. Non è vero: l'India, per esempio, correva a quindici centimetri all'anno prima di sbattere contro l'Asia, e poi ha rallentato.",
+      "I margini veri non sono linee dritte né sempre dello stesso tipo: lungo il Mediterraneo si passa da subduzione a collisione a scorrimento in poche centinaia di chilometri.",
+      "Non c'è il motore: qui si vede che cosa succede ai margini, non perché le placche si muovano. Le correnti nel mantello, il peso della placca che sprofonda e la spinta della dorsale sono tutte cose che questa stazione non mostra.",
+      "Il conto del tempo suppone una velocità costante e un movimento in linea retta. Le placche invece ruotano attorno a un punto, e la velocità cambia lungo il margine: vicino al polo di rotazione è quasi zero."
     ].forEach(function (t) { corpo.appendChild(elemento("p", null, t)); });
     limiti.appendChild(corpo);
     contenitore.appendChild(limiti);
@@ -680,7 +680,7 @@
         svuota(contenitore);
         var avviso = elemento("div", "avviso");
         avviso.appendChild(document.createTextNode(
-          "Il file margini.txt e' stato letto ma non contiene margini validi."));
+          "Il file margini.txt è stato letto ma non contiene margini validi."));
         contenitore.appendChild(avviso);
         return;
       }

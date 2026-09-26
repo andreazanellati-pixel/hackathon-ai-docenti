@@ -8,15 +8,15 @@
    Come funziona, in due parole:
    - la fotosintesi lorda segue la curva di risposta alla luce,
      con il tetto che dipende da anidride carbonica e temperatura
-   - la respirazione non si ferma mai e cresce col caldo piu' in
+   - la respirazione non si ferma mai e cresce col caldo più in
      fretta della fotosintesi: per questo oltre una certa
      temperatura la pianta perde, e il guadagno netto cala
-   - il fattore limitante non e' deciso a tavolino: il sito prova
+   - il fattore limitante non è deciso a tavolino: il sito prova
      ad aumentare del dieci per cento ciascuna delle tre cose e
-     guarda quale fa salire di piu' il guadagno netto. E' la
+     guarda quale fa salire di più il guadagno netto. È la
      definizione stessa di fattore limitante, messa in pratica
-   - il punto di compensazione, cioe' la luce alla quale la
-     pianta va in pari, e' trovato per bisezione sulla stessa
+   - il punto di compensazione, cioè la luce alla quale la
+     pianta va in pari, è trovato per bisezione sulla stessa
      curva che si vede disegnata
    ============================================================ */
 
@@ -29,7 +29,7 @@
   var contenitore = document.getElementById("stazione");
   if (!contenitore) return;
 
-  var LARGHEZZA_T = 12;     /* quanto e' larga la campana della temperatura */
+  var LARGHEZZA_T = 12;     /* quanto è larga la campana della temperatura */
 
   /* ---------- stato ---------- */
 
@@ -51,33 +51,33 @@
   var fase = 0;
 
   /* ==========================================================
-     1. Gli esperimenti gia' pronti
+     1. Gli esperimenti già pronti
      ========================================================== */
 
   var ESPERIMENTI = [
     {
       titolo: "Alza la luce",
-      sottotitolo: "All'inizio serve, poi non serve piu': qualcos'altro la frena",
+      sottotitolo: "All'inizio serve, poi non serve più: qualcos'altro la frena",
       pianta: "Spinacio", luce: 100, co2: 420, temperatura: 22, grafico: "luce"
     },
     {
       titolo: "Chi la sta frenando",
-      sottotitolo: "Luce a volonta': adesso il fattore limitante e' un altro",
+      sottotitolo: "Luce a volontà: adesso il fattore limitante è un altro",
       pianta: "Spinacio", luce: 1600, co2: 420, temperatura: 22, grafico: "co2"
     },
     {
       titolo: "Il buio e il punto di pareggio",
-      sottotitolo: "Con poca luce la pianta consuma piu' di quanto produce",
+      sottotitolo: "Con poca luce la pianta consuma più di quanto produce",
       pianta: "Spinacio", luce: 20, co2: 420, temperatura: 22, grafico: "luce"
     },
     {
       titolo: "Troppo caldo",
-      sottotitolo: "La respirazione sale piu' in fretta della fotosintesi",
+      sottotitolo: "La respirazione sale più in fretta della fotosintesi",
       pianta: "Grano", luce: 1200, co2: 420, temperatura: 20, grafico: "temperatura"
     },
     {
       titolo: "C3 contro C4",
-      sottotitolo: "Il mais lavora gia' al massimo con l'aria di tutti i giorni",
+      sottotitolo: "Il mais lavora già al massimo con l'aria di tutti i giorni",
       pianta: "Mais", luce: 1600, co2: 420, temperatura: 32, grafico: "co2"
     },
     {
@@ -153,7 +153,7 @@
     return Math.exp(-q * q);
   }
 
-  /* Il tetto a cui la fotosintesi puo' arrivare in queste
+  /* Il tetto a cui la fotosintesi può arrivare in queste
      condizioni. */
   function tetto(c, t) {
     return pianta.pmax * fattoreCo2(c) * fattoreT(t);
@@ -168,7 +168,7 @@
   }
 
   /* La respirazione non si ferma mai, e raddoppia ogni dieci
-     gradi: e' questo che rovina il bilancio quando fa caldo. */
+     gradi: è questo che rovina il bilancio quando fa caldo. */
   function respirazione(t) {
     return pianta.respirazione * Math.pow(2, (t - 25) / 10);
   }
@@ -193,7 +193,7 @@
 
   /* Il fattore limitante: si prova ad aumentare del dieci per
      cento ciascuna delle tre cose e si guarda quale fa salire di
-     piu' il guadagno netto. E' la definizione stessa di fattore
+     più il guadagno netto. È la definizione stessa di fattore
      limitante, applicata invece che raccontata. */
   function fattoreLimitante() {
     var ora = nettaOra();
@@ -425,28 +425,28 @@
         (comp !== null
           ? "Per andare in pari le servirebbe una luce di circa " + Math.round(comp) +
             ": sotto quel valore, che si chiama punto di compensazione, la pianta consuma le sue riserve. " +
-            "E' quello che succede a ogni pianta tutte le notti."
+            "È quello che succede a ogni pianta tutte le notti."
           : "In queste condizioni non va in pari nemmeno con il sole pieno: il caldo o la mancanza di " +
             "anidride carbonica le impediscono di recuperare.");
     }
 
-    var parte = "Il fattore limitante adesso e' " + lim.nome + ": e' quello che, se lo aumenti, fa " +
-      "salire di piu' il guadagno. ";
+    var parte = "Il fattore limitante adesso è " + lim.nome + ": è quello che, se lo aumenti, fa " +
+      "salire di più il guadagno. ";
 
     if (lim.nome === "la luce") {
-      return parte + "Sei nel tratto in cui la curva sale ancora: ogni raggio in piu' viene usato. " +
-        "Continua ad alzarla e a un certo punto la curva si appiattira': da li' in avanti sara' " +
+      return parte + "Sei nel tratto in cui la curva sale ancora: ogni raggio in più viene usato. " +
+        "Continua ad alzarla e a un certo punto la curva si appiattirà: da lì in avanti sarà " +
         "qualcos'altro a frenare.";
     }
     if (lim.nome === "l'anidride carbonica") {
-      return parte + "La luce c'e' gia' abbastanza: aggiungerne non serve quasi a niente, perche' la " +
+      return parte + "La luce c'è già abbastanza: aggiungerne non serve quasi a niente, perché la " +
         "pianta non riesce a procurarsi abbastanza anidride carbonica da usarla. " +
         (pianta.tipo === "C4"
-          ? "Nota pero' che questa e' una C4, e con l'aria normale e' gia' quasi al massimo: per lei " +
+          ? "Nota però che questa è una C4, e con l'aria normale è già quasi al massimo: per lei " +
             "questo freno conta molto meno."
-          : "E' il motivo per cui nelle serre si arricchisce l'aria di anidride carbonica.");
+          : "È il motivo per cui nelle serre si arricchisce l'aria di anidride carbonica.");
     }
-    return parte + "La temperatura non e' quella giusta per questa pianta, che lavora meglio attorno " +
+    return parte + "La temperatura non è quella giusta per questa pianta, che lavora meglio attorno " +
       "ai " + conVirgola(pianta.tOttimale) + " gradi. Ricorda che il caldo fa due cose opposte: aiuta " +
       "gli enzimi fino a un certo punto, ma fa crescere la respirazione senza fermarsi mai.";
   }
@@ -520,9 +520,9 @@
     frase.textContent = racconta();
     schedaPianta.textContent = pianta.nome + ", una " + pianta.tipo + ". Al massimo arriva a " +
       conVirgola(pianta.pmax) + ", lavora meglio a " + conVirgola(pianta.tOttimale) + " gradi, e va a " +
-      "meta' velocita' con " + conVirgola(pianta.kCo2) + " ppm di anidride carbonica" +
-      (pianta.kCo2 < 100 ? ", cioe' molto meno di quella che c'e' nell'aria: e' il vantaggio delle C4."
-        : ", cioe' meno di quella che c'e' nell'aria ma non di molto.") +
+      "metà velocità con " + conVirgola(pianta.kCo2) + " ppm di anidride carbonica" +
+      (pianta.kCo2 < 100 ? ", cioè molto meno di quella che c'è nell'aria: è il vantaggio delle C4."
+        : ", cioè meno di quella che c'è nell'aria ma non di molto.") +
       (pianta.nota ? " " + pianta.nota.charAt(0).toUpperCase() + pianta.nota.slice(1) + "." : "");
 
     if (larghezza <= 0 && tela && tela.parentNode.clientWidth > 0) adattaTele();
@@ -551,7 +551,7 @@
 
     contenitore.appendChild(elemento("p", "guida",
       "Una pianta non guadagna tutto quello che produce: mentre fa la fotosintesi respira anche, e la " +
-      "respirazione non si ferma mai, nemmeno di notte. Quello che conta e' la differenza. Qui ci sono " +
+      "respirazione non si ferma mai, nemmeno di notte. Quello che conta è la differenza. Qui ci sono " +
       "tutte e due le curve: quanta ne fa, e quanta gliene resta."));
 
     contenitore.appendChild(elemento("h3", "titolo-blocco", "Esperimenti da provare"));
@@ -607,7 +607,7 @@
     contenitore.appendChild(scatolaG);
     contenitore.appendChild(elemento("p", "nota-piccola",
       "Dove la curva blu passa sotto la riga dello zero la pianta sta consumando le sue riserve. " +
-      "Il punto in cui la taglia, sul grafico della luce, e' il punto di compensazione."));
+      "Il punto in cui la taglia, sul grafico della luce, è il punto di compensazione."));
 
     /* --- le manopole --- */
     contenitore.appendChild(elemento("h3", "titolo-blocco", "Le manopole"));
@@ -650,11 +650,11 @@
     var corpo = elemento("div", "limiti-corpo");
     [
       "I tre fattori si moltiplicano fra loro secondo curve semplici. Nella pianta vera si intrecciano: la temperatura cambia anche quanto bene la pianta cattura l'anidride carbonica, e l'acqua che manca chiude gli stomi e blocca tutto.",
-      "Manca l'acqua, che nella realta' e' spesso il fattore limitante piu' importante di tutti. Una pianta assetata chiude gli stomi e smette di prendere anidride carbonica, anche con luce e temperatura perfette.",
-      "La fotorespirazione, che nelle C3 spreca una parte del lavoro e cresce col caldo, qui non e' calcolata a parte: e' inglobata nei numeri delle piante. La differenza fra C3 e C4 c'e', ma resa in modo semplificato.",
-      "La campana della temperatura e' simmetrica e la pianta non si rovina mai. Sopra i 45 gradi una foglia vera si danneggia davvero, e non si riprende.",
+      "Manca l'acqua, che nella realtà è spesso il fattore limitante più importante di tutti. Una pianta assetata chiude gli stomi e smette di prendere anidride carbonica, anche con luce e temperatura perfette.",
+      "La fotorespirazione, che nelle C3 spreca una parte del lavoro e cresce col caldo, qui non è calcolata a parte: è inglobata nei numeri delle piante. La differenza fra C3 e C4 c'è, ma resa in modo semplificato.",
+      "La campana della temperatura è simmetrica e la pianta non si rovina mai. Sopra i 45 gradi una foglia vera si danneggia davvero, e non si riprende.",
       "Si guarda una foglia sola, in condizioni costanti. Una pianta intera ha foglie al sole e foglie all'ombra, e nell'arco della giornata tutto cambia di continuo.",
-      "I numeri delle piante sono valori tipici da manuale. La stessa specie, coltivata in due posti diversi, da' misure diverse."
+      "I numeri delle piante sono valori tipici da manuale. La stessa specie, coltivata in due posti diversi, dà misure diverse."
     ].forEach(function (t) { corpo.appendChild(elemento("p", null, t)); });
     limiti.appendChild(corpo);
     contenitore.appendChild(limiti);
@@ -701,7 +701,7 @@
         svuota(contenitore);
         var avviso = elemento("div", "avviso");
         avviso.appendChild(document.createTextNode(
-          "Il file piante.txt e' stato letto ma non contiene piante valide."));
+          "Il file piante.txt è stato letto ma non contiene piante valide."));
         contenitore.appendChild(avviso);
         return;
       }

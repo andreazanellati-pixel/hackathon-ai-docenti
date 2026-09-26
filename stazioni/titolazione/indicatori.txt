@@ -2,8 +2,8 @@
 # GLI INDICATORI
 # ============================================================
 #
-# Un indicatore e' una sostanza che cambia colore in un certo
-# intervallo di pH. Serve a capire quando la titolazione e'
+# Un indicatore è una sostanza che cambia colore in un certo
+# intervallo di pH. Serve a capire quando la titolazione è
 # arrivata al punto giusto.
 #
 # COME SI SCRIVE UN INDICATORE

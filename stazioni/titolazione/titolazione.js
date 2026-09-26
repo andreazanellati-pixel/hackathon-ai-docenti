@@ -5,9 +5,9 @@
    goccia dopo goccia e la curva si disegna da sola.
 
    Come funziona, in due parole:
-   - il pH non e' approssimato con le formulette dei casi
+   - il pH non è approssimato con le formulette dei casi
      particolari: si risolve ogni volta il bilancio delle cariche
-     della soluzione, per bisezione. Cosi' la curva resta corretta
+     della soluzione, per bisezione. Così la curva resta corretta
      anche vicino al punto equivalente, dove le formulette
      sbagliano
    - le sostanze e i loro pKa stanno in soluzioni.txt
@@ -54,19 +54,19 @@
   var cursoreConc = null, cursoreVol = null, cursoreConcT = null;
 
   /* ==========================================================
-     1. Gli esperimenti gia' pronti
+     1. Gli esperimenti già pronti
      ========================================================== */
 
   var ESPERIMENTI = [
     {
       titolo: "Forte contro forte",
-      sottotitolo: "HCl con NaOH e fenolftaleina: il salto piu' netto",
+      sottotitolo: "HCl con NaOH e fenolftaleina: il salto più netto",
       sostanza: "Acido cloridrico", indicatore: "Fenolftaleina",
       conc: 0.1, volume: 25, concT: 0.1
     },
     {
       titolo: "Debole contro forte",
-      sottotitolo: "Acido acetico: al punto equivalente il pH non e' 7",
+      sottotitolo: "Acido acetico: al punto equivalente il pH non è 7",
       sostanza: "Acido acetico", indicatore: "Fenolftaleina",
       conc: 0.1, volume: 25, concT: 0.1
     },
@@ -78,7 +78,7 @@
     },
     {
       titolo: "Una base debole",
-      sottotitolo: "Ammoniaca con HCl: qui il metilarancio e' quello giusto",
+      sottotitolo: "Ammoniaca con HCl: qui il metilarancio è quello giusto",
       sostanza: "Ammoniaca", indicatore: "Metilarancio",
       conc: 0.1, volume: 25, concT: 0.1
     }
@@ -159,7 +159,7 @@
      Si cerca la concentrazione di ioni H+ che manda a zero il
      bilancio delle cariche: le cariche positive devono essere
      tante quante le negative. Quella funzione cresce sempre al
-     crescere di [H+], quindi basta dimezzare l'intervallo finche'
+     crescere di [H+], quindi basta dimezzare l'intervallo finché
      non si stringe sul valore giusto.
      ========================================================== */
 
@@ -298,7 +298,7 @@
     var yCollo = yBeuta - altBeuta;
 
     var vTot = volumeAnalita + volumeAggiunto;
-    /* il livello non e' in scala con i millilitri veri: serve solo a far
+    /* il livello non è in scala con i millilitri veri: serve solo a far
        vedere che versando la beuta si riempie */
     var pieno = 0.3 + 0.7 * Math.min(1, vTot / 90);
     var yLiquido = yBeuta - altBeuta * 0.75 * pieno - 2;
@@ -405,7 +405,7 @@
     c.beginPath(); c.moveTo(X(veq), su); c.lineTo(X(veq), su + h); c.stroke();
     c.setLineDash([]);
 
-    /* la curva teorica intera, se e' stata chiesta */
+    /* la curva teorica intera, se è stata chiesta */
     if (mostraCurva) {
       c.strokeStyle = bordo;
       c.lineWidth = 3;
@@ -504,7 +504,7 @@
       return;
     }
     /* si calcola prima dove si deve arrivare, poi si riempie il tratto:
-       cosi' cinque millilitri sono cinque millilitri esatti, e i
+       così cinque millilitri sono cinque millilitri esatti, e i
        centesimi non si perdono per strada */
     var partenza = volumeAggiunto;
     var bersaglio = Math.min(tetto, partenza + quanto);
@@ -538,7 +538,7 @@
         : "un " + analita.tipo + " debole, p" + (analita.tipo === "acido" ? "Ka" : "Kb") +
           " = " + conVirgola(analita.pK) + ".") +
       (analita.dove ? " Dove si trova: " + analita.dove + "." : "") +
-      " Si titola con " + nomeTitolante() + ", che e' " +
+      " Si titola con " + nomeTitolante() + ", che è " +
       (analita.tipo === "acido" ? "una base forte." : "un acido forte.");
   }
 
@@ -579,39 +579,39 @@
     var manca = veq - volumeAggiunto;
 
     if (volumeAggiunto === 0) {
-      return "Nella beuta per ora c'e' solo " + analita.nome.toLowerCase() + ": il pH di partenza e' " +
+      return "Nella beuta per ora c'è solo " + analita.nome.toLowerCase() + ": il pH di partenza è " +
         conVirgola(arrotonda(ph, 2)) + ". Apri il rubinetto e guarda che cosa succede.";
     }
     if (Math.abs(manca) < 0.03) {
       return "Siamo al punto equivalente: le moli di " + nomeTitolante() + " versate sono esattamente " +
         "quante quelle di " + analita.formula + " di partenza. Il pH vale " + conVirgola(arrotonda(ph, 2)) +
         (analita.forte
-          ? ", cioe' 7: in beuta restano acqua e un sale che il pH non lo tocca."
+          ? ", cioè 7: in beuta restano acqua e un sale che il pH non lo tocca."
           : (acido
-            ? ", e non 7: in beuta e' rimasta la base coniugata dell'acido, che rende la soluzione un po' basica."
-            : ", e non 7: in beuta e' rimasto l'acido coniugato della base, che rende la soluzione un po' acida."));
+            ? ", e non 7: in beuta è rimasta la base coniugata dell'acido, che rende la soluzione un po' basica."
+            : ", e non 7: in beuta è rimasto l'acido coniugato della base, che rende la soluzione un po' acida."));
     }
     if (manca > 0) {
       if (!analita.forte && volumeAggiunto > veq * 0.15 && volumeAggiunto < veq * 0.85) {
         var aMeta = Math.abs(volumeAggiunto - veq / 2) < 0.06;
-        return "Questa e' la zona tampone: una parte della sostanza e' ancora intera e una parte e' gia' " +
+        return "Questa è la zona tampone: una parte della sostanza è ancora intera e una parte è già " +
           "trasformata, e il pH sale pianissimo." +
           (aMeta
-            ? " Proprio a meta' strada le due meta' si pareggiano e il pH vale " + conVirgola(arrotonda(ph, 2)) +
-              ", cioe' il pKa della coppia: e' il modo piu' rapido per misurarlo."
+            ? " Proprio a metà strada le due metà si pareggiano e il pH vale " + conVirgola(arrotonda(ph, 2)) +
+              ", cioè il pKa della coppia: è il modo più rapido per misurarlo."
             : "");
       }
       return "Mancano ancora " + conVirgola(arrotonda(manca, 2)) + " mL. " +
         (virato
-          ? "Attenzione pero': l'indicatore e' gia' virato, quindi ti direbbe di fermarti troppo presto."
-          : "L'indicatore non e' ancora cambiato.");
+          ? "Attenzione però: l'indicatore è già virato, quindi ti direbbe di fermarti troppo presto."
+          : "L'indicatore non è ancora cambiato.");
     }
     return "Hai superato il punto equivalente di " + conVirgola(arrotonda(-manca, 2)) + " mL: adesso comanda " +
       "il " + nomeTitolante() + " in eccesso e il pH torna ad appiattirsi. " +
-      (virato ? "L'indicatore e' virato." : "L'indicatore non e' virato nemmeno adesso: con questa coppia non serve a niente.");
+      (virato ? "L'indicatore è virato." : "L'indicatore non è virato nemmeno adesso: con questa coppia non serve a niente.");
   }
 
-  /* il ciclo dell'animazione: una goccia ogni tanto, finche' il
+  /* il ciclo dell'animazione: una goccia ogni tanto, finché il
      rubinetto resta aperto */
   var ultimo = 0;
   function battito(ora) {
@@ -644,7 +644,7 @@
     if (e2) contenitore.appendChild(e2);
 
     contenitore.appendChild(elemento("p", "guida",
-      "Titolare vuol dire aggiungere goccia a goccia una soluzione di concentrazione nota, finche' " +
+      "Titolare vuol dire aggiungere goccia a goccia una soluzione di concentrazione nota, finché " +
       "non ha reagito tutta la sostanza che sta nella beuta. Il momento in cui finisce si chiama punto " +
       "equivalente: da quel volume si risale alla concentrazione di partenza."));
 
@@ -724,11 +724,11 @@
     contenitore.appendChild(rigaMostra);
 
     contenitore.appendChild(elemento("p", "nota-piccola",
-      "La linea blu e' la strada che hai percorso tu, goccia dopo goccia. La riga tratteggiata verticale " +
+      "La linea blu è la strada che hai percorso tu, goccia dopo goccia. La riga tratteggiata verticale " +
       "segna il punto equivalente calcolato: serve per controllare se ti sei fermato nel posto giusto."));
 
-    /* --- che cosa c'e' nella beuta --- */
-    contenitore.appendChild(elemento("h3", "titolo-blocco", "Che cosa c'e' nella beuta"));
+    /* --- che cosa c'è nella beuta --- */
+    contenitore.appendChild(elemento("h3", "titolo-blocco", "Che cosa c'è nella beuta"));
     var scelte = elemento("div", "scelte-grandezza");
     sostanze.forEach(function (s) {
       var b = elemento("button", "pillola", s.nome);
@@ -791,9 +791,9 @@
     var corpo = elemento("div", "limiti-corpo");
     [
       "Tutto avviene a 25 gradi: il prodotto ionico dell'acqua vale 10 alla meno 14 e non cambia mai.",
-      "Le soluzioni sono considerate diluite, quindi al posto delle attivita' si usano le concentrazioni. Sopra circa 0,1 mol/L la curva vera si scosta un poco da questa.",
-      "Le sostanze sono tutte monoprotiche: cedono o prendono un solo ione H+. L'acido solforico o l'acido fosforico avrebbero piu' salti, non uno solo.",
-      "Il colore cambia in modo continuo fra i due estremi del viraggio. Dal vero l'occhio non lo vede cosi' graduale.",
+      "Le soluzioni sono considerate diluite, quindi al posto delle attività si usano le concentrazioni. Sopra circa 0,1 mol/L la curva vera si scosta un poco da questa.",
+      "Le sostanze sono tutte monoprotiche: cedono o prendono un solo ione H+. L'acido solforico o l'acido fosforico avrebbero più salti, non uno solo.",
+      "Il colore cambia in modo continuo fra i due estremi del viraggio. Dal vero l'occhio non lo vede così graduale.",
       "Non si tiene conto dell'anidride carbonica che entra dall'aria e che, in una titolazione lenta con la soda, sposta un po' il risultato.",
       "La buretta non si svuota mai per davvero: quando arriva a zero si considera riempita di nuovo."
     ].forEach(function (t) { corpo.appendChild(elemento("p", null, t)); });

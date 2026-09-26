@@ -4,13 +4,13 @@
    Un gene da trascrivere e tradurre, e poi da rovinare.
 
    Si clicca su una base per cambiarla, oppure la si toglie o se
-   ne aggiunge una. Il sito rifa' la trascrizione e la traduzione
-   e dice che tipo di mutazione e' venuta fuori.
+   ne aggiunge una. Il sito rifà la trascrizione e la traduzione
+   e dice che tipo di mutazione è venuta fuori.
 
    Il punto della stazione: cambiare una lettera spesso non fa
-   niente, ma toglierne una sposta la cornice di lettura e da li'
-   in poi la proteina e' un'altra. Le mutazioni non si misurano
-   da quanto e' grande il cambiamento nel DNA.
+   niente, ma toglierne una sposta la cornice di lettura e da lì
+   in poi la proteina è un'altra. Le mutazioni non si misurano
+   da quanto è grande il cambiamento nel DNA.
    ============================================================ */
 
 (function () {
@@ -29,7 +29,7 @@
 
   var ORIGINALE = "ATGTTCGGCAAAGCTTCTGACCGTATTGAGTCTTAA";
   var sequenza = ORIGINALE;
-  var selezionata = -1;     /* quale base e' stata toccata per ultima */
+  var selezionata = -1;     /* quale base è stata toccata per ultima */
 
   var BASI = ["A", "T", "G", "C"];
   var COMPLEMENTO = { A: "T", T: "A", G: "C", C: "G" };
@@ -94,7 +94,7 @@
     return { inizio: inizio, catena: catena, fine: fine };
   }
 
-  /* che tipo di mutazione e' venuta fuori, confrontando con l'originale */
+  /* che tipo di mutazione è venuta fuori, confrontando con l'originale */
   function confronta() {
     var vecchia = traduci(trascrivi(ORIGINALE)).catena;
     var nuova = traduci(trascrivi(sequenza)).catena;

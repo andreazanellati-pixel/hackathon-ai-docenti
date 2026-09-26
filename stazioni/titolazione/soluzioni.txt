@@ -2,7 +2,7 @@
 # LE SOSTANZE DA TITOLARE
 # ============================================================
 #
-# Ogni riga descrive una sostanza che si puo' mettere nella
+# Ogni riga descrive una sostanza che si può mettere nella
 # beuta e titolare.
 #
 # COME SI SCRIVE UNA SOSTANZA
@@ -10,19 +10,19 @@
 #
 #   nome | formula | tipo | forza | dove si trova
 #
-#   tipo   e' la parola  acido  oppure  base
-#   forza  e' la parola  forte  oppure il valore di pKa
+#   tipo   è la parola  acido  oppure  base
+#   forza  è la parola  forte  oppure il valore di pKa
 #          (per gli acidi) o di pKb (per le basi)
 #
 # Esempi:
 #   Acido cloridrico | HCl | acido | forte | acido dello stomaco
 #   Acido acetico | CH3COOH | acido | 4,76 | aceto
 #
-# Piu' il pKa e' basso, piu' l'acido e' forte. Un acido con
-# pKa 2 e' molto piu' forte di uno con pKa 10.
+# Più il pKa è basso, più l'acido è forte. Un acido con
+# pKa 2 è molto più forte di uno con pKa 10.
 #
 # Le righe che iniziano con # sono commenti: il sito le ignora.
-# Se una riga e' scritta male viene saltata e segnalata.
+# Se una riga è scritta male viene saltata e segnalata.
 #
 # ============================================================
 

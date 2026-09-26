@@ -2,22 +2,22 @@
    Dentro la Terra con le onde
    ------------------------------------------------------------
    Un terremoto in superficie, e i raggi sismici che attraversano
-   il pianeta. Dove arrivano e dove non arrivano dice com'e'
+   il pianeta. Dove arrivano e dove non arrivano dice com'è
    fatta la Terra dentro.
 
    Come funziona, in due parole:
    - i raggi non sono disegnati a mano: sono calcolati. Dentro
      una Terra a gusci il parametro del raggio si conserva, e da
      quello si ricava sia la curva che la distanza a cui il
-     raggio riemerge. E' la legge di Snell applicata a una sfera
-   - la zona d'ombra non e' scritta da nessuna parte: nasce dal
+     raggio riemerge. È la legge di Snell applicata a una sfera
+   - la zona d'ombra non è scritta da nessuna parte: nasce dal
      calcolo. Con questi strati viene fra i 98 e i 140 gradi per
      le onde P, contro i 103-143 misurati sulla Terra vera: un
      buon risultato per un modello di sette strati
-   - il nucleo esterno ha velocita' S scritta zero perche' e'
+   - il nucleo esterno ha velocità S scritta zero perché è
      liquido. Basta cambiare quel numero nel file strati.txt e
-     l'ombra delle onde S sparisce: e' il ragionamento con cui
-     nel 1926 si capi' che il nucleo era liquido
+     l'ombra delle onde S sparisce: è il ragionamento con cui
+     nel 1926 si capì che il nucleo era liquido
    ============================================================ */
 
 (function () {
@@ -49,7 +49,7 @@
   var ombre = { P: null, Ptutti: null, S: null };
 
   /* ==========================================================
-     1. Gli esperimenti gia' pronti
+     1. Gli esperimenti già pronti
      ========================================================== */
 
   var ESPERIMENTI = [
@@ -60,7 +60,7 @@
     },
     {
       titolo: "Dentro l'ombra delle P",
-      sottotitolo: "A 108 gradi non arriva proprio niente. Perche'?",
+      sottotitolo: "A 108 gradi non arriva proprio niente. Perché?",
       onda: "P", distanza: 108
     },
     {
@@ -75,7 +75,7 @@
     },
     {
       titolo: "L'ombra delle onde S",
-      sottotitolo: "Oltre 98 gradi le S non arrivano piu', e non tornano mai",
+      sottotitolo: "Oltre 98 gradi le S non arrivano più, e non tornano mai",
       onda: "S", distanza: 130
     }
   ];
@@ -103,15 +103,15 @@
       var manca = false;
       n.forEach(function (v) { if (v === null) manca = true; });
       if (manca) {
-        errori.push("riga " + (i + 1) + ": le profondita' e le velocita' devono essere numeri.");
+        errori.push("riga " + (i + 1) + ": le profondità e le velocità devono essere numeri.");
         return;
       }
       if (n[1] <= n[0]) {
-        errori.push("riga " + (i + 1) + ": la profondita' del fondo deve essere maggiore di quella del tetto.");
+        errori.push("riga " + (i + 1) + ": la profondità del fondo deve essere maggiore di quella del tetto.");
         return;
       }
       if (n[2] <= 0 || n[3] <= 0) {
-        errori.push("riga " + (i + 1) + ": la velocita' delle onde P deve essere maggiore di zero.");
+        errori.push("riga " + (i + 1) + ": la velocità delle onde P deve essere maggiore di zero.");
         return;
       }
       elenco.push({
@@ -127,10 +127,10 @@
   }
 
   /* ==========================================================
-     3. La velocita' a ogni profondita'
+     3. La velocità a ogni profondità
      ========================================================== */
 
-  /* La velocita' dell'onda scelta a una data distanza dal centro.
+  /* La velocità dell'onda scelta a una data distanza dal centro.
      Dentro ogni strato varia un po' alla volta fra il valore al
      tetto e quello al fondo. */
   function velocita(r, tipo) {
@@ -152,9 +152,9 @@
      4. Il percorso di un raggio
      ------------------------------------------------------------
      Dentro una Terra fatta a gusci sferici, per ogni raggio si
-     conserva il parametro p = r sin(i) / v. Da li' si ricava
-     l'inclinazione a ogni profondita', e quindi il cammino.
-     E' la legge di Snell, scritta per una sfera.
+     conserva il parametro p = r sin(i) / v. Da lì si ricava
+     l'inclinazione a ogni profondità, e quindi il cammino.
+     È la legge di Snell, scritta per una sfera.
      ========================================================== */
 
   function tracciaRaggio(angoloPartenza, tipo) {
@@ -162,11 +162,11 @@
     if (!(v0 > 0)) return null;
     var p = RAGGIO_TERRA * Math.sin(angoloPartenza) / v0;
 
-    /* Si avanza a piccoli passi di ANGOLO, non di profondita'.
-       Facendo il contrario, nel punto piu' profondo del raggio -
+    /* Si avanza a piccoli passi di ANGOLO, non di profondità.
+       Facendo il contrario, nel punto più profondo del raggio -
        dove il cammino diventa orizzontale - il conto esplode.
-       Cosi' invece il passo in profondita' si riduce da solo fino
-       a zero, che e' proprio quello che il raggio fa. */
+       Così invece il passo in profondità si riduce da solo fino
+       a zero, che è proprio quello che il raggio fa. */
     var punti = [{ r: RAGGIO_TERRA, delta: 0 }];
     var r = RAGGIO_TERRA - 0.5;
     var delta = 0;
@@ -184,10 +184,10 @@
 
       var seno = p * v / r;
       if (seno >= 1) {
-        /* Il raggio e' arrivato al suo punto piu' profondo e
+        /* Il raggio è arrivato al suo punto più profondo e
            risale. Bisogna scavalcarlo a mano rifacendo all'indietro
-           l'ultimo passo: proprio li' il cammino e' orizzontale e
-           il passo in profondita' vale zero, quindi il raggio
+           l'ultimo passo: proprio lì il cammino è orizzontale e
+           il passo in profondità vale zero, quindi il raggio
            resterebbe fermo per sempre. */
         scendendo = !scendendo;
         rimbalzi++;
@@ -212,7 +212,7 @@
     }
 
     if (fermato) return null;
-    if (r < RAGGIO_TERRA - 1) return null;       /* non e' riemerso */
+    if (r < RAGGIO_TERRA - 1) return null;       /* non è riemerso */
     return {
       punti: punti,
       delta: delta * 180 / Math.PI,
@@ -233,9 +233,9 @@
   }
 
   /* La zona d'ombra: gli intervalli di distanza in cui non
-     arriva nessun raggio. Non e' scritta da nessuna parte: si
+     arriva nessun raggio. Non è scritta da nessuna parte: si
      guarda dove i raggi calcolati non arrivano. */
-  /* A che profondita' comincia l'ultimo strato: serve a
+  /* A che profondità comincia l'ultimo strato: serve a
      distinguere i raggi che attraversano il nucleo interno. */
   function tettoNucleoInterno() {
     return strati.length ? strati[strati.length - 1].tetto : 5150;
@@ -259,7 +259,7 @@
       coperto.push(trovato);
     }
 
-    /* il buco piu' largo */
+    /* il buco più largo */
     var migliore = null, inizio = -1;
     for (var h = 0; h <= 180; h++) {
       if (!coperto[h]) {
@@ -275,7 +275,7 @@
     return migliore || { da: 0, a: 0 };
   }
 
-  /* A che profondita' comincia l'ultimo strato: serve a
+  /* A che profondità comincia l'ultimo strato: serve a
      distinguere i raggi che attraversano il nucleo interno. */
   function tettoNucleoInterno() {
     return strati.length ? strati[strati.length - 1].tetto : 5150;
@@ -313,7 +313,7 @@
     var R = Math.min(larghezza, altezza) * 0.44;
     var scala = R / RAGGIO_TERRA;
 
-    /* gli strati, dal piu' profondo al piu' esterno */
+    /* gli strati, dal più profondo al più esterno */
     for (var i = strati.length - 1; i >= 0; i--) {
       var s = strati[i];
       c.fillStyle = COLORI_STRATO[i % COLORI_STRATO.length];
@@ -427,9 +427,9 @@
 
     if (scelto) {
       var profonda = RAGGIO_TERRA - Math.min.apply(null, scelto.punti.map(function (p) { return p.r; }));
-      return "A " + Math.round(distanzaScelta) + " gradi le onde " + onda + " arrivano. Il raggio e' " +
-        "sceso fino a " + Math.round(profonda) + " chilometri di profondita' e poi e' risalito: non " +
-        "perche' abbia rimbalzato, ma perche' piu' si scende piu' la roccia e' veloce, e il raggio si " +
+      return "A " + Math.round(distanzaScelta) + " gradi le onde " + onda + " arrivano. Il raggio è " +
+        "sceso fino a " + Math.round(profonda) + " chilometri di profondità e poi è risalito: non " +
+        "perché abbia rimbalzato, ma perché più si scende più la roccia è veloce, e il raggio si " +
         "incurva verso l'alto un po' alla volta. Ci ha messo circa " + Math.round(scelto.tempo / 60) +
         " minuti.";
     }
@@ -437,17 +437,17 @@
     if (dentro) {
       if (onda === "S") {
         return "A " + Math.round(distanzaScelta) + " gradi le onde S non arrivano, e non arriveranno " +
-          "nemmeno piu' in la': da " + omb.da + " gradi in poi c'e' il silenzio, fino all'altra parte " +
-          "del mondo. Il motivo e' che le onde S sono onde di taglio, e un liquido non si puo' " +
-          "tagliare. Per andare oltre dovrebbero attraversare il nucleo esterno, e li' si fermano. " +
-          "Questa mancanza e' la prova che il nucleo esterno e' liquido: si capi' cosi', nel 1926.";
+          "nemmeno più in là: da " + omb.da + " gradi in poi c'è il silenzio, fino all'altra parte " +
+          "del mondo. Il motivo è che le onde S sono onde di taglio, e un liquido non si può " +
+          "tagliare. Per andare oltre dovrebbero attraversare il nucleo esterno, e lì si fermano. " +
+          "Questa mancanza è la prova che il nucleo esterno è liquido: si capì così, nel 1926.";
       }
       return "A " + Math.round(distanzaScelta) + " gradi le onde P non arrivano: siamo dentro la zona " +
         "d'ombra, fra " + omb.da + " e " + omb.a + " gradi. I raggi che restano nel mantello si " +
-        "fermano prima; quelli che entrano nel nucleo trovano di colpo una roccia molto piu' lenta, " +
-        "vengono deviati bruscamente verso il basso e riemergono molto piu' in la'. In mezzo non " +
-        "arriva niente. Quel salto di velocita' e' il confine del nucleo, e il calcolo lo mette a " +
-        "circa 2900 chilometri di profondita'.";
+        "fermano prima; quelli che entrano nel nucleo trovano di colpo una roccia molto più lenta, " +
+        "vengono deviati bruscamente verso il basso e riemergono molto più in là. In mezzo non " +
+        "arriva niente. Quel salto di velocità è il confine del nucleo, e il calcolo lo mette a " +
+        "circa 2900 chilometri di profondità.";
     }
 
     return "A " + Math.round(distanzaScelta) + " gradi non arriva nessun raggio calcolato, ma non " +
@@ -504,7 +504,7 @@
     var scelto = arriva(distanzaScelta, onda);
     var omb = ombre[onda];
 
-    letturaArrivo.textContent = scelto ? "si'" : "no";
+    letturaArrivo.textContent = scelto ? "sì" : "no";
     letturaOmbra.textContent = omb && omb.a > omb.da ? omb.da + "° – " + omb.a + "°" : "nessuna";
     letturaTempo.textContent = scelto ? Math.round(scelto.tempo / 60) + " min" : "—";
 
@@ -532,9 +532,9 @@
     t.appendChild(testa);
 
     var righe = [
-      ["onde P", ombre.P, "il salto di velocita' al confine del nucleo devia i raggi lontano"],
+      ["onde P", ombre.P, "il salto di velocità al confine del nucleo devia i raggi lontano"],
       ["onde P, contando anche quelle che passano dal nucleo interno", ombre.Ptutti,
-        "l'ombra si accorcia: qualcosa arriva lo stesso, ed e' cosi' che si scopri' il nucleo interno"],
+        "l'ombra si accorcia: qualcosa arriva lo stesso, ed è così che si scoprì il nucleo interno"],
       ["onde S", ombre.S, null]
     ];
 
@@ -545,7 +545,7 @@
       tr.appendChild(elemento("td", null,
         o && o.a > o.da ? "fra " + o.da + "° e " + o.a + "°" : "arrivano dappertutto"));
       tr.appendChild(elemento("td", null, riga[2] !== null ? riga[2]
-        : (o && o.a >= 175 ? "non attraversano il nucleo esterno: e' liquido"
+        : (o && o.a >= 175 ? "non attraversano il nucleo esterno: è liquido"
           : "attraversano tutto: allora il nucleo sarebbe solido")));
       t.appendChild(tr);
     });
@@ -560,7 +560,7 @@
     if (avvisoErrori) contenitore.appendChild(avvisoErrori);
 
     contenitore.appendChild(elemento("p", "guida",
-      "Nessuno e' mai sceso sotto i dodici chilometri. Sappiamo com'e' fatta la Terra dentro perche' " +
+      "Nessuno è mai sceso sotto i dodici chilometri. Sappiamo com'è fatta la Terra dentro perché " +
       "le onde dei terremoti la attraversano, e dove arrivano - o dove non arrivano - racconta che " +
       "cosa hanno incontrato per strada."));
 
@@ -600,8 +600,8 @@
     scatola.appendChild(tela);
     contenitore.appendChild(scatola);
     contenitore.appendChild(elemento("p", "didascalia",
-      "Il puntino giallo in cima e' il terremoto. Il tratto rosso sul bordo e' la zona d'ombra, cioe' " +
-      "dove quel tipo di onda non arriva. Il puntino verde o rosso e' la stazione che hai scelto."));
+      "Il puntino giallo in cima è il terremoto. Il tratto rosso sul bordo è la zona d'ombra, cioè " +
+      "dove quel tipo di onda non arriva. Il puntino verde o rosso è la stazione che hai scelto."));
 
     var letture = elemento("div", "letture");
     letture.appendChild(unaLettura("l'onda arriva?", function (n) { letturaArrivo = n; }));
@@ -619,8 +619,8 @@
     contenitore.appendChild(tabellaOmbre);
     contenitore.appendChild(elemento("p", "nota-piccola",
       "Questi intervalli non sono scritti nel programma: vengono fuori dal calcolo dei raggi, uno per " +
-      "uno. Sulla Terra vera l'ombra delle onde P e' misurata fra 103 e 143 gradi: con sette strati " +
-      "soltanto il conto ne azzecca la posizione a cinque gradi di distanza. Se cambi le velocita' in " +
+      "uno. Sulla Terra vera l'ombra delle onde P è misurata fra 103 e 143 gradi: con sette strati " +
+      "soltanto il conto ne azzecca la posizione a cinque gradi di distanza. Se cambi le velocità in " +
       "strati.txt, l'ombra si sposta."));
 
     contenitore.appendChild(elemento("h3", "titolo-blocco", "Dove mettere la stazione"));
@@ -643,20 +643,20 @@
     contenitore.appendChild(rigaB);
 
     contenitore.appendChild(elemento("p", "nota-piccola",
-      "Per capire perche' il nucleo esterno e' liquido, apri strati.txt e scrivi un numero qualsiasi " +
-      "al posto dello zero nelle due velocita' S del nucleo esterno, come se fosse solido. Ricarica la " +
-      "pagina: l'ombra delle onde S sparisce. Siccome nella realta' quell'ombra c'e', il nucleo " +
-      "esterno non puo' essere solido. E' esattamente il ragionamento che fece Inge Lehmann."));
+      "Per capire perché il nucleo esterno è liquido, apri strati.txt e scrivi un numero qualsiasi " +
+      "al posto dello zero nelle due velocità S del nucleo esterno, come se fosse solido. Ricarica la " +
+      "pagina: l'ombra delle onde S sparisce. Siccome nella realtà quell'ombra c'è, il nucleo " +
+      "esterno non può essere solido. È esattamente il ragionamento che fece Inge Lehmann."));
 
     var limiti = elemento("details", "limiti");
     limiti.appendChild(elemento("summary", null, "Che cosa questo modello semplifica"));
     var corpo = elemento("div", "limiti-corpo");
     [
-      "La Terra e' considerata perfettamente sferica e fatta a gusci uguali dappertutto. Non e' vero: sotto gli oceani e sotto i continenti le velocita' sono diverse, e ci sono zone anomale grandi quanto un continente al confine col nucleo.",
-      "Il terremoto e' in superficie. Molti terremoti sono profondi anche centinaia di chilometri, e questo cambia i tempi di arrivo.",
-      "Sono calcolati solo i raggi che vanno dritti per la loro strada. Mancano le onde riflesse sui confini e quelle convertite da P a S e viceversa, che in un sismogramma vero si vedono benissimo e servono anzi a misurare le profondita'.",
-      "Dentro la zona d'ombra delle onde P, nella realta', qualcosa arriva lo stesso: onde deboli diffratte dal bordo del nucleo. Fu proprio studiando quei segnali deboli che nel 1936 Inge Lehmann capi' che dentro il nucleo liquido c'era un nucleo interno solido.",
-      "Le velocita' del file sono valori medi. I modelli veri, come PREM, hanno decine di strati e tengono conto anche della densita' e della pressione."
+      "La Terra è considerata perfettamente sferica e fatta a gusci uguali dappertutto. Non è vero: sotto gli oceani e sotto i continenti le velocità sono diverse, e ci sono zone anomale grandi quanto un continente al confine col nucleo.",
+      "Il terremoto è in superficie. Molti terremoti sono profondi anche centinaia di chilometri, e questo cambia i tempi di arrivo.",
+      "Sono calcolati solo i raggi che vanno dritti per la loro strada. Mancano le onde riflesse sui confini e quelle convertite da P a S e viceversa, che in un sismogramma vero si vedono benissimo e servono anzi a misurare le profondità.",
+      "Dentro la zona d'ombra delle onde P, nella realtà, qualcosa arriva lo stesso: onde deboli diffratte dal bordo del nucleo. Fu proprio studiando quei segnali deboli che nel 1936 Inge Lehmann capì che dentro il nucleo liquido c'era un nucleo interno solido.",
+      "Le velocità del file sono valori medi. I modelli veri, come PREM, hanno decine di strati e tengono conto anche della densità e della pressione."
     ].forEach(function (t) { corpo.appendChild(elemento("p", null, t)); });
     limiti.appendChild(corpo);
     contenitore.appendChild(limiti);
@@ -696,7 +696,7 @@
         svuota(contenitore);
         var avviso = elemento("div", "avviso");
         avviso.appendChild(document.createTextNode(
-          "Il file strati.txt e' stato letto ma non contiene strati validi."));
+          "Il file strati.txt è stato letto ma non contiene strati validi."));
         contenitore.appendChild(avviso);
         return;
       }

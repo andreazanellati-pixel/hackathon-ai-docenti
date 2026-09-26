@@ -1,20 +1,20 @@
 /* ============================================================
    Il banco di stechiometria
    ------------------------------------------------------------
-   Si mettono sul banco certe quantita' di reagenti e si guarda
+   Si mettono sul banco certe quantità di reagenti e si guarda
    che cosa esce: quanto prodotto, che cosa avanza, e soprattutto
    quale reagente finisce per primo.
 
    Come funziona, in due parole:
    - le moli si ricavano dalla massa e dalla massa molare, e da
-     li' in poi si ragiona sempre in moli, mai in grammi: e' il
+     lì in poi si ragiona sempre in moli, mai in grammi: è il
      punto che di solito non passa
-   - il reagente limitante e' quello con il rapporto moli diviso
-     coefficiente piu' piccolo. Il sito lo trova cosi' e lo dice
+   - il reagente limitante è quello con il rapporto moli diviso
+     coefficiente più piccolo. Il sito lo trova così e lo dice
    - la massa totale prima e dopo viene sempre ricalcolata e
-     messa a confronto: se il conto non torna c'e' un errore,
+     messa a confronto: se il conto non torna c'è un errore,
      e la legge di Lavoisier serve proprio a questo
-   - la resa si puo' abbassare sotto il 100%: quello che manca
+   - la resa si può abbassare sotto il 100%: quello che manca
      non sparisce, resta reagente non trasformato
    ============================================================ */
 
@@ -44,7 +44,7 @@
   var COLORI = ["#4c8fbd", "#d9a441", "#4aa06a", "#b5615f", "#7a6fb0", "#5aa0a0"];
 
   /* ==========================================================
-     1. Gli esperimenti gia' pronti
+     1. Gli esperimenti già pronti
      ========================================================== */
 
   var ESPERIMENTI = [
@@ -126,7 +126,7 @@
       prodotti.forEach(function (s) { massaDestra += s.coeff * s.molare; });
       var scarto = Math.abs(massaSinistra - massaDestra) / massaSinistra;
       if (scarto > 0.01) {
-        errori.push("riga " + (i + 1) + ": l'equazione non e' bilanciata. A sinistra " +
+        errori.push("riga " + (i + 1) + ": l'equazione non è bilanciata. A sinistra " +
           arrotonda(massaSinistra, 1) + " g/mol, a destra " + arrotonda(massaDestra, 1) +
           " g/mol. Controlla i coefficienti o le masse molari.");
         return;
@@ -152,8 +152,8 @@
     return masse[i] / reazione.reagenti[i].molare;
   }
 
-  /* Quante volte si riesce a fare la reazione per intero: e' il
-     piu' piccolo fra i rapporti moli diviso coefficiente. */
+  /* Quante volte si riesce a fare la reazione per intero: è il
+     più piccolo fra i rapporti moli diviso coefficiente. */
   function quanteVolte() {
     var minimo = Infinity;
     reazione.reagenti.forEach(function (s, i) {
@@ -172,7 +172,7 @@
     return quale;
   }
 
-  /* Se tutti i rapporti sono uguali, nessuno e' davvero
+  /* Se tutti i rapporti sono uguali, nessuno è davvero
      limitante: le proporzioni sono quelle giuste. */
   function proporzioniGiuste() {
     var primo = null, giuste = true;
@@ -241,7 +241,7 @@
     var sx = 54;
     var w = larghezza - sx - 14;
 
-    /* la scala: il reagente che ha piu' moli riempie la riga */
+    /* la scala: il reagente che ha più moli riempie la riga */
     var maxMoli = 0;
     reazione.reagenti.forEach(function (s, i) {
       if (moliDi(i) > maxMoli) maxMoli = moliDi(i);
@@ -294,7 +294,7 @@
     c.textAlign = "left";
     c.fillStyle = tenue;
     c.font = "600 11px system-ui, sans-serif";
-    c.fillText("quanto ce n'e', in moli · la parte piena e' quella che reagisce", 6, 14);
+    c.fillText("quanto ce n'è, in moli · la parte piena è quella che reagisce", 6, 14);
   }
 
   /* ==========================================================
@@ -311,7 +311,7 @@
   function racconta() {
     var volte = quanteVolte();
     if (volte <= 0) {
-      return "Manca qualcosa: se uno dei reagenti e' a zero la reazione non parte nemmeno. " +
+      return "Manca qualcosa: se uno dei reagenti è a zero la reazione non parte nemmeno. " +
         "Prova a metterne un po' di tutti.";
     }
 
@@ -320,17 +320,17 @@
 
     if (proporzioniGiuste()) {
       return "Qui le proporzioni sono esattamente quelle dell'equazione: nessun reagente avanza, " +
-        "finiscono insieme. E' la situazione che in laboratorio si cerca apposta, perche' non si " +
+        "finiscono insieme. È la situazione che in laboratorio si cerca apposta, perché non si " +
         "spreca niente." + (resa < 100
-          ? " Con la resa al " + conVirgola(resa) + "% pero' una parte non si trasforma, e la ritrovi " +
+          ? " Con la resa al " + conVirgola(resa) + "% però una parte non si trasforma, e la ritrovi " +
             "fra gli avanzi."
           : "");
     }
 
-    return "Il reagente limitante e' " + s.nome + ": e' quello che finisce per primo, e decide quanto " +
-      "prodotto si forma. Non e' quello che pesa di meno ne' quello che ha meno moli in assoluto: e' " +
-      "quello con il rapporto piu' piccolo fra le moli che hai e il suo coefficiente nell'equazione. " +
-      "Gli altri avanzano, e restano li' senza fare niente.";
+    return "Il reagente limitante è " + s.nome + ": è quello che finisce per primo, e decide quanto " +
+      "prodotto si forma. Non è quello che pesa di meno né quello che ha meno moli in assoluto: è " +
+      "quello con il rapporto più piccolo fra le moli che hai e il suo coefficiente nell'equazione. " +
+      "Gli altri avanzano, e restano lì senza fare niente.";
   }
 
   /* ==========================================================
@@ -457,16 +457,16 @@
 
     var testo;
     if (!torna) {
-      testo = "Attenzione: il conto non torna. Se succede, l'equazione scritta nel file non e' bilanciata.";
+      testo = "Attenzione: il conto non torna. Se succede, l'equazione scritta nel file non è bilanciata.";
     } else {
-      testo = "Il conto torna, e non e' un caso: gli atomi non si creano e non si distruggono, cambiano " +
-        "solo compagnia. E' la legge di Lavoisier. Vale anche quando la resa non arriva al 100%, perche' " +
+      testo = "Il conto torna, e non è un caso: gli atomi non si creano e non si distruggono, cambiano " +
+        "solo compagnia. È la legge di Lavoisier. Vale anche quando la resa non arriva al 100%, perché " +
         "quello che non si trasforma resta fra gli avanzi e pesa lo stesso.";
       if (scritto !== scrittoDopo) {
         /* capita quando le masse molari nel file sono arrotondate:
-           vale la pena dirlo, perche' altrimenti sembra un errore */
+           vale la pena dirlo, perché altrimenti sembra un errore */
         testo += " I due numeri qui sopra differiscono di " +
-          conVirgola(arrotonda(Math.abs(prima - dopo), 2)) + " g, ma non e' materia sparita: e' solo " +
+          conVirgola(arrotonda(Math.abs(prima - dopo), 2)) + " g, ma non è materia sparita: è solo " +
           "l'arrotondamento delle masse molari scritte nel file, che hanno poche cifre dopo la virgola.";
       }
     }
@@ -512,7 +512,7 @@
 
     contenitore.appendChild(elemento("p", "guida",
       "Un'equazione chimica non parla di grammi: parla di quante particelle servono. Per usarla bisogna " +
-      "prima passare dai grammi alle moli, fare i conti li', e solo alla fine tornare ai grammi. " +
+      "prima passare dai grammi alle moli, fare i conti lì, e solo alla fine tornare ai grammi. " +
       "Qui si vede succedere, passaggio per passaggio."));
 
     contenitore.appendChild(elemento("h3", "titolo-blocco", "Esperimenti da provare"));
@@ -538,8 +538,8 @@
     scatola.appendChild(tela);
     contenitore.appendChild(scatola);
     contenitore.appendChild(elemento("p", "didascalia",
-      "La barra piena e' la parte di reagente che riesce a reagire, quella vuota oltre la tacca " +
-      "arancione e' quello che avanza. Il reagente limitante e' l'unico la cui barra e' piena fino " +
+      "La barra piena è la parte di reagente che riesce a reagire, quella vuota oltre la tacca " +
+      "arancione è quello che avanza. Il reagente limitante è l'unico la cui barra è piena fino " +
       "in fondo."));
 
     var letture = elemento("div", "letture");
@@ -625,11 +625,11 @@
     limiti.appendChild(elemento("summary", null, "Che cosa questo modello semplifica"));
     var corpo = elemento("div", "limiti-corpo");
     [
-      "Le reazioni sono considerate complete, cioe' vanno fino in fondo in un verso solo. Moltissime reazioni vere invece si fermano a un equilibrio: per quelle serve la stazione dell'equilibrio chimico.",
+      "Le reazioni sono considerate complete, cioè vanno fino in fondo in un verso solo. Moltissime reazioni vere invece si fermano a un equilibrio: per quelle serve la stazione dell'equilibrio chimico.",
       "La resa si sceglie a mano. In laboratorio non si sceglie: dipende da reazioni secondarie, da prodotto che resta attaccato alla vetreria, da passaggi di travaso. Qui serve solo a far vedere che cosa comporta.",
-      "Le masse molari sono quelle scritte nel file, arrotondate. Con i valori a piu' cifre i risultati cambiano nei decimali.",
-      "Non si tiene conto della purezza dei reagenti: si suppone che quello che si pesa sia tutto sostanza utile. Un minerale vero di ferro non e' ossido di ferro puro.",
-      "Lo stato fisico delle sostanze non compare, e non compaiono nemmeno le condizioni: temperatura, pressione, solvente. Per la stechiometria non servono, ma per fare davvero la reazione si'."
+      "Le masse molari sono quelle scritte nel file, arrotondate. Con i valori a più cifre i risultati cambiano nei decimali.",
+      "Non si tiene conto della purezza dei reagenti: si suppone che quello che si pesa sia tutto sostanza utile. Un minerale vero di ferro non è ossido di ferro puro.",
+      "Lo stato fisico delle sostanze non compare, e non compaiono nemmeno le condizioni: temperatura, pressione, solvente. Per la stechiometria non servono, ma per fare davvero la reazione sì."
     ].forEach(function (t) { corpo.appendChild(elemento("p", null, t)); });
     limiti.appendChild(corpo);
     contenitore.appendChild(limiti);
@@ -669,7 +669,7 @@
         svuota(contenitore);
         var avviso = elemento("div", "avviso");
         avviso.appendChild(document.createTextNode(
-          "Il file reazioni-stechiometria.txt e' stato letto ma non contiene reazioni valide."));
+          "Il file reazioni-stechiometria.txt è stato letto ma non contiene reazioni valide."));
         contenitore.appendChild(avviso);
         return;
       }

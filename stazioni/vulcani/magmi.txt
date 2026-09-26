@@ -3,7 +3,7 @@
 # ============================================================
 #
 # Ogni riga descrive un tipo di magma, con i tre numeri che
-# decidono se il vulcano colera' tranquillo o salteranno per
+# decidono se il vulcano colerà tranquillo o salteranno per
 # aria le montagne.
 #
 # COME SI SCRIVE UN MAGMA
@@ -11,40 +11,40 @@
 #
 #   nome | silice | temperatura | gas | esempio | nota
 #
-# silice       la percentuale di biossido di silicio, SiO2. E' il
-#              numero piu' importante di tutti: le molecole di
+# silice       la percentuale di biossido di silicio, SiO2. È il
+#              numero più importante di tutti: le molecole di
 #              silice si agganciano fra loro e formano catene, e
-#              piu' catene ci sono piu' il magma e' denso e
+#              più catene ci sono più il magma è denso e
 #              appiccicoso. Si va da circa 45 per cento nei magmi
-#              piu' fluidi a circa 75 nei piu' vischiosi.
+#              più fluidi a circa 75 nei più vischiosi.
 #
-# temperatura  in gradi. Piu' e' caldo piu' il magma e' fluido,
+# temperatura  in gradi. Più è caldo più il magma è fluido,
 #              esattamente come il miele scaldato.
 #
 # gas          la percentuale di gas disciolti, soprattutto acqua
-#              e anidride carbonica. Finche' il magma sta sotto
+#              e anidride carbonica. Finché il magma sta sotto
 #              pressione il gas resta dentro; quando risale la
 #              pressione cala e il gas vuole uscire, come quando
 #              si apre una bottiglia di acqua frizzante.
 #
-# E' L'INCONTRO FRA DUE COSE A FARE LA DIFFERENZA
+# È L'INCONTRO FRA DUE COSE A FARE LA DIFFERENZA
 # -----------------------------------------------
-# Il gas da solo non basta, e nemmeno la vischiosita' da sola.
-# Se il magma e' fluido il gas esce senza problemi e la lava cola.
-# Se il magma e' denso il gas resta intrappolato, la pressione
+# Il gas da solo non basta, e nemmeno la viscosità da sola.
+# Se il magma è fluido il gas esce senza problemi e la lava cola.
+# Se il magma è denso il gas resta intrappolato, la pressione
 # sale, e quando cede salta tutto.
 #
 # I numeri si scrivono con la virgola o con il punto.
 #
 # Le righe che iniziano con # sono commenti: il sito le ignora.
-# Se una riga e' scritta male viene saltata e segnalata.
+# Se una riga è scritta male viene saltata e segnalata.
 #
 # ============================================================
 
 Basaltico | 50 | 1200 | 0,5 | Kilauea, nelle Hawaii | il magma che viene dal mantello quasi senza cambiare: fluido come l'olio caldo, cola per chilometri
-Basaltico ricco di gas | 50 | 1150 | 2,5 | Etna | sempre fluido, ma con piu' gas: fa le fontane di lava, spettacolari e in genere poco pericolose
-Andesitico | 60 | 1000 | 4 | Vesuvio | il magma tipico dei vulcani sopra una placca che sprofonda: denso e pieno d'acqua, perche' l'acqua arriva dalla placca stessa
+Basaltico ricco di gas | 50 | 1150 | 2,5 | Etna | sempre fluido, ma con più gas: fa le fontane di lava, spettacolari e in genere poco pericolose
+Andesitico | 60 | 1000 | 4 | Vesuvio | il magma tipico dei vulcani sopra una placca che sprofonda: denso e pieno d'acqua, perché l'acqua arriva dalla placca stessa
 Dacitico | 65 | 900 | 5 | Monte Sant'Elena | nel 1980 questo magma fece saltare in aria un intero fianco della montagna
-Riolitico | 73 | 800 | 6 | Yellowstone | cosi' denso da faticare a scorrere: quando esplode non fa una montagna, fa un buco largo decine di chilometri
-Riolitico dei Campi Flegrei | 70 | 850 | 5,5 | Campi Flegrei, Napoli | l'eruzione di trentanovemila anni fa e' la piu' grande d'Europa degli ultimi centomila anni
+Riolitico | 73 | 800 | 6 | Yellowstone | così denso da faticare a scorrere: quando esplode non fa una montagna, fa un buco largo decine di chilometri
+Riolitico dei Campi Flegrei | 70 | 850 | 5,5 | Campi Flegrei, Napoli | l'eruzione di trentanovemila anni fa è la più grande d'Europa degli ultimi centomila anni
 Basaltico sottomarino | 49 | 1250 | 0,2 | dorsale medio-atlantica | esce sotto chilometri d'acqua: la pressione tiene dentro il gas e la lava si raffredda in cuscini

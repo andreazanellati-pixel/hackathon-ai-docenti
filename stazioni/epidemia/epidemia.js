@@ -6,20 +6,20 @@
    partire affatto.
 
    Come funziona, in due parole:
-   - il modello e' quello classico a tre scomparti: sani che
+   - il modello è quello classico a tre scomparti: sani che
      possono ammalarsi, malati contagiosi, guariti immuni.
-     Si integra passo passo, non c'e' nessuna formula finale
+     Si integra passo passo, non c'è nessuna formula finale
      scritta a mano
-   - la popolazione disegnata non e' una decorazione: i pallini
+   - la popolazione disegnata non è una decorazione: i pallini
      di ogni colore sono tanti quanti dice il modello in quel
      momento
-   - accanto al numero R0 c'e' sempre R effettivo, cioe' quanti
-     ne contagia un malato ADESSO, con la gente che e' rimasta
-     sana. L'epidemia cresce finche' quello sta sopra 1, e si
-     spegne appena scende sotto: e' tutta li' l'immunita' di
+   - accanto al numero R0 c'è sempre R effettivo, cioè quanti
+     ne contagia un malato ADESSO, con la gente che è rimasta
+     sana. L'epidemia cresce finché quello sta sopra 1, e si
+     spegne appena scende sotto: è tutta lì l'immunità di
      gregge
-   - la soglia di gregge non e' una regola imparata a memoria:
-     e' 1 meno 1 diviso R0, e il sito la calcola e la mostra
+   - la soglia di gregge non è una regola imparata a memoria:
+     è 1 meno 1 diviso R0, e il sito la calcola e la mostra
    ============================================================ */
 
 (function () {
@@ -61,7 +61,7 @@
   var pallini = [];
 
   /* ==========================================================
-     1. Gli esperimenti gia' pronti
+     1. Gli esperimenti già pronti
      ========================================================== */
 
   var ESPERIMENTI = [
@@ -77,7 +77,7 @@
     },
     {
       titolo: "Appena sopra la soglia",
-      sottotitolo: "Ne bastano tre in piu' ogni cento, e l'epidemia non parte",
+      sottotitolo: "Ne bastano tre in più ogni cento, e l'epidemia non parte",
       malattia: "Morbillo", vaccinati: 95
     },
     {
@@ -86,7 +86,7 @@
       malattia: "Influenza stagionale", vaccinati: 0
     },
     {
-      titolo: "Proteggere chi non si puo' vaccinare",
+      titolo: "Proteggere chi non si può vaccinare",
       sottotitolo: "La pertosse, e i neonati troppo piccoli per il vaccino",
       malattia: "Pertosse", vaccinati: 92
     }
@@ -140,13 +140,13 @@
   function gamma() { return 1 / malattia.giorni; }
 
   /* La soglia di gregge: la frazione di popolazione che deve
-     essere immune perche' l'epidemia non parta. */
+     essere immune perché l'epidemia non parta. */
   function soglia() {
     return malattia.r0 <= 1 ? 0 : 1 - 1 / malattia.r0;
   }
 
   /* R effettivo: quanti ne contagia un malato ADESSO, tenuto
-     conto di quanta gente e' rimasta contagiabile. */
+     conto di quanta gente è rimasta contagiabile. */
   function rEffettivo() {
     return malattia.r0 * S;
   }
@@ -172,7 +172,7 @@
   }
 
   function unGiorno(dt) {
-    /* si avanza a passetti piccoli, cosi' il conto e' preciso */
+    /* si avanza a passetti piccoli, così il conto è preciso */
     var sotto = 20;
     for (var k = 0; k < sotto; k++) {
       var h = dt / sotto;
@@ -192,7 +192,7 @@
     return I * popolazione < 0.5 && giorni > 1;
   }
 
-  /* Quanta gente si ammalera' in tutto, alla fine. Si ricava
+  /* Quanta gente si ammalerà in tutto, alla fine. Si ricava
      risolvendo per tentativi l'equazione del contagio totale:
      serve a controllare che la simulazione arrivi dove deve. */
   function contagiatiAllaFine() {
@@ -222,7 +222,7 @@
 
   /* Ogni pallino prende un colore in proporzione a quanti ce ne
      sono di quello stato. I vaccinati stanno sempre in fondo,
-     cosi' si vede il blocco che non si ammala mai. */
+     così si vede il blocco che non si ammala mai. */
   function coloraPallini() {
     var n = pallini.length;
     var nV = Math.round(V * n);
@@ -361,41 +361,41 @@
 
     if (giorni === 0) {
       if (vaccinati / 100 >= sog && sog > 0) {
-        return "Hai vaccinato piu' della soglia, e infatti R effettivo di partenza vale " +
-          conVirgola(arrotonda(reff, 2)) + ", cioe' meno di 1: ogni malato ne contagia in media meno di " +
-          "uno, e il contagio si spegne da solo. Nota bene: non serve vaccinare tutti, e chi non puo' " +
-          "farlo - i neonati, chi e' in cura per un tumore - viene protetto lo stesso. E' questo che " +
-          "si chiama immunita' di gregge. Premi «Fai partire».";
+        return "Hai vaccinato più della soglia, e infatti R effettivo di partenza vale " +
+          conVirgola(arrotonda(reff, 2)) + ", cioè meno di 1: ogni malato ne contagia in media meno di " +
+          "uno, e il contagio si spegne da solo. Nota bene: non serve vaccinare tutti, e chi non può " +
+          "farlo - i neonati, chi è in cura per un tumore - viene protetto lo stesso. È questo che " +
+          "si chiama immunità di gregge. Premi «Fai partire».";
       }
       return "Si comincia con un malato solo. R effettivo vale " + conVirgola(arrotonda(reff, 2)) +
-        ": sopra 1, quindi l'epidemia partira'. Premi «Fai partire» e guarda che succede.";
+        ": sopra 1, quindi l'epidemia partirà. Premi «Fai partire» e guarda che succede.";
     }
 
     if (finita()) {
       var colpiti = Rg;
       if (colpiti * popolazione < popolazione * 0.01) {
         return "Finita quasi subito: si sono ammalate " + quanti(colpiti) + " persone su " +
-          popolazione.toLocaleString("it-IT") + ". Con cosi' tanti immuni il malato di partenza non ha " +
-          "trovato abbastanza gente da contagiare, e la catena si e' interrotta.";
+          popolazione.toLocaleString("it-IT") + ". Con così tanti immuni il malato di partenza non ha " +
+          "trovato abbastanza gente da contagiare, e la catena si è interrotta.";
       }
-      return "L'epidemia e' finita. Si sono ammalate in tutto " + quanti(colpiti) + " persone su " +
-        popolazione.toLocaleString("it-IT") + ", cioe' il " + Math.round(colpiti * 100) + "%. " +
-        "Il giorno peggiore e' stato il " + Math.round(giornoPicco) + ", con " + quanti(piccoRaggiunto) +
-        " malati tutti insieme. Attenzione a una cosa: si e' fermata da sola, ma non perche' non ci " +
-        "fosse piu' nessuno da contagiare. Sono rimasti " + quanti(S) + " sani mai ammalati: si e' " +
-        "fermata perche' gli immuni erano diventati tanti da far scendere R effettivo sotto 1.";
+      return "L'epidemia è finita. Si sono ammalate in tutto " + quanti(colpiti) + " persone su " +
+        popolazione.toLocaleString("it-IT") + ", cioè il " + Math.round(colpiti * 100) + "%. " +
+        "Il giorno peggiore è stato il " + Math.round(giornoPicco) + ", con " + quanti(piccoRaggiunto) +
+        " malati tutti insieme. Attenzione a una cosa: si è fermata da sola, ma non perché non ci " +
+        "fosse più nessuno da contagiare. Sono rimasti " + quanti(S) + " sani mai ammalati: si è " +
+        "fermata perché gli immuni erano diventati tanti da far scendere R effettivo sotto 1.";
     }
 
     if (reff < 1) {
-      return "R effettivo e' sceso a " + conVirgola(arrotonda(reff, 2)) + ", sotto 1: da adesso ogni " +
-        "malato ne contagia meno di uno e i casi calano. Il picco e' passato. Fai attenzione pero': " +
+      return "R effettivo è sceso a " + conVirgola(arrotonda(reff, 2)) + ", sotto 1: da adesso ogni " +
+        "malato ne contagia meno di uno e i casi calano. Il picco è passato. Fai attenzione però: " +
         "i malati ancora in giro sono " + quanti(I) + ", e continueranno a contagiare ancora per un po'.";
     }
 
     return "Siamo in piena crescita: R effettivo vale " + conVirgola(arrotonda(reff, 2)) + ", sopra 1, " +
-      "quindi ogni malato ne contagia piu' di uno e i casi raddoppiano di continuo. Adesso ci sono " +
-      quanti(I) + " malati. R effettivo scendera' sotto 1 quando gli immuni arriveranno al " +
-      Math.round(soglia() * 100) + "%, cioe' alla soglia di gregge.";
+      "quindi ogni malato ne contagia più di uno e i casi raddoppiano di continuo. Adesso ci sono " +
+      quanti(I) + " malati. R effettivo scenderà sotto 1 quando gli immuni arriveranno al " +
+      Math.round(soglia() * 100) + "%, cioè alla soglia di gregge.";
   }
 
   /* ==========================================================
@@ -465,9 +465,9 @@
     schedaSoglia.textContent = malattia.nome + ", R0 = " + conVirgola(malattia.r0) + ", contagiosi per " +
       conVirgola(malattia.giorni) + " giorni. " +
       (sog > 0
-        ? "La soglia di gregge vale 1 meno 1 diviso " + conVirgola(malattia.r0) + ", cioe' il " +
+        ? "La soglia di gregge vale 1 meno 1 diviso " + conVirgola(malattia.r0) + ", cioè il " +
           Math.round(sog * 100) + "%: sotto quella percentuale di immuni l'epidemia parte, sopra no. " +
-          "Se non si vaccina nessuno, alla fine si ammalera' circa il " +
+          "Se non si vaccina nessuno, alla fine si ammalerà circa il " +
           Math.round(contagiatiAllaFine() * 100) + "% della popolazione."
         : "Con R0 minore o uguale a 1 l'epidemia non si propaga da sola: non serve nessuna soglia.") +
       (malattia.nota ? " " + malattia.nota.charAt(0).toUpperCase() + malattia.nota.slice(1) + "." : "");
@@ -506,7 +506,7 @@
 
     contenitore.appendChild(elemento("p", "guida",
       "Un'epidemia non si ferma quando finiscono le persone da contagiare: si ferma molto prima, " +
-      "appena gli immuni diventano tanti da far si' che ogni malato ne contagi in media meno di uno. " +
+      "appena gli immuni diventano tanti da far sì che ogni malato ne contagi in media meno di uno. " +
       "Da questa frase sola discende tutto il resto, vaccinazioni comprese."));
 
     contenitore.appendChild(elemento("h3", "titolo-blocco", "Esperimenti da provare"));
@@ -535,7 +535,7 @@
     var letture = elemento("div", "letture");
     letture.appendChild(unaLettura("R effettivo, adesso", function (n) { letturaReff = n; }));
     letture.appendChild(unaLettura("malati adesso", function (n) { letturaMalati = n; }));
-    letture.appendChild(unaLettura("gia' passati dalla malattia", function (n) { letturaTotale = n; }));
+    letture.appendChild(unaLettura("già passati dalla malattia", function (n) { letturaTotale = n; }));
     contenitore.appendChild(letture);
 
     var bottoni = elemento("div", "bottoni");
@@ -598,12 +598,12 @@
     limiti.appendChild(elemento("summary", null, "Che cosa questo modello semplifica"));
     var corpo = elemento("div", "limiti-corpo");
     [
-      "Si suppone che tutti incontrino tutti allo stesso modo. Nella realta' non e' cosi': si incontrano soprattutto i familiari, i compagni di classe, i colleghi. Con i contatti raggruppati l'epidemia viaggia diversa, e possono restare sacche di persone non raggiunte anche quando la media direbbe di no.",
-      "Chi guarisce resta immune per sempre. Per il morbillo e' quasi vero, per l'influenza e per il raffreddore no: li' ci si riammala, e il modello a tre scomparti non basta piu'.",
-      "Il vaccino e' considerato efficace al cento per cento. I vaccini veri proteggono molto ma non tutti: per questo la soglia da raggiungere, nella pratica, e' piu' alta di quella calcolata qui.",
-      "R0 e' un numero fisso. Nella realta' cambia con le stagioni, con quanta gente si incontra, con le mascherine, con le scuole aperte o chiuse. Era esattamente il senso delle chiusure: abbassare R0 senza aspettare i vaccini.",
-      "Nessuno nasce e nessuno muore durante l'epidemia, e non c'e' nessuno che arriva da fuori. Su poche settimane va bene, su anni no.",
-      "Il modello non dice quanta gente sta male davvero o rischia la vita: dice solo quanti si contagiano. Sono due cose diverse, e l'Ebola ne e' l'esempio: R0 basso, ma pericolosissima."
+      "Si suppone che tutti incontrino tutti allo stesso modo. Nella realtà non è così: si incontrano soprattutto i familiari, i compagni di classe, i colleghi. Con i contatti raggruppati l'epidemia viaggia diversa, e possono restare sacche di persone non raggiunte anche quando la media direbbe di no.",
+      "Chi guarisce resta immune per sempre. Per il morbillo è quasi vero, per l'influenza e per il raffreddore no: lì ci si riammala, e il modello a tre scomparti non basta più.",
+      "Il vaccino è considerato efficace al cento per cento. I vaccini veri proteggono molto ma non tutti: per questo la soglia da raggiungere, nella pratica, è più alta di quella calcolata qui.",
+      "R0 è un numero fisso. Nella realtà cambia con le stagioni, con quanta gente si incontra, con le mascherine, con le scuole aperte o chiuse. Era esattamente il senso delle chiusure: abbassare R0 senza aspettare i vaccini.",
+      "Nessuno nasce e nessuno muore durante l'epidemia, e non c'è nessuno che arriva da fuori. Su poche settimane va bene, su anni no.",
+      "Il modello non dice quanta gente sta male davvero o rischia la vita: dice solo quanti si contagiano. Sono due cose diverse, e l'Ebola ne è l'esempio: R0 basso, ma pericolosissima."
     ].forEach(function (t) { corpo.appendChild(elemento("p", null, t)); });
     limiti.appendChild(corpo);
     contenitore.appendChild(limiti);
@@ -650,7 +650,7 @@
         svuota(contenitore);
         var avviso = elemento("div", "avviso");
         avviso.appendChild(document.createTextNode(
-          "Il file malattie.txt e' stato letto ma non contiene malattie valide."));
+          "Il file malattie.txt è stato letto ma non contiene malattie valide."));
         contenitore.appendChild(avviso);
         return;
       }

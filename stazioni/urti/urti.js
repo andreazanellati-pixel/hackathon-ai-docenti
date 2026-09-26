@@ -1,19 +1,19 @@
 /* ============================================================
    La teoria degli urti
    ------------------------------------------------------------
-   Perche' una reazione va veloce o lenta. Si regolano temperatura,
+   Perché una reazione va veloce o lenta. Si regolano temperatura,
    concentrazione e catalizzatore, e si guarda quanti urti finiscono
    in reazione.
 
    Come funziona, in due parole:
-   - la curva di Maxwell e Boltzmann e' quella vera in tre
+   - la curva di Maxwell e Boltzmann è quella vera in tre
      dimensioni, la stessa dei libri
-   - la frazione di molecole abbastanza energetiche NON e' presa
-     da una formuletta a parte: e' l'area sotto quella curva
+   - la frazione di molecole abbastanza energetiche NON è presa
+     da una formuletta a parte: è l'area sotto quella curva
      oltre l'energia di attivazione, calcolata sommando le
-     striscioline. Cosi' il numero scritto e' esattamente l'area
+     striscioline. Così il numero scritto è esattamente l'area
      colorata che si vede
-   - la velocita' e' il prodotto di tre cose: quanti urti
+   - la velocità è il prodotto di tre cose: quanti urti
      avvengono, quanti sono abbastanza forti, quanti sono girati
      nel verso giusto
    - il catalizzatore abbassa la collina nei DUE versi, quindi
@@ -37,7 +37,7 @@
   var reazione = null;
 
   var temperatura = 25;     /* gradi */
-  var concentrazione = 1;   /* unita' di comodo, da 0,2 a 3 */
+  var concentrazione = 1;   /* unità di comodo, da 0,2 a 3 */
   var catalizzatore = false;
   var esperimentoScelto = 0;
   var inMoto = true;
@@ -55,13 +55,13 @@
   var contaUrti = 0, contaUtili = 0;
 
   /* ==========================================================
-     1. Gli esperimenti gia' pronti
+     1. Gli esperimenti già pronti
      ========================================================== */
 
   var ESPERIMENTI = [
     {
-      titolo: "Dieci gradi in piu'",
-      sottotitolo: "La vecchia regola dice che raddoppia. Controlla se e' vero",
+      titolo: "Dieci gradi in più",
+      sottotitolo: "La vecchia regola dice che raddoppia. Controlla se è vero",
       reazione: "Marmo e acido cloridrico", temperatura: 25, concentrazione: 1, catalizzatore: false
     },
     {
@@ -71,7 +71,7 @@
     },
     {
       titolo: "Raddoppia la concentrazione",
-      sottotitolo: "Piu' molecole vuol dire piu' urti, ma non urti piu' forti",
+      sottotitolo: "Più molecole vuol dire più urti, ma non urti più forti",
       reazione: "Marmo e acido cloridrico", temperatura: 25, concentrazione: 1, catalizzatore: false
     },
     {
@@ -115,7 +115,7 @@
         return;
       }
       if (eaCat > ea) {
-        errori.push("riga " + (i + 1) + ": con il catalizzatore l'energia di attivazione non puo' essere piu' alta.");
+        errori.push("riga " + (i + 1) + ": con il catalizzatore l'energia di attivazione non può essere più alta.");
         return;
       }
       if (orient <= 0 || orient > 1) {
@@ -145,15 +145,15 @@
   }
 
   /* La distribuzione di Maxwell e Boltzmann delle energie, in tre
-     dimensioni: quella disegnata nei libri. Non e' normalizzata
+     dimensioni: quella disegnata nei libri. Non è normalizzata
      qui dentro, ci pensa l'integrale. */
   function maxwell(e, rt) {
     return Math.sqrt(e) * Math.exp(-e / rt);
   }
 
   /* La frazione di molecole con energia oltre la collina.
-     Si somma l'area sotto la curva a striscioline, cosi' il
-     numero e' esattamente l'area che si vede colorata. */
+     Si somma l'area sotto la curva a striscioline, così il
+     numero è esattamente l'area che si vede colorata. */
   function frazioneUtile() {
     var rt = R * kelvin();
     var eMax = Math.max(collina() * 1.6, rt * 22);
@@ -170,9 +170,9 @@
     return oltre / tutta;
   }
 
-  /* Quanti urti avvengono, in unita' di comodo: crescono col
+  /* Quanti urti avvengono, in unità di comodo: crescono col
      quadrato della concentrazione e con la radice della
-     temperatura, perche' piu' caldo vuol dire piu' veloci. */
+     temperatura, perché più caldo vuol dire più veloci. */
   function urtiAlSecondo() {
     return 1000 * concentrazione * concentrazione * Math.sqrt(kelvin() / 298.15);
   }
@@ -181,10 +181,10 @@
     return urtiAlSecondo() * frazioneUtile() * reazione.orientamento;
   }
 
-  /* Di quante volte crescerebbe la velocita' scaldando di dieci
+  /* Di quante volte crescerebbe la velocità scaldando di dieci
      gradi. La vecchia regola di scuola dice «il doppio», ma il
      doppio vale solo per certe colline: qui il numero si calcola,
-     e si vede che dipende da quanto e' alta. */
+     e si vede che dipende da quanto è alta. */
   function rapportoDieciGradi() {
     var prima = velocitaReazione();
     temperatura += 10;
@@ -210,8 +210,8 @@
         x: 0.05 + Math.random() * 0.9,
         y: 0.05 + Math.random() * 0.9,
         dir: Math.random() * Math.PI * 2,
-        /* la velocita' e' estratta a caso, non uguale per tutti:
-           e' questo che fa la coda della curva */
+        /* la velocità è estratta a caso, non uguale per tutti:
+           è questo che fa la coda della curva */
         v: velocitaCasuale()
       });
     }
@@ -219,8 +219,8 @@
     contaUrti = 0; contaUtili = 0;
   }
 
-  /* Una velocita' pescata dalla distribuzione, col metodo del
-     rifiuto: si tira a caso finche' il punto non cade sotto la
+  /* Una velocità pescata dalla distribuzione, col metodo del
+     rifiuto: si tira a caso finché il punto non cade sotto la
      curva. */
   function velocitaCasuale() {
     for (var tentativi = 0; tentativi < 60; tentativi++) {
@@ -254,7 +254,7 @@
         contaUrti++;
         a.dir += Math.PI * (0.6 + Math.random() * 0.8);
         b.dir += Math.PI * (0.6 + Math.random() * 0.8);
-        /* l'urto e' utile se e' abbastanza energetico e se le due
+        /* l'urto è utile se è abbastanza energetico e se le due
            molecole sono girate nel verso giusto */
         if (Math.random() < f && Math.random() < reazione.orientamento) {
           contaUtili++;
@@ -325,10 +325,10 @@
     var w = larghezzaC - sx - dx, h = altezzaC - su - giu;
 
     var rt = R * kelvin();
-    /* l'asse arriva sempre oltre la collina, cosi' la si vede */
+    /* l'asse arriva sempre oltre la collina, così la si vede */
     var eMax = Math.max(collina() * 1.5, R * (Math.max(temperatura, 25) + 273.15) * 14);
 
-    /* si cerca il massimo della curva alla temperatura piu' bassa
+    /* si cerca il massimo della curva alla temperatura più bassa
        fra quelle interessanti, per tenere la scala ferma */
     var yMax = 0;
     for (var s = 0; s <= 300; s++) {
@@ -356,7 +356,7 @@
     c.fillText("quante molecole", 0, 0);
     c.restore();
 
-    /* l'area oltre la collina, che e' il numero scritto sopra */
+    /* l'area oltre la collina, che è il numero scritto sopra */
     var ea = collina();
     if (ea < eMax) {
       c.beginPath();
@@ -497,23 +497,23 @@
     var suQuante = f > 0 ? Math.round(1 / f) : 0;
 
     if (f < 1e-9) {
-      return "A questa temperatura la collina e' troppo alta: praticamente nessuna molecola ce la fa, " +
+      return "A questa temperatura la collina è troppo alta: praticamente nessuna molecola ce la fa, " +
         "e la reazione non parte. " + (reazione.eaCat < reazione.ea
           ? "Prova ad accendere il catalizzatore, oppure a scaldare."
-          : "Qui non c'e' catalizzatore che tenga: bisogna scaldare, e parecchio.");
+          : "Qui non c'è catalizzatore che tenga: bisogna scaldare, e parecchio.");
     }
     if (f < 1e-4) {
-      return "Solo una molecola su " + bello(1 / f) + " ha abbastanza energia. La reazione c'e', " +
-        "ma e' lentissima: guarda com'e' sottile la coda colorata a destra della riga arancione.";
+      return "Solo una molecola su " + bello(1 / f) + " ha abbastanza energia. La reazione c'è, " +
+        "ma è lentissima: guarda com'è sottile la coda colorata a destra della riga arancione.";
     }
     if (catalizzatore) {
-      return "Con il catalizzatore la collina e' scesa da " + conVirgola(reazione.ea) + " a " +
+      return "Con il catalizzatore la collina è scesa da " + conVirgola(reazione.ea) + " a " +
         conVirgola(reazione.eaCat) + " kJ/mol, e adesso ce la fa una molecola su " + suQuante +
         ". Attenzione a una cosa: il catalizzatore abbassa la collina in tutti e due i versi, quindi " +
         "accelera anche la reazione contraria. Per questo fa arrivare prima all'equilibrio, ma non " +
         "sposta l'equilibrio di un millimetro, e il delta H resta lo stesso.";
     }
-    return "Ce la fa una molecola su " + suQuante + ". La velocita' e' il prodotto di tre cose: quanti " +
+    return "Ce la fa una molecola su " + suQuante + ". La velocità è il prodotto di tre cose: quanti " +
       "urti avvengono, quanti sono abbastanza forti, e quanti sono girati nel verso giusto. Qui " +
       "l'orientamento giusto capita " + Math.round(reazione.orientamento * 100) + " volte su 100.";
   }
@@ -586,11 +586,11 @@
     bottoneMoto.textContent = inMoto ? "Metti in pausa" : "Riprendi";
 
     /* La regola dei dieci gradi va sempre in fondo, qualunque sia
-       la situazione: e' il confronto piu' istruttivo fra reazioni
+       la situazione: è il confronto più istruttivo fra reazioni
        con colline diverse. */
     var salto = rapportoDieciGradi();
     frase.textContent = racconta() + (f > 0 && salto > 0
-      ? " Da qui, dieci gradi in piu' farebbero diventare la velocita' " +
+      ? " Da qui, dieci gradi in più farebbero diventare la velocità " +
         conVirgola(arrotonda(salto, 2)) + " volte quella di adesso."
       : "");
     schedaNota.textContent = reazione.equazione + ". " +
@@ -627,7 +627,7 @@
     if (avvisoErrori) contenitore.appendChild(avvisoErrori);
 
     contenitore.appendChild(elemento("p", "guida",
-      "Perche' certe reazioni sono fulminee e altre non partono mai? Perche' due molecole reagiscano " +
+      "Perché certe reazioni sono fulminee e altre non partono mai? Perché due molecole reagiscano " +
       "non basta che si incontrino: devono urtarsi abbastanza forte da rompere i legami che hanno, e " +
       "devono essere girate nel verso giusto. Tutto il resto viene da qui."));
 
@@ -651,13 +651,13 @@
     scatola.appendChild(tela);
     contenitore.appendChild(scatola);
     contenitore.appendChild(elemento("p", "didascalia",
-      "Ogni cerchietto arancione e' una molecola che ha appena urtato. L'anello che si allarga segna " +
+      "Ogni cerchietto arancione è una molecola che ha appena urtato. L'anello che si allarga segna " +
       "un urto andato a buon fine: abbastanza forte e girato nel verso giusto."));
 
     var letture = elemento("div", "letture");
     letture.appendChild(unaLettura("molecole abbastanza energetiche", function (n) { letturaFrazione = n; }));
     letture.appendChild(unaLettura("urti al secondo", function (n) { letturaUrti = n; }));
-    letture.appendChild(unaLettura("velocita' della reazione", function (n) { letturaVelocita = n; }));
+    letture.appendChild(unaLettura("velocità della reazione", function (n) { letturaVelocita = n; }));
     contenitore.appendChild(letture);
 
     var bottoni = elemento("div", "bottoni");
@@ -694,11 +694,11 @@
     scatolaC.appendChild(telaC);
     contenitore.appendChild(scatolaC);
     contenitore.appendChild(elemento("p", "nota-piccola",
-      "Questa e' la curva di Maxwell e Boltzmann: dice quante molecole hanno ciascuna energia. " +
-      "Non hanno tutte la stessa: alcune sono lente, poche sono velocissime. La riga arancione e' la " +
+      "Questa è la curva di Maxwell e Boltzmann: dice quante molecole hanno ciascuna energia. " +
+      "Non hanno tutte la stessa: alcune sono lente, poche sono velocissime. La riga arancione è la " +
       "collina da scavalcare, e la zona colorata a destra sono le molecole che ce la fanno. " +
       "Scaldando la curva si appiattisce verso destra, e quella zona cresce moltissimo anche per " +
-      "pochi gradi: e' tutto qui il motivo per cui il caldo accelera le reazioni."));
+      "pochi gradi: è tutto qui il motivo per cui il caldo accelera le reazioni."));
 
     /* --- il profilo --- */
     contenitore.appendChild(elemento("h3", "titolo-blocco", "La collina da scavalcare"));
@@ -707,7 +707,7 @@
     scatolaE.appendChild(telaE);
     contenitore.appendChild(scatolaE);
     contenitore.appendChild(elemento("p", "nota-piccola",
-      "Il cammino tratteggiato e' l'altra strada, quella che non stai usando. Il catalizzatore " +
+      "Il cammino tratteggiato è l'altra strada, quella che non stai usando. Il catalizzatore " +
       "abbassa la collina ma lascia i prodotti dove sono: il dislivello fra partenza e arrivo, il " +
       "delta H, non cambia. Per questo un catalizzatore fa arrivare prima all'equilibrio senza " +
       "spostarlo, e per questo non si consuma."));
@@ -750,12 +750,12 @@
     limiti.appendChild(elemento("summary", null, "Che cosa questo modello semplifica"));
     var corpo = elemento("div", "limiti-corpo");
     [
-      "Il disegno delle molecole e' in due dimensioni e con poche palline: serve a far vedere il meccanismo. La curva di Maxwell e Boltzmann invece e' quella vera a tre dimensioni, e la frazione scritta e' l'area colorata sotto di essa, calcolata sommando le striscioline.",
-      "La percentuale di urti utili contata nel disegno e' tirata a sorte con la probabilita' giusta, quindi balla un po' da un momento all'altro. Il numero da guardare e' quello calcolato sopra, non quello contato sul disegno.",
-      "Gli urti al secondo sono in unita' di comodo, non in urti veri al secondo: servono per confrontare fra loro le situazioni, non per dare un valore assoluto.",
-      "L'energia di attivazione e' considerata la stessa a ogni temperatura. Nella realta' cambia un poco.",
-      "La reazione e' trattata come se avvenisse in un urto solo. Quasi tutte procedono invece per passaggi, e quello piu' lento fa da collo di bottiglia.",
-      "Il fattore di orientamento e' un numero unico. Nella realta' dipende da come le due molecole si avvicinano, e certi angoli vanno molto meglio di altri."
+      "Il disegno delle molecole è in due dimensioni e con poche palline: serve a far vedere il meccanismo. La curva di Maxwell e Boltzmann invece è quella vera a tre dimensioni, e la frazione scritta è l'area colorata sotto di essa, calcolata sommando le striscioline.",
+      "La percentuale di urti utili contata nel disegno è tirata a sorte con la probabilità giusta, quindi balla un po' da un momento all'altro. Il numero da guardare è quello calcolato sopra, non quello contato sul disegno.",
+      "Gli urti al secondo sono in unità di comodo, non in urti veri al secondo: servono per confrontare fra loro le situazioni, non per dare un valore assoluto.",
+      "L'energia di attivazione è considerata la stessa a ogni temperatura. Nella realtà cambia un poco.",
+      "La reazione è trattata come se avvenisse in un urto solo. Quasi tutte procedono invece per passaggi, e quello più lento fa da collo di bottiglia.",
+      "Il fattore di orientamento è un numero unico. Nella realtà dipende da come le due molecole si avvicinano, e certi angoli vanno molto meglio di altri."
     ].forEach(function (t) { corpo.appendChild(elemento("p", null, t)); });
     limiti.appendChild(corpo);
     contenitore.appendChild(limiti);
@@ -804,7 +804,7 @@
         svuota(contenitore);
         var avviso = elemento("div", "avviso");
         avviso.appendChild(document.createTextNode(
-          "Il file reazioni-urti.txt e' stato letto ma non contiene reazioni valide."));
+          "Il file reazioni-urti.txt è stato letto ma non contiene reazioni valide."));
         contenitore.appendChild(avviso);
         return;
       }

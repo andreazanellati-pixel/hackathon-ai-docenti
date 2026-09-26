@@ -8,15 +8,15 @@
    - gli stati e i processi stanno in due file di testo, e da
      quelli il sito costruisce da solo la rete dei collegamenti.
      Aggiungendo una riga a processi.txt compare una strada nuova
-   - non c'e' nessun percorso obbligato: a ogni passo il sito
+   - non c'è nessun percorso obbligato: a ogni passo il sito
      mostra TUTTE le strade che partono da dove ti trovi, e sono
-     quasi sempre piu' d'una. E' il punto della stazione, perche'
+     quasi sempre più d'una. È il punto della stazione, perché
      la figura del cerchio che sta sui libri fa credere il
      contrario
-   - il diagramma con temperatura e profondita' mostra dove
+   - il diagramma con temperatura e profondità mostra dove
      avviene ogni processo: si vede che il metamorfismo sta
-     sempre sotto la linea della fusione, perche' se fondesse
-     non sarebbe piu' metamorfismo
+     sempre sotto la linea della fusione, perché se fondesse
+     non sarebbe più metamorfismo
    ============================================================ */
 
 (function () {
@@ -94,7 +94,7 @@
       var t = parseFloat(p[3].trim().replace(",", "."));
       var prof = parseFloat(p[4].trim().replace(",", "."));
       if (isNaN(t) || isNaN(prof)) {
-        errori.push("riga " + (i + 1) + ": temperatura e profondita' devono essere numeri.");
+        errori.push("riga " + (i + 1) + ": temperatura e profondità devono essere numeri.");
         return;
       }
       elenco.push({
@@ -125,7 +125,7 @@
     return v || ripiego;
   }
 
-  /* Gli stati vengono messi in cerchio: cosi' si vede a colpo
+  /* Gli stati vengono messi in cerchio: così si vede a colpo
      d'occhio quante frecce partono da ognuno. */
   function posizioni() {
     var cx = larghezza / 2, cy = altezza / 2;
@@ -190,7 +190,7 @@
       c.lineWidth = qui ? 3.5 : 1.5;
       c.stroke();
 
-      /* il nome, spezzato su piu' righe */
+      /* il nome, spezzato su più righe */
       c.fillStyle = "#ffffff";
       c.font = (qui ? "600 " : "") + "10px system-ui, sans-serif";
       c.textAlign = "center";
@@ -211,12 +211,12 @@
     c.fillStyle = tenue;
     c.font = "600 11px system-ui, sans-serif";
     c.textAlign = "left";
-    c.fillText("la roccia e' qui, cerchiata di scuro", 8, 16);
+    c.fillText("la roccia è qui, cerchiata di scuro", 8, 16);
     c.fillText("in arancione le strade che puoi prendere adesso", 8, 30);
   }
 
   /* ==========================================================
-     3. Il diagramma temperatura-profondita'
+     3. Il diagramma temperatura-profondità
      ========================================================== */
 
   function disegnaCondizioni(tela2) {
@@ -252,7 +252,7 @@
     c.fillText("temperatura", sx + gw / 2, h - 4);
     c.save();
     c.translate(11, su + gh / 2); c.rotate(-Math.PI / 2);
-    c.fillText("profondita'", 0, 0);
+    c.fillText("profondità", 0, 0);
     c.restore();
 
     /* ogni processo al suo posto */
@@ -307,7 +307,7 @@
       b.appendChild(elemento("div", "esperimento-sottotitolo",
         "diventa " + (arrivo ? arrivo.nome.toLowerCase() : p.a) +
         " · attorno a " + p.temperatura + " gradi, " +
-        (p.profondita === 0 ? "in superficie" : "a " + p.profondita + " km di profondita'")));
+        (p.profondita === 0 ? "in superficie" : "a " + p.profondita + " km di profondità")));
       b.addEventListener("click", function () { vai(p); });
       elencoStrade.appendChild(b);
     });
@@ -322,7 +322,7 @@
     }
     var t = elemento("table", "tabella-cifre");
     var testa = elemento("tr");
-    ["", "era", "e' successo", "e' diventata"].forEach(function (h) {
+    ["", "era", "è successo", "è diventata"].forEach(function (h) {
       testa.appendChild(elemento("th", null, h));
     });
     t.appendChild(testa);
@@ -337,9 +337,9 @@
     });
     diario.appendChild(t);
 
-    /* si e' gia' tornati da qualche parte? */
+    /* si è già tornati da qualche parte? */
     /* si parte segnando anche il punto di partenza, altrimenti un
-       giro completo che torna li' non verrebbe riconosciuto */
+       giro completo che torna lì non verrebbe riconosciuto */
     var visti = {};
     visti[viaggio[0].da] = true;
     var ripassato = null;
@@ -350,9 +350,9 @@
     if (ripassato) {
       var s = statoDi(ripassato);
       diario.appendChild(elemento("p", "nota-piccola",
-        "Sei ripassato da «" + (s ? s.nome.toLowerCase() : ripassato) + "»: il giro si e' chiuso. " +
-        "Nota pero' che il percorso che hai fatto non e' l'unico possibile, e quasi sicuramente non " +
-        "e' nemmeno quello piu' corto. Prova a rifarlo scegliendo strade diverse."));
+        "Sei ripassato da «" + (s ? s.nome.toLowerCase() : ripassato) + "»: il giro si è chiuso. " +
+        "Nota però che il percorso che hai fatto non è l'unico possibile, e quasi sicuramente non " +
+        "è nemmeno quello più corto. Prova a rifarlo scegliendo strade diverse."));
     }
   }
 
@@ -394,8 +394,8 @@
     if (e2) contenitore.appendChild(e2);
 
     contenitore.appendChild(elemento("p", "guida",
-      "La figura del ciclo delle rocce che sta sui libri e' un cerchio, e fa credere che ci sia un " +
-      "ordine obbligato. Non e' cosi': da quasi ogni punto partono piu' strade. Qui puoi prendere una " +
+      "La figura del ciclo delle rocce che sta sui libri è un cerchio, e fa credere che ci sia un " +
+      "ordine obbligato. Non è così: da quasi ogni punto partono più strade. Qui puoi prendere una " +
       "roccia e accompagnarla in giro scegliendo tu, passo per passo, che cosa le capita."));
 
     var scatola = elemento("div", "scatola-particelle");
@@ -404,7 +404,7 @@
     contenitore.appendChild(scatola);
 
     var letture = elemento("div", "letture");
-    letture.appendChild(unaLettura("adesso e'", function (n) { letturaDove = n; }));
+    letture.appendChild(unaLettura("adesso è", function (n) { letturaDove = n; }));
     letture.appendChild(unaLettura("passi fatti", function (n) { letturaPassi = n; }));
     letture.appendChild(unaLettura("strade che partono da qui", function (n) { letturaStrade = n; }));
     contenitore.appendChild(letture);
@@ -416,7 +416,7 @@
     riquadro.appendChild(testoStato);
     contenitore.appendChild(riquadro);
 
-    contenitore.appendChild(elemento("h3", "titolo-blocco", "Che cosa le puo' succedere adesso"));
+    contenitore.appendChild(elemento("h3", "titolo-blocco", "Che cosa le può succedere adesso"));
     elencoStrade = elemento("div", "griglia-esperimenti");
     contenitore.appendChild(elencoStrade);
 
@@ -430,10 +430,10 @@
     scatolaC.appendChild(telaCondizioni);
     contenitore.appendChild(scatolaC);
     contenitore.appendChild(elemento("p", "nota-piccola",
-      "Guarda dove cade il metamorfismo: profondo e caldo, ma sempre meno caldo della fusione. E' la " +
-      "sua definizione: se la roccia fondesse non sarebbe piu' metamorfismo, sarebbe magma. " +
-      "L'erosione invece sta nell'angolo in alto a sinistra, cioe' in superficie e a temperatura " +
-      "normale: e' l'unico processo che avviene dove viviamo noi, e infatti e' l'unico che possiamo " +
+      "Guarda dove cade il metamorfismo: profondo e caldo, ma sempre meno caldo della fusione. È la " +
+      "sua definizione: se la roccia fondesse non sarebbe più metamorfismo, sarebbe magma. " +
+      "L'erosione invece sta nell'angolo in alto a sinistra, cioè in superficie e a temperatura " +
+      "normale: è l'unico processo che avviene dove viviamo noi, e infatti è l'unico che possiamo " +
       "vedere con i nostri occhi."));
 
     contenitore.appendChild(elemento("h3", "titolo-blocco", "Ricomincia da un'altra parte"));
@@ -451,11 +451,11 @@
     limiti.appendChild(elemento("summary", null, "Che cosa questo modello semplifica"));
     var corpo = elemento("div", "limiti-corpo");
     [
-      "Gli stati sono sei e i processi sei. Nella realta' le famiglie di rocce si dividono in decine di tipi, e ogni processo ha molte varianti: il metamorfismo di contatto vicino a un magma e' un'altra cosa rispetto a quello di una catena montuosa.",
-      "Manca il tempo. Qui un passo e' un clic, ma un granito ci mette milioni di anni a raffreddarsi, e altri milioni ad arrivare in superficie. L'erosione di una montagna e' lentissima, un'eruzione dura poche ore.",
-      "Le temperature e le profondita' scritte sono valori indicativi, buoni per farsi un'idea. Le condizioni vere dipendono dal tipo di roccia, dall'acqua presente e da quanto in fretta le cose cambiano.",
-      "Non c'e' la fusione parziale: quando una roccia comincia a fondere, non fonde tutta insieme, e il liquido che se ne va ha una composizione diversa da quella della roccia rimasta. E' il motivo per cui dal mantello basaltico si arriva, dopo molti giri, ai graniti.",
-      "Il giro e' disegnato come una rete chiusa, ma la materia entra ed esce: gli organismi tolgono carbonio dall'acqua per fare i gusci, e le placche riportano sedimenti giu' nel mantello."
+      "Gli stati sono sei e i processi sei. Nella realtà le famiglie di rocce si dividono in decine di tipi, e ogni processo ha molte varianti: il metamorfismo di contatto vicino a un magma è un'altra cosa rispetto a quello di una catena montuosa.",
+      "Manca il tempo. Qui un passo è un clic, ma un granito ci mette milioni di anni a raffreddarsi, e altri milioni ad arrivare in superficie. L'erosione di una montagna è lentissima, un'eruzione dura poche ore.",
+      "Le temperature e le profondità scritte sono valori indicativi, buoni per farsi un'idea. Le condizioni vere dipendono dal tipo di roccia, dall'acqua presente e da quanto in fretta le cose cambiano.",
+      "Non c'è la fusione parziale: quando una roccia comincia a fondere, non fonde tutta insieme, e il liquido che se ne va ha una composizione diversa da quella della roccia rimasta. È il motivo per cui dal mantello basaltico si arriva, dopo molti giri, ai graniti.",
+      "Il giro è disegnato come una rete chiusa, ma la materia entra ed esce: gli organismi tolgono carbonio dall'acqua per fare i gusci, e le placche riportano sedimenti giù nel mantello."
     ].forEach(function (t) { corpo.appendChild(elemento("p", null, t)); });
     limiti.appendChild(corpo);
     contenitore.appendChild(limiti);
@@ -503,7 +503,7 @@
         svuota(contenitore);
         var avviso = elemento("div", "avviso");
         avviso.appendChild(document.createTextNode(
-          "Il file stati.txt e' stato letto ma non contiene stati validi."));
+          "Il file stati.txt è stato letto ma non contiene stati validi."));
         contenitore.appendChild(avviso);
         return;
       }

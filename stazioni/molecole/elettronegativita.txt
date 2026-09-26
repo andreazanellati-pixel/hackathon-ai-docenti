@@ -1,0 +1,37 @@
+# ============================================================
+# L'ELETTRONEGATIVITÀ DEGLI ELEMENTI
+# ============================================================
+#
+# L'elettronegatività dice quanto un atomo tira a sé gli
+# elettroni del legame. È il numero da cui dipende se un legame
+# è polare, e di quanto.
+#
+# La scala è quella di Pauling: va da 0,7 del francio a 3,98
+# del fluoro, che è l'elemento più avido di tutti.
+#
+# COME SI SCRIVE UN ELEMENTO
+# --------------------------
+#
+#   simbolo | nome | elettronegatività | colore
+#
+# Il colore serve solo per il disegno, e si scrive in codice
+# esadecimale: # seguito da sei cifre.
+#
+# Le righe che iniziano con # sono commenti: il sito le ignora.
+# Attenzione: il # dei colori sta in mezzo alla riga, non
+# all'inizio, quindi non crea problemi.
+#
+# ============================================================
+
+H | idrogeno | 2,20 | #e8e4d8
+C | carbonio | 2,55 | #4a4a4a
+N | azoto | 3,04 | #3f6fb0
+O | ossigeno | 3,44 | #c0392b
+F | fluoro | 3,98 | #7fc86a
+Cl | cloro | 3,16 | #5fae4a
+Br | bromo | 2,96 | #a05a30
+S | zolfo | 2,58 | #d9c33a
+P | fosforo | 2,19 | #d98c3a
+B | boro | 2,04 | #d9a48a
+Be | berillio | 1,57 | #b0c4a0
+Xe | xeno | 2,60 | #8fb8c9

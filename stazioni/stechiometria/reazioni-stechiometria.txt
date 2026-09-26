@@ -2,7 +2,7 @@
 # LE REAZIONI DEL BANCO DI STECHIOMETRIA
 # ============================================================
 #
-# Ogni riga descrive una reazione gia' bilanciata, con la massa
+# Ogni riga descrive una reazione già bilanciata, con la massa
 # molare di ogni sostanza scritta accanto alla sua formula.
 #
 # COME SI SCRIVE UNA REAZIONE
@@ -10,7 +10,7 @@
 #
 #   nome | reagenti | prodotti | nota
 #
-# Nei reagenti e nei prodotti ogni sostanza si scrive cosi':
+# Nei reagenti e nei prodotti ogni sostanza si scrive così:
 #
 #   coefficiente  formula  [massa molare]
 #
@@ -25,14 +25,14 @@
 # vuol dire: una mole di azoto, che pesa 28 grammi per mole, e
 # tre moli di idrogeno, che pesa 2 grammi per mole.
 #
-# ATTENZIONE: l'equazione deve essere gia' bilanciata. Il sito
+# ATTENZIONE: l'equazione deve essere già bilanciata. Il sito
 # controlla che la massa dei reagenti e quella dei prodotti
 # tornino, e se non tornano lo segnala.
 #
 # I numeri si scrivono con la virgola o con il punto.
 #
 # Le righe che iniziano con # sono commenti: il sito le ignora.
-# Se una riga e' scritta male viene saltata e segnalata.
+# Se una riga è scritta male viene saltata e segnalata.
 #
 # ============================================================
 

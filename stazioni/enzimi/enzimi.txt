@@ -3,7 +3,7 @@
 # ============================================================
 #
 # Ogni riga descrive un enzima con i numeri che servono a
-# calcolarne la velocita'.
+# calcolarne la velocità.
 #
 # COME SI SCRIVE UN ENZIMA
 # ------------------------
@@ -11,28 +11,28 @@
 #   nome | substrato | prodotto | Km | Vmax | T ottimale | T di rovina | pH ottimale | ampiezza pH | dove si trova
 #
 # Km          la concentrazione di substrato, in mmol/L, alla quale
-#             l'enzima lavora a meta' della sua velocita' massima.
+#             l'enzima lavora a metà della sua velocità massima.
 #             Km piccolo vuol dire che l'enzima "afferra" bene il
-#             substrato anche quando ce n'e' poco.
-# Vmax        la velocita' massima, in micromoli di prodotto al
-#             minuto. E' solo un numero di comodo per confrontare
+#             substrato anche quando ce n'è poco.
+# Vmax        la velocità massima, in micromoli di prodotto al
+#             minuto. È solo un numero di comodo per confrontare
 #             fra loro gli enzimi.
 # T ottimale  la temperatura, in gradi, alla quale l'enzima lavora
 #             meglio.
 # T di rovina la temperatura alla quale l'enzima comincia a
 #             sformarsi sul serio. Sopra questa soglia si rovina
-#             man mano, e non torna piu' com'era.
+#             man mano, e non torna più com'era.
 # pH ottimale il pH al quale lavora meglio.
-# ampiezza pH quanto e' largo l'intervallo di pH in cui lavora
+# ampiezza pH quanto è largo l'intervallo di pH in cui lavora
 #             ancora bene. Un numero piccolo vuol dire un enzima
 #             schizzinoso, che smette di funzionare appena il pH
 #             si sposta un poco.
 #
 # I numeri si scrivono con la virgola o con il punto, come viene
-# piu' comodo.
+# più comodo.
 #
 # Le righe che iniziano con # sono commenti: il sito le ignora.
-# Se una riga e' scritta male viene saltata e segnalata.
+# Se una riga è scritta male viene saltata e segnalata.
 #
 # ============================================================
 
@@ -40,6 +40,6 @@ Amilasi salivare | amido | maltosio | 1,8 | 100 | 37 | 50 | 6,8 | 1,6 | la saliv
 Pepsina | proteine | peptidi corti | 0,3 | 120 | 37 | 55 | 2,0 | 1,2 | lo stomaco, in mezzo all'acido
 Tripsina | proteine | peptidi corti | 0,5 | 110 | 37 | 52 | 8,0 | 1,4 | l'intestino tenue, dopo lo stomaco
 Catalasi | acqua ossigenata | acqua e ossigeno | 25 | 400 | 37 | 50 | 7,0 | 2,0 | quasi tutte le cellule, per smaltire un veleno
-Lattasi | lattosio | glucosio e galattosio | 1,5 | 60 | 37 | 48 | 6,5 | 1,5 | l'intestino, e manca a chi e' intollerante al latte
+Lattasi | lattosio | glucosio e galattosio | 1,5 | 60 | 37 | 48 | 6,5 | 1,5 | l'intestino, e manca a chi è intollerante al latte
 Taq polimerasi | DNA | DNA copiato | 2,0 | 80 | 72 | 95 | 8,5 | 1,8 | una sorgente bollente, e oggi le macchine della PCR
-Anidrasi carbonica | anidride carbonica | ione bicarbonato | 12 | 600 | 37 | 50 | 7,2 | 1,8 | i globuli rossi, ed e' fra gli enzimi piu' veloci che esistono
+Anidrasi carbonica | anidride carbonica | ione bicarbonato | 12 | 600 | 37 | 50 | 7,2 | 1,8 | i globuli rossi, ed è fra gli enzimi più veloci che esistono

@@ -5,10 +5,10 @@
    quadrato di Punnett, conta i genotipi e i fenotipi e mostra le
    proporzioni attese.
 
-   Poi c'e' la parte che di solito manca: generare davvero i figli,
+   Poi c'è la parte che di solito manca: generare davvero i figli,
    uno per uno, a caso. Con venti figli le proporzioni non tornano
    quasi mai; con duemila tornano. Mendel non fu fortunato: fu
-   paziente, e conto' migliaia di piante.
+   paziente, e contò migliaia di piante.
    ============================================================ */
 
 (function () {
@@ -34,7 +34,7 @@
   var quantiFigli = 0;
   var incrocioScelto = 0;
 
-  /* Incroci gia' pronti: le lettere A, a, B, b vengono sostituite
+  /* Incroci già pronti: le lettere A, a, B, b vengono sostituite
      con quelle dei caratteri scelti. */
   var INCROCI = [
     {
@@ -358,7 +358,7 @@
       "Scegli il carattere e i genotipi dei due genitori. Il quadrato di Punnett mette insieme " +
       "tutti i gameti possibili: ogni casella è un incontro che può capitare."));
 
-    /* incroci gia' pronti, per partire senza dover regolare niente */
+    /* incroci già pronti, per partire senza dover regolare niente */
     contenitore.appendChild(elemento("h3", "titolo-blocco", "Incroci da provare"));
     var pronti = elemento("div", "griglia-esperimenti");
     INCROCI.forEach(function (x, i) {

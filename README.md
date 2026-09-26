@@ -13,7 +13,7 @@ La pagina iniziale le raggruppa per disciplina e si possono filtrare per
 anno di corso. Quelle ancora da costruire compaiono nell'elenco, spente,
 così si vede il piano di lavoro.
 
-**Pronte**
+**Tutte e ventisette, pronte**
 
 | Stazione | Anni | Che cosa si fa |
 |---|---|---|
@@ -35,15 +35,15 @@ così si vede il piano di lavoro.
 | 🌐 Dentro la Terra con le onde | 3ª, 4ª | I raggi sismici sono calcolati uno per uno con la legge di Snell su una sfera. La zona d'ombra non e' disegnata: esce dal conto, e viene fra 98 e 140 gradi contro i 103-143 misurati |
 | 🗺️ La tettonica delle placche | 3ª, 4ª | Cinque modi di incontrarsi, con le velocita' misurate col GPS. E il conto del tempo: alla velocita' di oggi un Atlantico ci mette 200 milioni di anni, e le rocce dicono che ha cominciato 180 milioni di anni fa |
 | 🌋 Dal magma al vulcano | 3ª, 4ª | Silice, temperatura e gas decidono se il vulcano cola o esplode. Il tipo di eruzione non e' scelto: esce dal confronto fra quanto il gas spinge e quanto il magma lo trattiene |
+| 🪨 Il ciclo delle rocce | 1ª, 3ª | Si prende una roccia e la si accompagna in giro scegliendo passo per passo cosa le capita. Il punto è che da quasi ogni stato partono più strade: il cerchio dei libri fa credere il contrario |
 | ⚡ Il potenziale d'azione | 5ª | Le equazioni vere di Hodgkin e Huxley, quelle del Nobel. Soglia, tutto-o-niente e periodo refrattario non sono programmati da nessuna parte: vengono fuori da soli |
 | 🧫 Elettroforesi e PCR | 5ª | Si moltiplica il DNA con la PCR, lo si fa correre nel gel e si confrontano le bande a occhio. Il caso si cambia riscrivendo un file: gli studenti non possono averlo gia' visto |
+| 🔗 Il costruttore di molecole | 3ª, 5ª | Geometria e polarita' calcolate davvero: le zone di elettroni si respingono e trovano il loro posto, poi i legami si sommano come frecce nello spazio. Per questo l'anidride carbonica risulta apolare da sola |
 | 🌍 Terra, Sole e Luna | 1ª | Inclinazione dell'asse, latitudine e giorno dell'anno: durata del dì, altezza del Sole e stagioni. Portando l'asse a zero le stagioni spariscono |
 | 📈 Trovare l'epicentro | 3ª, 4ª | Tre sismogrammi, il ritardo fra onde S e P, la dromocrona: si triangola come fanno i sismologi |
 | 📊 Genetica di popolazioni | 4ª | Quattro esperimenti guidati sulla deriva genetica e la selezione, con la popolazione disegnata allele per allele e una spiegazione che accompagna passo passo |
 | 🧬 Dal DNA alla proteina | 3ª, 5ª | Trascrizione, codice genetico e traduzione. Si cambia una base e il sito dice che tipo di mutazione è venuta fuori |
 | 🌱 Gli incroci di Mendel | 3ª | Quadrati di Punnett a uno e due caratteri, e figli generati davvero a caso: le proporzioni emergono solo sui grandi numeri |
-
-**In costruzione:** il costruttore di molecole.
 
 ## Per chi insegna: modificare i contenuti
 
@@ -76,6 +76,7 @@ istruzioni scritte in cima:
 | `stazioni/vulcani/magmi.txt` | i magmi con silice, temperatura e gas |
 | `stazioni/potenziale-azione/condizioni.txt` | le condizioni della membrana: veleni, farmaci, potassio |
 | `stazioni/elettroforesi/campioni.txt` | i campioni di DNA e le lunghezze dei loro pezzi |
+| `stazioni/molecole/molecole.txt` e `elettronegativita.txt` | le molecole e gli elementi con la loro elettronegativita' |
 
 Si modifica il testo, si salva **in UTF-8**, si ricarica la pagina. Non
 serve toccare il codice. Se una riga viene scritta male il sito non si

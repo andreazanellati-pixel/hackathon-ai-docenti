@@ -6,17 +6,17 @@
    le bande e si risponde a una domanda.
 
    Come funziona, in due parole:
-   - la PCR raddoppia a ogni ciclo, e il conto e' proprio due
+   - la PCR raddoppia a ogni ciclo, e il conto è proprio due
      elevato al numero di cicli. Trenta cicli da una molecola
-     sola fanno piu' di un miliardo di copie: il numero e'
+     sola fanno più di un miliardo di copie: il numero è
      calcolato, non scritto
-   - nel gel un pezzo di DNA corre tanto piu' lontano quanto
-     piu' e' corto, e la distanza segue il logaritmo della
-     lunghezza. E' per questo che la scala di riferimento ha le
+   - nel gel un pezzo di DNA corre tanto più lontano quanto
+     più è corto, e la distanza segue il logaritmo della
+     lunghezza. È per questo che la scala di riferimento ha le
      bande fitte in basso e larghe in alto
    - le lunghezze dei campioni stanno in campioni.txt: cambiando
      quelle si prepara un caso nuovo, che gli studenti non
-     possono avere gia' visto
+     possono avere già visto
    ============================================================ */
 
 (function () {
@@ -123,8 +123,8 @@
   /* ==========================================================
      3. La corsa nel gel
      ------------------------------------------------------------
-     Un pezzo di DNA si infila fra le maglie del gel: piu' e'
-     corto, piu' passa agevolmente e piu' va lontano. La distanza
+     Un pezzo di DNA si infila fra le maglie del gel: più è
+     corto, più passa agevolmente e più va lontano. La distanza
      segue il logaritmo della lunghezza, e per questo le bande
      corte stanno fitte in fondo.
      ========================================================== */
@@ -176,7 +176,7 @@
     elenco.forEach(function (campione, k) {
       var cx = largoCorsia * (k + 0.75);
 
-      /* il pozzetto dove e' stato caricato */
+      /* il pozzetto dove è stato caricato */
       c.fillStyle = "#050a08";
       c.fillRect(cx - largoBanda / 2, su - 10, largoBanda, 8);
 
@@ -275,7 +275,7 @@
     c.fillText("quante copie", 0, 0);
     c.restore();
 
-    /* la curva: su scala logaritmica il raddoppio e' una retta */
+    /* la curva: su scala logaritmica il raddoppio è una retta */
     c.strokeStyle = accento; c.lineWidth = 2.6;
     c.beginPath();
     for (var n = 0; n <= 40; n++) {
@@ -310,25 +310,25 @@
     if (scoperto) {
       if (risposta === giusto) {
         return "Esatto. " + (giusto ? giusto.nome : "") + " ha le bande nelle stesse identiche " +
-          "posizioni della traccia, tutte e cinque. Nota che non hai dovuto misurare niente: e' bastato " +
-          "guardare se le righe erano allineate. E' cosi' che si fa davvero, e la scala serve solo " +
+          "posizioni della traccia, tutte e cinque. Nota che non hai dovuto misurare niente: è bastato " +
+          "guardare se le righe erano allineate. È così che si fa davvero, e la scala serve solo " +
           "quando bisogna scrivere un numero in un referto.";
       }
-      return "Non era quello. Il campione che combacia e' " + (giusto ? giusto.nome : "nessuno") +
+      return "Non era quello. Il campione che combacia è " + (giusto ? giusto.nome : "nessuno") +
         ". Guarda meglio: due campioni possono avere quasi tutte le bande uguali e differire per una " +
-        "sola, ed e' proprio quella a fare la differenza. Prova a coprire con un dito le bande che " +
+        "sola, ed è proprio quella a fare la differenza. Prova a coprire con un dito le bande che " +
         "combaciano e a confrontare solo quelle che restano.";
     }
 
     if (copie() < 1e6) {
       return "Attenzione: con " + cicli + " cicli hai ottenuto " + copieBelle() + " copie, e sono " +
-        "poche. Sul gel le bande si vedono appena. Serve abbastanza DNA perche' il colorante si " +
+        "poche. Sul gel le bande si vedono appena. Serve abbastanza DNA perché il colorante si " +
         "accumuli e la banda diventi visibile: prova ad aumentare i cicli e guarda le bande " +
         "illuminarsi.";
     }
 
-    return "Il gel e' pronto. In prima corsia c'e' la scala di riferimento, con i pezzi di lunghezza " +
-      "nota: serve da righello. Poi c'e' la traccia, e poi i campioni da confrontare. " +
+    return "Il gel è pronto. In prima corsia c'è la scala di riferimento, con i pezzi di lunghezza " +
+      "nota: serve da righello. Poi c'è la traccia, e poi i campioni da confrontare. " +
       "Guarda le posizioni delle bande e dimmi quale campione corrisponde alla traccia.";
   }
 
@@ -371,7 +371,7 @@
     if (!scoperto) {
       tabellaScala.appendChild(elemento("p", "nota-piccola",
         "Le lunghezze dei campioni compaiono qui dopo che hai dato la tua risposta. " +
-        "Prima si guarda il gel: e' cosi' che si lavora davvero."));
+        "Prima si guarda il gel: è così che si lavora davvero."));
       return;
     }
     var t = elemento("table", "tabella-cifre");
@@ -416,8 +416,8 @@
     if (avvisoErrori) contenitore.appendChild(avvisoErrori);
 
     contenitore.appendChild(elemento("p", "guida",
-      "Il DNA di una traccia e' quasi sempre pochissimo: prima bisogna moltiplicarlo, e lo si fa con " +
-      "la PCR. Poi lo si taglia a pezzi e lo si fa correre in un gel, dove i pezzi corti vanno piu' " +
+      "Il DNA di una traccia è quasi sempre pochissimo: prima bisogna moltiplicarlo, e lo si fa con " +
+      "la PCR. Poi lo si taglia a pezzi e lo si fa correre in un gel, dove i pezzi corti vanno più " +
       "lontano dei lunghi. Il disegno di bande che ne esce si confronta a occhio con quello degli " +
       "altri campioni."));
 
@@ -440,8 +440,8 @@
     contenitore.appendChild(scatolaP);
     contenitore.appendChild(elemento("p", "nota-piccola",
       "Ogni ciclo dura circa due minuti e ha tre passaggi: si scalda a 95 gradi per separare i due " +
-      "filamenti, si raffredda a 55 perche' gli inneschi si attacchino, si porta a 72 perche' la " +
-      "Taq polimerasi costruisca il filamento nuovo. Poi si ricomincia. E' per far sopravvivere la " +
+      "filamenti, si raffredda a 55 perché gli inneschi si attacchino, si porta a 72 perché la " +
+      "Taq polimerasi costruisca il filamento nuovo. Poi si ricomincia. È per far sopravvivere la " +
       "polimerasi ai 95 gradi che si usa quella di un batterio delle sorgenti bollenti."));
 
     /* --- il gel --- */
@@ -468,8 +468,8 @@
     comandi2.appendChild(cursoreV);
     contenitore.appendChild(comandi2);
     contenitore.appendChild(elemento("p", "nota-piccola",
-      "Tempo e tensione spostano tutte le bande insieme, ma non cambiano il loro ordine ne' le " +
-      "distanze relative. Se corri troppo a lungo i pezzi piu' corti escono dal gel e si perdono: " +
+      "Tempo e tensione spostano tutte le bande insieme, ma non cambiano il loro ordine né le " +
+      "distanze relative. Se corri troppo a lungo i pezzi più corti escono dal gel e si perdono: " +
       "prova a portare i minuti al massimo e guarda sparire le bande in fondo."));
 
     var riquadro = elemento("div", "riquadro-fase");
@@ -507,12 +507,12 @@
     limiti.appendChild(elemento("summary", null, "Che cosa questo modello semplifica"));
     var corpo = elemento("div", "limiti-corpo");
     [
-      "La PCR qui raddoppia sempre, a ogni ciclo, all'infinito. Nella realta' dopo una trentina di cicli finiscono i nucleotidi e gli inneschi, la polimerasi si stanca, e la curva si appiattisce: si chiama fase di plateau, e per questo non ha senso fare cinquanta cicli.",
-      "Non compaiono gli errori di copiatura. La Taq polimerasi sbaglia circa una base ogni diecimila, e dopo trenta cicli una parte delle copie non e' piu' identica all'originale. Per il lavoro fine si usano polimerasi piu' precise.",
-      "Nella realta' un gel puo' contaminarsi, le bande possono essere sbavate o doppie, e un campione degradato da' bande deboli e incomplete. Qui le bande sono sempre nitide.",
-      "La relazione fra lunghezza e distanza percorsa e' il logaritmo puro. Quella vera si discosta agli estremi: i pezzi molto lunghi si comportano tutti allo stesso modo e restano ammassati in cima, e sotto una certa lunghezza la curva cambia forma.",
-      "Il confronto fra due campioni qui e' un si' o un no. Nella pratica forense e nei test di parentela si usano decine di punti del DNA e si calcola una probabilita': non si dice mai «e' lui», si dice quanto sarebbe improbabile che fosse un altro.",
-      "Il DNA e' gia' tagliato: non si vede il lavoro degli enzimi di restrizione, che tagliano solo dove trovano la loro sequenza. E' da li' che nascono le lunghezze diverse fra una persona e l'altra."
+      "La PCR qui raddoppia sempre, a ogni ciclo, all'infinito. Nella realtà dopo una trentina di cicli finiscono i nucleotidi e gli inneschi, la polimerasi si stanca, e la curva si appiattisce: si chiama fase di plateau, e per questo non ha senso fare cinquanta cicli.",
+      "Non compaiono gli errori di copiatura. La Taq polimerasi sbaglia circa una base ogni diecimila, e dopo trenta cicli una parte delle copie non è più identica all'originale. Per il lavoro fine si usano polimerasi più precise.",
+      "Nella realtà un gel può contaminarsi, le bande possono essere sbavate o doppie, e un campione degradato dà bande deboli e incomplete. Qui le bande sono sempre nitide.",
+      "La relazione fra lunghezza e distanza percorsa è il logaritmo puro. Quella vera si discosta agli estremi: i pezzi molto lunghi si comportano tutti allo stesso modo e restano ammassati in cima, e sotto una certa lunghezza la curva cambia forma.",
+      "Il confronto fra due campioni qui è un sì o un no. Nella pratica forense e nei test di parentela si usano decine di punti del DNA e si calcola una probabilità: non si dice mai «è lui», si dice quanto sarebbe improbabile che fosse un altro.",
+      "Il DNA è già tagliato: non si vede il lavoro degli enzimi di restrizione, che tagliano solo dove trovano la loro sequenza. È da lì che nascono le lunghezze diverse fra una persona e l'altra."
     ].forEach(function (t) { corpo.appendChild(elemento("p", null, t)); });
     limiti.appendChild(corpo);
     contenitore.appendChild(limiti);

@@ -11,36 +11,36 @@
 #   nome | R0 | giorni contagiosi | nota
 #
 # R0       si legge "erre con zero" e si chiama numero
-#          riproduttivo di base. E' quante persone, in media,
-#          vengono contagiate da un malato quando NESSUNO e'
+#          riproduttivo di base. È quante persone, in media,
+#          vengono contagiate da un malato quando NESSUNO è
 #          ancora immune. Se vale 1 l'epidemia si trascina, se
-#          vale piu' di 1 cresce, se vale meno di 1 si spegne.
+#          vale più di 1 cresce, se vale meno di 1 si spegne.
 #
-# giorni   per quanti giorni, in media, una persona e' contagiosa.
+# giorni   per quanti giorni, in media, una persona è contagiosa.
 # contagiosi
 #
 # I valori di R0 qui sotto sono quelli che si trovano nei libri.
-# Nella realta' non sono numeri fissi: dipendono da quanta gente
-# si incontra, da quanto si sta vicini, dal clima, dall'eta'.
-# Lo stesso morbillo ha un R0 diverso in una citta' affollata e
+# Nella realtà non sono numeri fissi: dipendono da quanta gente
+# si incontra, da quanto si sta vicini, dal clima, dall'età.
+# Lo stesso morbillo ha un R0 diverso in una città affollata e
 # in un paese di montagna.
 #
 # I numeri si scrivono con la virgola o con il punto.
 #
 # Le righe che iniziano con # sono commenti: il sito le ignora.
-# Se una riga e' scritta male viene saltata e segnalata.
+# Se una riga è scritta male viene saltata e segnalata.
 #
 # ============================================================
 
-Morbillo | 15 | 8 | una delle malattie piu' contagiose che si conoscano: per fermarla bisogna vaccinare quasi tutti
-Pertosse | 12 | 21 | pericolosa soprattutto nei primi mesi di vita, quando il vaccino non si puo' ancora fare
+Morbillo | 15 | 8 | una delle malattie più contagiose che si conoscano: per fermarla bisogna vaccinare quasi tutti
+Pertosse | 12 | 21 | pericolosa soprattutto nei primi mesi di vita, quando il vaccino non si può ancora fare
 Varicella | 10 | 7 | quasi tutti i bambini non vaccinati la prendono, prima o poi
 Parotite | 7 | 9 | gli orecchioni
 Poliomielite | 6 | 14 | quasi sparita dal mondo grazie alla vaccinazione, ma non del tutto
 Vaiolo | 5 | 16 | l'unica malattia umana che siamo riusciti a eliminare del tutto, nel 1980
 Rosolia | 6 | 11 | pericolosa soprattutto per chi aspetta un bambino
 Covid, primo ceppo | 3 | 9 | il valore stimato all'inizio del 2020, prima delle varianti
-Covid, variante omicron | 9 | 6 | molto piu' contagiosa del ceppo di partenza
-Influenza stagionale | 1,5 | 4 | R0 basso, ma torna ogni anno perche' il virus cambia
-Raffreddore comune | 2,5 | 6 | tanti virus diversi, e nessuna immunita' che duri
+Covid, variante omicron | 9 | 6 | molto più contagiosa del ceppo di partenza
+Influenza stagionale | 1,5 | 4 | R0 basso, ma torna ogni anno perché il virus cambia
+Raffreddore comune | 2,5 | 6 | tanti virus diversi, e nessuna immunità che duri
 Ebola | 1,8 | 10 | molto pericolosa ma poco contagiosa: si trasmette solo per contatto stretto

@@ -2,7 +2,7 @@
 # LE CONDIZIONI DELLA MEMBRANA
 # ============================================================
 #
-# Ogni riga descrive una situazione in cui puo' trovarsi la
+# Ogni riga descrive una situazione in cui può trovarsi la
 # membrana del neurone: quella normale, e poi alcune situazioni
 # alterate da veleni, farmaci o malattie.
 #
@@ -20,7 +20,7 @@
 #
 # ENa   il potenziale di equilibrio del sodio, in millivolt:
 #       il valore a cui il sodio "vorrebbe" portare la membrana.
-#       Dipende da quanto sodio c'e' fuori rispetto a dentro.
+#       Dipende da quanto sodio c'è fuori rispetto a dentro.
 #       Normale: +50.
 #
 # EK    la stessa cosa per il potassio. Normale: -77. Se nel
@@ -29,7 +29,7 @@
 #
 # TUTTO IL RESTO NON SI TOCCA
 # ---------------------------
-# Il modello e' quello di Hodgkin e Huxley, del 1952, che valse
+# Il modello è quello di Hodgkin e Huxley, del 1952, che valse
 # loro il premio Nobel. Le equazioni sono nel codice; qui si
 # cambiano solo i quattro numeri che descrivono i canali.
 #
@@ -38,8 +38,8 @@
 # ============================================================
 
 Neurone normale | 120 | 36 | 50 | -77 | la membrana di un assone in condizioni normali, a riposo attorno a meno 65 millivolt
-Anestetico locale | 20 | 36 | 50 | -77 | la lidocaina del dentista blocca una parte dei canali del sodio: il segnale del dolore non riesce piu' a partire
-Veleno del pesce palla | 0 | 36 | 50 | -77 | la tetrodotossina chiude del tutto i canali del sodio. Nessun impulso puo' nascere, e la paralisi e' totale
-Potassio alto nel sangue | 120 | 36 | 50 | -60 | l'iperpotassiemia: con piu' potassio fuori la membrana resta piu' depolarizzata, e il cuore puo' fermarsi
-Potassio basso nel sangue | 120 | 36 | 50 | -90 | l'ipopotassiemia: la membrana e' piu' negativa del normale e ci vuole uno stimolo piu' forte per farla partire
-Canali del potassio rallentati | 120 | 12 | 50 | -77 | come fa il veleno degli scorpioni: l'impulso dura molto piu' a lungo perche' fatica a spegnersi
+Anestetico locale | 20 | 36 | 50 | -77 | la lidocaina del dentista blocca una parte dei canali del sodio: il segnale del dolore non riesce più a partire
+Veleno del pesce palla | 0 | 36 | 50 | -77 | la tetrodotossina chiude del tutto i canali del sodio. Nessun impulso può nascere, e la paralisi è totale
+Potassio alto nel sangue | 120 | 36 | 50 | -60 | l'iperpotassiemia: con più potassio fuori la membrana resta più depolarizzata, e il cuore può fermarsi
+Potassio basso nel sangue | 120 | 36 | 50 | -90 | l'ipopotassiemia: la membrana è più negativa del normale e ci vuole uno stimolo più forte per farla partire
+Canali del potassio rallentati | 120 | 12 | 50 | -77 | come fa il veleno degli scorpioni: l'impulso dura molto più a lungo perché fatica a spegnersi

@@ -3,34 +3,34 @@
    ------------------------------------------------------------
    Due scomparti separati da una membrana. Le particelle si
    muovono a caso; la membrana lascia passare l'acqua sempre e il
-   soluto solo se e' permeabile.
+   soluto solo se è permeabile.
 
    Qui, a differenza della stazione sulle particelle, il fenomeno
-   non e' rappresentato ma emerge davvero: nessuno dice all'acqua
-   di andare verso la parte piu' concentrata. Ci va perche' ogni
-   particella si muove a caso, e da quella parte trova piu' posto
-   libero. E' il senso profondo dell'osmosi, ed e' anche il motivo
+   non è rappresentato ma emerge davvero: nessuno dice all'acqua
+   di andare verso la parte più concentrata. Ci va perché ogni
+   particella si muove a caso, e da quella parte trova più posto
+   libero. È il senso profondo dell'osmosi, ed è anche il motivo
    per cui il livello smette di salire a un certo punto.
    ============================================================ */
 
 /* ------------------------------------------------------------
-   COME CI SI E' ARRIVATI
+   COME CI SI È ARRIVATI
 
    Il primo modello mandava l'acqua nel verso sbagliato: la
    repulsione per volume escluso la spingeva FUORI dalla parte
-   concentrata, cioe' il contrario dell'osmosi.
+   concentrata, cioè il contrario dell'osmosi.
 
-   Il meccanismo giusto e' l'ostruzione del varco: il soluto che
+   Il meccanismo giusto è l'ostruzione del varco: il soluto che
    sta davanti al passaggio impedisce all'acqua di uscire da
-   quella parte. Dove c'e' piu' soluto l'acqua esce meno, e quindi
+   quella parte. Dove c'è più soluto l'acqua esce meno, e quindi
    si accumula.
 
-   Quello da solo pero' non bastava: mancava la contropressione.
+   Quello da solo però non bastava: mancava la contropressione.
    Senza di lei l'acqua continuava a passare all'infinito, e a
    concentrazioni uguali si vedeva una deriva casuale che con
    l'osmosi non c'entra. Adesso il dislivello ricaccia indietro
    l'acqua, e il sistema si ferma dove le due spinte si pareggiano:
-   che e' esattamente la definizione di pressione osmotica.
+   che è esattamente la definizione di pressione osmotica.
    ------------------------------------------------------------ */
 
 (function () {
@@ -47,7 +47,7 @@
   var solutoSinistra = 10;
   var solutoDestra = 40;
   var membrana = "semipermeabile";   /* oppure "permeabile" */
-  var temperatura = 50;              /* 0-100, governa la velocita' */
+  var temperatura = 50;              /* 0-100, governa la velocità */
   var inMoto = true;
 
   var acqua = [];
@@ -128,14 +128,14 @@
      ========================================================== */
 
   /* Quanto l'acqua accumulata da una parte spinge indietro.
-     Man mano che il livello sale, quel peso in piu' ricaccia
-     l'acqua verso l'altra parte: e' la contropressione
+     Man mano che il livello sale, quel peso in più ricaccia
+     l'acqua verso l'altra parte: è la contropressione
      idrostatica. Senza di lei l'acqua passerebbe per sempre, e
      a concentrazioni uguali si vedrebbe una deriva casuale che
      con l'osmosi non c'entra niente.
 
-     Il valore e' calcolato una volta per fotogramma e messo qui,
-     perche' contare l'acqua per ogni particella sarebbe lento. */
+     Il valore è calcolato una volta per fotogramma e messo qui,
+     perché contare l'acqua per ogni particella sarebbe lento. */
   var squilibrio = 0;      /* (destra - sinistra) diviso il totale */
 
   function aggiornaSquilibrio() {
@@ -144,7 +144,7 @@
   }
 
   function contropressione(veniamoDaSinistra) {
-    /* andare verso la parte gia' piena costa, tornare indietro no */
+    /* andare verso la parte già piena costa, tornare indietro no */
     var controcorrente = veniamoDaSinistra ? squilibrio : -squilibrio;
     var p = Math.exp(-SPINTA_INDIETRO * controcorrente);
     return p > 1 ? 1 : p;
@@ -195,9 +195,9 @@
   }
 
   /* Il soluto che sta davanti al varco impedisce all'acqua di
-     uscire da quella parte. E' questo, e non la repulsione fra
-     particelle, a produrre l'osmosi nel verso giusto: dove c'e'
-     piu' soluto l'acqua esce meno spesso, e quindi si accumula. */
+     uscire da quella parte. È questo, e non la repulsione fra
+     particelle, a produrre l'osmosi nel verso giusto: dove c'è
+     più soluto l'acqua esce meno spesso, e quindi si accumula. */
   function varcoLibero(p, nuovaY) {
     var meta = larghezza / 2;
     for (var i = 0; i < soluto.length; i++) {
@@ -225,7 +225,7 @@
     var meta = larghezza / 2;
 
     /* il liquido: l'altezza di ogni parte dipende da quanta acqua
-       contiene, cosi' si vede il livello salire da una parte */
+       contiene, così si vede il livello salire da una parte */
     var livelloS = altezza * (1 - 0.82 * a.sinistra / (ACQUA_TOTALE * 0.62));
     var livelloD = altezza * (1 - 0.82 * a.destra / (ACQUA_TOTALE * 0.62));
     livelloS = Math.max(6, Math.min(altezza - 6, livelloS));
@@ -387,7 +387,7 @@
     var dt = Math.min(0.05, (istante - ultimoIstante) / 1000);
     ultimoIstante = istante;
 
-    /* Se la pagina e' stata costruita mentre era nascosta, le misure
+    /* Se la pagina è stata costruita mentre era nascosta, le misure
        erano zero: appena il contenitore ha una larghezza vera, si
        rifanno i conti. Succede aprendo il sito in una scheda di sfondo. */
     if (larghezza <= 0 && tela && tela.parentNode.clientWidth > 0) {
@@ -408,7 +408,7 @@
   }
 
   /* Disegna un fotogramma. Serve anche subito dopo il caricamento:
-     cosi' la pagina e' gia' corretta prima che parta l'animazione. */
+     così la pagina è già corretta prima che parta l'animazione. */
   function disegnaTutto() {
     if (larghezza <= 0) return;
     disegna();
